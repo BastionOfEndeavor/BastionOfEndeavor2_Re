@@ -4697,12 +4697,15 @@
 #include "modular_chomp\code\game\turfs\turf.dm"
 #include "modular_chomp\code\game\turfs\simulated\outdoors\desert_planet.dm"
 #include "modular_chomp\code\game\turfs\simulated\outdoors\lava_land.dm"
+<<<<<<< HEAD
 #include "modular_chomp\code\game\turfs\turfpacks\turfpacks.dm"
 #include "modular_chomp\code\game\turfs\turfpacks\unsim_turfs\unsim_turfs.dm"
 #include "modular_chomp\code\game\turfs\turfpacks\unsim_turfs\unsim_turfs_outdoors.dm"
 #include "modular_chomp\code\game\turfs\turfpacks\unsim_turfs\unsim_turfs_special.dm"
 #include "modular_chomp\code\game\turfs\turfpacks\unsim_turfs\unsim_turfs_tiles.dm"
 #include "modular_chomp\code\game\turfs\turfpacks\unsim_turfs\unsim_turfs_walls.dm"
+=======
+>>>>>>> 93d48c1680 ([MIRROR] ports matrix recolouring, Ports Colourmate update, ports simple mob/robot recolouring  from CHOMP (#7997))
 #include "modular_chomp\code\modules\admin\functions\modify_traits.dm"
 #include "modular_chomp\code\modules\admin\verbs\randomverbs.dm"
 #include "modular_chomp\code\modules\admin\verbs\tgui_verbs.dm"
