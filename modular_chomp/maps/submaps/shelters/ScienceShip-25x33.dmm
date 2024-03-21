@@ -1864,7 +1864,11 @@
 /area/survivalpod/superpose/ScienceShip)
 "TF" = (
 /obj/screen/alert/highpressure,
+<<<<<<< HEAD
 /obj/machinery/computer/rdconsole/public{
+=======
+/obj/machinery/computer/rdconsole/core{
+>>>>>>> c2bb7d02b1 (Outsider SuperPose pods now require power plus misc improvments. (#8019))
 	dir = 4
 	},
 /turf/simulated/shuttle/floor/purple,
