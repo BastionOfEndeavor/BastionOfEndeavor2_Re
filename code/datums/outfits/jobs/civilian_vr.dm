@@ -22,5 +22,9 @@
 
 /decl/hierarchy/outfit/job/assistant/entrepreneur
 	id_type = /obj/item/weapon/card/id/civilian/entrepreneur
+<<<<<<< HEAD
 	l_hand = /obj/item/device/ticket_printer/train
 
+=======
+	belt = /obj/item/device/ticket_printer/train
+>>>>>>> 3435f44e3a ([MIRROR] Climbing computers (#8028))
