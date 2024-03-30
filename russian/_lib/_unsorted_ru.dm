@@ -27,15 +27,3 @@
 	text = replacetext_char(text, "SOUTH", "ЮГ")
 	text = replacetext_char(text, "EAST", "ВОСТОК")
 	return text
-
-/datum/sprite_accessory/hair/skyrat/halfshave
-	name = "Half-shaved 2"
-	icon = 'russian/_modular/icons/unsorted_ru.dmi'
-	icon_add = 'russian/_modular/icons/unsorted_2.dmi'
-	icon_state = "halfshave"
-
-/datum/sprite_accessory/hair/skyrat/halfshave_snout
-	name = "Half-shaved 2 (clipped)"
-	icon = 'russian/_modular/icons/unsorted_ru.dmi'
-	icon_add = 'russian/_modular/icons/unsorted_2.dmi'
-	icon_state = "halfshavesnout"
