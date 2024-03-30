@@ -161,5 +161,6 @@ package-lock.json
 tools/ru-merge-upstream-pull-request.sh
 russian/_modular/*
 !russian/_modular/icons
+!russian/_modular/includes_modular_ru.dm
 
 config/jobwhitelist.txt

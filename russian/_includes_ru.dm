@@ -15,7 +15,7 @@
 #include "_lib/_unsorted_ru.dm"
 
 #if !(UNIT_TEST)
-	#include "includes_modular_ru.dm"
+	#include "_modular/includes_modular_ru.dm"
 #endif
 
 // End includes
