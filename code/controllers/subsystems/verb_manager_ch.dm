@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(verb_manager)
 		/* Bastion of Endeavor Translation
 		stack_trace("_queue_verb() returned false because it was given a callback acting on a qdeleted object! [destroyed_string]")
 		*/
-		stack_trace("_queue_verb() возвратил false, поскольку получил callback, действующий на удалённом объекте! [destroyed_string]"
+		stack_trace("_queue_verb() возвратил false, поскольку получил callback, действующий на удалённом объекте! [destroyed_string]")
 		// End of Bastion of Endeavor Translation
 		return FALSE
 
