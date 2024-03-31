@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(lighting)
 	/* Bastion of Endeavor Translation
 	msg = "L:[length(sources_queue)]|C:[length(corners_queue)]|O:[length(objects_queue)]"
 	*/
-	msg = "Источников: [length(sources_queue)] | Углов: [length(corners_queue)] | Объектов: [length(objects_queue)]"
+	msg = "| Источников: [length(sources_queue)] | Углов: [length(corners_queue)] | Объектов: [length(objects_queue)]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 

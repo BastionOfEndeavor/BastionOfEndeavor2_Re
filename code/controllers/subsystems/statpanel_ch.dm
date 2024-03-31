@@ -333,17 +333,18 @@ SUBSYSTEM_DEF(statpanels)
 		list("Время мира:", "[world.time]"),
 		list("Глобальные переменные:", GLOB.stat_entry(), "\ref[GLOB]"),
 		//list("[config]:", config.stat_entry(), "\ref[config]"),
-		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (внутреннее использование тиков: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%)"),
+		list("Byond:", "FPS: [world.fps] | Тиков: [world.time/world.tick_lag] | Дрифт: [round(Master.tickdrift,1)] / [round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]% | Внутреннее использование тиков: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%"),
 		list("Главный контроллер:", Master.stat_entry(), "\ref[Master]"),
 		list("Проверочный контроллер:", Failsafe.stat_entry(), "\ref[Failsafe]"),
 		list("","")
 		// End of Bastion of Endeavor Translation
 	)
 	for(var/datum/controller/subsystem/sub_system as anything in Master.subsystems)
-		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), "\ref[sub_system]")
 	/* Bastion of Endeavor Translation
+		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), "\ref[sub_system]")
 	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [global.cameranet.cameras.len] | Chunks: [global.cameranet.chunks.len]", "\ref[global.cameranet]")
 	*/
+		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]] [sub_system.name]", sub_system.stat_entry(), "\ref[sub_system]")
 	mc_data[++mc_data.len] = list("Сеть камер", "Камер: [global.cameranet.cameras.len] | Чанков: [global.cameranet.chunks.len]", "\ref[global.cameranet]")
 	// End of Bastion of Endeavor Translation
 
@@ -352,7 +353,11 @@ SUBSYSTEM_DEF(statpanels)
 	if(!target.stat_panel.is_ready())
 		return FALSE
 
+	/* Bastion of Endeavor Translation
 	if(target.stat_tab == "Examine")
+	*/
+	if(target.stat_tab == "Осмотр")
+	// End of Bastion of Endeavor Translation
 		set_examine_tab(target)
 		return TRUE
 

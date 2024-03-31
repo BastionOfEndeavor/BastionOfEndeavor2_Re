@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(throwing)
 	/* Bastion of Endeavor Translation
 	msg = "P:[length(processing)]"
 	*/
-	msg = "Обрабатывается: [length(processing)]"
+	msg = "| Обрабатывается: [length(processing)]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

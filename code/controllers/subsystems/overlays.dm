@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(overlays)
 	/* Bastion of Endeavor Translation
 	msg = "Queued Atoms: [queue.len], Cache Size: [cache_size]"
 	*/
-	msg = "Атомов в очереди: [queue.len] | Размер кэша: [cache_size]"
+	msg = "| Атомов в очереди: [queue.len] | Размер кэша: [cache_size]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 

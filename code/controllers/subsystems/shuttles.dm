@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(shuttles)
 	/* Bastion of Endeavor Translation
 	msg = "Shuttles:[process_shuttles.len]/[shuttles.len], Ships:[ships.len], L:[registered_shuttle_landmarks.len][overmap_halted ? ", HALT" : ""]"
 	*/
-	msg = "Шаттлы: [process_shuttles.len]/[shuttles.len] | Корабли:[ships.len] | Точки: [registered_shuttle_landmarks.len][overmap_halted ? "| СТОП" : ""]"
+	msg = "| Шаттлы: [process_shuttles.len]/[shuttles.len] | Корабли:[ships.len] | Точки: [registered_shuttle_landmarks.len][overmap_halted ? "| СТОП" : ""]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

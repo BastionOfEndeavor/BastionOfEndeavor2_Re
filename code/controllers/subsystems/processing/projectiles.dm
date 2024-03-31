@@ -8,7 +8,7 @@ PROCESSING_SUBSYSTEM_DEF(projectiles)
 	/* Bastion of Endeavor Translation
 	stat_tag = "PP"
 	*/
-	stat_tag = "Обрабатывается"
+	stat_tag = "| Обрабатывается"
 	// End of Bastion of Endeavor Translation
 	priority = FIRE_PRIORITY_PROJECTILES
 	flags = SS_NO_INIT|SS_TICKER

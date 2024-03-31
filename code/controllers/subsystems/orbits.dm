@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(orbit)
 	/* Bastion of Endeavor Translation
 	msg = "P:[processing.len]"
 	*/
-	msg = "Обрабатывается: [processing.len]"
+	msg = "| Обрабатывается: [processing.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

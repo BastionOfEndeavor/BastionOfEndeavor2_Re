@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(ping)
 	/* Bastion of Endeavor Translation
 	msg = "P:[GLOB.clients.len]"
 	*/
-	msg = "Подключено: [GLOB.clients.len]"
+	msg = "| Подключено: [GLOB.clients.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 // CHOMPEdit End

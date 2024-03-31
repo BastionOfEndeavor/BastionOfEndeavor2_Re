@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(plants)
 	/* Bastion of Endeavor Translation
 	msg = "P:[processing.len]|S:[seeds.len]"
 	*/
-	msg = "Обрабатывается: [processing.len] | Семян:[seeds.len]"
+	msg = "| Обрабатывается: [processing.len] | Семян:[seeds.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 

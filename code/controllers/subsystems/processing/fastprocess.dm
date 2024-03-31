@@ -10,7 +10,7 @@ PROCESSING_SUBSYSTEM_DEF(fastprocess)
 	/* Bastion of Endeavor Translation
 	stat_tag = "FP"
 	*/
-	stat_tag = "Обрабатывается"
+	stat_tag = "| Обрабатывается"
 	// End of Bastion of Endeavor Translation
 	flags = SS_NO_INIT // CHOMPEdit
 

@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(chemistry)
 	/* Bastion of Endeavor Translation
 	msg = "C: [chemical_reagents.len] | R: [chemical_reactions.len]"
 	*/
-	msg = "Веществ: [chemical_reagents.len] | Реакций: [chemical_reactions.len]"
+	msg = "| Веществ: [chemical_reagents.len] | Реакций: [chemical_reactions.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

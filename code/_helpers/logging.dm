@@ -27,7 +27,7 @@
 /* Bastion of Endeavor Translation
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 */
-#define WARNING(MSG) warning("[MSG] в [__FILE__] на строке [__LINE__] src: [src] usr: [usr].")
+#define WARNING(MSG) warning("[MSG] ([__FILE__]:[__LINE__]), src: [src] usr: [usr].")
 // End of Bastion of Endeavor Translation
 //print a warning message to world.log
 /proc/warning(msg)

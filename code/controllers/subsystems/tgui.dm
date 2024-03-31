@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(tgui)
 	/* Bastion of Endeavor Translation
 	msg = "P:[all_uis.len]"
 	*/
-	msg = "Окон: [all_uis.len]"
+	msg = "| Окон: [all_uis.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

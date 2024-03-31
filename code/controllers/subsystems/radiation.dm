@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(radiation)
 	/* Bastion of Endeavor Translation
 	msg = "S:[sources.len], RC:[resistance_cache.len]"
 	*/
-	msg = "Источников: [sources.len] | Кэшей сопротивления: [resistance_cache.len]"
+	msg = "| Источников: [sources.len] | Кэшей сопротивления: [resistance_cache.len]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

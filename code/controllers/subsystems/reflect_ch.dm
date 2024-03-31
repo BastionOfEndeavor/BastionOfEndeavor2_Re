@@ -12,7 +12,7 @@ SUBSYSTEM_DEF(reflector)
 	/* Bastion of Endeavor Translation
 	var/stat_tag = "R" //Used for logging
 	*/
-	var/stat_tag = "Обрабатывается" //Used for logging
+	var/stat_tag = "| Обрабатывается" //Used for logging
 	// End of Bastion of Endeavor Translation
 	var/list/processing = list()
 	var/list/currentrun = list()

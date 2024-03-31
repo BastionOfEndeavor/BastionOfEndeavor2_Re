@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(alarm)
 	/* Bastion of Endeavor Translation
 	msg = "[number_of_active_alarms()] alarm\s"
 	*/
-	msg = "Тревог: [number_of_active_alarms()]"
+	msg = "| Тревог: [number_of_active_alarms()]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End

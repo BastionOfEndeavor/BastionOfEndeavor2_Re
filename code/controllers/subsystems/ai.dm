@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(ai)
 	/* Bastion of Endeavor Translation
 	msg = "P: [processing.len] | S: [slept_mobs]"
 	*/
-	msg = "Обрабатывается: [processing.len] | Спит: [slept_mobs]"
+	msg = "| Обрабатывается: [processing.len] | Спит: [slept_mobs]"
 	// End of Bastion of Endeavor Translation
 	return ..()
 //CHOMPEdit End
