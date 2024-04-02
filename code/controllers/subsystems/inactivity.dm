@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(inactivity)
 			/* Bastion of Endeavor Translation
 			log_and_message_admins("being kicked for AFK[information][adminlinks]", C.mob)
 			*/
-			log_and_message_admins("кикнут за АФК[information][adminlinks]", C.mob)
+			log_and_message_admins("кикнут за АФК,[information][adminlinks]", C.mob)
 			// End of Bastion of Endeavor Translation
 
 			qdel(C)

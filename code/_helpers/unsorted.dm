@@ -1449,7 +1449,7 @@ var/mob/dview/dview_mob = new
 			/* Bastion of Endeavor Translation
 			to_chat(user, span("notice","You can't do that when you're dead."))
 			*/
-			to_chat(user, span("notice","Вы не можете выполнить это действие, будучи [verb_ru(user, "мёртв;ым;ой;ым;ыми;")]."))
+			to_chat(user, span("notice","Вы не можете выполнить это действие будучи [verb_ru(user, "мёртв;ым;ой;ым;ыми;")]."))
 			// End of Bastion of Endeavor Translation
 		return USE_FAIL_DEAD
 
