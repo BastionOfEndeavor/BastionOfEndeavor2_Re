@@ -42,7 +42,14 @@
 // #define WEIGHT_PER_NUTRITION	0.0285 // Tuned so 1050 (nutrition for average mob) = 30 lbs
 
 // Drain modes
+/* Bastion of Endeavor Translation
 #define DR_NORMAL								"Normal"
 #define DR_SLEEP 								"Sleep"
 #define DR_FAKE									"False Sleep"
 #define DR_WEIGHT								"Weight Drain"
+*/
+#define DR_NORMAL								"По умолчанию"
+#define DR_SLEEP 								"Усыпление"
+#define DR_FAKE									"Псевдо-усыпление"
+#define DR_WEIGHT								"Кража веса"
+// End of Bastion of Endeavor Translation
