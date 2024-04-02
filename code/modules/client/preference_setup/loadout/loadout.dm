@@ -157,6 +157,7 @@ var/list/gear_datums = list()
 	/* Bastion of Endeavor Edit: Rearrange stuff
 	. += "<tr><td colspan=3><center><b>"
 	*/
+	// </b> -- pleasing the linter gods
 	. += "<tr><td colspan=4><center><b>"
 	// End of Bastion of Endeavor Edit
 	var/firstcat = 1
