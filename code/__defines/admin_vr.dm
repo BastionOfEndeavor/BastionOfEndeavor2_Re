@@ -38,6 +38,8 @@
 #define MODIFIY_ROBOT_SWAP_MODULE	"Сменить модуль"
 #define MODIFIY_ROBOT_RESET_MODULE	"Полностью сбросить модуль"
 #define MODIFIY_ROBOT_TOGGLE_ERT	"Разблокировать модуль ОБР"
+#define MODIFIY_ROBOT_LIMIT_MODULES_ADD	"Ограничить выбор модулей"
+#define MODIFIY_ROBOT_LIMIT_MODULES_REMOVE	"Снять ограничение на выбор модулей"
 #define MODIFIY_ROBOT_TOGGLE_STATION_ACCESS "Выдать высший уровень доступа"
 #define MODIFIY_ROBOT_TOGGLE_CENT_ACCESS	"Выдать уровень доступа ЦК"
 // End of Bastion of Endeavor Translation
