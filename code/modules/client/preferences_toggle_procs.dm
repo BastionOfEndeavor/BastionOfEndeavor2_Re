@@ -657,7 +657,11 @@
 	prefs.chat_timestamp = !prefs.chat_timestamp	//There is no preference datum for tgui input lock, nor for any TGUI prefs.
 	SScharacter_setup.queue_preferences_save(prefs)
 
+	/* Bastion of Endeavor Translation
+	to_chat(src, span_notice("You have toggled chat timestamps: [prefs.chat_timestamp ? "ON" : "OFF"]."))
+	*/
 	to_chat(src, span_notice("Сообщения в чате [prefs.chat_timestamp ? "теперь" : "больше не"] будут подписаны отметками времени."))
+	// End of Bastion of Endeavor Translation
 
 /client/verb/toggle_throwmode_messages()
 	/* Bastion of Endeavor Translation

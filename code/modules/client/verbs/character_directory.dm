@@ -120,6 +120,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 			tag = C.mob.mind.directory_tag || "Не указано"
 			erptag = C.mob.mind.directory_erptag || "Не указано"
 			character_ad = C.mob.mind.directory_ad
+			//CHOMPEdit Start
 			gendertag = C.mob.mind.directory_gendertag || "Не указано"
 			sexualitytag = C.mob.mind.directory_sexualitytag || "Не указано"
 			eventtag = vantag_choices_list[C.mob.mind.vantag_preference]
@@ -139,6 +140,7 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 			tag = C.prefs.directory_tag || "Не указано"
 			erptag = C.prefs.directory_erptag || "Не указано"
 			character_ad = C.prefs.directory_ad
+			//CHOMPEdit Start
 			gendertag = C.prefs.directory_gendertag || "Не указано"
 			sexualitytag = C.prefs.directory_sexualitytag || "Не указано"
 			eventtag = vantag_choices_list[C.prefs.vantag_preference]

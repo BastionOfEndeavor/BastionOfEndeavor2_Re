@@ -135,7 +135,6 @@ var/global/list/latejoin_tram   = list()
 	// End of Bastion of Endeavor Translation
 	disallow_job = list(JOB_OUTSIDER) //CHOMPEdit add
 
-
 /datum/spawnpoint/tram/New()
 	..()
 	turfs = latejoin_tram
