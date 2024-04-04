@@ -6,7 +6,7 @@
 	set desc = "Toggles between seeing all mob speech and only nearby mob speech as an observer."
 	*/
 	set name = "Призрачный слух"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Режим призрака"
 	set desc = "Позволяет слышать в режиме призрака речь всех существ или только тех, кто на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -31,7 +31,7 @@
 	set desc = "Toggles between seeing all mob emotes and only nearby mob emotes as an observer."
 	*/
 	set name = "Призрачное зрение"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Режим призрака"
 	set desc = "Позволяет видеть в режиме призрака текстовые действия всех существ или только тех, кто на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -56,7 +56,7 @@
 	set desc = "Toggles between seeing all radio chat and only nearby radio chatter as an observer."
 	*/
 	set name = "Призрачная рация"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Режим призрака"
 	set desc = "Позволяет слышать в режиме призрака всю речь по рации или только ту, что на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -81,7 +81,7 @@
 	set desc = "Toggles visibility of dead chat."
 	*/
 	set name = "Отображение чата мёртвых"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Режим призрака"
 	set desc = "Переключить отображение чата мёртвых."
 	// End of Bastion of Endeavor Translation
 
@@ -206,7 +206,7 @@
 	set desc = "Toggles the ability to hear a noise broadcasted when you get an admin message."
 	*/
 	set name = "Звук Помощи администратора"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить звуковое оповещение при получении сообщения в Помощи администратора."
 	// End of Bastion of Endeavor Translation
 
@@ -231,7 +231,7 @@
 	set desc = "Toggles the ability to hear the music in the lobby."
 	*/
 	set name = "Музыка в лобби"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение музыки в лобби."
 	// End of Bastion of Endeavor Translation
 
@@ -256,7 +256,7 @@
 	set desc = "Toggles the ability to hear music played by admins."
 	*/
 	set name = "Музыка от администраторов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение музыки, включенной администраторами."
 	// End of Bastion of Endeavor Translation
 
@@ -281,7 +281,7 @@
 	set desc = "Toggles the ability to hear local ambience."
 	*/
 	set name = "Звуки окружения"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков окружения."
 	// End of Bastion of Endeavor Translation
 
@@ -306,7 +306,7 @@
 	set desc = "Toggles the ability to hear weather sounds while on a planet."
 	*/
 	set name = "Звуки погоды"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить звуки погоды на поверхности планет."
 	// End of Bastion of Endeavor Translation
 
@@ -331,7 +331,7 @@
 	set desc = "Toggles the ability to hear supermatter hums."
 	*/
 	set name = "Гул суперматерии"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение гула кристалла суперматерии."
 	// End of Bastion of Endeavor Translation
 
@@ -356,7 +356,7 @@
 	set desc = "Toggles the ability to hear jukebox music."
 	*/
 	set name = "Звуки музыкального автомата"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или отключить звуки музыкального автомата."
 	// End of Bastion of Endeavor Translation
 
@@ -406,7 +406,7 @@
 	set desc = "Toggles the ability to hear air vent humming."
 	*/
 	set name = "Звуки вентиляции"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков вентиляции."
 	// End of Bastion of Endeavor Translation
 
@@ -431,7 +431,7 @@
 	set desc = "Toggles door sounds between old and new."
 	*/
 	set name = "Звуки шлюзов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить звуки шлюзов между новыми и старыми."
 	// End of Bastion of Endeavor Translation
 
@@ -456,7 +456,7 @@
 	set desc = "Toggles hearing of department-specific door sounds."
 	*/
 	set name = "Звуки шлюзов отделов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков шлюзов в зависимости от отдела."
 	// End of Bastion of Endeavor Translation
 
@@ -481,7 +481,7 @@
 	set desc = "Toggles the ability to hear sounds when items are picked up."
 	*/
 	set name = "Звуки при взятии предметов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить звуки при взятии предмета в руку."
 	// End of Bastion of Endeavor Translation
 
@@ -506,7 +506,7 @@
 	set desc = "Toggles the ability to hear sounds when items are dropped or thrown."
 	*/
 	set name = "Звуки при броске предметов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить звуки при метании и бросании предмета."
 	// End of Bastion of Endeavor Translation
 
@@ -602,7 +602,7 @@
 	set desc = "Toggles the ability to hear instruments playing."
 	*/
 	set name = "Звуки музыкальных инструментов"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков музыкальных инструментов."
 	// End of Bastion of Endeavor Translation
 
@@ -624,7 +624,7 @@
 	set category = "Preferences"
 	set desc = "Toggles TGChat. Reloading TGChat and/or reconnecting required to affect changes."
 	*/
-	set name = "TGChat"
+	set name = "Переключить TGChat"
 	set category = "Предпочтения"
 	set desc = "Включить или отключить TGChat. Для применения настройки требуется перезагрузить VChat или переподключиться."
 	// End of Bastion of Endeavor Translation
@@ -714,7 +714,7 @@
 	set desc = "Toggle hearing a sound when somebody speaks over your headset."
 	*/
 	set name = "Звуки рации"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков при речи в каналах рации."
 	// End of Bastion of Endeavor Translation
 
@@ -737,7 +737,7 @@
 	set desc = "Toggle hearing a sound when somebody speaks or emotes."
 	*/
 	set name = "Голоса при речи"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить воспроизведение звуков голоса при речи и действиях."
 	// End of Bastion of Endeavor Translation
 
@@ -894,7 +894,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing debug logs."
 	*/
 	set name = "Лог отладки"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Администрация"
 	set desc = "Переключить отображение в чате сообщений лога отладки."
 	// End of Bastion of Endeavor Translation
 
@@ -919,7 +919,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing attack logs."
 	*/
 	set name = "Лог атак"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Администрация"
 	set desc = "Переключить отображение в чате сообщений лога атак."
 	// End of Bastion of Endeavor Translation
 
@@ -944,7 +944,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing LOOC messages outside your actual LOOC range."
 	*/
 	set name = "Глобальный LOOC"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Администрация"
 	set desc = "Переключить способность видеть сообщения LOOC с любой точки карты."
 	// End of Bastion of Endeavor Translation
 
@@ -968,7 +968,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing deadchat while not observing."
 	*/
 	set name = "Отображение чата мёртвых в игре"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Администрация"
 	set desc = "Переключить способность видеть чат мёртвых вне режима призрака."
 	// End of Bastion of Endeavor Translation
 

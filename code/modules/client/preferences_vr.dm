@@ -31,7 +31,7 @@
 	set desc = "Toggles hearing Vore Eating noises."
 	*/
 	set name = "Звуки поедания"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или выключить звуки поедания при Vore."
 	// End of Bastion of Endeavor Translation
 
@@ -57,7 +57,7 @@
 	set desc = "Toggles hearing Vore Digestion noises."
 	*/
 	set name = "Звуки переваривания"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или выключить звуки переваривания при Vore."
 	// End of Bastion of Endeavor Translation
 
@@ -82,7 +82,7 @@
 	set desc = "Toggles hearing audible belches."
 	*/
 	set name = "Звуки отрыжек"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или выключить звуки отрыжек после Vore."
 	// End of Bastion of Endeavor Translation
 
@@ -107,7 +107,7 @@
 	set desc = "Toggles hearing emote noises."
 	*/
 	set name = "Звуковые действия"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или заглушить звуковые эффекты действий."
 	// End of Bastion of Endeavor Translation
 
@@ -157,7 +157,7 @@
 	set desc = "Toggles your ability to see subtles/whispers. Overrides admin status. Respects Ghost Privacy"
 	*/
 	set name = "Призрачная внимательность"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Режим призрака"
 	set desc = "Переключить вашу возможность видеть чужие скрытые действия шёпот в случаях, когда это разрешено отправителями."
 	// End of Bastion of Endeavor Translation
 
@@ -215,7 +215,7 @@
 	set desc = "Toggles the mentorhelp ping"
 	*/
 	set name = "Звук Помощи ментора"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или выключить звуковое оповещение при получении сообщения в Помощи ментора."
 	// End of Bastion of Endeavor Translation
 

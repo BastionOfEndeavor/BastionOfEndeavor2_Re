@@ -152,7 +152,7 @@
 	// . += "<a href='?src=\ref[src];always_random_name=1'>Каждый раз случайное: [pref.be_random_name ? "Да" : "Нет"]</a><br>" // I don't see any reason for us to have this
 	. += "<b>Прозвище:</b> "
 	. += "<a href='?src=\ref[src];nickname=1'><b>[pref.nickname]</b></a>"
-	. += " <a href='?src=\ref[src];reset_nickname=1'>Сбросить)</A>"
+	. += " <a href='?src=\ref[src];reset_nickname=1'>Сбросить</A>"
 	. += "<br>"
 	. += "<b>Биологический пол:</b> <a href='?src=\ref[src];bio_gender=1'>[get_key_by_value(all_genders_define_list_ru, pref.biological_gender)]</a><br>"
 	. += "<b>Местоимения:</b> <a href='?src=\ref[src];id_gender=1'>[get_key_by_value(all_id_genders_define_list_ru, pref.identifying_gender)]</a><br>"

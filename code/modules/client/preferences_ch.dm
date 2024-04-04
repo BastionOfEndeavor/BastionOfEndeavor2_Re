@@ -5,7 +5,7 @@
 	set desc = "Toggles alarm sound loops."
 	*/
 	set name = "Звуки тревог"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить или выключить цикличные звуки тревог."
 	// End of Bastion of Endeavor Translation
 
@@ -30,7 +30,7 @@
 	set desc = "When enabled, you will hear cozy music played during surgery, cryo, and sleeper pod usage."
 	*/
 	set name = "Музыка при сне"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Включить и выключить приятную музыку во время операций и криосна."
 	// End of Bastion of Endeavor Translation
 

@@ -15,7 +15,7 @@
 	set desc = "Toggles whether or not emotes with sound you make will have random pitch."
 	*/
 	set name = "Случайный тон озвученных действий"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Переключить случайное изменение высоты голоса при озвученных действиях."
 	// End of Bastion of Endeavor Translation
 
