@@ -12949,6 +12949,19 @@
 /obj/item/weapon/stool/baystool/padded,
 /turf/simulated/floor/plating,
 /area/maintenance/thirddeck/aftport)
+"kjQ" = (
+/obj/machinery/power/solar{
+	id = "foreportsolar";
+	name = "Port Solar Array"
+	},
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating/turfpack/airless{
+	icon_state = "solarpanel"
+	},
+/area/solar/foreportsolar)
 "kle" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -14325,6 +14338,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"lBI" = (
+/obj/machinery/power/solar{
+	id = "foreportsolar";
+	name = "Port Solar Array"
+	},
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating/turfpack/airless{
+	icon_state = "solarpanel"
+	},
+/area/solar/foreportsolar)
 "lBL" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "PA-Room siphon pump"
@@ -40202,19 +40228,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 apc
 apc
 aqj
@@ -40718,6 +40744,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -40731,6 +40758,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 apc
 apc
 aqj
@@ -41234,19 +41276,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 apc
 apc
 aqj
@@ -42266,19 +42308,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 apc
 apc
 aqj
@@ -42782,6 +42824,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -42795,6 +42838,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 apc
 apc
 aqj
@@ -43298,19 +43356,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 apc
 apc
 apc
@@ -43814,6 +43872,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -43827,6 +43886,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 apc
 apc
 aqj
@@ -44330,19 +44404,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 aqj
 aqj
 aqj
@@ -44846,6 +44920,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -44859,6 +44934,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 apc
 apc
 apc
@@ -45362,19 +45452,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 apc
 apc
 apc
@@ -45878,6 +45968,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -45891,6 +45982,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 jhg
 jhg
 jhg
@@ -46394,19 +46500,19 @@ apc
 apc
 apc
 apc
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 mCr
 bDU
 mCr
-ggu
-ggu
-ggu
-ggu
-ggu
+lBI
+lBI
+lBI
+lBI
+lBI
 jhg
 jhg
 jhg
@@ -46910,6 +47016,7 @@ apc
 apc
 apc
 apc
+<<<<<<< HEAD
 ggF
 ggF
 ggF
@@ -46923,6 +47030,21 @@ ggF
 ggF
 ggF
 ggF
+=======
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+mCr
+bDU
+mCr
+kjQ
+kjQ
+kjQ
+kjQ
+kjQ
+>>>>>>> 82fb962926 (No wire nodes on deck 3 fore port solars (#8163))
 jhg
 jhg
 jhg
