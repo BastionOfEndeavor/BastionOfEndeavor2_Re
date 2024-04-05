@@ -680,52 +680,34 @@ var/world_topic_spam_protect_time = world.timeofday
 		features += "<b>НАЧИНАЕТСЯ</b>"
 		// End of Bastion of Endeavor Translation
 
-<<<<<<< HEAD
-	if (!config.enter_allowed)
-		/* Bastion of Endeavor Translation
-=======
 	if (!CONFIG_GET(flag/enter_allowed))
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		features += "closed"
 		*/
 		features += "закрыт"
 		// End of Bastion of Endeavor Translation
 
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	features += config.abandon_allowed ? "respawn" : "no respawn"
-=======
 	features += CONFIG_GET(flag/abandon_allowed) ? "respawn" : "no respawn" // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 
 	features += CONFIG_GET(flag/persistence_disabled) ? "persistence disabled" : "persistence enabled" // CHOMPEdit
 
-<<<<<<< HEAD
-	features += config.persistence_ignore_mapload ? "persistence mapload disabled" : "persistence mapload enabled"
+	features += CONFIG_GET(flag/persistence_ignore_mapload) ? "persistence mapload disabled" : "persistence mapload enabled" // CHOMPEdit
 	*/
-	features += config.abandon_allowed ? "респаун" : "без респауна"
-	features += config.persistence_disabled ? "сохранение отключено" : "сохранение включено"
-	features += config.persistence_ignore_mapload ? "сохранение карты отключено" : "сохранение карты включено"
+	features += CONFIG_GET(flag/abandon_allowed) ? "респаун" : "без респауна"
+	features += CONFIG_GET(flag/persistence_disabled) ? "сохранение включено" : "сохранение отключено" // CHOMPEdit
+	features += CONFIG_GET(flag/persistence_ignore_mapload) ? "сохранение карты включено" : "сохранение карты отключено" // CHOMPEdit
 	// End of Bastion of Endeavor Translation
 
-	if (config && config.allow_vote_mode)
-		/* Bastion of Endeavor Translation
-=======
-	features += CONFIG_GET(flag/persistence_ignore_mapload) ? "persistence mapload disabled" : "persistence mapload enabled" // CHOMPEdit
-
 	if (config && CONFIG_GET(flag/allow_vote_mode)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		features += "vote"
 		*/
 		features += "по голосованиям"
 		// End of Bastion of Endeavor Translation
 
-<<<<<<< HEAD
-	if (config && config.allow_ai)
-		/* Bastion of Endeavor Translation
-=======
 	if (config && CONFIG_GET(flag/allow_ai)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		features += "AI allowed"
 		*/
 		features += "ИИ разрешен"
@@ -746,17 +728,12 @@ var/world_topic_spam_protect_time = world.timeofday
 	// End of Bastion of Endeavor Translation
 
 
-<<<<<<< HEAD
-	if (config && config.hostedby)
-		/* Bastion of Endeavor Translation
-		features += "hosted by <b>[config.hostedby]</b>"
-		*/
-		features += "Хост: <b>[config.hostedby]</b>"
-		// End of Bastion of Endeavor Translation
-=======
 	if (config && CONFIG_GET(string/hostedby)) // CHOMPEdit
+		/* Bastion of Endeavor Translation
 		features += "hosted by <b>[CONFIG_GET(string/hostedby)]</b>" // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		*/
+		features += "Хост: <b>[CONFIG_GET(string/hostedby)]</b>"
+		// End of Bastion of Endeavor Translation
 
 	if (features)
 		s += ": [jointext(features, ", ")]"
@@ -770,12 +747,8 @@ var/failed_db_connections = 0
 var/failed_old_db_connections = 0
 
 /hook/startup/proc/connectDB()
-<<<<<<< HEAD
-	if(!config.sql_enabled)
-		/* Bastion of Endeavor Translation
-=======
 	if(!CONFIG_GET(flag/sql_enabled)) //CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		to_world_log("SQL connection disabled in config.")
 		*/
 		to_world_log("Соединение с SQL отключено в конфигурации.")
@@ -857,12 +830,8 @@ var/failed_old_db_connections = 0
 
 
 /hook/startup/proc/connectOldDB()
-<<<<<<< HEAD
-	if(!config.sql_enabled)
-		/* Bastion of Endeavor Translation
-=======
 	if(!CONFIG_GET(flag/sql_enabled)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		to_world_log("SQL connection disabled in config.")
 		*/
 		to_world_log("Соединение с SQL отключено в конфигурации.")

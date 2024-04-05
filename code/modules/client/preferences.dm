@@ -457,7 +457,7 @@ var/list/preferences_datums = list()
 		return 1
 	// Bastion of Endeavor Addition: The wiki button
 	else if(href_list["open_wiki"])
-		usr << link("[config.wikiurl]Редактор_персонажа")
+		usr << link("[CONFIG_GET(string/wikiurl)]Редактор_персонажа")
 	// End of Bastion of Endeavor Addition
 	else
 		return 0

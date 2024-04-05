@@ -398,15 +398,11 @@ SUBSYSTEM_DEF(vote)
 
 		log_vote(text)
 
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world(span_purple("<b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period / 10] seconds to vote."))
-		*/
-		to_world(span_purple("<b>[text]</b>\nВведите <b>Голосовать</b> или нажмите <a href='?src=\ref[src]'>здесь</a>, чтобы участвовать в голосовании.\nНа голосование отводится [count_ru(config.vote_period / 10, "секунд;а;ы;")]."))
-		// End of Bastion of Endeavor Translation
-=======
 		to_world(span_purple("<b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [CONFIG_GET(number/vote_period) / 10] seconds to vote.")) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		*/
+		to_world(span_purple("<b>[text]</b>\nВведите <b>Голосовать</b> или нажмите <a href='?src=\ref[src]'>здесь</a>, чтобы участвовать в голосовании.\nНа голосование отводится [count_ru(CONFIG_GET(number/vote_period) / 10, "секунд;а;ы;")]."))
+		// End of Bastion of Endeavor Translation
 		if(vote_type == VOTE_CREW_TRANSFER || vote_type == VOTE_GAMEMODE || vote_type == VOTE_CUSTOM)
 			world << sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3) //CHOMPStation Edit TFF 10/5/20 - revert to old soundtrack contrary to YW
 
@@ -496,15 +492,11 @@ SUBSYSTEM_DEF(vote)
 	else
 		/* Bastion of Endeavor Translation
 		. += "<h2>Start a vote:</h2><hr><ul><li>"
-<<<<<<< HEAD
 		*/
 		. += "<h2>Начать голосование:</h2><hr><ul><li>"
 		// End of Bastion of Endeavor Translation
-		if(admin || config.allow_vote_restart)
-			/* Bastion of Endeavor Translation
-=======
 		if(admin || CONFIG_GET(flag/allow_vote_restart)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=restart'>Перезапуск</a>"
@@ -517,12 +509,8 @@ SUBSYSTEM_DEF(vote)
 			// End of Bastion of Endeavor Translation
 		. += "</li><li>"
 
-<<<<<<< HEAD
-		if(admin || config.allow_vote_restart)
-			/* Bastion of Endeavor Translation
-=======
 		if(admin || CONFIG_GET(flag/allow_vote_restart)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			. += "<a href='?src=\ref[src];vote=crew_transfer'>Crew Transfer</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=crew_transfer'>Трансфер экипажа</a>"
@@ -535,22 +523,15 @@ SUBSYSTEM_DEF(vote)
 			// End of Bastion of Endeavor Translation
 
 		if(admin)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_restart'>[config.allow_vote_restart ? "Allowed" : "Disallowed"]</a>)"
+			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_restart'>[CONFIG_GET(flag/allow_vote_restart) ? "Allowed" : "Disallowed"]</a>)" // CHOMPEdit
 			*/
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_restart'>[config.allow_vote_restart ? "разрешено" : "запрещено"]</a>)"
+			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_restart'>[CONFIG_GET(flag/allow_vote_restart) ? "разрешено" : "запрещено"]</a>)"
 			// End of Bastion of Endeavor Translation
 		. += "</li><li>"
 
-		if(admin || config.allow_vote_mode)
-			/* Bastion of Endeavor Translation
-=======
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_restart'>[CONFIG_GET(flag/allow_vote_restart) ? "Allowed" : "Disallowed"]</a>)" // CHOMPEdit
-		. += "</li><li>"
-
 		if(admin || CONFIG_GET(flag/allow_vote_mode)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			. += "<a href='?src=\ref[src];vote=gamemode'>GameMode</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=gamemode'>Режим игры</a>"
@@ -563,22 +544,15 @@ SUBSYSTEM_DEF(vote)
 			// End of Bastion of Endeavor Translation
 
 		if(admin)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_gamemode'>[config.allow_vote_mode ? "Allowed" : "Disallowed"]</a>)"
+			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "Allowed" : "Disallowed"]</a>)" // CHOMPEdit
 			*/
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_gamemode'>[config.allow_vote_mode ? "разрешено" : "запрещено"]</a>)"
+			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "разрешено" : "запрещено"]</a>)" // CHOMPEdit
 			// End of Bastion of Endeavor Translation
 		. += "</li><li>"
 
-		if(!antag_add_failed && config.allow_extra_antags)
-			/* Bastion of Endeavor Translation
-=======
-			. += "\t(<a href='?src=\ref[src];[HrefToken()];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "Allowed" : "Disallowed"]</a>)" // CHOMPEdit
-		. += "</li><li>"
-
 		if(!antag_add_failed && CONFIG_GET(flag/allow_extra_antags)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			. += "<a href='?src=\ref[src];vote=add_antagonist'>Add Antagonist Type</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=add_antagonist'>Добавить антагониста</a>"
@@ -630,47 +604,31 @@ SUBSYSTEM_DEF(vote)
 
 		/* Bastion of Endeavor Edit: Adjusting these since the defines serve a different purpose
 		if(VOTE_RESTART)
-<<<<<<< HEAD
 		*/
 		if("restart")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_restart || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_RESTART, usr.key)
 		/* Bastion of Endeavor Edit: 
 		if(VOTE_GAMEMODE)
-<<<<<<< HEAD
 		*/
 		if("gamemode")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_mode || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_vote_mode) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_GAMEMODE, usr.key)
 		/* Bastion of Endeavor Edit
 		if(VOTE_CREW_TRANSFER)
-<<<<<<< HEAD
 		*/
 		if("crew_transfer")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_restart || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_CREW_TRANSFER, usr.key)
 		/* Bastion of Endeavor Edit: 
 		if(VOTE_ADD_ANTAGONIST)
-<<<<<<< HEAD
 		*/
 		if("add_antagonist")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_extra_antags || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_extra_antags) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_ADD_ANTAGONIST, usr.key)
 		/* Bastion of Endeavor Edit
 		if(VOTE_CUSTOM)

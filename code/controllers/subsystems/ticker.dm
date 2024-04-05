@@ -53,17 +53,12 @@ var/global/datum/controller/subsystem/ticker/ticker
 	global.ticker = src // TODO - Remove this! Change everything to point at SSticker intead
 
 /datum/controller/subsystem/ticker/Initialize()
-<<<<<<< HEAD
-	pregame_timeleft = config.pregame_time
-	/* Bastion of Endeavor Translation
-	send2mainirc("Server lobby is loaded and open at byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")
-	*/
-	send2mainirc("Лобби сервера загружено и открыто по адресу byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")
-	// End of Bastion of Endeavor Translation
-=======
 	pregame_timeleft = CONFIG_GET(number/pregame_time) // CHOMPEdit
+	/* Bastion of Endeavor Translation
 	send2mainirc("Server lobby is loaded and open at byond://[CONFIG_GET(string/serverurl) ? CONFIG_GET(string/serverurl) : (CONFIG_GET(string/server) ? CONFIG_GET(string/server) : "[world.address]:[world.port]")]") // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+	*/
+	send2mainirc("Лобби сервера загружено и открыто по адресу byond://[CONFIG_GET(string/serverurl) ? CONFIG_GET(string/serverurl) : (CONFIG_GET(string/server) ? CONFIG_GET(string/server) : "[world.address]:[world.port]")]") // CHOMPEdit
+	// End of Bastion of Endeavor Translation
 	SSwebhooks.send(
 		WEBHOOK_ROUNDPREP,
 		list(
@@ -174,15 +169,11 @@ var/global/datum/controller/subsystem/ticker/ticker
 	job_master.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='danger'><B>Unable to start [mode.name].</B> Not enough players readied, [config.player_requirements[mode.config_tag]] players needed. Reverting to pregame lobby.</span>")
-		*/
-		to_world("<span class='danger'><B>Не удалось запустить режим \"[mode.name]\".</B> Готово недостаточно игроков из необходимых [config.player_requirements[mode.config_tag]]. Возвращаемся в предыгровое лобби.</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_world("<span class='danger'><B>Unable to start [mode.name].</B> Not enough players readied, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]] players needed. Reverting to pregame lobby.</span>") // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		*/
+		to_world("<span class='danger'><B>Не удалось запустить режим [mode.name].</B> Готово недостаточно игроков из необходимых, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]]. Возвращаемся в предыгровое лобби.</span>") // CHOMPEdit
+		// End of Bastion of Endeavor Translation
 		mode.fail_setup()
 		mode = null
 		job_master.ResetOccupations()

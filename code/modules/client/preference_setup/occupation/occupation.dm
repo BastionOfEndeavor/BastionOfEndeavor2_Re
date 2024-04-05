@@ -158,12 +158,8 @@
 		lastJob = job
 		. += "<a href='?src=\ref[src];job_info=[rank]'>"
 		if(jobban_isbanned(user, rank))
-<<<<<<< HEAD
-			if(config.usewhitelist && !check_whitelist(user)) // CHOMPedit start
-				/* Bastion of Endeavor Translation
-=======
 			if(CONFIG_GET(flag/usewhitelist) && !check_whitelist(user)) // CHOMPedit start
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+				/* Bastion of Endeavor Translation
 				. += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 				*/
 				. += "<del>[rank]</del></td><td><b> \[ВАЙТЛИСТ]</b></td></tr>"
@@ -403,7 +399,7 @@
 				dat += "<br><b>Под вашим руководством:</b>[LAZYLEN(job.departments_managed) > 1 ? "<br>" : " "][capitalize(lowertext(english_list(job.departments_managed)))]."
 		dat += "<b>[job.supervisors]</b>"
 		dat += "<hr style='clear:left;'>"
-		if(config.wikiurl)
+		if(CONFIG_GET(string/wikiurl)) // CHOMPEdit
 			dat += "<br><a href='?src=\ref[src];job_wiki=[rank]'>\[Открыть страницу на вики\]</a>"
 		var/alt_title = pref.GetPlayerAltTitle(job)
 		var/list/description = job.get_description_blurb(alt_title)

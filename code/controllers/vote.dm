@@ -498,12 +498,8 @@ SUBSYSTEM_DEF(vote)
 			// End of Bastion of Endeavor Translation
 		. += "</li><li>"
 
-<<<<<<< HEAD
-		if(admin || config.allow_vote_mode)
-			/* Bastion of Endeavor Translation
-=======
 		if(admin || CONFIG_GET(flag/allow_vote_mode)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			. += "<a href='?src=\ref[src];vote=gamemode'>GameMode</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=gamemode'>Режим игры</a>"
@@ -516,22 +512,15 @@ SUBSYSTEM_DEF(vote)
 			// End of Bastion of Endeavor Translation
 
 		if(admin)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[config.allow_vote_mode ? "Allowed" : "Disallowed"]</a>)"
+			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "Allowed" : "Disallowed"]</a>)"
 			*/
-			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[config.allow_vote_mode ? "разрешено" : "запрещено"]</a>)"
+			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "разрешено" : "запрещено"]</a>)"
 			// End of Bastion of Endeavor Translation
 		. += "</li><li>"
 
-		if(!antag_add_failed && config.allow_extra_antags)
+		if(!antag_add_failed && CONFIG_GET(flag/allow_extra_antags))
 			/* Bastion of Endeavor Translation
-=======
-			. += "\t(<a href='?src=\ref[src];vote=toggle_gamemode'>[CONFIG_GET(flag/allow_vote_mode) ? "Allowed" : "Disallowed"]</a>)" // CHOMPEdit
-		. += "</li><li>"
-
-		if(!antag_add_failed && CONFIG_GET(flag/allow_extra_antags)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 			. += "<a href='?src=\ref[src];vote=add_antagonist'>Add Antagonist Type</a>"
 			*/
 			. += "<a href='?src=\ref[src];vote=add_antagonist'>Добавить антагониста</a>"
@@ -583,60 +572,31 @@ SUBSYSTEM_DEF(vote)
 
 		/* Bastion of Endeavor Edit: Adjusting these since the defines serve a different purpose
 		if(VOTE_RESTART)
-<<<<<<< HEAD
 		*/
 		if("restart")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_restart || usr.client.holder)
-				var/admin_number_present = send2irc_adminless_only(usr.ckey, usr)
-				if(admin_number_present <= 0 || usr.client.holder)
-					/* Bastion of Endeavor Translation
-					if(tgui_alert(usr, "Are you sure you want to start a RESTART VOTE? You should only do this if the server is dying and no staff are around to investigate.", "RESTART VOTE", list("No", "Yes I want to start a RESTART VOTE")) == "Yes I want to start a RESTART VOTE")
-					*/
-					if(tgui_alert(usr, "Вы действительно хотите начать голосование за ПЕРЕЗАПУСК? Это следует делать только в случаях, когда сервер задыхается при отсутствии администраторов.", "Голосование за перезапуск", list("Нет", "Да, я хочу начать голосование")) == "Да, я хочу начать голосование")
-					// End of Bastion of Endeavor Translation
-=======
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_RESTART, usr.key)
-				else
-					/* Bastion of Endeavor Translation
-					to_chat(usr, "<span class = 'warning'>You can't start a RESTART VOTE while there are staff around. If you are having an issue with the round, please ahelp it.</span>")
-					*/
-					to_chat(usr, "<span class = 'warning'>Вы не можете начать голосование за перезапуск, когда на сервере присутствуют администраторы. Если у вас возникла проблема в раунде, используйте Помощь администратора.</span>")
-					// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Edit
 		if(VOTE_GAMEMODE)
-<<<<<<< HEAD
 		*/
 		if("gamemode")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_mode || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_vote_mode) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_GAMEMODE, usr.key)
 		/* Bastion of Endeavor Edit
 		if(VOTE_CREW_TRANSFER)
-<<<<<<< HEAD
 		*/
 		if("crew_transfer")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_vote_restart || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_CREW_TRANSFER, usr.key)
 		/* Bastion of Endeavor Edit: 
 		if(VOTE_ADD_ANTAGONIST)
-<<<<<<< HEAD
 		*/
 		if("add_antagonist")
 		// End of Bastion of Endeavor Edit
-			if(config.allow_extra_antags || usr.client.holder)
-=======
 			if(CONFIG_GET(flag/allow_extra_antags) || usr.client.holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 				initiate_vote(VOTE_ADD_ANTAGONIST, usr.key)
 		/* Bastion of Endeavor Edit
 		if(VOTE_CUSTOM)

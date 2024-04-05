@@ -236,12 +236,8 @@
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
 		return null
 
-<<<<<<< HEAD
-	if(!config.guests_allowed && IsGuestKey(key))
-		/* Bastion of Endeavor Translation
-=======
 	if(!CONFIG_GET(flag/guests_allowed) && IsGuestKey(key)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		alert(src,"This server doesn't allow guest accounts to play. Please go to https://www.byond.com/ and register for a key.","Guest") // Not tgui_alert
 		*/
 		alert(src,"Этот сервер не допускает игру за гостевые учётные записи. Пожалуйста, зарегистрируйтесь на сайте https://www.byond.com/.","Гость") // Not tgui_alert
@@ -505,12 +501,8 @@
 
 	//Panic bunker code
 	if (isnum(player_age) && player_age == 0) //first connection
-<<<<<<< HEAD
-		if (config.panic_bunker && !holder && !deadmin_holder)
-			/* Bastion of Endeavor Translation
-=======
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !deadmin_holder) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
 			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
 			disconnect_with_message("Sorry but the server is currently not accepting connections from never before seen players.")
@@ -522,26 +514,14 @@
 			return 0
 
 	// IP Reputation Check
-<<<<<<< HEAD
-	if(config.ip_reputation)
-		if(config.ipr_allow_existing && player_age >= config.ipr_minimum_age)
-			/* Bastion of Endeavor Translation
-=======
 	if(CONFIG_GET(flag/ip_reputation)) // CHOMPEdit
 		if(CONFIG_GET(flag/ipr_allow_existing) && player_age >= CONFIG_GET(number/ipr_minimum_age)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			log_admin("Skipping IP reputation check on [key] with [address] because of player age")
 			*/
 			log_admin("Пропускаем проверку репутации IP игрока [key] по адресу [address] по причине малого возраста учётной записи.")
 			// End of Bastion of Endeavor Translation
 		else if(update_ip_reputation()) //It is set now
-<<<<<<< HEAD
-			if(ip_reputation >= config.ipr_bad_score) //It's bad
-
-				//Log it
-				if(config.paranoia_logging) //We don't block, but we want paranoia log messages
-					/* Bastion of Endeavor Translation
-=======
 			if(ip_reputation >= CONFIG_GET(number/ipr_bad_score)) //It's bad // CHOMPEdit
 				//Log it
 				if(CONFIG_GET(flag/paranoia_logging)) //We don't block, but we want paranoia log messages // CHOMPEdit
@@ -558,22 +538,15 @@
 					// End of Bastion of Endeavor Translation
 
 				//Take action if required
-<<<<<<< HEAD
-				if(config.ipr_block_bad_ips && config.ipr_allow_existing) //We allow players of an age, but you don't meet it
+				if(CONFIG_GET(flag/ipr_block_bad_ips) && CONFIG_GET(flag/ipr_allow_existing)) //We allow players of an age, but you don't meet it // CHOMPEdit
 					/* Bastion of Endeavor Translation
 					disconnect_with_message("Sorry, we only allow VPN/Proxy/Tor usage for players who have spent at least [config.ipr_minimum_age] days on the server. If you are unable to use the internet without your VPN/Proxy/Tor, please contact an admin out-of-game to let them know so we can accommodate this.")
 					*/
-					disconnect_with_message("Извините, но сервер допускает использование VPN/прокси/Tor только для тех игроков, которые провели [count_ru(config.ipr_minimum_age, ";день;дня;дней")] на сервере. Если у вас нет иной возможности подключиться к серверу, сообщите об этом администратору вне игры.")
+					disconnect_with_message("Извините, но сервер допускает использование VPN/прокси/Tor только для тех игроков, которые провели [count_ru(CONFIG_GET(number/ipr_minimum_age), ";день;дня;дней")] на сервере. Если у вас нет иной возможности подключиться к серверу, сообщите об этом администратору вне игры.")
 					// End of Bastion of Endeavor Translation
 					return 0
-				else if(config.ipr_block_bad_ips) //We don't allow players of any particular age
-					/* Bastion of Endeavor Translation
-=======
-				if(CONFIG_GET(flag/ipr_block_bad_ips) && CONFIG_GET(flag/ipr_allow_existing)) //We allow players of an age, but you don't meet it // CHOMPEdit
-					disconnect_with_message("Sorry, we only allow VPN/Proxy/Tor usage for players who have spent at least [CONFIG_GET(number/ipr_minimum_age)] days on the server. If you are unable to use the internet without your VPN/Proxy/Tor, please contact an admin out-of-game to let them know so we can accommodate this.") // CHOMPEdit
-					return 0
 				else if(CONFIG_GET(flag/ipr_block_bad_ips)) //We don't allow players of any particular age // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+					/* Bastion of Endeavor Translation
 					disconnect_with_message("Sorry, we do not accept connections from users via VPN/Proxy/Tor connections. If you believe this is in error, contact an admin out-of-game.")
 					*/
 					disconnect_with_message("Извините, но сервер не допускает подключение через VPN/прокси/Tor. Если вы считаете, что это ошибка, сообщите администратору вне игры.")

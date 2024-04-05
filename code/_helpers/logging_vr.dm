@@ -1,10 +1,6 @@
 /proc/log_nsay(text, inside, mob/speaker)
-<<<<<<< HEAD
-	if (config.log_say)
-		/* Bastion of Endeavor Translation
-=======
 	if (CONFIG_GET(flag/log_say)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		WRITE_LOG(diary, "NSAY (NIF:[inside]): [speaker.simple_info_line()]: [html_decode(text)]")
 		*/
 		WRITE_LOG(diary, "НИФ-РЕЧЬ (НИФ:[inside]): [speaker.simple_info_line()]: [html_decode(text)]")
@@ -29,12 +25,8 @@
 	//CHOMPEdit End
 
 /proc/log_nme(text, inside, mob/speaker)
-<<<<<<< HEAD
-	if (config.log_emote)
-		/* Bastion of Endeavor Translation
-=======
 	if (CONFIG_GET(flag/log_emote)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		WRITE_LOG(diary, "NME (NIF:[inside]): [speaker.simple_info_line()]: [html_decode(text)]")
 		*/
 		WRITE_LOG(diary, "НИФ-ДЕЙСТВИЕ (НИФ:[inside]): [speaker.simple_info_line()]: [html_decode(text)]")
@@ -59,12 +51,8 @@
 	//CHOMPEdit End
 
 /proc/log_subtle(text, mob/speaker)
-<<<<<<< HEAD
-	if (config.log_emote)
-		/* Bastion of Endeavor Translation
-=======
 	if (CONFIG_GET(flag/log_emote)) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		WRITE_LOG(diary, "SUBTLE: [speaker.simple_info_line()]: [html_decode(text)]")
 		*/
 		WRITE_LOG(diary, "СКРЫТОЕ ДЕЙСТВИЕ: [speaker.simple_info_line()]: [html_decode(text)]")

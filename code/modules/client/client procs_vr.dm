@@ -39,14 +39,10 @@
 	if(text2num(http["STATUS"]) == 429)
 		/* Bastion of Endeavor Translation
 		log_and_message_admins("getipintel.net reports HTTP status 429. IP reputation checking is now disabled. If you see this, let a developer know.")
-<<<<<<< HEAD
 		*/
 		log_and_message_admins("getipintel.net докладывает HTTP-статус 429. Проверка репутации IP отныне отключена. Сообщите об этом разработчику.")
 		// End of Bastion of Endeavor Translation
-		config.ip_reputation = FALSE
-=======
 		CONFIG_SET(flag/ip_reputation, FALSE) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
 		return -1
 
 	var/content = file2text(http["CONTENT"]) //world.Export actually returns a file object in CONTENT
@@ -97,12 +93,8 @@
 
 		log_and_message_admins(ipr_error)
 		if(fatal)
-<<<<<<< HEAD
-			config.ip_reputation = FALSE
-			/* Bastion of Endeavor Translation
-=======
 			CONFIG_SET(flag/ip_reputation, FALSE) // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+			/* Bastion of Endeavor Translation
 			log_and_message_admins("With this error, IP reputation checking is disabled for this shift. Let a developer know.")
 			*/
 			log_and_message_admins("В связи с этой ошибкой проверка репутации IP отключена на остаток смены. Сообщите разработчикам.")

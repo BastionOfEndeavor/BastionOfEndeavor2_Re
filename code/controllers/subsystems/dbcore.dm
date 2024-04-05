@@ -329,12 +329,8 @@ SUBSYSTEM_DEF(dbcore)
 	return json_decode(rustg_sql_connected(connection))["status"] == "online"
 
 /datum/controller/subsystem/dbcore/proc/ErrorMsg()
-<<<<<<< HEAD
-	if(!config.sql_enabled)
-		/* Bastion of Endeavor Translation
-=======
 	if(!CONFIG_GET(flag/sql_enabled))
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+		/* Bastion of Endeavor Translation
 		return "Database disabled by configuration"
 		*/
 		return "База данных отключена конфигурацией сервера"
