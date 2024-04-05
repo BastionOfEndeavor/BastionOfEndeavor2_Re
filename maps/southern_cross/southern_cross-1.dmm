@@ -1543,17 +1543,6 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/item/weapon/bluespace_crystal/artificial{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/obj/item/weapon/bluespace_crystal/artificial{
-	pixel_y = 7
-	},
-/obj/item/weapon/bluespace_crystal/artificial{
-	pixel_x = -7;
-	pixel_y = 7
-	},
 /turf/simulated/floor,
 /area/tcomm/tcomstorage)
 "agc" = (
@@ -19745,10 +19734,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
 /obj/machinery/light_switch{
 	pixel_x = 11;
 	pixel_y = -24
@@ -26120,6 +26105,18 @@
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 28
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/bluespace_crystal/artificial{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/item/weapon/bluespace_crystal/artificial{
+	pixel_y = 7
+	},
+/obj/item/weapon/bluespace_crystal/artificial{
+	pixel_x = -7;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled,
 /area/tcomm/computer)
