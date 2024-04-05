@@ -173,7 +173,7 @@
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 
-/proc/level_seven_announcement()
+/proc/level_seven_announcement() // Chomp note - Do not use this.
 	/* Bastion of Endeavor Translation
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard \the [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
 	*/

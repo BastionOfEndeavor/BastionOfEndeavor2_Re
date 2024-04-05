@@ -235,7 +235,11 @@ macro "borghotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
+		/* Bastion of Endeavor Translation
 		command = "ooc"
+		*/
+		command = "Чат-OOC"
+		// End of Bastion of Endeavor Translation
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -465,7 +469,11 @@ macro "macro"
 		command = ".options"
 	elem
 		name = "F2"
+		/* Bastion of Endeavor Translation
 		command = "ooc"
+		*/
+		command = "Чат-OOC"
+		// End of Bastion of Endeavor Translation
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -752,7 +760,11 @@ macro "hotkeymode"
 		command = ".options"
 	elem
 		name = "F2"
+		/* Bastion of Endeavor Translation
 		command = "ooc"
+		*/
+		command = "Чат-OOC"
+		// End of Bastion of Endeavor Translation
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
@@ -976,7 +988,11 @@ macro "borgmacro"
 		command = ".options"
 	elem
 		name = "F2"
+		/* Bastion of Endeavor Translation
 		command = "ooc"
+		*/
+		command = "Чат-OOC"
+		// End of Bastion of Endeavor Translation
 	elem
 		name = "F2+REP"
 		command = ".screenshot auto"
