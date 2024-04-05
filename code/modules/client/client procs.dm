@@ -525,7 +525,7 @@
 			if(ip_reputation >= CONFIG_GET(number/ipr_bad_score)) //It's bad // CHOMPEdit
 				//Log it
 				if(CONFIG_GET(flag/paranoia_logging)) //We don't block, but we want paranoia log messages // CHOMPEdit
->>>>>>> e1a987c25c (Configuration Controller (#7857))
+					/* Bastion of Endeavor Translation
 					log_and_message_admins("[key] at [address] has bad IP reputation: [ip_reputation]. Will be kicked if enabled in config.")
 					*/
 					log_and_message_admins("[key] по адресу [address] обладает плохой репутацией IP: [ip_reputation] и будет кикнут, если это включено в конфигурации.")
