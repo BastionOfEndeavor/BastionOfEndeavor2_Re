@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(inactivity)
 	var/number_kicked = 0
 
 /datum/controller/subsystem/inactivity/fire(resumed = FALSE)
-	if (!config.kick_inactive)
+	if (!CONFIG_GET(number/kick_inactive)) // CHOMPEdit
 		can_fire = FALSE
 		return
 	if (!resumed)
@@ -19,12 +19,17 @@ SUBSYSTEM_DEF(inactivity)
 	while(client_list.len)
 		var/client/C = client_list[client_list.len]
 		client_list.len--
+<<<<<<< HEAD
 		if(C.is_afk(config.kick_inactive MINUTES) && can_kick(C))
 			/* Bastion of Endeavor Translation
 			to_chat_immediate(C, world.time, "<span class='warning'>You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected.</span>")
 			*/
 			to_chat_immediate(C, world.time, "<span class='warning'>Вы были неактивны больше [count_ru(config.kick_inactive, "минут;ы;;")], поэтому были отключены.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+		if(C.is_afk(CONFIG_GET(number/kick_inactive) MINUTES) && can_kick(C)) // CHOMPEdit
+			to_chat_immediate(C, world.time, "<span class='warning'>You have been inactive for more than [CONFIG_GET(number/kick_inactive)] minute\s and have been disconnected.</span>") // CHOMPEdit
+>>>>>>> e1a987c25c (Configuration Controller (#7857))
 
 			var/information
 			if(C.mob)

@@ -53,12 +53,17 @@ var/global/datum/controller/subsystem/ticker/ticker
 	global.ticker = src // TODO - Remove this! Change everything to point at SSticker intead
 
 /datum/controller/subsystem/ticker/Initialize()
+<<<<<<< HEAD
 	pregame_timeleft = config.pregame_time
 	/* Bastion of Endeavor Translation
 	send2mainirc("Server lobby is loaded and open at byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")
 	*/
 	send2mainirc("Лобби сервера загружено и открыто по адресу byond://[config.serverurl ? config.serverurl : (config.server ? config.server : "[world.address]:[world.port]")]")
 	// End of Bastion of Endeavor Translation
+=======
+	pregame_timeleft = CONFIG_GET(number/pregame_time) // CHOMPEdit
+	send2mainirc("Server lobby is loaded and open at byond://[CONFIG_GET(string/serverurl) ? CONFIG_GET(string/serverurl) : (CONFIG_GET(string/server) ? CONFIG_GET(string/server) : "[world.address]:[world.port]")]") // CHOMPEdit
+>>>>>>> e1a987c25c (Configuration Controller (#7857))
 	SSwebhooks.send(
 		WEBHOOK_ROUNDPREP,
 		list(
@@ -111,7 +116,7 @@ var/global/datum/controller/subsystem/ticker/ticker
 			fire() // Don't wait for next tick, do it now!
 		return
 
-	if(pregame_timeleft <= config.vote_autogamemode_timeleft && !SSvote.gamemode_vote_called)
+	if(pregame_timeleft <= CONFIG_GET(number/vote_autogamemode_timeleft) && !SSvote.gamemode_vote_called)
 		SSvote.autogamemode() // Start the game mode vote (if we haven't had one already)
 
 // Called during GAME_STATE_SETTING_UP (RUNLEVEL_SETUP)
@@ -119,7 +124,7 @@ var/global/datum/controller/subsystem/ticker/ticker
 	round_start_time = world.time //otherwise round_start_time would be 0 for the signals
 	if(!setup_choose_gamemode())
 		// It failed, go back to lobby state and re-send the welcome message
-		pregame_timeleft = config.pregame_time
+		pregame_timeleft = CONFIG_GET(number/pregame_time) // CHOMPEdit
 		SSvote.gamemode_vote_called = FALSE // Allow another autogamemode vote
 		current_state = GAME_STATE_PREGAME
 		Master.SetRunLevel(RUNLEVEL_LOBBY)
@@ -150,8 +155,8 @@ var/global/datum/controller/subsystem/ticker/ticker
 		if(!src.mode)
 			var/list/weighted_modes = list()
 			for(var/datum/game_mode/GM in runnable_modes)
-				weighted_modes[GM.config_tag] = config.probabilities[GM.config_tag]
-			src.mode = gamemode_cache[pickweight(weighted_modes)]
+				weighted_modes[GM.config_tag] = CONFIG_GET(keyed_list/probabilities)[GM.config_tag] // CHOMPEdit
+			src.mode = config.gamemode_cache[pickweight(weighted_modes)] // CHOMPEdit
 	else
 		src.mode = config.pick_mode(master_mode)
 
@@ -169,11 +174,15 @@ var/global/datum/controller/subsystem/ticker/ticker
 	job_master.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_world("<span class='danger'><B>Unable to start [mode.name].</B> Not enough players readied, [config.player_requirements[mode.config_tag]] players needed. Reverting to pregame lobby.</span>")
 		*/
 		to_world("<span class='danger'><B>Не удалось запустить режим \"[mode.name]\".</B> Готово недостаточно игроков из необходимых [config.player_requirements[mode.config_tag]]. Возвращаемся в предыгровое лобби.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_world("<span class='danger'><B>Unable to start [mode.name].</B> Not enough players readied, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]] players needed. Reverting to pregame lobby.</span>") // CHOMPEdit
+>>>>>>> e1a987c25c (Configuration Controller (#7857))
 		mode.fail_setup()
 		mode = null
 		job_master.ResetOccupations()
@@ -241,7 +250,7 @@ var/global/datum/controller/subsystem/ticker/ticker
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)
 
-	if(config.sql_enabled)
+	if(CONFIG_GET(flag/sql_enabled)) // CHOMPEdit
 		statistic_cycle() // Polls population totals regularly and stores them in an SQL DB -- TLE
 
 	return 1
@@ -257,7 +266,7 @@ var/global/datum/controller/subsystem/ticker/ticker
 	// Calculate if game and/or mode are finished (Complicated by the continuous_rounds config option)
 	var/game_finished = FALSE
 	var/mode_finished = FALSE
-	if (config.continous_rounds) // Game keeps going after mode ends.
+	if (CONFIG_GET(flag/continuous_rounds)) // Game keeps going after mode ends. // CHOMPEdit
 		game_finished = (emergency_shuttle.returned() || mode.station_was_nuked)
 		mode_finished = ((end_game_state >= END_GAME_MODE_FINISHED) || mode.check_finished()) // Short circuit if already finished.
 	else // Game ends when mode does

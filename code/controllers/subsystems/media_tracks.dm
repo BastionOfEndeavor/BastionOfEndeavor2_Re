@@ -23,8 +23,12 @@ SUBSYSTEM_DEF(media_tracks)
 	return SS_INIT_SUCCESS // CHOMPEdit
 
 /datum/controller/subsystem/media_tracks/proc/load_tracks()
+<<<<<<< HEAD
 	for(var/filename in config.jukebox_track_files)
 		/* Bastion of Endeavor Translation
+=======
+	for(var/filename in CONFIG_GET(str_list/jukebox_track_files)) // CHOMPEdit
+>>>>>>> e1a987c25c (Configuration Controller (#7857))
 		report_progress("Loading jukebox track: [filename]")
 		*/
 		report_progress("Загрузка трека проигрывателя: [filename].")
