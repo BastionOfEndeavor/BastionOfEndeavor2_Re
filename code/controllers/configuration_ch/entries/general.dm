@@ -253,7 +253,11 @@
 	return num_val MINUTES
 
 /datum/config_entry/string/respawn_message
+	/* Bastion of Endeavor Translation
 	default = "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>"
+	*/
+	default = "<span class='notice'><B>Не забудьте выбрать другого персонажа и соответствующе отыгрывать!</B></span>"
+	// End of Bastion of Endeavor Translation
 
 /datum/config_entry/string/respawn_message/ValidateAndSet(str_val)
 	return "<span class='notice'><B>[str_val]</B></span>"
@@ -558,7 +562,11 @@
 //	default = list(SPECIES_HUMAN)
 
 /datum/config_entry/string/law_zero
+	/* Bastion of Endeavor Translation
 	default = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
+	*/
+	default = "ОШИБКА 0ШИБКА 0$ИБК$!К41.%%!!(%$^^__+ @#А0Е4'ВСЕ ЗАКОНЫ ПЕРЕЗАПИСАНЫ#*?&110010"
+	// End of Bastion of Endeavor Translation
 
 /datum/config_entry/flag/aggressive_changelog
 
@@ -616,7 +624,11 @@
 
 /// A list of 'topics' that feedback can be catagorized under by the submitter.
 /datum/config_entry/str_list/sqlite_feedback_topics
+	/* Bastion of Endeavor Translation: Just in case
 	default = list("General")
+	*/
+	default = list("Общее") // A list of 'topics' that feedback can be catagorized under by the submitter.
+	// End of Bastion of Endeavor Translation
 
 /// If true, feedback submitted can have its author name be obfuscated. This is not 100% foolproof (it's md5 ffs) but can stop casual snooping.
 /datum/config_entry/flag/sqlite_feedback_privacy

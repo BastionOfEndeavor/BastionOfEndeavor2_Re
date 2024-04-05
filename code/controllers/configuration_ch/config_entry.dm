@@ -24,7 +24,11 @@
 
 /datum/config_entry/New()
 	if(type == config_abstract_type)
+		/* Bastion of Endeavor Translation
 		CRASH("Abstract config entry [type] instatiated!")
+		*/
+		CRASH("Инстанциирована запись абстрактной конфигурации [type]!")
+		// End of Bastion of Endeavor Translation
 	name = lowertext(type2top(type))
 	default_protection = protection
 	set_default()
@@ -39,7 +43,11 @@
 /datum/config_entry/proc/set_default()
 	if ((protection & CONFIG_ENTRY_LOCKED) && IsAdminAdvancedProcCall())
 		//log_admin_private("[key_name(usr)] attempted to reset locked config entry [type] to its default")
+		/* Bastion of Endeavor Translation
 		log_admin("[key_name(usr)] attempted to reset locked config entry [type] to its default")
+		*/
+		log_admin("[key_name(usr)] попытался сбросить заблокированную запись конфигурации [type] до значения по умолчанию!")
+		// End of Bastion of Endeavor Translation
 		return
 	if (islist(default))
 		var/list/L = default
@@ -75,11 +83,19 @@
 	. = !((protection & CONFIG_ENTRY_LOCKED) && IsAdminAdvancedProcCall())
 	if(!.)
 		//log_admin_private("[key_name(usr)] attempted to set locked config entry [type] to '[str_val]'")
+		/* Bastion of Endeavor Translation
 		log_admin("[key_name(usr)] attempted to set locked config entry [type] to '[str_val]'")
+		*/
+		log_admin("[key_name(usr)] попытался изменить заблокированную запись конфигурации [type] на '[str_val]'.")
+		// End of Bastion of Endeavor Translation
 
 /datum/config_entry/proc/ValidateAndSet(str_val)
 	VASProcCallGuard(str_val)
+	/* Bastion of Endeavor Translation
 	CRASH("Invalid config entry type!")
+	*/
+	CRASH("Недопустимое значение записи конфигурации!")
+	// End of Bastion of Endeavor Translation
 
 /datum/config_entry/proc/ValidateListEntry(key_name, key_value)
 	return TRUE
@@ -119,7 +135,11 @@
 	if(!isnull(temp))
 		config_entry_value = clamp(integer ? round(temp) : temp, min_val, max_val)
 		if(config_entry_value != temp && !(datum_flags & DF_VAR_EDITED))
+			/* Bastion of Endeavor Translation
 			log_config("Changing [name] from [temp] to [config_entry_value]!")
+			*/
+			log_config("Изменена конфигурация [name] с [temp] на [config_entry_value]!")
+			// End of Bastion of Endeavor Translation
 		return TRUE
 	return FALSE
 
@@ -162,7 +182,11 @@
 		return FALSE
 	str_val = trim(str_val)
 	var/list/new_list = list()
+	/* Bastion of Endeavor Unicode Edit
 	var/list/values = splittext(str_val," ")
+	*/
+	var/list/values = splittext_char(str_val," ")
+	// End of Bastion of Endeavor Unicode Edit
 	for(var/I in values)
 		var/temp = text2num(I)
 		if(isnull(temp))
@@ -187,7 +211,11 @@
 /datum/config_entry/keyed_list/New()
 	. = ..()
 	if(isnull(key_mode) || isnull(value_mode))
+		/* Bastion of Endeavor Translation
 		CRASH("Keyed list of type [type] created with null key or value mode!")
+		*/
+		CRASH("Список ключей [type] создан с нулевым ключом или режимом значениЙ!")
+		// End of Bastion of Endeavor Translation
 
 /datum/config_entry/keyed_list/ValidateAndSet(str_val)
 	if(!VASProcCallGuard(str_val))
@@ -208,10 +236,18 @@
 /datum/config_entry/keyed_list/proc/parse_key_and_value(option_string)
 	// Blank or null option string? Bad mojo!
 	if(!option_string)
+		/* Bastion of Endeavor Translation
 		log_config("ERROR: Keyed list config tried to parse with no key or value data.")
+		*/
+		log_config("ОШИБКА: Список ключей попытался пропарситься без ключей или значений.")
+		// End of Bastion of Endeavor Translation
 		return null
 
+	/* Bastion of Endeavor Unicode Edit
 	var/list/config_entry_words = splittext(option_string, splitter)
+	*/
+	var/list/config_entry_words = splittext_char(option_string, splitter)
+	// End of Bastion of Endeavor Unicode Edit
 	var/config_value
 	var/config_key
 	var/is_ambiguous = FALSE
@@ -228,20 +264,39 @@
 		config_value = TRUE
 
 		if(value == "0")
+			/* Bastion of Endeavor Unicode Edit
 			config_key = jointext(config_entry_words, splitter, length(config_entry_words) - 1)
 			config_value = FALSE
 			is_ambiguous = (length(config_entry_words) > 2)
+			*/
+			config_key = jointext(config_entry_words, splitter, length_char(config_entry_words) - 1)
+			config_value = FALSE
+			is_ambiguous = (length_char(config_entry_words) > 2)
+			// End of Bastion of Endeavor Unicode Edit
 		else if(value == "1")
+			/* Bastion of Endeavor Unicode Edit
 			config_key = jointext(config_entry_words, splitter, length(config_entry_words) - 1)
 			is_ambiguous = (length(config_entry_words) > 2)
+			*/
+			config_key = jointext(config_entry_words, splitter, length_char(config_entry_words) - 1)
+			is_ambiguous = (length_char(config_entry_words) > 2)
+			// End of Bastion of Endeavor Unicode Edit
 		else
 			config_key = option_string
+			/* Bastion of Endeavor Unicode Edit
 			is_ambiguous = (length(config_entry_words) > 1)
+			*/
+			is_ambiguous = (length_char(config_entry_words) > 1)
+			// End of Bastion of Endeavor Unicode Edit
 	// Else it has to be a key value pair and we parse it under that assumption.
 	else
 		// If config_entry_words only has 1 or 0 words in it and isn't value_mode == VALUE_MODE_FLAG then it's an invalid config entry.
 		if(length(config_entry_words) <= 1)
+			/* Bastion of Endeavor Translation
 			log_config("ERROR: Could not parse value from config entry string: [option_string]")
+			*/
+			log_config("ОШИБКА: Не удалось пропарсить значение строки записи конфигурации: [option_string].")
+			// End of Bastion of Endeavor Translation
 			return null
 
 		config_value = pop(config_entry_words)
@@ -257,7 +312,11 @@
 
 	// If there are multiple splitters, it's definitely ambiguous and we'll warn about how we parsed it. Helps with debugging config issues.
 	if(is_ambiguous)
+		/* Bastion of Endeavor Translation
 		log_config("WARNING: Multiple splitter characters (\"[splitter]\") found. Using \"[config_key]\" as config key and \"[config_value]\" as config value.")
+		*/
+		log_config("ВНИМАНИЕ: Обнаружено несколько разделителей (\"[splitter]\"). Используем \"[config_key]\" как ключ конфигурации и \"[config_value]\" значение конфигурации.")
+		// End of Bastion of Endeavor Translation
 
 	return list("config_key" = config_key, "config_value" = config_value)
 
@@ -272,7 +331,11 @@
 
 			var/key_path = text2path(key)
 			if(isnull(key_path))
+				/* Bastion of Endeavor Translation
 				log_config("ERROR: Invalid KEY_MODE_TYPE typepath. Is not a valid typepath: [key]")
+				*/
+				log_config("ОШИБКА: Недопустимый путь типа KEY_MODE_TYPE: [key]")
+				// End of Bastion of Endeavor Translation
 				return
 
 			return key_path
@@ -289,7 +352,11 @@
 
 			var/value_num = text2num(value)
 			if(isnull(value_num))
+				/* Bastion of Endeavor Translation
 				log_config("ERROR: Invalid VALUE_MODE_NUM number. Could not parse a valid number: [value]")
+				*/
+				log_config("ОШИБКА: Недопустимое значение VALUE_MODE_NUM: [value]")
+				// End of Bastion of Endeavor Translation
 				return
 
 			return value_num

@@ -1,5 +1,9 @@
 /datum/controller/configuration
+	/* Bastion of Endeavor Translation
 	name = "Configuration"
+	*/
+	name = "Конфигурация"
+	// End of Bastion of Endeavor Translation
 
 	var/directory = "config"
 
@@ -66,8 +70,13 @@
 /datum/controller/configuration/proc/admin_reload()
 	if(IsAdminAdvancedProcCall())
 		return
+	/* Bastion of Endeavor Translation
 	log_admin("[key_name_admin(usr)] has forcefully reloaded the configuration from disk.")
 	message_admins("[key_name_admin(usr)] has forcefully reloaded the configuration from disk.")
+	*/
+	log_admin("[key_name_admin(usr)] принудительно перезагрузил конфигурацию с диска.")
+	message_admins("[key_name_admin(usr)] принудительно перезагрузил конфигурацию с диска.")
+	// End of Bastion of Endeavor Translation
 	full_wipe()
 	Load(world.params[OVERRIDE_CONFIG_DIRECTORY_PARAMETER])
 
@@ -77,14 +86,22 @@
 	if(_directory)
 		directory = _directory
 	if(entries)
+		/* Bastion of Endeavor Translation
 		CRASH("/datum/controller/configuration/Load() called more than once!")
+		*/
+		CRASH("/datum/controller/configuration/Load() вызван более одного раза!")
+		// End of Bastion of Endeavor Translation
 	configuration_errors ||= list()
 	InitEntries()
 	if(fexists("[directory]/config.txt") && LoadEntries("config.txt") <= 1)
 		var/list/legacy_configs = list("game_options.txt", "dbconfig.txt", "comms.txt")
 		for(var/I in legacy_configs)
 			if(fexists("[directory]/[I]"))
+				/* Bastion of Endeavor Translation
 				log_config("No $include directives found in config.txt! Loading legacy [legacy_configs.Join("/")] files...")
+				*/
+				log_config("В config.txt не найдены директивы $include! Загружаем устаревшие файлы [legacy_configs.Join("/")]...")
+				// End of Bastion of Endeavor Translation
 				for(var/J in legacy_configs)
 					LoadEntries(J)
 				break
@@ -154,7 +171,11 @@
 		var/esname = E.name
 		var/datum/config_entry/test = _entries[esname]
 		if(test)
+			/* Bastion of Endeavor Translation
 			log_config_error("Error: [test.type] has the same name as [E.type]: [esname]! Not initializing [E.type]!")
+			*/
+			log_config_error("Ошибка: [test.type] обладает тем же именем, что и [E.type]: [esname]! Пропускаем инициализацию [E.type]!")
+			// End of Bastion of Endeavor Translation
 			qdel(E)
 			continue
 		_entries[esname] = E
@@ -170,11 +191,19 @@
 
 	var/filename_to_test = world.system_type == MS_WINDOWS ? lowertext(filename) : filename
 	if(filename_to_test in stack)
+		/* Bastion of Endeavor Translation
 		log_config_error("Warning: Config recursion detected ([english_list(stack)]), breaking!")
+		*/
+		log_config_error("Внимание: Обнаружена рекурсия в конфигурации ([english_list(stack)]), прерываемся!")
+		// End of Bastion of Endeavor Translation
 		return
 	stack = stack + filename_to_test
 
+	/* Bastion of Endeavor Translation
 	log_config("Loading config file [filename]...")
+	*/
+	log_config("Загрузка файл конфигурации [filename]...")
+	// End of Bastion of Endeavor Translation
 	var/list/lines = world.file2list("[directory]/[filename]")
 	var/list/_entries = entries
 	for(var/L in lines)
@@ -187,16 +216,28 @@
 			continue
 
 		var/lockthis = firstchar == "@"
+		/* Bastion of Endeavor Unicode Edit
 		if(lockthis)
 			L = copytext(L, length(firstchar) + 1)
 
 		var/pos = findtext(L, " ")
+		*/
+		if(lockthis)
+			L = copytext_char(L, length_char(firstchar) + 1)
+
+		var/pos = findtext_char(L, " ")
+		// End of Bastion of Endeavor Unicode Edit
 		var/entry = null
 		var/value = null
 
 		if(pos)
+			/* Bastion of Endeavor Unicode Edit
 			entry = lowertext(copytext(L, 1, pos))
 			value = copytext(L, pos + length(L[pos]))
+			*/
+			entry = lowertext(copytext_char(L, 1, pos))
+			value = copytext_char(L, pos + length_char(L[pos]))
+			// End of Bastion of Endeavor Unicode Edit
 		else
 			entry = lowertext(L)
 
@@ -205,7 +246,11 @@
 
 		if(entry == "$include")
 			if(!value)
+				/* Bastion of Endeavor Translation
 				log_config_error("Warning: Invalid $include directive: [value]")
+				*/
+				log_config_error("Внимание: Недопустимая директива $include: [value].")
+				// End of Bastion of Endeavor Translation
 			else
 				LoadEntries(value, stack)
 				++.
@@ -215,15 +260,27 @@
 		if (entry == "$reset")
 			var/datum/config_entry/resetee = _entries[lowertext(value)]
 			if (!value || !resetee)
+				/* Bastion of Endeavor Translation
 				log_config_error("Warning: invalid $reset directive: [value]")
+				*/
+				log_config_error("Внимание: Недопустимая директива $reset: [value].")
+				// End of Bastion of Endeavor Translation
 				continue
 			resetee.set_default()
+			/* Bastion of Endeavor Translation
 			log_config("Reset configured value for [value] to original defaults")
+			*/
+			log_config("Сброс значения конфигурации [value] до значения по умолчанию.")
+			// End of Bastion of Endeavor Translation
 			continue
 
 		var/datum/config_entry/E = _entries[entry]
 		if(!E)
+			/* Bastion of Endeavor Translation
 			log_config("Unknown setting in configuration: '[entry]'")
+			*/
+			log_config("Неизвестная настройка конфигурации: '[entry]'")
+			// End of Bastion of Endeavor Translation
 			continue
 
 		if(lockthis)
@@ -233,24 +290,44 @@
 			var/datum/config_entry/new_ver = entries_by_type[E.deprecated_by]
 			var/new_value = E.DeprecationUpdate(value)
 			var/good_update = istext(new_value)
+			/* Bastion of Endeavor Translation
 			log_config("Entry [entry] is deprecated and will be removed soon. Migrate to [new_ver.name]![good_update ? " Suggested new value is: [new_value]" : ""]")
+			*/
+			log_config("Запись [entry] не поддерживается и скоро будет удалена. Используйте [new_ver.name]![good_update ? " Предлагаемое значение: [new_value]" : ""]")
+			// End of Bastion of Endeavor Translation
 			if(!warned_deprecated_configs)
+				/* Bastion of Endeavor Translation
 				DelayedMessageAdmins("This server is using deprecated configuration settings. Please check the logs and update accordingly.")
+				*/
+				DelayedMessageAdmins("Сервер использует устаревшие настройки конфигурации. Пожалуйста, проверьте логи и обновите их соответствующим образом.")
+				// End of Bastion of Endeavor Translation
 				warned_deprecated_configs = TRUE
 			if(good_update)
 				value = new_value
 				E = new_ver
 			else
+				/* Bastion of Endeavor Translation
 				warning("[new_ver.type] is deprecated but gave no proper return for DeprecationUpdate()")
+				*/
+				warning("[new_ver.type] устарел и не даёт правильный return для DeprecationUpdate().")
+				// End of Bastion of Endeavor Translation
 
 		var/validated = E.ValidateAndSet(value)
 		if(!validated)
+			/* Bastion of Endeavor Translation
 			var/log_message = "Failed to validate setting \"[value]\" for [entry]"
+			*/
+			var/log_message = "Не удалось проверить настройку \"[value]\" для [entry]."
+			// End of Bastion of Endeavor Translation
 			log_config(log_message)
 			stack_trace(log_message)
 		else
 			if(E.modified && !E.dupes_allowed && E.resident_file == filename)
+				/* Bastion of Endeavor Translation
 				log_config_error("Duplicate setting for [entry] ([value], [E.resident_file]) detected! Using latest.")
+				*/
+				log_config_error("Дубликат настройки [entry] ([value], [E.resident_file])! Используем последнее значение.")
+				// End of Bastion of Endeavor Translation
 
 		E.resident_file = filename
 
@@ -267,20 +344,36 @@
 	return !(var_name in banned_edits) && ..()
 
 /datum/controller/configuration/stat_entry(msg)
+	/* Bastion of Endeavor Translation
 	msg = "Edit"
+	*/
+	msg = "Редактировать"
+	// End of Bastion of Endeavor Translation
 	return msg
 
 /datum/controller/configuration/proc/Get(entry_type)
 	var/datum/config_entry/E = entry_type
 	var/entry_is_abstract = initial(E.config_abstract_type) == entry_type
 	if(entry_is_abstract)
+		/* Bastion of Endeavor Translation
 		CRASH("Tried to retrieve an abstract config_entry: [entry_type]")
+		*/
+		CRASH("Попытка получить значение абстрактной записи конфигурации config_entry: [entry_type].")
+		// End of Bastion of Endeavor Translation
 	E = entries_by_type[entry_type]
 	if(!E)
+		/* Bastion of Endeavor Translation
 		CRASH("Missing config entry for [entry_type]!")
+		*/
+		CRASH("Отсутствующее значение конфигурации для [entry_type]!")
+		// End of Bastion of Endeavor Translation
 	if((E.protection & CONFIG_ENTRY_HIDDEN) && IsAdminAdvancedProcCall() && GLOB.LastAdminCalledProc == "Get" && GLOB.LastAdminCalledTargetRef == "[REF(src)]")
 		//log_admin_private("Config access of [entry_type] attempted by [key_name(usr)]")
+		/* Bastion of Endeavor Translation: I don't think we need to translate the Get above?
 		log_admin("Config access of [entry_type] attempted by [key_name(usr)]")
+		*/
+		log_admin("[key_name(usr)] попытался получить доступ к значению конфигурации [entry_type].")
+		// End of Bastion of Endeavor Translation
 		return
 	return E.config_entry_value
 
@@ -288,13 +381,25 @@
 	var/datum/config_entry/E = entry_type
 	var/entry_is_abstract = initial(E.config_abstract_type) == entry_type
 	if(entry_is_abstract)
+		/* Bastion of Endeavor Translation
 		CRASH("Tried to set an abstract config_entry: [entry_type]")
+		*/
+		CRASH("Попытка установить значение абстрактной записи конфигурации config_entry: [entry_type].")
+		// End of Bastion of Endeavor Translation
 	E = entries_by_type[entry_type]
 	if(!E)
+		/* Bastion of Endeavor Translation
 		CRASH("Missing config entry for [entry_type]!")
+		*/
+		CRASH("Отсутствующее значение конфигурации для [entry_type]!")
+		// End of Bastion of Endeavor Translation
 	if((E.protection & CONFIG_ENTRY_LOCKED) && IsAdminAdvancedProcCall() && GLOB.LastAdminCalledProc == "Set" && GLOB.LastAdminCalledTargetRef == "[REF(src)]")
 		//log_admin_private("Config rewrite of [entry_type] to [new_val] attempted by [key_name(usr)]")
+		/* Bastion of Endeavor Translation
 		log_admin("Config rewrite of [entry_type] to [new_val] attempted by [key_name(usr)]")
+		*/
+		log_admin("[key_name(usr)] попытался изменить значение конфигурации [entry_type] на [new_val].")
+		// End of Bastion of Endeavor Translation
 		return
 	return E.ValidateAndSet("[new_val]")
 
@@ -343,8 +448,13 @@ Example config:
 	if(rawpolicy)
 		var/parsed = safe_json_decode(rawpolicy)
 		if(!parsed)
+			/* Bastion of Endeavor Translation
 			log_config("JSON parsing failure for policy.json")
 			DelayedMessageAdmins("JSON parsing failure for policy.json")
+			*/
+			log_config("Не удалась обработка JSON в policy.json")
+			DelayedMessageAdmins("Не удалась обработка JSON в policy.json")
+			// End of Bastion of Endeavor Translation
 		else
 			policy = parsed
 
@@ -414,10 +524,18 @@ Example config:
 		load_legacy_chat_filter()
 		return
 
+	/* Bastion of Endeavor Translation
 	log_config("Loading config file word_filter.toml...")
+	*/
+	log_config("Загрузка конфигурации словесного фильтра word_filter.toml...")
+	// End of Bastion of Endeavor Translation
 	var/list/result = rustg_raw_read_toml_file("[directory]/word_filter.toml")
 	if(!result["success"])
+		/* Bastion of Endeavor Translation
 		var/message = "The word filter is not configured correctly! [result["content"]]"
+		*/
+		var/message = "Ошибка настройки словесного фильтра! [result["content"]]"
+		// End of Bastion of Endeavor Translation
 		log_config(message)
 		DelayedMessageAdmins(message)
 		return
@@ -436,7 +554,11 @@ Example config:
 	if (!fexists("[directory]/in_character_filter.txt"))
 		return
 
+	/* Bastion of Endeavor Translation
 	log_config("Loading config file in_character_filter.txt...")
+	*/
+	log_config("Загрузка конфигурации in_character_filter.txt...")
+	// End of Bastion of Endeavor Translation
 
 	ic_filter_reasons = list()
 	ic_outside_pda_filter_reasons = list()
@@ -448,10 +570,18 @@ Example config:
 	for (var/line in world.file2list("[directory]/in_character_filter.txt"))
 		if (!line)
 			continue
+		/* Bastion of Endeavor Unicode Edit
 		if (findtextEx(line, "#", 1, 2))
+		*/
+		if (findtextEx_char(line, "#", 1, 2))
+		// End of Bastion of Endeavor Unicode Edit
 			continue
 		// The older filter didn't apply to PDA
+		/* Bastion of Endeavor Translation
 		ic_outside_pda_filter_reasons[line] = "No reason available"
+		*/
+		ic_outside_pda_filter_reasons[line] = "Причина отсутствует"
+		// End of Bastion of Endeavor Translation
 
 	update_chat_filter_regexes()
 
@@ -470,7 +600,11 @@ Example config:
 	if (isnull(banned_words))
 		return list()
 	else if (!islist(banned_words))
+		/* Bastion of Endeavor Translation
 		var/message = "The word filter configuration's '[key]' key was invalid, contact someone with configuration access to make sure it's setup properly."
+		*/
+		var/message = "Ключ конфигурации словесного фильтра '[key]' не является допустимым, убедитесь в точности настройки конфигурации."
+		// End of Bastion of Endeavor Translation
 		log_config(message)
 		DelayedMessageAdmins(message)
 		return list()
@@ -493,7 +627,11 @@ Example config:
 	var/list/to_join_on_word_bounds = list()
 
 	for (var/banned_word in banned_words)
+		/* Bastion of Endeavor Unicode Edit
 		if (findtext(banned_word, should_join_on_word_bounds))
+		*/
+		if (findtext_char(banned_word, should_join_on_word_bounds))
+		// End of Bastion of Endeavor Unicode Edit
 			to_join_on_word_bounds += REGEX_QUOTE(banned_word)
 		else
 			to_join_on_whitespace_splits += REGEX_QUOTE(banned_word)

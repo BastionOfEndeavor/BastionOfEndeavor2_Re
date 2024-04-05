@@ -332,7 +332,7 @@ SUBSYSTEM_DEF(statpanels)
 		list("Инстанций:", "[num2text(world.contents.len, 10)]"),
 		list("Время мира:", "[world.time]"),
 		list("Глобальные переменные:", GLOB.stat_entry(), "\ref[GLOB]"),
-		//list("[config]:", config.stat_entry(), "\ref[config]"),
+		list("[config]:", config.stat_entry(), "\ref[config]"),
 		list("Byond:", "FPS: [world.fps] | Тиков: [world.time/world.tick_lag] | Дрифт: [round(Master.tickdrift,1)] / [round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]% | Внутреннее использование тиков: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%"),
 		list("Главный контроллер:", Master.stat_entry(), "\ref[Master]"),
 		list("Проверочный контроллер:", Failsafe.stat_entry(), "\ref[Failsafe]"),

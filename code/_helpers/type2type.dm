@@ -12,9 +12,15 @@
 //Splits the text of a file at seperator and returns them in a list.
 //returns an empty list if the file doesn't exist
 /world/proc/file2list(filename, seperator="\n", trim = TRUE)
+	/* Bastion of Endeavor Unicode Edit: Hey you never know.
 	if (trim)
 		return splittext(trim(file2text(filename)),seperator)
 	return splittext(file2text(filename),seperator)
+	*/
+	if (trim)
+		return splittext_char(trim(file2text(filename)),seperator)
+	return splittext_char(file2text(filename),seperator)
+	// End of Bastion of Endeavor Unicode Edit
 
 //returns a string the last bit of a type, without the preceeding '/'
 /proc/type2top(the_type)
@@ -35,7 +41,11 @@
 		if(/turf)
 			return "turf"
 		else //regex everything else (works for /proc too)
+			/* Bastion of Endeavor Unicode Edit
 			return lowertext(replacetext("[the_type]", "[type2parent(the_type)]/", ""))
+			*/
+			return lowertext(replacetext_char("[the_type]", "[type2parent(the_type)]/", ""))
+			// End of Bastion of Endeavor Unicode Edit
 // CHOMPEdit End
 
 // Returns an integer given a hexadecimal number string as input.
