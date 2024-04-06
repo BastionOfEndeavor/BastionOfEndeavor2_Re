@@ -1,5 +1,9 @@
 SUBSYSTEM_DEF(overlays)
+	/* Bastion of Endeavor Translation
 	name = "Overlay"
+	*/
+	name = "Оверлеи"
+	// End of Bastion of Endeavor Translation
 	flags = SS_NO_FIRE|SS_NO_INIT
 	var/list/stats
 
@@ -229,9 +233,15 @@ SUBSYSTEM_DEF(overlays)
 				continue
 
 		diff_found = TRUE
+	/* Bastion of Endeavor Translation
 		diffs += "Diffs detected at [name]: First ([firstv]), Second ([secondv])"
 
 	var/text = "Depth of: [iter]\n\t[diffs.Join("\n\t")]"
+	*/
+		diffs += "Разница обнаружена на: [name]: Первое ([firstv]); второе ([secondv])."
+
+	var/text = "Глубина: [iter]\n\t[diffs.Join("\n\t")]"
+	// End of Bastion of Endeavor Translation
 	message_admins(text)
 	log_world(text)
 	return diff_found
