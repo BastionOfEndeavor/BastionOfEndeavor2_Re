@@ -304,7 +304,23 @@
 				var/mob/living/L = usr
 				L.resist()
 
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
+=======
+		if("control_vtec")
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(R.speed == 0 && R.vtec_active)
+					R.speed = -0.5
+					R.hud_used.control_vtec.icon_state = "speed_1"
+				else if(R.speed == -0.5 && R.vtec_active)
+					R.speed = -1
+					R.hud_used.control_vtec.icon_state = "speed_2"
+				else
+					R.speed = 0
+					R.hud_used.control_vtec.icon_state = "speed_0"
+
+>>>>>>> 58db30b265 ([MIRROR] borgs can walk, vtec overhaul, no more borg light and some glow flicker (#8179))
 		if("mov_intent")
 		*/
 		if("Передвижение")
