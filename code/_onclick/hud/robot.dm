@@ -112,7 +112,11 @@ var/obj/screen/robot_inventory
 
 	//Move intent (walk/run)
 	using = new /obj/screen()
+	/* Bastion of Endeavor Translation
 	using.name = "mov_intent"
+	*/
+	using.name = "Передвижеие"
+	// End of Bastion of Endeavor Translation
 	using.icon = HUD.ui_style
 	using.icon_state = (m_intent == "run" ? "running" : "walking")
 	using.screen_loc = ui_movi
@@ -313,7 +317,11 @@ var/obj/screen/robot_inventory
 	var/mob/living/silicon/robot/R = mymob
 	if(!control_vtec)
 		var/obj/screen/using = new /obj/screen()
+		/* Bastion of Endeavor Translation
 		using.name = "control_vtec"
+		*/
+		using.name = "Разгон"
+		// End of Bastion of Endeavor Translation
 		using.icon = ui_style
 		using.screen_loc = ui_vtec_control
 		using.color = ui_color
