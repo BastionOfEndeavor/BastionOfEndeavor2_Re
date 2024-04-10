@@ -173,11 +173,20 @@ var/global/list/limb_icon_cache = list()
 
 			if(body_hair && islist(h_col) && h_col.len >= 3)
 				var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
+<<<<<<< HEAD
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
 					I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_MULTIPLY) //VOREStation edit
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
+=======
+				//if(!GLOB.limb_icon_cache[cache_key]) //ChompEDIT START
+				var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
+				I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_MULTIPLY) //VOREStation edit
+				mob_icon.Blend(I, ICON_OVERLAY)
+				GLOB.limb_icon_cache[cache_key] = I
+				//ChompEDIT END
+>>>>>>> ea919cfb41 (Limb_icon_cache tweak (#8206))
 
 			// VOREStation edit start
 			if(nail_polish)
@@ -205,11 +214,20 @@ var/global/list/limb_icon_cache = list()
 
 		if(body_hair && islist(h_col) && h_col.len >= 3)
 			var/cache_key = "[body_hair]-[icon_name]-[h_col[1]][h_col[2]][h_col[3]]"
+<<<<<<< HEAD
 			if(!limb_icon_cache[cache_key])
 				var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
 				I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_MULTIPLY) //VOREStation edit
 				limb_icon_cache[cache_key] = I
 			mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
+=======
+			//if(!GLOB.limb_icon_cache[cache_key]) //ChompEDIT START
+			var/icon/I = icon(species.get_icobase(owner), "[icon_name]_[body_hair]")
+			I.Blend(rgb(h_col[1],h_col[2],h_col[3]), ICON_MULTIPLY) //VOREStation edit
+			mob_icon.Blend(I, ICON_OVERLAY)
+			GLOB.limb_icon_cache[cache_key] = I
+			//ChompEDIT END
+>>>>>>> ea919cfb41 (Limb_icon_cache tweak (#8206))
 		// VOREStation edit ends here
 
 	if (transparent && !istype(src,/obj/item/organ/external/head) && can_apply_transparency && should_apply_transparency) //VORESTATION EDIT: transparent instead of nonsolid
