@@ -1,5 +1,9 @@
 SUBSYSTEM_DEF(title)
+	/* Bastion of Endeavor Translation
 	name = "Title Screen"
+	*/
+	name = "Экран лобби"
+	// End of Bastion of Endeavor Translation
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_TITLE
 //	init_stage = INITSTAGE_EARLY
@@ -43,7 +47,11 @@ SUBSYSTEM_DEF(title)
 	var/known_icon_states = cached_icon_states(icon)
 	for(var/lobby_screen in using_map.lobby_screens)
 		if(!(lobby_screen in known_icon_states))
+			/* Bastion of Endeavor Translation
 			error("Lobby screen '[lobby_screen]' did not exist in the icon set [icon].")
+			*/
+			error("Экран лобби '[lobby_screen]' не существует в наборе иконок [icon].")
+			// End of Bastion of Endeavor Translation
 			using_map.lobby_screens -= lobby_screen
 
 	if(using_map.lobby_screens.len)
@@ -93,7 +101,11 @@ GLOBAL_LIST_EMPTY(newplayer_start)
 INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 /obj/effect/landmark/start/new_player
+	/* Bastion of Endeavor Translation: Shouldn't be any harm
 	name = "New Player"
+	*/
+	name = "Новый игрок"
+	// End of Bastion of Endeavor Translation
 
 /obj/effect/landmark/start/new_player/Initialize(mapload)
 	..()
