@@ -9,14 +9,12 @@
 /* Bastion of Endeavor Translation
 #define JOB_OUTSIDER            "Outsider"
 #define JOB_ANOMALY			"Anomaly"
-<<<<<<< HEAD
+#define JOB_VR	"VR Avatar"
 */
 #define JOB_OUTSIDER            "Постороннее лицо"
 #define JOB_ANOMALY				"Аномалия"
+#define JOB_VR					"Виртуальный аватар"
 // End of Bastion of Endeavor Translation
-=======
-#define JOB_VR	"VR Avatar"
->>>>>>> 9836ad8f59 (Gives VR avatars a custom job, Fixes duplicate PDAs, new VR roleplay room (#8282))
 
 //Material defines
 // Bastion of Endeavor TODO: Can't touch these without breaking stuff yet
