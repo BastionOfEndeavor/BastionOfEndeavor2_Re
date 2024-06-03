@@ -62,7 +62,11 @@ var/list/preferences_datums = list()
 	var/blood_reagents = "default"		//blood restoration reagents
 	var/backbag = 2						//backpack type
 	var/pdachoice = 1					//PDA type
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
+=======
+	//var/shoe_hater = FALSE				//RS ADD - if true, will spawn with no shoes //CHOMPRemove, remove RS No shoes
+>>>>>>> c272119398 ([MIRROR] Ports "No Shoes" from RogueStar (#8131))
 	var/h_style = "Bald"				//Hair type
 	*/
 	var/h_style = "Лысая голова"				//Hair type
