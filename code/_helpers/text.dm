@@ -80,6 +80,7 @@
 		// End of Bastion of Endeavor Unicode Edit
 
 	if(extra)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Unicode Edit
 		input = replacetext(input, new/regex("^\[\\n\]+|\[\\n\]+$", "g"), "")// strip leading and trailing new lines
 		var/temp_input = replace_characters(input, list("\n"="  ","\t"=" "))//one character is replaced by two
@@ -89,6 +90,11 @@
 		var/temp_input = replace_characters(input, list("\n"="  ","\t"=" "))//one character is replaced by two
 		if(length_char(input) < (length_char(temp_input) - 18))//18 is the number of linebreaks allowed per message
 		// End of Bastion of Endeavor Unicode Edit
+=======
+		input = replacetext(input, new/regex("^\[\\n\]+|\[\\n\]+$", "g"), "")// strip leading and trailing new lines
+		var/temp_input = replace_characters(input, list("\n"="  ","\t"=" "))//one character is replaced by two
+		if(length(input) < (length(temp_input) - 18))//18 is the number of linebreaks allowed per message
+>>>>>>> 981a1d1e48 ([MIRROR] allows to use more newline breaks for longer posts (#8503))
 			input = replace_characters(temp_input,list("  "=" "))//replace again, this time the double spaces with single ones
 
 	if(encode)
