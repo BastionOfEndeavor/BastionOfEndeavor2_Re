@@ -61,6 +61,7 @@
 #define MECH_ARMOR		"Plating"
 #define MECH_GAS		"Life Support"
 #define MECH_ELECTRIC	"Firmware"
+<<<<<<< HEAD
 */
 #define MECH_HULL		"Корпус"
 #define MECH_ACTUATOR	"Привод"
@@ -68,3 +69,7 @@
 #define MECH_GAS		"Система жизнеобеспечения"
 #define MECH_ELECTRIC	"Программное обеспечение"
 // End of Bastion of Endeavor Translation
+=======
+
+#define DRINK_ICON_FILE 'icons/pdrink.dmi'
+>>>>>>> 15863e00f8 ([MIRROR] Undefines local defines and moves global to __define (#8502))
