@@ -663,6 +663,7 @@
 	to_chat(src, span_notice("Сообщения в чате [prefs.chat_timestamp ? "теперь" : "больше не"] будут подписаны отметками времени."))
 	// End of Bastion of Endeavor Translation
 
+<<<<<<< HEAD
 /client/verb/toggle_throwmode_messages()
 	/* Bastion of Endeavor Translation
 	set name = "Toggle Throw Mode Messages"
@@ -683,6 +684,8 @@
 	to_chat(src, span_notice("Оповещения о метании [prefs.throwmode_loud ? "теперь" : "больше не"] будет отображаться для вашего персонажа."))
 	// End of Bastion of Endeavor Translation
 
+=======
+>>>>>>> bad7722d3a ([MIRROR] Revert Throw Notifs (#8756))
 /client/verb/toggle_status_indicators()
 	/* Bastion of Endeavor Translation
 	set name = "Toggle Status Indicators"
