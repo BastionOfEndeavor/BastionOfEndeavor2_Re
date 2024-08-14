@@ -389,7 +389,7 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	/* Bastion of Endeavor Translation: Augh
 	. += "<b>Blood Color: </b>" //People that want to use a certain species to have that species traits (xenochimera/promethean/spider) should be able to set their own blood color.
-	. += "<a href='?src=\ref[src];blood_color=1'>Set Color</a>"
+	. += "<a href='?src=\ref[src];blood_color=1'>Set Color <font color='[pref.blood_color]'>&#9899;</font></a>"
 	. += "<a href='?src=\ref[src];blood_reset=1'>R</a><br>"
 	. += "<b>Blood Reagent: </b>"	//Wanna be copper-based? Go ahead.
 	. += "<a href='?src=\ref[src];blood_reagents=1'>[pref.blood_reagents]</a><br>"
@@ -491,6 +491,7 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 		return TOPIC_REFRESH
 
 	else if(href_list["blood_reset"])
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		var/choice = tgui_alert(user, "Reset blood color to human default (#A10808)?","Reset Blood Color",list("Reset","Cancel")) //ChompEDIT - usr removal
 		if(choice == "Reset")
@@ -499,6 +500,13 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 		if(choice == "Сбросить")
 		// End of Bastion of Endeavor Translation
 			pref.blood_color = "#A10808"
+=======
+		var/datum/species/spec = GLOB.all_species[pref.species]
+		var/new_blood = spec.blood_color ? spec.blood_color : "#A10808"
+		var/choice = tgui_alert(user, "Reset blood color to species default ([new_blood])?","Reset Blood Color",list("Reset","Cancel")) //ChompEDIT - usr removal
+		if(choice == "Reset")
+			pref.blood_color = new_blood
+>>>>>>> adb32ccdca ([MIRROR] Fixes species blood color (#8764))
 		return TOPIC_REFRESH
 
 	else if(href_list["blood_reagents"])
