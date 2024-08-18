@@ -51,15 +51,11 @@
 			var/channel = href_list["change_volume"]
 			if(!(channel in pref.volume_channels))
 				pref.volume_channels["[channel]"] = 1
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			var/value = tgui_input_number(usr, "Choose your volume for [channel] (0-200%)", "[channel] volume", (pref.volume_channels[channel] * 100), 200, 0)
-			*/
-			var/value = tgui_input_number(usr, "Укажите громкость (0-200%):", "[channel]", (pref.volume_channels[channel] * 100), 200, 0)
-			// End of Bastion of Endeavor Translation
-=======
 			var/value = tgui_input_number(user, "Choose your volume for [channel] (0-200%)", "[channel] volume", (pref.volume_channels[channel] * 100), 200, 0) //ChompEDIT - usr removal
->>>>>>> 8d04b28ec2 (Remove many incorrect uses of usr (#8296))
+			*/
+			var/value = tgui_input_number(user, "Укажите громкость (0-200%):", "[channel]", (pref.volume_channels[channel] * 100), 200, 0)
+			// End of Bastion of Endeavor Translation
 			if(isnum(value))
 				value = CLAMP(value, 0, 200)
 				pref.volume_channels["[channel]"] = (value / 100)
