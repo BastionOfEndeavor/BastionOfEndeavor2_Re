@@ -5087,5 +5087,9 @@
 #include "modular_chomp\maps\submaps\surface_submaps\valleyend\valleyend_areas.dm"
 #include "modular_chomp\maps\submaps\surface_submaps\wilderness\wilderness.dm"
 #include "modular_chomp\maps\submaps\surface_submaps\wilderness\wilderness_areas.dm"
+<<<<<<< HEAD
 #include "russian\_includes_ru.dm"
+=======
+#include "modular_chomp/code/modules/mob/living/silicon/robot/sprites/syndicate.dm"
+>>>>>>> 47b95dad04 (updating DME to allow syndie dullahans show in selection menu (bugfix)) (#8810))
 // END_INCLUDE
