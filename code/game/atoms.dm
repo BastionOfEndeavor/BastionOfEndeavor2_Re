@@ -96,22 +96,16 @@
 	if(QDELETED(src))
 		/* Bastion of Endeavor Translation
 		stack_trace("GC: -- [type] had initialize() called after qdel() --")
-<<<<<<< HEAD
 		*/
 		stack_trace("Мусоросборщик: [type] вызвал initialize() после qdel().")
 		// End of Bastion of Endeavor Translation
-	if(initialized)
+	if(flags & ATOM_INITIALIZED) //CHOMPEdit moved initialized to flag
 		/* Bastion of Endeavor Translation
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 		*/
 		stack_trace("Внимание: [src] ([type]) инициализирован несколько раз!")
 		// End of Bastion of Endeavor Translation
-	initialized = TRUE
-=======
-	if(flags & ATOM_INITIALIZED) //CHOMPEdit moved initialized to flag
-		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags |= ATOM_INITIALIZED //CHOMPEdit moved initialized to flag
->>>>>>> cf1db3c049 (Memory tracking shenanigans (#8359))
 	return INITIALIZE_HINT_NORMAL
 
 /atom/Destroy()
