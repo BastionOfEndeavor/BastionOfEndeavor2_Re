@@ -158,16 +158,12 @@ SUBSYSTEM_DEF(plants)
 
 // Debug for testing seed genes.
 /client/proc/show_plant_genes()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	set category = "Debug"
-=======
 	set category = "Debug.Investigate" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	set name = "Show Plant Genes"
 	set desc = "Prints the round's plant gene masks."
 	*/
-	set category = "Отладка"
+	set category = "Отладка.Мониторинг"
 	set name = "Показать гены растений"
 	set desc = "Отобразить генетические маски растений в этом раунде."
 	// End of Bastion of Endeavor Translation

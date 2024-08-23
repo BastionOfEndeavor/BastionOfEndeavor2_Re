@@ -98,16 +98,12 @@
 	// End of Bastion of Endeavor Translation
 
 /client/proc/debug_antagonist_template(antag_type in all_antag_types)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	set category = "Debug"
-=======
 	set category = "Debug.Investigate" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	set name = "Debug Antagonist"
 	set desc = "Debug an antagonist template."
 	*/
-	set category = "Отладка"
+	set category = "Отладка.Мониторинг"
 	set name = "Отладка антагониста"
 	set desc = "Провести отладку шаблона антагониста."
 	// End of Bastion of Endeavor Translation
@@ -122,16 +118,12 @@
 		// End of Bastion of Endeavor Translation
 
 /client/proc/debug_controller()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	set category = "Debug"
-=======
 	set category = "Debug.Investigate" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	set name = "Debug Controller"
 	set desc = "Debug the various subsystems/controllers for the game (be careful!)"
 	*/
-	set category = "Отладка"
+	set category = "Отладка.Мониторинг"
 	set name = "Отладка контроллера"
 	set desc = "Провести отладку подсистем/контроллеров игры (будьте осторожны!)"
 	// End of Bastion of Endeavor Translation

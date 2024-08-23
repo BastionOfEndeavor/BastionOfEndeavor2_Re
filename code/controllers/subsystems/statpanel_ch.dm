@@ -166,16 +166,11 @@ SUBSYSTEM_DEF(statpanels)
 
 	target.stat_panel.send_message("update_stat", list(
 		global_data = global_data,
-<<<<<<< HEAD
-		//ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
 		/* Bastion of Endeavor Translation
-		ping_str = "Ping: -- Not Available --",
-		*/
-		ping_str = "Пинг: -- Недоступен --",
-		// End of Bastion of Endeavor Translation
-=======
 		ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
+		*/
+		ping_str = "Пинг: [round(target.lastping, 1)] мс (Средний: [round(target.avgping, 1)] мс)",
+		// End of Bastion of Endeavor Translation
 		other_str = target.mob?.get_status_tab_items(),
 	))
 

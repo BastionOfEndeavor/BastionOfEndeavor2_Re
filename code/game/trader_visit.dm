@@ -78,14 +78,11 @@ var/can_call_traders = 1
 
 	/* Bastion of Endeavor Translation
 	set name = "Join Trader Visit"
-<<<<<<< HEAD
+	set category = "IC.Event" //CHOMPEdit
 	*/
 	set name = "Присоединиться к торговцам"
+	set category = "IC.События"
 	// End of Bastion of Endeavor Translation
-	set category = "IC"
-=======
-	set category = "IC.Event" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 
 	if(!MayRespawn(1))
 		/* Bastion of Endeavor Translation

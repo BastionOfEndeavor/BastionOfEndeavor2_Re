@@ -90,15 +90,11 @@ var/silent_ert = 0
 
 	/* Bastion of Endeavor Translation
 	set name = "Join Response Team"
-<<<<<<< HEAD
-	set category = "IC"
+	set category = "IC.Event" //CHOMPEdit
 	*/
 	set name = "Присоединиться к ОБР"
-	set category = "IC"
+	set category = "IC.События"
 	// End of Bastion of Endeavor Translation
-=======
-	set category = "IC.Event" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 
 	if(!MayRespawn(1))
 		/* Bastion of Endeavor Translation

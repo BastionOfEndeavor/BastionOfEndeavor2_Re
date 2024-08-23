@@ -616,14 +616,11 @@ SUBSYSTEM_DEF(vote)
 	usr.client.vote()
 
 /client/verb/vote()
-<<<<<<< HEAD
-	set category = "OOC"
 	/* Bastion of Endeavor Translation
-=======
 	set category = "OOC.Game" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	set name = "Vote"
 	*/
+	set category = "OOC.Игра"
 	set name = "Голосование"
 	// End of Bastion of Endeavor Translation
 

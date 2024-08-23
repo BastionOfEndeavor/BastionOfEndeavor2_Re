@@ -2,16 +2,12 @@
 /client/verb/ooc(msg as text)
 	/* Bastion of Endeavor Translation
 	set name = "OOC"
-<<<<<<< HEAD
-	set category = "OOC"
+	set category = "OOC.Chat" //CHOMPEdit
 	*/
 	set name = "Чат OOC"
-	set category = "OOC"
+	set category = "OOC.Чат"
 	set desc = "Отправить сообщение в неролевой чат OOC, видимое всем игрокам."
 	// End of Bastion of Endeavor Translation
-=======
-	set category = "OOC.Chat" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 
 	if(say_disabled)	//This is here to try to identify lag problems
 		/* Bastion of Endeavor Translation
@@ -142,16 +138,12 @@
 	/* Bastion of Endeavor Translation
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
-<<<<<<< HEAD
-	set category = "OOC"
+	set category = "OOC.Chat" //CHOMPEdit
 	*/
 	set name = "Чат LOOC"
 	set desc = "Отправить сообщение в неролевой чат OOC, видимое только для игроков на вашем экране."
-	set category = "OOC"
+	set category = "OOC.Чат"
 	// End of Bastion of Endeavor Translation
-=======
-	set category = "OOC.Chat" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 
 	if(say_disabled)	//This is here to try to identify lag problems
 		/* Bastion of Endeavor Translation

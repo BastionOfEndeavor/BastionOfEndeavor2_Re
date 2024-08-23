@@ -11,14 +11,11 @@
 /client/verb/fix_tgui_panel()
 	/* Bastion of Endeavor Translation
 	set name = "Fix chat"
-<<<<<<< HEAD
+	set category = "OOC.Debug" //CHOMPEdit
 	*/
 	set name = "Починить чат"
+	set category = "OOC.Отладка"
 	// End of Bastion of Endeavor Translation
-	set category = "OOC"
-=======
-	set category = "OOC.Debug" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	var/action
 	/* Bastion of Endeavor Translation
 	log_tgui(src, "Started fixing.", context = "verb/fix_tgui_panel")
@@ -64,15 +61,11 @@
 /client/verb/refresh_tgui()
 	/* Bastion of Endeavor Translation
 	set name = "Refresh TGUI"
-<<<<<<< HEAD
-	set category = "OOC"
+	set category = "OOC.Debug" //CHOMPEdit
 	*/
 	set name = "Обновить окна TGUI"
-	set category = "OOC"
+	set category = "OOC.Отладка"
 	// End of Bastion of Endeavor Translation
-=======
-	set category = "OOC.Debug" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 
 	for(var/window_id in tgui_windows)
 		var/datum/tgui_window/window = tgui_windows[window_id]

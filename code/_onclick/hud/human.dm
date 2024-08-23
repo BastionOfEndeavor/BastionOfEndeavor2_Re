@@ -503,15 +503,12 @@
 	HUD.inventory_shown = 0
 
 /mob/living/carbon/human/verb/toggle_hotkey_verbs()
-<<<<<<< HEAD
-	set category = "OOC"
 	/* Bastion of Endeavor Translation
-=======
 	set category = "OOC.Client Settings" //CHOMPEdit
->>>>>>> e28fa96705 (Tg panel patch 2 (#8085))
 	set name = "Toggle hotkey buttons"
 	set desc = "This disables or enables the user interface buttons which can be used with hotkeys."
 	*/
+	set category = "OOC.Настройки клиента"
 	set name = "Отображение хоткейных клавиш"
 	set desc = "Скрыть/отобразить на интерфейсе кнопки, используемые через хоткеи."
 	// End of Bastion of Endeavor Translation
