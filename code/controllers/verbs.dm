@@ -68,7 +68,7 @@
 	set desc = "Restart one of the various periodic loop controllers for the game (be careful!)"
 */
 /client/proc/restart_controller(controller in list("Главный", "Проверочный"))
-	set category = "Отладка"
+	set category = "Отладка.Опасное"
 	set name = "Перезапустить контроллер"
 	set desc = "Перезапустить один из контроллеров цикла игры (будьте осторожны!)."
 // End of Bastion of Endeavor Translation

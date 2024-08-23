@@ -10,7 +10,7 @@ var/can_call_traders = 1
 	set desc = "Invite players to join the Beruang."
 	*/
 	set name = "Отправить Беруанг"
-	set category = "Особые глаголы"
+	set category = "Веселье.События"
 	set desc = "Пригласить игроков присоединиться к Беруангу."
 	// End of Bastion of Endeavor Translation
 

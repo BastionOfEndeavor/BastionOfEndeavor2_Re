@@ -14,7 +14,7 @@ var/silent_ert = 0
 	set desc = "Send an emergency response team to the station"
 	*/
 	set name = "Отправить ОБР"
-	set category = "Особые глаголы"
+	set category = "Веселье.События"
 	set desc = "Отправить на станцию отряд быстрого реагирования."
 	// End of Bastion of Endeavor Translation
 
