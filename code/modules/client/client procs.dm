@@ -633,7 +633,6 @@
 /client/verb/character_setup()
 	/* Bastion of Endeavor Translation
 	set name = "Character Setup"
-	set category = "Preferences"
 	set category = "Preferences.Character" //CHOMPEdit
 	*/
 	set name = "Редактор персонажа"

@@ -4,7 +4,6 @@
 	set name = "Toggle Inquisitiveness"
 	set desc = "Sets whether your ghost examines everything on click by default"
 	set category = "Ghost.Settings" //CHOMPEdit
-	set category = "Ghost"
 	*/
 	set name = "Переключить любознательность"
 	set desc = "Переключить осмотр вашим призраком всего, на что вы нажимаете."

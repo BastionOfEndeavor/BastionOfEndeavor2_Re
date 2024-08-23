@@ -6,7 +6,7 @@
 	set desc = "Toggles between seeing all mob speech and only nearby mob speech as an observer."
 	*/
 	set name = "Призрачный слух"
-	set category = "Предпочтения.Режим призрака"
+	set category = "Предпочтения.Чат"
 	set desc = "Позволяет слышать в режиме призрака речь всех существ или только тех, кто на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -31,7 +31,7 @@
 	set desc = "Toggles between seeing all mob emotes and only nearby mob emotes as an observer."
 	*/
 	set name = "Призрачное зрение"
-	set category = "Предпочтения.Режим призрака"
+	set category = "Предпочтения.Чат"
 	set desc = "Позволяет видеть в режиме призрака текстовые действия всех существ или только тех, кто на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -56,7 +56,7 @@
 	set desc = "Toggles between seeing all radio chat and only nearby radio chatter as an observer."
 	*/
 	set name = "Призрачная рация"
-	set category = "Предпочтения.Режим призрака"
+	set category = "Предпочтения.Чат"
 	set desc = "Позволяет слышать в режиме призрака всю речь по рации или только ту, что на вашем экране."
 	// End of Bastion of Endeavor Translation
 
@@ -106,7 +106,7 @@
 	set desc = "Toggles visibility of global out of character chat."
 	*/
 	set name = "Отображение чата OOC"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Чат"
 	set desc = "Переключить отображение глобального чата OOC."
 	// End of Bastion of Endeavor Translation
 
@@ -131,7 +131,7 @@
 	set desc = "Toggles visibility of local out of character chat."
 	*/
 	set name = "Отображение чата LOOC"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Чат"
 	set desc = "Переключить отображение локального чата LOOC."
 	// End of Bastion of Endeavor Translation
 
@@ -156,7 +156,7 @@
 	set desc = "Toggles whether objects placed on table will be on cursor position or centered."
 	*/
 	set name = "Точное размещение"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить размещение вами предметов на столе между положением под курсором и точным центром стола."
 	// End of Bastion of Endeavor Translation
 
@@ -181,7 +181,7 @@
 	set desc = "Toggles you having the speech bubble typing indicator."
 	*/
 	set name = "Индикатор набора текста"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить отображение вашего облачка речи при наборе текста."
 	// End of Bastion of Endeavor Translation
 
@@ -381,7 +381,7 @@
 	set desc = "Toggles which special roles you would like to be a candidate for, during events."
 	*/
 	set name = "Кандидатура на особые роли"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Персонаж"
 	set desc = "Позволяет выбрать, на какие особые роли выставить вашу кандидатуру во время событий."
 	// End of Bastion of Endeavor Translation
 
@@ -531,7 +531,7 @@
 	set desc = "Toggles between safe and dangerous firing. Safe requires a non-help intent to fire, dangerous can be fired on help intent."
 	*/
 	set name = "Режим огнестрельного оружия"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить возможность оружия стрелять при намерении Помочь."
 	// End of Bastion of Endeavor Translation
 
@@ -555,7 +555,7 @@
 */
 /client/verb/toggle_mob_tooltips()
 	set name = "Всплывающие подсказки существ"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить отображение имени и расы существ при наведении на них курсором."
 // End of Bastion of Endeavor Translation
 
@@ -579,7 +579,7 @@
 	set desc = "Toggles displaying name/desc over items when they are moused over (only applies in inventory)."
 	*/
 	set name = "Всплывающие подсказки в инвентаре"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить отображение имени и описания предметов в инвентаре при наведении на них курсором."
 	// End of Bastion of Endeavor Translation
 
@@ -625,7 +625,7 @@
 	set desc = "Toggles TGChat. Reloading TGChat and/or reconnecting required to affect changes."
 	*/
 	set name = "Переключить TGChat"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Чат"
 	set desc = "Включить или отключить TGChat. Для применения настройки требуется перезагрузить VChat или переподключиться."
 	// End of Bastion of Endeavor Translation
 
@@ -650,7 +650,7 @@
 	set desc = "Toggles whether or not messages in chat will display timestamps. Enabling this will not add timestamps to messages that have already been sent."
 	*/
 	set name = "Отметки времени"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Чат"
 	set desc = "Переключить отображение отметок времени в сообщениях чата."
 	// End of Bastion of Endeavor Translation
 
@@ -670,7 +670,7 @@
 	set desc = "Toggles whether or not activating throw mode (hotkey: R) will announce you're preparing to throw your current handheld item, or catch an incoming item if your hand is empty."
 	*/
 	set name = "Оповещения о метании"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Чат"
 	set desc = "Переключить отображение предупреждений о вашей готовности метнуть предмет в вашей руке или поймать что-либо в пустую."
 	// End of Bastion of Endeavor Translation
 
@@ -690,7 +690,7 @@
 	set desc = "Toggles seeing status indicators over peoples' heads."
 	*/
 	set name = "Индикаторы состояния"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить отображение индикаторов состояния над головами существ."
 	// End of Bastion of Endeavor Translation
 
@@ -802,7 +802,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggle the display of vore related health bars"
 	*/
 	set name = "Шкалы здоровья при Vore"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Vore"
 	set desc = "Переключить отображение шкал здоровья в процессе Vore."
 	// End of Bastion of Endeavor Translation
 
@@ -810,7 +810,11 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	toggle_preference(pref_path)
 	SScharacter_setup.queue_preferences_save(prefs)
 
+	/* Bastion of Endeavor Translation
 	to_chat(src, "Vore related health bars - [(is_preference_enabled(/datum/client_preference/vore_health_bars)) ? "Enabled" : "Disabled"]")
+	*/
+	to_chat(src, "Вы [(is_preference_enabled(/datum/client_preference/vore_health_bars)) ? "включили" : "отключили"] отображение шкал здоровья в процессах Vore.")
+	// End of Bastion of Endeavor Translation
 
 	feedback_add_details("admin_verb","TVoreHealthBars")
 
@@ -822,7 +826,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggle the additional behaviour of examining things."
 	*/
 	set name = "Режим осмотра"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Игра"
 	set desc = "Переключить режим глагола Осмотреть."
 	// End of Bastion of Endeavor Translation
 
@@ -856,7 +860,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggle the behaviour of multilingual speech parsing."
 	*/
 	set name = "Режим многоязычия"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Персонаж"
 	set desc = "Переключить режим обработки речи на нескольких языках сразу."
 	// End of Bastion of Endeavor Translation
 
@@ -894,7 +898,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing debug logs."
 	*/
 	set name = "Лог отладки"
-	set category = "Предпочтения.Администрация"
+	set category = "Предпочтения.Администратор"
 	set desc = "Переключить отображение в чате сообщений лога отладки."
 	// End of Bastion of Endeavor Translation
 
@@ -919,7 +923,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing attack logs."
 	*/
 	set name = "Лог атак"
-	set category = "Предпочтения.Администрация"
+	set category = "Предпочтения.Администратор"
 	set desc = "Переключить отображение в чате сообщений лога атак."
 	// End of Bastion of Endeavor Translation
 
@@ -944,7 +948,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing LOOC messages outside your actual LOOC range."
 	*/
 	set name = "Глобальный LOOC"
-	set category = "Предпочтения.Администрация"
+	set category = "Предпочтения.Администратор"
 	set desc = "Переключить способность видеть сообщения LOOC с любой точки карты."
 	// End of Bastion of Endeavor Translation
 
@@ -968,7 +972,7 @@ CHOMPRemove. Bundled voice sounds into emote/whisper/subtle. Going this extra le
 	set desc = "Toggles seeing deadchat while not observing."
 	*/
 	set name = "Отображение чата мёртвых в игре"
-	set category = "Предпочтения.Администрация"
+	set category = "Предпочтения.Администратор"
 	set desc = "Переключить способность видеть чат мёртвых вне режима призрака."
 	// End of Bastion of Endeavor Translation
 

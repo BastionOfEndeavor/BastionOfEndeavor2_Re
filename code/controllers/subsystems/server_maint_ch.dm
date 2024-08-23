@@ -1,7 +1,11 @@
 #define PING_BUFFER_TIME 25
 
 SUBSYSTEM_DEF(server_maint)
+	/* Bastion of Endeavor Translation
 	name = "Server Tasks"
+	*/
+	name = "Серверные подзадачи"
+	// End of Bastion of Endeavor Translation
 	wait = 6
 	flags = SS_POST_FIRE_TIMING
 	priority = FIRE_PRIORITY_SERVER_MAINT
@@ -47,7 +51,11 @@ SUBSYSTEM_DEF(server_maint)
 /datum/controller/subsystem/server_maint/fire(resumed = FALSE)
 	if(!resumed)
 		if(list_clear_nulls(GLOB.clients))
+			/* Bastion of Endeavor Translation
 			log_world("Found a null in clients list!")
+			*/
+			log_world("Нулевая запись в списке клиентов!")
+			// End of Bastion of Endeavor Translation
 		src.currentrun = GLOB.clients.Copy()
 
 		var/position_in_loop = (cleanup_ticker / delay) + 1	 //Index at 1, thanks byond
@@ -55,7 +63,11 @@ SUBSYSTEM_DEF(server_maint)
 		if(!(position_in_loop % 1)) //If it's a whole number
 			var/listname = lists_to_clear[position_in_loop]
 			if(list_clear_nulls(lists_to_clear[listname]))
+				/* Bastion of Endeavor Translation
 				log_world("Found a null in [listname]!")
+				*/
+				log_world("Нулевая запись в списке [listname]!")
+				// End of Bastion of Endeavor Translation
 
 		cleanup_ticker++
 

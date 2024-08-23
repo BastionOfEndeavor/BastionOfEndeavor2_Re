@@ -5,7 +5,7 @@
 	set desc = "Makes OOC and Deadchat messages from a specific player not appear to you."
 	*/
 	set name = "Заблокировать игрока"
-	set category = "OOC"
+	set category = "OOC.Настройки чата"
 	set desc = "Скрывать все сообщения в чате OOC и чате мёртвых от определённого игрока."
 	// End of Bastion of Endeavor Translation
 

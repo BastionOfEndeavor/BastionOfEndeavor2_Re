@@ -15,7 +15,7 @@
 	set desc = "Toggles whether or not emotes with sound you make will have random pitch."
 	*/
 	set name = "Случайный тон озвученных действий"
-	set category = "Предпочтения.Звуки"
+	set category = "Предпочтения.Персонаж"
 	set desc = "Переключить случайное изменение высоты голоса при озвученных действиях."
 	// End of Bastion of Endeavor Translation
 
@@ -40,7 +40,7 @@
 	set desc = "Toggles whether or not your death with a backup implant will automatically trigger a transcore notification after a few minutes."
 	*/
 	set name = "Автоматическое уведомление трансядра"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Персонаж"
 	set desc = "Переключить автоматическое уведомление трансядра в случае вашей смерти с имплантатом резервного копирования."
 	// End of Bastion of Endeavor Translation
 
