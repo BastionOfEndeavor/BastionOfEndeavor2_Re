@@ -121,7 +121,7 @@
 	set desc = "Allows you to adjust volume levels on the fly."
 	*/
 	set name = "Микшер"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Звуки"
 	set desc = "Позволяет регулировать громкость игры."
 	// End of Bastion of Endeavor Translation
 

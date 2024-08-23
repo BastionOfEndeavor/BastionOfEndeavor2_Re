@@ -43,7 +43,7 @@
 	set desc = "Reverts your ignoring of a specific player."
 	*/
 	set name = "Разблокировать игрока"
-	set category = "OOC"
+	set category = "OOC.Настройки чата"
 	set desc = "Перестать скрывать сообщения заблокированного вами игрока."
 	// End of Bastion of Endeavor Translation
 

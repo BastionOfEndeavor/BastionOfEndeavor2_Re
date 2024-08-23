@@ -6,7 +6,7 @@
 	var/msg = "<b>Current Players:</b>\n"
 	*/
 	set name = "Кто онлайн"
-	set category = "OOC"
+	set category = "OOC.Информация"
 	set desc = "Показать, кто сейчас подключён к серверу."
 	var/msg = "<b>Игроки онлайн:</b>\n"
 	// End of Bastion of Endeavor Translation
