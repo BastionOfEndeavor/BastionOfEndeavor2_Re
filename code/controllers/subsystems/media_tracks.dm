@@ -326,7 +326,11 @@ SUBSYSTEM_DEF(media_tracks)
 		return
 	var/datum/track/T = new(new_url, new_title, new_duration, new_artist, new_genre, new_secret, new_lobby)
 	all_tracks += T
+	/* Bastion of Endeavor Translation
 	report_progress("Media track added by [user]: [T.title]")
+	*/
+	report_progress("Пользователь [user] добавил музыкальный трек: [T.title]")
+	// End of Bastion of Endeavor Translation
 	sort_tracks()
 	return
 
@@ -337,7 +341,11 @@ SUBSYSTEM_DEF(media_tracks)
 	if(!T)
 		return
 
+	/* Bastion of Endeavor Translation
 	report_progress("Media track removed by [user]: [T.title]")
+	*/
+	report_progress("Пользователь [user] удалил музыкальный трек: [T.title]")
+	// End of Bastion of Endeavor Translation
 	all_tracks -= T
 	qdel(T)
 	sort_tracks()
