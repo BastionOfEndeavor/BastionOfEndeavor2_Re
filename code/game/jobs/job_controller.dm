@@ -624,18 +624,15 @@ var/global/datum/controller/occupations/job_master
 		// If some custom items could not be equipped before, try again now.
 		for(var/thing in custom_equip_leftovers)
 			var/datum/gear/G = gear_datums[thing]
-<<<<<<< HEAD
 			// Bastion of Endeavor Addition: Same thing as above
 			var/thing_obj
 			if(ispath(G.path))
 				thing_obj = new G.path // in which we fetch the obj the datum is linked to
 			// End of Bastion of Endeavor Addition
-=======
 			/* CHOMPRemove Start, remove RS No shoes
 			if(G.slot == slot_shoes && H.client?.prefs?.shoe_hater)	//RS ADD
 				continue
 			*///CHOMPRemove End, remove RS No shoes
->>>>>>> c272119398 ([MIRROR] Ports "No Shoes" from RogueStar (#8131))
 			if(G.slot in custom_equip_slots)
 				spawn_in_storage += thing
 			else
