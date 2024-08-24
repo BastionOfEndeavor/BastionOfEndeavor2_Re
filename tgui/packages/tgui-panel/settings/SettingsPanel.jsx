@@ -156,14 +156,6 @@ export const SettingsGeneral = (props) => {
             </Stack.Item>
             <Stack.Item>
               <Button
-<<<<<<< HEAD
-                /* Bastion of Endeavor Translation
-                content="Custom font"
-                */
-                content="Особый"
-                /* End of Bastion of Endeavor Translation */
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
                 icon={freeFont ? 'lock-open' : 'lock'}
                 color={freeFont ? 'good' : 'bad'}
                 ml={1}
@@ -171,7 +163,11 @@ export const SettingsGeneral = (props) => {
                   setFreeFont(!freeFont);
                 }}
               >
+                {/* Bastion of Endeavor Translation
                 Custom font
+                */}
+                Особый
+                {/* End of Bastion of Endeavor Translation */}
               </Button>
             </Stack.Item>
           </Stack>
@@ -232,11 +228,7 @@ export const SettingsGeneral = (props) => {
           {/* End of Bastion of Endeavor Translation */}
           <Button.Checkbox
             checked={showReconnectWarning}
-<<<<<<< HEAD
-            content=""
             /* Bastion of Endeavor Translation
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="Unchecking this will disable the red afk/reconnection warning bar at the bottom of the chat."
             */
             tooltip="При снятии галочки вы больше не будете получать уведомление об отсоединении от сервера."
@@ -258,11 +250,7 @@ export const SettingsGeneral = (props) => {
           {/* End of Bastion of Endeavor Translation */}
           <Button.Checkbox
             checked={interleave}
-<<<<<<< HEAD
-            content=""
             /* Bastion of Endeavor Translation
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="Enabling this will interleave messages."
            */
             tooltip="При включенной настройке фон сообщений будет чередовать цвет."
@@ -300,11 +288,7 @@ export const SettingsGeneral = (props) => {
           {/* End of Bastion of Endeavor Translation */}
           <Button.Checkbox
             checked={prependTimestamps}
-<<<<<<< HEAD
-            content=""
             /* Bastion of Endeavor Translation
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="Enabling this will prepend timestamps to all messages."
            */
             tooltip="При включенной настройке перед сообщениями будет отображаться отметка времени отправки."
@@ -854,19 +838,15 @@ const TextHighlightSettings = (props) => {
               <Button
                 color="transparent"
                 icon="plus"
-<<<<<<< HEAD
-                /* Bastion of Endeavor Translation
-                content="Add Highlight Setting"
-                */
-                content="Добавить критерии выделения"
-                /* End of Bastion of Endeavor Translation */
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
                 onClick={() => {
                   dispatch(addHighlightSetting());
                 }}
               >
+                {/* Bastion of Endeavor Translation
                 Add Highlight Setting
+                */}
+                Добавить критерии выделения
+                {/* End of Bastion of Endeavor Translation */}
               </Button>
             </Flex.Item>
           )}
@@ -911,14 +891,6 @@ const TextHighlightSetting = (props) => {
       <Flex mb={1} color="label" align="baseline">
         <Flex.Item grow>
           <Button
-<<<<<<< HEAD
-            /* Bastion of Endeavor Translation
-            content="Delete"
-            */
-            content="Удалить"
-            /* End of Bastion of Endeavor Translation */
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             color="transparent"
             icon="times"
             onClick={() =>
@@ -929,20 +901,19 @@ const TextHighlightSetting = (props) => {
               )
             }
           >
+            {/* Bastion of Endeavor Translation
             Delete
+            */}
+            Удалить
+            {/* End of Bastion of Endeavor Translation */}
           </Button>
         </Flex.Item>
         <Flex.Item>
           <Button.Checkbox
             checked={highlightBlacklist}
-<<<<<<< HEAD
             /* Bastion of Endeavor Translation
-            content="Highlight Blacklist"
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="If this option is selected, you can blacklist senders not to highlight their messages."
             */
-            content="Исключения"
             tooltip="Позволяет указать отправителей, сообщения которых не будут выделяться."
             /* End of Bastion of Endeavor Translation */
             mr="5px"
@@ -955,20 +926,19 @@ const TextHighlightSetting = (props) => {
               )
             }
           >
+            {/* Bastion of Endeavor Translation
             Highlight Blacklist
+            */}
+            Исключения
+            {/* End of Bastion of Endeavor Translation */}
           </Button.Checkbox>
         </Flex.Item>
         <Flex.Item>
           <Button.Checkbox
             checked={highlightWholeMessage}
-<<<<<<< HEAD
             /* Bastion of Endeavor Translation
-            content="Whole Message"
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="If this option is selected, the entire message will be highlighted in yellow."
             */
-            content="Выделять целиком"
             tooltip="Позволяет выделять всё сообщение целиком."
             /* End of Bastion of Endeavor Translation */
             mr="5px"
@@ -981,19 +951,15 @@ const TextHighlightSetting = (props) => {
               )
             }
           >
+            {/* Bastion of Endeavor Translation
             Whole Message
+            */}
+            Выделять целиком
+            {/* End of Bastion of Endeavor Translation */}
           </Button.Checkbox>
         </Flex.Item>
         <Flex.Item>
           <Button.Checkbox
-<<<<<<< HEAD
-            /* Bastion of Endeavor Translation
-            content="Exact"
-            */
-            content="Точное совпадение"
-            /* End of Bastion of Endeavor Translation */
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             checked={matchWord}
             tooltipPosition="bottom-start"
             /* Bastion of Endeavor Translation
@@ -1010,19 +976,18 @@ const TextHighlightSetting = (props) => {
               )
             }
           >
+            {/* Bastion of Endeavor Translation
             Exact
+            */}
+            Точное совпадение
+            {/* End of Bastion of Endeavor Translation */}
           </Button.Checkbox>
         </Flex.Item>
         <Flex.Item>
           <Button.Checkbox
-<<<<<<< HEAD
             /* Bastion of Endeavor Translation
-            content="Case"
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="If this option is selected, the highlight will be case-sensitive."
             */
-            content="Регистр"
             tooltip="Переключает чувствительность к регистру текста."
             /* End of Bastion of Endeavor Translation */
             checked={matchCase}
@@ -1035,7 +1000,11 @@ const TextHighlightSetting = (props) => {
               )
             }
           >
+            {/* Bastion of Endeavor Translation
             Case
+            */}
+            Регистр
+            {/* End of Bastion of Endeavor Translation */}
           </Button.Checkbox>
         </Flex.Item>
         <Flex.Item shrink={0}>
@@ -1111,11 +1080,7 @@ export const AdminSettings = (props) => {
           {/* End of Bastion of Endeavor Translation */}
           <Button.Checkbox
             checked={hideImportantInAdminTab}
-<<<<<<< HEAD
-            content=""
             /* Bastion of Endeavor Translation
-=======
->>>>>>> 089ba29c49 ([MIRROR] more ui fixes... (#8411))
             tooltip="Enabling this will hide all important messages in admin filter exclusive tabs."
             */
             tooltip="Позволяет скрывать все важные сообщения в вкладках только с фильтрами для администрации."
