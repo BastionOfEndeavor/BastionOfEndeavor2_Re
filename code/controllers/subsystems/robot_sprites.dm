@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: Maybe update this once mobs and borgs are localized
-#define DEFAULT_ROBOT_SPRITE_NAME "M-USE NanoTrasen"
-*/
-#define DEFAULT_ROBOT_SPRITE_NAME "M-USE NanoTrasen"
-// End of Bastion of Endeavor Translation
-
-=======
->>>>>>> 15863e00f8 ([MIRROR] Undefines local defines and moves global to __define (#8502))
 SUBSYSTEM_DEF(robot_sprites)
 	/* Bastion of Endeavor Translation
 	name = "Robot Sprites"
