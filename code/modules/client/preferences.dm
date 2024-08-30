@@ -611,6 +611,10 @@ var/list/preferences_datums = list()
 		// End of Bastion of Endeavor Translation
 		return
 
-	overwrite_character(slotnum)
-	sanitize_preferences()
-	ShowChoices(user)
+	if(tgui_alert(user, "Are you sure you want to override slot [slotnum], [name][nickname ? " ([nickname])" : ""]'s savedata?", "Confirm Override", list("No", "Yes")) == "Yes")
+		overwrite_character(slotnum)
+		sanitize_preferences()
+		save_preferences()
+		save_character()
+		attempt_vr(user.client?.prefs_vr,"load_vore","")
+		ShowChoices(user)
