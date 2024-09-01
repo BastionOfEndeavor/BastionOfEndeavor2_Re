@@ -16,13 +16,11 @@
 	var/voice_freq = 42500	//CHOMPEdit - Why was the default 0
 	var/voice_sound = "goon speak 1"	//CHOMPEdit - Changed the default voice to one less jarring
 	var/custom_speech_bubble = "default"
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-=======
 	var/custom_footstep = "Default"	// CHOMPAdd
->>>>>>> f9abe972d2 (Custom Footstep sounds (#8695))
 	var/species_sound = "Unset"		// CHOMPEdit: Use default species pain/scream sounds based off icon base if none set, override otherwise
 	*/
+	var/custom_footstep = "По умолчанию"
 	var/species_sound = "Не установлено"
 	// End of Bastion of Endeavor Translation
 
@@ -168,6 +166,7 @@
 	. += "Звук голоса: <a href='?src=\ref[src];voice_sounds_list=1'>[get_key_by_value(possible_voice_types_ru, pref.voice_sound)]</a><br>"
 	. += "<a href='?src=\ref[src];voice_test=1'><b>Прослушать голос</b></a><br>"
 	. += "Облачко речи: <a href='?src=\ref[src];customize_speech_bubble=1'>[get_key_by_value(selectable_speech_bubbles_ru, pref.custom_speech_bubble)]</a><br>"
+	. += "Звук шагов:<a href='?src=\ref[src];customize_footsteps=1'>[get_key_by_value(selectable_footstep_ru, pref.custom_footstep)]</a><br>"
 	// CHOMPEdit Start: Pain/Scream/Death Custom Sounds
 	// var/datum/species/selected_species = GLOB.all_species[pref.species]
 	// if(selected_species.selects_bodytype)
@@ -324,7 +323,6 @@
 		else
 			pref.voice_sound = choice
 		return TOPIC_REFRESH
-<<<<<<< HEAD
 		*/
 		var/choice = tgui_input_list(user, "Укажите набор звуков, используемый для речи вашего персонажа:", "Голос персонажа", possible_voice_types_ru)
 		if(!choice)
@@ -333,16 +331,19 @@
 			pref.voice_sound = possible_voice_types_ru[choice]
 		return TOPIC_REFRESH
 		// End of Bastion of Endeavor Translation
-=======
 	// CHOMPAdd Start
 	else if(href_list["customize_footsteps"])
+		/* Bastion of Endeavor Translation
 		var/list/footstep_choice = selectable_footstep
 		var/choice = tgui_input_list(user, "What footstep sounds would your character make?", "Custom Foostep Sounds", footstep_choice)
+		*/
+		var/list/footstep_choice = selectable_footstep_ru
+		var/choice = tgui_input_list(user, "Какие звуки издаёт ваш персонаж при ходьбе?", "Звук шагов", footstep_choice)
+		// End of Bastion of Endeavor Translation
 		if(choice)
 			pref.custom_footstep = footstep_choice[choice]
 			return TOPIC_REFRESH
 	// CHOMPAdd End
->>>>>>> f9abe972d2 (Custom Footstep sounds (#8695))
 	else if(href_list["customize_speech_bubble"])
 		/* Bastion of Endeavor Translation: I mean, not future-proof, but if it works it works?
 		var/choice = tgui_input_list(user, "What speech bubble style do you want to use? (default for automatic selection)", "Custom Speech Bubble", selectable_speech_bubbles)
