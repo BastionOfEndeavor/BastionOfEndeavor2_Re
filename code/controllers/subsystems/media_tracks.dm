@@ -218,6 +218,7 @@ SUBSYSTEM_DEF(media_tracks)
 
 	/* Bastion of Endeavor Translation
 	var/secret = tgui_alert(C, "Optional: Mark track as secret?", "Track Secret", list("Yes", "Cancel", "No"))
+<<<<<<< HEAD
 	*/
 	var/secret = tgui_alert(C, "Дополнительно: Пометить трек как скрытый?", "Видимость трека", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
@@ -226,6 +227,9 @@ SUBSYSTEM_DEF(media_tracks)
 	*/
 	if(secret == "Отмена")
 	// End of Bastion of Endeavor Translation
+=======
+	if(!secret || secret == "Cancel")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 		return
 	/* Bastion of Endeavor Translation
 	else if(secret == "Yes")
@@ -238,6 +242,7 @@ SUBSYSTEM_DEF(media_tracks)
 
 	/* Bastion of Endeavor Translation
 	var/lobby = tgui_alert(C, "Optional: Mark track as lobby music?", "Track Lobby", list("Yes", "Cancel", "No"))
+<<<<<<< HEAD
 	*/
 	var/lobby = tgui_alert(C, "Дополнительно: Пометить трек как музыку для лобби?", "Проигрывание в лобби", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
@@ -246,6 +251,9 @@ SUBSYSTEM_DEF(media_tracks)
 	*/
 	if(lobby == "Отмена")
 	// End of Bastion of Endeavor Translation
+=======
+	if(!lobby || lobby == "Cancel")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 		return
 	/* Bastion of Endeavor Translation
 	else if(secret == "Yes")

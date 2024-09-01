@@ -44,11 +44,15 @@
 	// End of Bastion of Endeavor Translation
 	set hidden = 1
 	if(CONFIG_GET(string/forumurl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть форум сервера в браузере. Продолжить?","Форум сервера",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/forumurl)) // CHOMPEdit
 	else
@@ -70,11 +74,15 @@
 	set hidden = 1
 
 	if(CONFIG_GET(string/rulesurl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть правила сервера в браузере. Продолжить?","Правила сервера",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/rulesurl)) // CHOMPEdit
 	else
@@ -96,11 +104,15 @@
 	set hidden = 1
 
 	if(CONFIG_GET(string/mapurl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the map in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть карту станции в браузере. Продолжить?","Карта станции",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the map in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/mapurl)) // CHOMPEdit
 	else
@@ -122,11 +134,15 @@
 	set hidden = 1
 
 	if(CONFIG_GET(string/githuburl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the GitHub in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть GitHub сервера в браузере. Продолжить?","GitHub сервера",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the GitHub in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/githuburl)) // CHOMPEdit
 	else
@@ -148,11 +164,15 @@
 	set hidden = 1
 
 	if(CONFIG_GET(string/discordurl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the Discord in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть Discord сервера в браузере. Продолжить?","Discord сервера",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the Discord in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/discordurl)) // CHOMPEdit
 	else
@@ -174,11 +194,15 @@
 	set hidden = 1
 
 	if(CONFIG_GET(string/patreonurl)) // CHOMPEdit
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		if(tgui_alert(usr, "This will open the Patreon in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
 		*/
 		if(tgui_alert(usr, "Вы собираетесь открыть Patreon сервера в браузере. Продолжить?","Patreon сервера",list("Да","Нет"))=="Нет")
 		// End of Bastion of Endeavor Translation
+=======
+		if(tgui_alert(usr, "This will open the Patreon in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 			return
 		src << link(CONFIG_GET(string/patreonurl)) // CHOMPEdit
 	else

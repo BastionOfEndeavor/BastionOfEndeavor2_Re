@@ -49,6 +49,7 @@ var/can_call_traders = 1
 	// End of Bastion of Endeavor Translation
 		return
 	if(get_security_level() == "red") // Allow admins to reconsider if the alert level is Red
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		switch(tgui_alert(usr, "The station is in red alert. Do you still want to send traders?","Trade Ship",list("Yes","No")))
 			if("No")
@@ -57,6 +58,10 @@ var/can_call_traders = 1
 			if("Нет")
 		// End of Bastion of Endeavor Translation
 				return
+=======
+		if(tgui_alert(usr, "The station is in red alert. Do you still want to send traders?","Trade Ship",list("Yes","No")) != "Yes")
+			return
+>>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 	if(send_beruang)
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
