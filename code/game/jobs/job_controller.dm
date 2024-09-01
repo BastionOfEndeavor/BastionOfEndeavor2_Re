@@ -1059,18 +1059,15 @@ var/global/datum/controller/occupations/job_master
 				log_admin("[key_name(C)] has vore spawned into [key_name(pred)]")
 				message_admins("[key_name(C)] has vore spawned into [key_name(pred)]")
 				to_chat(C, "<span class='notice'>You have been spawned via vore. You are free to roleplay how you got there as you please, such as teleportation or having had already been there.</span>")
-<<<<<<< HEAD
-				to_chat(pred, "<span class='notice'>Your prey has spawned via vore. You are free to roleplay this how you please, such as teleportation or having had already been there.</span>")
+				if(vore_spawn_gut.entrance_logs) //CHOMPEdit
+					to_chat(pred, "<span class='notice'>Your prey has spawned via vore. You are free to roleplay this how you please, such as teleportation or having had already been there.</span>")
 				*/
 				log_admin("[key_name(C)] появился внутри [key_name(pred)]")
 				message_admins("[key_name(C)] появился внутри [key_name(pred)]")
 				to_chat(C, "<span class='notice'>Вы появились с помощью Vore. Вы можете отыграть это любым способом, например – вы телепортировались туда, либо там были всё это время.</span>")
-				to_chat(pred, "<span class='notice'>Ваша жертва появилась с помощью Vore. Вы можете отыграть это любым способом, например – она телепортировалась туда, либо там была всё это время.</span>")
-				// End of Bastion of Endeavor Translation
-=======
 				if(vore_spawn_gut.entrance_logs) //CHOMPEdit
-					to_chat(pred, "<span class='notice'>Your prey has spawned via vore. You are free to roleplay this how you please, such as teleportation or having had already been there.</span>")
->>>>>>> 77ccc526de (Vorespawn Pref Tweaks (#8717))
+					to_chat(pred, "<span class='notice'>Ваша жертва появилась с помощью Vore. Вы можете отыграть это любым способом, например – она телепортировалась туда, либо там была всё это время.</span>")
+				// End of Bastion of Endeavor Translation
 			else
 				/* Bastion of Endeavor Translation
 				to_chat(C, "<span class='warning'>No predators were available to accept you.</span>")
