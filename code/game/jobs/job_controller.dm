@@ -992,19 +992,23 @@ var/global/datum/controller/occupations/job_master
 				// End of Bastion of Endeavor Translation
 				if(!vore_spawn_gut)
 					return
-<<<<<<< HEAD
-				/* Bastion of Endeavor Translation
-=======
 				//CHOMPAdd Start
 				if(vore_spawn_gut.vorespawn_absorbed & VS_FLAG_ABSORB_YES)
 					absorb_choice = TRUE
+					/* Bastion of Endeavor Translation
 					if(vore_spawn_gut.vorespawn_absorbed & VS_FLAG_ABSORB_PREY)
 						if(alert(C, "Do you want to start absorbed into [pred]'s [vore_spawn_gut]?", "Confirm", "Yes", "No") != "Yes")
 							absorb_choice = FALSE
 					else if(alert(C, "[pred]'s [vore_spawn_gut] will start with you absorbed. Continue?", "Confirm", "Yes", "No") != "Yes")
+					*/
+					if(vore_spawn_gut.vorespawn_absorbed & VS_FLAG_ABSORB_PREY)
+						if(alert(C, "Желаете ли вы появиться впитанным [prep_adv_ru("в", vore_spawn_gut)] [gcase_ru(pred)]?", "Подтверждение", "Да", "Нет") != "Да")
+							absorb_choice = FALSE
+					else if(alert(C, "Вы будете впитаны [prep_adv_ru("в", vore_spawn_gut)] [gcase_ru(pred)]. Продолжить?", "Подтверждение", "Да", "Нет") != "Да")
+					// End of Bastion of Endeavor Translation
 						return
 				//CHOMPAdd End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
+				/* Bastion of Endeavor Translation
 				to_chat(C, "<b><span class='warning'>[pred] has received your spawn request. Please wait.</span></b>")
 				log_admin("[key_name(C)] has requested to vore spawn into [key_name(pred)]")
 				message_admins("[key_name(C)] has requested to vore spawn into [key_name(pred)]")
@@ -1017,20 +1021,20 @@ var/global/datum/controller/occupations/job_master
 				var/confirm
 				if(pred.no_latejoin_vore_warning)
 					if(pred.no_latejoin_vore_warning_time > 0)
-<<<<<<< HEAD
-						/* Bastion of Endeavor Translation: a bit hacky and has the potential to go very wrong but we'll see
-						confirm = tgui_alert(pred, "[C.prefs.real_name] is attempting to spawn into your [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), pred.no_latejoin_vore_warning_time SECONDS)
-						*/
-						confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться в [concat_ru("ваш;ем;ей;ем;их;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
-						// End of Bastion of Endeavor Translation
-=======
 						//CHOMPEdit Start
 						if(absorb_choice)
+							/* Bastion of Endeavor Translation
 							confirm = tgui_alert(pred, "[C.prefs.real_name] is attempting to spawn absorbed as your [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), pred.no_latejoin_vore_warning_time SECONDS)
+							*/
+							confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться впитанным в [concat_ru("ваш;;ей;е;и;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
+							// End of Bastion of Endeavor Translation
 						else
+							/* Bastion of Endeavor Translation:
 							confirm = tgui_alert(pred, "[C.prefs.real_name] is attempting to spawn into your [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), pred.no_latejoin_vore_warning_time SECONDS)
+							*/
+							confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться в [concat_ru("ваш;ем;ей;ем;их;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
+							// End of Bastion of Endeavor Translation
 						//CHOMPEdit End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
 					if(!confirm)
 						/* Bastion of Endeavor Translation
 						confirm = "Yes"
@@ -1038,24 +1042,23 @@ var/global/datum/controller/occupations/job_master
 						confirm = "Да"
 						// End of Bastion of Endeavor Translation
 				else
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-					confirm = alert(pred, "[C.prefs.real_name] is attempting to spawn into your [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
-=======
 					//CHOMPEdit Start
 					if(absorb_choice)
 						confirm = alert(pred, "[C.prefs.real_name] is attempting to spawn absorbed as your [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
 					else
 						confirm = alert(pred, "[C.prefs.real_name] is attempting to spawn into your [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
 					//CHOMPEdit End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
 				if(confirm != "Yes")
 					to_chat(C, "<span class='warning'>[pred] has declined your spawn request.</span>")
 					var/message = sanitizeSafe(input(pred,"Do you want to leave them a message?")as text|null)
 					if(message)
 						to_chat(C, "<span class='notice'>[pred] message : [message]</span>")
 				*/
-					confirm = alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться в [concat_ru("ваш;ем;ей;ем;их;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
+					if(absorb_choice)
+							confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться впитанным в [concat_ru("ваш;;ей;е;и;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
+					else
+						confirm = alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться в [concat_ru("ваш;ем;ей;ем;их;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
 				if(confirm != "Да")
 					to_chat(C, "<span class='warning'>[interact_ru(pred, "отклонил")] ваш запрос на появление.</span>")
 					var/message = sanitizeSafe(input(pred,"Хотите ли вы оставить этому игроку сообщение?")as text|null)
@@ -1152,18 +1155,17 @@ var/global/datum/controller/occupations/job_master
 				// End of Bastion of Endeavor Translation
 				if(!vore_spawn_gut)
 					return
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-=======
 				//CHOMPAdd Start
 				if(alert(C, "Do you want to instantly absorb them?", "Confirm", "Yes", "No") == "Yes")
 					absorb_choice = TRUE
 				//CHOMPAdd End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
 				to_chat(C, "<b><span class='warning'>[prey] has received your spawn request. Please wait.</span></b>")
 				log_admin("[key_name(C)] has requested to pred spawn onto [key_name(prey)]")
 				message_admins("[key_name(C)] has requested to pred spawn onto [key_name(prey)]")
 				*/
+				if(alert(C, "Желаете ли вы мгновенно впитать [verb_ru(prey, "его")]?", "Подтверждение", "Да", "Нет") == "Да")
+					absorb_choice = TRUE
 				to_chat(C, "<b><span class='warning'>[interact_ru(prey, "получил")] ваш запрос. Пожалуйста, подождите.</span></b>")
 				log_admin("[key_name(C)] запросил появиться вокруг [key_name(prey)]")
 				message_admins("[key_name(C)] запросил появиться вокруг [key_name(prey)]")
@@ -1172,20 +1174,20 @@ var/global/datum/controller/occupations/job_master
 				var/confirm
 				if(prey.no_latejoin_prey_warning)
 					if(prey.no_latejoin_prey_warning_time > 0)
-<<<<<<< HEAD
-						/* Bastion of Endeavor Translation
-						confirm = tgui_alert(prey, "[C.prefs.real_name] is attempting to televore you into their [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), prey.no_latejoin_prey_warning_time SECONDS)
-						*/
-						confirm = tgui_alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), prey.no_latejoin_prey_warning_time SECONDS)
-						// End of Bastion of Endeavor Translation
-=======
 						//CHOMPEdit Start
 						if(absorb_choice)
+							/* Bastion of Endeavor Translation
 							confirm = tgui_alert(prey, "[C.prefs.real_name] is attempting to televore and instantly absorb you with their [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), prey.no_latejoin_prey_warning_time SECONDS)
+							*/
+							confirm = tgui_alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать и мгновенно впитать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), prey.no_latejoin_prey_warning_time SECONDS)
+							// End of Bastion of Endeavor Translation
 						else
+							/* Bastion of Endeavor Translation
 							confirm = tgui_alert(prey, "[C.prefs.real_name] is attempting to televore you into their [vore_spawn_gut]. Let them?", "Confirm", list("No", "Yes"), prey.no_latejoin_prey_warning_time SECONDS)
+							*/
+							confirm = tgui_alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), prey.no_latejoin_prey_warning_time SECONDS)
+							// End of Bastion of Endeavor Translation
 						//CHOMPEdit End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
 					if(!confirm)
 						/* Bastion of Endeavor Translation
 						confirm = "Yes"
@@ -1193,24 +1195,27 @@ var/global/datum/controller/occupations/job_master
 						confirm = "Да"
 						// End of Bastion of Endeavor Translation
 				else
-<<<<<<< HEAD
-				/* Bastion of Endeavor Translation
-					confirm = alert(prey, "[C.prefs.real_name] is attempting to televore you into their [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
-=======
 					//CHOMPEdit Start
 					if(absorb_choice)
+						/* Bastion of Endeavor Translation
 						confirm = alert(prey, "[C.prefs.real_name] is attempting to televore and instantly absorb you with their [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
+						*/
+						confirm = alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать и мгновенно впитать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
+						// End of Bastion of Endeavor Translation
 					else
+						/* Bastion of Endeavor Translation
 						confirm = alert(prey, "[C.prefs.real_name] is attempting to televore you into their [vore_spawn_gut]. Let them?", "Confirm", "No", "Yes")
+						*/
+						confirm = alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
+						// End of Bastion of Endeavor Translation
 					//CHOMPEdit End
->>>>>>> 9650df1d39 (Vorespawn Whitelist and Absorb (#8731))
+				/* Bastion of Endeavor Translation
 				if(confirm != "Yes")
 					to_chat(C, "<span class='warning'>[prey] has declined your spawn request.</span>")
 					var/message = sanitizeSafe(input(prey,"Do you want to leave them a message?")as text|null)
 					if(message)
 						to_chat(C, "<span class='notice'>[prey] message : [message]</span>")
 				*/
-					confirm = alert(prey, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] телепортировать вас в [concat_ru("сво;й;ю;й;и;", vore_spawn_gut, ACASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
 				if(confirm != "Да")
 					to_chat(C, "<span class='warning'>[interact_ru(prey, "отклонил")] ваш запрос на появление.</span>")
 					var/message = sanitizeSafe(input(prey,"Хотите ли вы оставить этому игроку сообщение?")as text|null)
