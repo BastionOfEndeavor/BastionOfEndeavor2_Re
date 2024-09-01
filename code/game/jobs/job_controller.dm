@@ -1056,7 +1056,7 @@ var/global/datum/controller/occupations/job_master
 						to_chat(C, "<span class='notice'>[pred] message : [message]</span>")
 				*/
 					if(absorb_choice)
-							confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться впитанным в [concat_ru("ваш;;ей;е;и;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
+						confirm = tgui_alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться впитанным в [concat_ru("ваш;;ей;е;и;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", list("Нет", "Да"), pred.no_latejoin_vore_warning_time SECONDS)
 					else
 						confirm = alert(pred, "[C.prefs.real_name] [C.prefs.identifying_gender == PLURAL ? "желают" : "желает"] появиться в [concat_ru("ваш;ем;ей;ем;их;", vore_spawn_gut, PCASE)]. Разрешить?", "Подтверждение", "Нет", "Да")
 				if(confirm != "Да")
