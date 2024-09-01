@@ -182,11 +182,9 @@ SUBSYSTEM_DEF(job)
 	if(debug_messages)
 		/* Bastion of Endeavor Translation
 		log_debug("JOB DEBUG: [message]")
-<<<<<<< HEAD
 		*/
 		log_debug("ОТЛАДКА РАБОТ: [message]")
 		// End of Bastion of Endeavor Translation
-=======
 
 //CHOMPadd start
 /datum/controller/subsystem/job/proc/load_camp_lists()
@@ -208,4 +206,3 @@ SUBSYSTEM_DEF(job)
 	if(!fexists(savepath))
 		log_debug("Saving: failed to save [savepath]")
 //CHOMPadd end
->>>>>>> c3b129f1a3 ([READY TO MERGE] Port's RS's anti job camping to Anomoly (#8618))
