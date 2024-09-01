@@ -207,7 +207,6 @@ var/list/gear_datums = list()
 		. += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=\ref[src];toggle_gear=[html_encode(G.display_name)]'>[G.display_name]</a></td>"
 		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		. += "<td><font size=2><i>[G.description]</i></font></td></tr>"
-<<<<<<< HEAD
 		*/
 		if(G.categorized_ru)
 			. += "<tr><td colspan=4><b>[G.categorized_ru]</b><hr></td></tr>"
@@ -218,13 +217,11 @@ var/list/gear_datums = list()
 		. += "<td width = 15% style='vertical-align:top; text-align:center'>[G.allowed_roles_list_ru]</td>"
 		. += "<td width = 5% style='vertical-align:top; text-align:center';>[G.cost]</td>"
 		. += "<td><font size=2><i>[G.description]</i></font></td></tr>"
+		if(G.show_roles && G.allowed_roles)
+			. += "<td colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Только для: [list2text(G.allowed_roles,", ")]</td>"
 		if(G.has_bottom_bar_ru)
 			. += "<tr><td colspan=4><hr></td></tr>"
 		// End of Bastion of Endeavor Translation
-=======
-		if(G.show_roles && G.allowed_roles)
-			. += "<td colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Restricted to: [list2text(G.allowed_roles,", ")]</td>"
->>>>>>> 106375e0c3 ([MIRROR] Loadout Restrictions Specified (#8612))
 		if(ticked)
 			/* Bastion of Endeavor Edit: We want more space
 			. += "<tr><td colspan=3>"
