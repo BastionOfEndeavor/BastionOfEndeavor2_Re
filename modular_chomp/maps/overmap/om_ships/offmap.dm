@@ -11,3 +11,9 @@
 #include "shelter_5.dm"
 #include "shelter_6.dm"
 #include "cruiser.dm"
+<<<<<<< HEAD
+=======
+#include "pizzashuttle.dm"
+#include "cybershuttle.dm"
+#include "metawhiteship.dm"
+>>>>>>> 18f13ecec1 (Adds a new spawnpoint to spacefarers, the fuel depot. (#8850))
