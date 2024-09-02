@@ -338,9 +338,14 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	for(var/T in pref.pos_traits + pref.neg_traits) // CHOMPEdit: Only Positive traits cost slots now.
 		points_left -= traits_costs[T]
+<<<<<<< HEAD
 	for(var/T in pref.pos_traits)
 		traits_left--
 	/* Bastion of Endeavor Translation
+=======
+		if(T in pref.pos_traits)
+			traits_left--
+>>>>>>> ba7cb57072 ([MIRROR] Revert "Revert "Removed negative trait limit"" (#8866))
 	. += "<b>Traits Left:</b> [traits_left]<br>"
 	. += "<b>Points Left:</b> [points_left]<br>"
 	*/
