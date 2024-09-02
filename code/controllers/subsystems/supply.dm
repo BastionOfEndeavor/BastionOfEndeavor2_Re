@@ -204,18 +204,14 @@ SUBSYSTEM_DEF(supply)
 		var/datum/supply_pack/SP = SO.object
 		shopping_log += "[SP.name];"
 
-<<<<<<< HEAD
-		var/obj/A = new SP.containertype(pickedloc)
-		A.name = "[SP.containername] [SO.comment ? "([SO.comment])":"" ]"
-		// Bastion of Endeavor Addition: Give the container itself some cases for grammatical polish, those are defined in supply pack datums
-		// Bastion of Endeavor TODO: I can't be bothered to test if this works after one of our 20231234534 case system refactors but come back to this when cargo is localized ig
-		A.cases_ru = deepCopyList(SP.cases_ru["containername"])
-		// End of Bastion of Endeavor Addition	
-=======
 		var/obj/A
 		if(SP.containertype)
 			A = new SP.containertype(pickedloc)
 			A.name = "[SP.containername] [SO.comment ? "([SO.comment])":"" ]"
+			// Bastion of Endeavor Addition: Give the container itself some cases for grammatical polish, those are defined in supply pack datums
+			// Bastion of Endeavor TODO: I can't be bothered to test if this works after one of our 20231234534 case system refactors but come back to this when cargo is localized ig
+			A.cases_ru = deepCopyList(SP.cases_ru["containername"])
+			// End of Bastion of Endeavor Addition	
 			if(SP.access)
 				if(isnum(SP.access))
 					A.req_access = list(SP.access)
@@ -228,8 +224,11 @@ SUBSYSTEM_DEF(supply)
 					A.req_access = L.Copy()
 					LAZYCLEARLIST(A.req_one_access)
 				else
+					/* Bastion of Endeavor Translation
 					log_debug("<span class='danger'>Supply pack with invalid access restriction [SP.access] encountered!</span>")
->>>>>>> 7a5d3341a7 ([MIRROR] Supply System Updates (#8814))
+					*/
+					log_debug("<span class='danger'>Обнаружен комплект снабжения с неправильным доступом [SP.access]!</span>")
+					// End of Bastion of Endeavor Translation
 
 		//supply manifest generation begin
 		var/obj/item/weapon/paper/manifest/slip
@@ -254,28 +253,6 @@ SUBSYSTEM_DEF(supply)
 			slip.info += "СОДЕРЖИМОЕ:<br><ul>"
 			// End of Bastion of Endeavor Translation
 
-<<<<<<< HEAD
-		//spawn the stuff, finish generating the manifest while you're at it
-		if(SP.access)
-			if(isnum(SP.access))
-				A.req_access = list(SP.access)
-			else if(islist(SP.access) && SP.one_access)
-				var/list/L = SP.access // access var is a plain var, we need a list
-				A.req_one_access = L.Copy()
-				LAZYCLEARLIST(A.req_access)
-			else if(islist(SP.access) && !SP.one_access)
-				var/list/L = SP.access
-				A.req_access = L.Copy()
-				LAZYCLEARLIST(A.req_one_access)
-			else
-				/* Bastion of Endeavor Translation
-				log_debug("<span class='danger'>Supply pack with invalid access restriction [SP.access] encountered!</span>")
-				*/
-				log_debug("<span class='danger'>Обнаружен комплект снабжения с неправильным доступом [SP.access]!</span>")
-				// End of Bastion of Endeavor Translation
-
-=======
->>>>>>> 7a5d3341a7 ([MIRROR] Supply System Updates (#8814))
 		var/list/contains
 		if(istype(SP,/datum/supply_pack/randomised))
 			var/datum/supply_pack/randomised/SPR = SP
