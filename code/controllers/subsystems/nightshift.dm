@@ -40,17 +40,13 @@ SUBSYSTEM_DEF(nightshift)
 			pickedsound = 'sound/AI/dim_lights.ogg'
 		else
 			pickedsound = 'sound/AI/bright_lights.ogg'
-<<<<<<< HEAD
+	*/
 	/* Bastion of Endeavor Translation
-	priority_announcement.Announce(message, new_title = "Automated Lighting System Announcement", new_sound = pickedsound, zlevel = announce_z)
-	*/
-	priority_announcement.Announce(message, new_title = "Система автоматизированного освещения", new_sound = pickedsound, zlevel = announce_z)
-	// End of Bastion of Endeavor Translation
-=======
-	*/
 	priority_announcement.Announce(message, new_title = "Automated Lighting System Announcement", /* new_sound = pickedsound,*/ zlevel = announce_z)
+	*/
+	priority_announcement.Announce(message, new_title = "Система автоматизированного освещения", /* new_sound = pickedsound,*/ zlevel = announce_z)
+	// End of Bastion of Endeavor Translation
 	// CHOMPEdit End
->>>>>>> 8542b93ef9 (Night shift preparations (#8839))
 	//VOREStation Edit End
 
 /datum/controller/subsystem/nightshift/proc/check_nightshift(check_canfire=FALSE) //This is called from elsewhere, like setting the alert levels
