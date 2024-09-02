@@ -97,7 +97,6 @@
 	. += "<b>Скрывать Ckey в лобби:</b> <a href='?src=\ref[src];obfuscate_key=1'><b>[(pref.obfuscate_key) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
 	. += "<b>Скрывать должность в лобби:</b> <a href='?src=\ref[src];obfuscate_job=1'><b>[(pref.obfuscate_job) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
 	. += "<b>Отметки времени:</b> <a href='?src=\ref[src];chat_timestamps=1'><b>[(pref.chat_timestamp) ? "Включены" : "Отключены (по умолчанию)"]</b></a><br>"
-	. += "<b>Оповещения о метании:</b> <a href='?src=\ref[src];throwmode_loudness=1'><b>[(pref.throwmode_loud) ? "Отображать" : "Не отображать (по умолчанию)"]</b></a><br>"
 	if(can_select_ooc_color(user))
 		. += "<b>Цвет в чате OOC: </b>"
 		if(pref.ooccolor == initial(pref.ooccolor))
