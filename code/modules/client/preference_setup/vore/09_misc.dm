@@ -62,7 +62,7 @@
 	. += "<b>Capture Crystal Preference:</b> <a [pref.capture_crystal ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_capture_crystal=1'><b>[pref.capture_crystal ? "Yes" : "No"]</b></a><br>"
 	. += "<b>Spawn With Backup Implant:</b> <a [pref.auto_backup_implant ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_implant=1'><b>[pref.auto_backup_implant ? "Yes" : "No"]</b></a><br>"
 	. += "<b>Allow petting as robot:</b> <a [pref.borg_petting ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_borg_petting=1'><b>[pref.borg_petting ? "Yes" : "No"]</b></a><br>"
-<<<<<<< HEAD
+	. += "<b>Enable Stomach Sprites:</b> <a [pref.stomach_vision ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_stomach_vision=1'><b>[pref.stomach_vision ? "Yes" : "No"]</b></a><br>"
 	*/
 	. += "<b>Режим датчиков одежды:</b> <a [pref.sensorpref ? "" : ""] href='?src=\ref[src];toggle_sensor_setting=1'><b>[sensorpreflist[pref.sensorpref]]</b></a><br>"
 	. += "<b>Разрешить заключение в кристалл:</b> <a [pref.capture_crystal ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_capture_crystal=1'><b>[pref.capture_crystal ? "Да" : "Нет"]</b></a><br>"
@@ -75,10 +75,8 @@
 	. += "<tr><td>Ориентация:</td><td><a href='?src=\ref[src];directory_sexualitytag=1'><b>[pref.directory_sexualitytag]</b></a></td></tr>" // CHOMPStation Edit: Character Directory Update
 	. += "<tr><td>Объявление:</td><td><a href='?src=\ref[src];directory_ad=1'><b>Установить</b></a></td></tr></table><br>"
 	. += "<b><a [pref.borg_petting ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_borg_petting=1'><b>[pref.borg_petting ? "Допускать" : "Не допускать"]</b></a> поглаживания, будучи роботом</b><br>"
+	. += "<b><a [pref.stomach_vision ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_stomach_vision=1'><b>[pref.stomach_vision ? "Отображать" : "Не отображать"]</b></a> животы персонажей</b><br>"
 	// End of Bastion of Endeavor Translation
-=======
-	. += "<b>Enable Stomach Sprites:</b> <a [pref.stomach_vision ? "class='linkOn'" : ""] href='?src=\ref[src];toggle_stomach_vision=1'><b>[pref.stomach_vision ? "Yes" : "No"]</b></a><br>"
->>>>>>> c3578b9658 ([MIRROR] Adds Toggleable Stomachs w/ toggleable visibility (#8563))
 
 /datum/category_item/player_setup_item/vore/misc/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["toggle_show_in_directory"])
