@@ -59,19 +59,12 @@ var/silent_ert = 0
 	// End of Bastion of Endeavor Translation
 		silent_ert = 1
 	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		switch(tgui_alert(usr, "The station is not in red alert. Do you still want to dispatch a response team?","ERT",list("Yes","No")))
-			if("No")
-		*/
-		switch(tgui_alert(usr, "На станции не красная тревога. Вы уверены в своём решении?","ОБР",list("Да","Нет")))
-			if("Нет")
-		// End of Bastion of Endeavor Translation
-				return
-=======
 		if(tgui_alert(usr, "The station is not in red alert. Do you still want to dispatch a response team?","ERT",list("Yes","No")) != "Yes")
+		*/
+		if(tgui_alert(usr, "На станции не красная тревога. Вы уверены в своём решении?","ОБР",list("Да","Нет")) != "Да")
+		// End of Bastion of Endeavor Translation
 			return
->>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 	if(send_emergency_team)
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
