@@ -59,8 +59,13 @@
 	turfs = GLOB.latejoin_plainspath
 
 /datum/spawnpoint/fueldepot
+	/* Bastion of Endeavor Translation
 	display_name = "Fuel Depot"
 	msg = "woke up in the fuel depot"
+	*/
+	display_name = "Заправочная станция"
+	msg = "проснул;ся;ась;ось;ись; на заправочной станции"
+	// End of Bastion of Endeavor Translation
 	restrict_job = list(JOB_OUTSIDER)
 
 /datum/spawnpoint/fueldepot/New()
