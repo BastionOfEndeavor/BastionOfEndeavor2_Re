@@ -222,7 +222,7 @@ SUBSYSTEM_DEF(media_tracks)
 	var/secret = tgui_alert(C, "Дополнительно: Пометить трек как скрытый?", "Видимость трека", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
 	/* Bastion of Endeavor Translation
-	if(secret == "Cancel")
+	if(!secret || secret == "Cancel")
 	*/
 	if(!secret || secret == "Отмена")
 	// End of Bastion of Endeavor Translation
@@ -242,7 +242,7 @@ SUBSYSTEM_DEF(media_tracks)
 	var/lobby = tgui_alert(C, "Дополнительно: Пометить трек как музыку для лобби?", "Проигрывание в лобби", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
 	/* Bastion of Endeavor Translation
-	if(lobby == "Cancel")
+	if(!lobby || lobby == "Cancel")
 	*/
 	if(!lobby || lobby == "Отмена")
 	// End of Bastion of Endeavor Translation
