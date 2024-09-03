@@ -47,6 +47,7 @@
 #define SMITE_BLUESPACEARTILLERY	"Bluespace Artillery"
 #define SMITE_SPONTANEOUSCOMBUSTION	"Spontaneous Combustion"
 #define SMITE_LIGHTNINGBOLT			"Lightning Bolt"
+#define SMITE_TERROR				"Terrify"
 */
 #define SMITE_BREAKLEGS				"Переломать ноги"
 #define SMITE_BLUESPACEARTILLERY	"Синепространственная артиллерия"
