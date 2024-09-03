@@ -42,11 +42,12 @@
 	/* Bastion of Endeavor Translation
 	set name = "Change Eye Color"
 	set desc = "Changes your robotic eye color instantly."
+	set category = "IC.Settings"
 	*/
 	set name = "Изменить цвет глаз"
 	set desc = "Мгновенно изменить цвет глаз."
 	// End of Bastion of Endeavor Translation
-	set category = "IC"
+	set category = "IC.Настройки"
 	set src in usr
 
 	var/current_color = rgb(eye_colour[1],eye_colour[2],eye_colour[3])
