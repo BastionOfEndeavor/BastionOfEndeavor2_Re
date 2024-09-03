@@ -461,8 +461,6 @@
 /obj/soulgem/proc/transfer_mob_soulcatcher(var/mob/living/carbon/brain/caught_soul/vore/M, var/obj/soulgem/gem)
 	if(is_taken_over()) return
 	if(!istype(M) || !gem) return
-<<<<<<< HEAD
-=======
 	if(!gem.owner) return
 	if((tgui_alert(gem.owner, "Do you want to allow [owner] to transfer [selected_soul] to your soulcatcher?", "Allow Transfer", list("No", "Yes")) != "Yes"))
 		return
@@ -470,7 +468,6 @@
 		return
 	if(!(gem.owner.soulcatcher_pref_flags & SOULCATCHER_ALLOW_TRANSFER))
 		return
->>>>>>> 9f42148ab1 ([MIRROR] default tgui alert input handling (#8891))
 	if(M.mind == own_mind)
 		own_mind = null
 	brainmobs -= M
