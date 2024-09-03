@@ -47,16 +47,13 @@
 #define SMITE_BLUESPACEARTILLERY	"Bluespace Artillery"
 #define SMITE_SPONTANEOUSCOMBUSTION	"Spontaneous Combustion"
 #define SMITE_LIGHTNINGBOLT			"Lightning Bolt"
-<<<<<<< HEAD
 */
 #define SMITE_BREAKLEGS				"Переломать ноги"
 #define SMITE_BLUESPACEARTILLERY	"Синепространственная артиллерия"
 #define SMITE_SPONTANEOUSCOMBUSTION	"Спонтанное самовозгорание"
 #define SMITE_LIGHTNINGBOLT			"Удар молнией"
+#define SMITE_TERROR				"Запугать"
 // End of Bastion of Endeavor Translation
-=======
-#define SMITE_TERROR				"Terrify"
->>>>>>> 7425ef0b2c ([MIRROR] Fear and Phobias (#8857))
 
 /* Bastion of Endeavor Translation
 #define ADMIN_QUE(user) "(<a href='?_src_=holder;[HrefToken(TRUE)];adminmoreinfo=\ref[user]'>?</a>)"
