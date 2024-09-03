@@ -1,14 +1,14 @@
 /client/proc/admin_lightning_strike()
 	set name = "Lightning Strike"
 	set desc = "Causes lightning to strike on your tile. This can be made to hurt things on or nearby it severely."
-	set category = "Fun"
+	set category = "Fun.Do Not" //CHOMPEdit
 
 	if(!check_rights(R_FUN))
 		return
 
 	var/result = tgui_alert(src, "Really strike your tile with lightning?", "Confirm Badmin" , list("No", "Yes (Cosmetic)", "Yes (Real)"))
 
-	if(result == "No")
+	if(!result || result == "No")
 		return
 	var/fake_lightning = result == "Yes (Cosmetic)"
 
@@ -96,5 +96,6 @@
 				C.deaf_loop.start() // CHOMPStation Add: Ear Ringing/Deafness
 			to_chat(L, span("danger", "Lightning struck nearby, and the thunderclap is deafening!"))
 
+#undef LIGHTNING_REDIRECT_RANGE
 #undef LIGHTNING_ZAP_RANGE
 #undef LIGHTNING_POWER

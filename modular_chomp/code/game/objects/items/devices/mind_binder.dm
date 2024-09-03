@@ -43,7 +43,7 @@
 		A = H.held_mob
 	if(istype(A, /mob/living))
 		var/mob/living/M = A
-		if(!is_type_in_list(A, mob_takeover_whitelist))
+		if(!M.allow_mind_transfer)
 			to_chat(usr,"<span class='danger'>The target's mind is too complex to be affected!</span>")
 			return
 		if(usr == M)
@@ -75,7 +75,7 @@
 
 	if(self_bind)
 		var/choice = tgui_alert(usr,"This will bind YOUR mind to the target! You may not be able to go back without help. Continue?","Confirmation",list("Continue","Cancel"))
-		if(choice == "Cancel") return
+		if(!choice || choice == "Cancel") return
 		choice = tgui_alert(usr,"No really. You cannot OOC Escape this. Are you sure?","Confirmation",list("Yes I'm sure","Cancel"))
 		if(choice == "Yes I'm sure" && usr.get_active_hand() == src && usr.Adjacent(target))
 			usr.visible_message("<span class='warning'>[usr] presses [src] against [target]. The device beginning to let out a series of beeps!</span>","<span class='notice'>You begin to bind yourself into [target]!</span>")
@@ -119,13 +119,13 @@
 
 	if(self_bind)
 		var/choice = tgui_alert(usr,"This will bind YOUR mind to the target! You will not be able to go back without help. Continue?","Confirmation",list("Continue","Cancel"))
-		if(choice == "Cancel") return
+		if(!choice || choice == "Cancel") return
 		choice = tgui_alert(usr,"No really. You cannot OOC Escape this. Are you sure?","Confirmation",list("Yes I'm sure","Cancel"))
 		if(choice == "Yes I'm sure" && usr.get_active_hand() == src && usr.Adjacent(item))
 			log_and_message_admins("attempted to bind themselves to \an [item] with a Mind Binder.")
 			usr.visible_message("<span class='warning'>[usr] presses [src] against [item]. The device beginning to let out a series of beeps!</span>","<span class='notice'>You begin to bind yourself into [item]!</span>")
 			if(do_after(usr,30 SECONDS,item))
-				item.inhabit_item(usr, null, null)
+				item.inhabit_item(usr, null, null, TRUE)
 				self_bind = !self_bind
 				update_icon()
 				to_chat(usr,"<span class='notice'>Your mind as been bound to [item].</span>")
@@ -136,7 +136,7 @@
 	if(do_after(usr,5 SECONDS,item))
 		if(possessed_voice.len == 1)
 			var/mob/living/voice/V = possessed_voice[1]
-			item.inhabit_item(V, null, V.tf_mob_holder)
+			item.inhabit_item(V, null, V.tf_mob_holder, TRUE)
 			V.Destroy()
 			possessed_voice = list()
 			to_chat(usr,"<span class='notice'>Mind bound to [item].</span>")

@@ -84,6 +84,11 @@
 
 	callHook("death", list(src, gibbed))
 
+	// CHOMPAdd - Shoe steppy. I was going to make a hook but- It isn't much.
+	if(istype(loc, /obj/item/clothing/shoes))
+		mind?.vore_death = TRUE
+	// CHOMPEdit End
+
 	if(mind)
 		// SSgame_master.adjust_danger(gibbed ? 40 : 20)  // VOREStation Edit - We don't use SSgame_master yet.
 		for(var/mob/observer/dead/O in mob_list)
@@ -134,6 +139,7 @@
 
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
+	remove_blood(560) //CHOMPedit
 	update_icons_body()
 	return
 

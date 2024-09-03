@@ -56,6 +56,8 @@
 		"scel_green"
 	)
 
+	allow_mind_transfer = TRUE
+
 /mob/living/simple_mob/vore/scel/New()
 	..()
 	if(random_skin)
@@ -75,7 +77,7 @@
 	vore_icons = SA_ICON_LIVING | SA_ICON_REST
 	vore_capacity = 1
 	swallowTime = 50
-	vore_ignores_undigestable = TRUE
+	vore_ignores_undigestable = FALSE
 	vore_default_mode = DM_SELECT
 	vore_pounce_maxhealth = 125
 	vore_bump_emote = "tries to devour"
@@ -242,20 +244,3 @@
 	icon_state = "scel_red"
 	icon_rest = "scel_red-rest"
 	random_skin = 0
-
-/mob/living/simple_mob/vore/scel/handle_light()
-	if(glow_override)
-		return FALSE
-
-	if(instability >= TECHNOMANCER_INSTABILITY_MIN_GLOW)
-		var/distance = round(sqrt(instability / 2))
-		if(distance)
-			set_light(distance, distance * 4, l_color = "#660066")
-			return TRUE
-
-	else if(glow_toggle)
-		set_light(glow_range, glow_intensity, glow_color)
-
-	else
-		set_light(0)
-		return FALSE

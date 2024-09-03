@@ -43,7 +43,7 @@
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
 	// Track if we are already had initialize() called to prevent double-initialization.
-	var/initialized = FALSE
+	//var/initialized = FALSE CHOMPEdit moved to flag
 
 	/// Last name used to calculate a color for the chatmessage overlays
 	var/chat_color_name
@@ -99,13 +99,13 @@
 		*/
 		stack_trace("Мусоросборщик: [type] вызвал initialize() после qdel().")
 		// End of Bastion of Endeavor Translation
-	if(initialized)
+	if(flags & ATOM_INITIALIZED) //CHOMPEdit moved initialized to flag
 		/* Bastion of Endeavor Translation
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 		*/
 		stack_trace("Внимание: [src] ([type]) инициализирован несколько раз!")
 		// End of Bastion of Endeavor Translation
-	initialized = TRUE
+	flags |= ATOM_INITIALIZED //CHOMPEdit moved initialized to flag
 	return INITIALIZE_HINT_NORMAL
 
 /atom/Destroy()
@@ -163,7 +163,8 @@
 
 // Used to be for the PROXMOVE flag, but that was terrible, so instead it's just here as a stub for
 // all the atoms that still have the proc, but get events other ways.
-/atom/proc/HasProximity(turf/T, atom/movable/AM, old_loc)
+/atom/proc/HasProximity(turf/T, datum/weakref/WF, old_loc)
+	SIGNAL_HANDLER // CHOMPAdd
 	return
 
 //Register listeners on turfs in a certain range
@@ -526,7 +527,7 @@
 
 	was_bloodied = TRUE
 	if(!blood_color)
-		blood_color = "#A10808"
+		blood_color = SYNTH_BLOOD_COLOUR
 	if(istype(M))
 		if (!istype(M.dna, /datum/dna))
 			M.dna = new /datum/dna(null)
@@ -553,6 +554,7 @@
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
 		return TRUE
+	blood_color = null //chompfixy, cleaning objects saved its future blood color no matter what
 
 /atom/proc/on_rag_wipe(var/obj/item/weapon/reagent_containers/glass/rag/R)
 	clean_blood()

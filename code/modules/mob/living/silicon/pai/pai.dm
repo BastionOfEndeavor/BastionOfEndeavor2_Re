@@ -360,7 +360,7 @@
 
 /mob/living/silicon/pai/lay_down()
 	set name = "Rest"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	// Pass lying down or getting up to our pet human, if we're in a rig.
 	if(istype(src.loc,/obj/item/device/paicard))
@@ -511,7 +511,7 @@
 					if(radio)
 						radio.recalculateChannels()
 					return
-				if("Cancel")
+				if("Cancel", null)
 					return
 		else if (istype(W, /obj/item/weapon/card/id) && idaccessible == 0)
 			to_chat(user, "<span class='notice'>[src] is not accepting access modifications at this time.</span>")		// CHOMPEDIT : purdev (spelling fix)

@@ -3,11 +3,12 @@
 	/* Bastion of Endeavor Translation
 	set name = "wiki"
 	set desc = "Type what you want to know about.  This will open the wiki on your web browser."
+	set category = "OOC.Resources" //CHOMPEdit
 	*/
 	set name = "Вики сервера"
 	set desc = "Ввести интересующую тему, чтобы открыть результаты поиска на вики в браузере."
+	set category = "OOC.Информация"
 	// End of Bastion of Endeavor Translation
-	set category = "OOC"
 	if(CONFIG_GET(string/wikiurl)) // CHOMPEdit
 		if(query)
 			if(CONFIG_GET(string/wikisearchurl)) // CHOMPEdit
@@ -44,9 +45,9 @@
 	set hidden = 1
 	if(CONFIG_GET(string/forumurl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть форум сервера в браузере. Продолжить?","Форум сервера",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть форум сервера в браузере. Продолжить?","Форум сервера",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/forumurl)) // CHOMPEdit
@@ -70,9 +71,9 @@
 
 	if(CONFIG_GET(string/rulesurl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть правила сервера в браузере. Продолжить?","Правила сервера",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть правила сервера в браузере. Продолжить?","Правила сервера",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/rulesurl)) // CHOMPEdit
@@ -96,9 +97,9 @@
 
 	if(CONFIG_GET(string/mapurl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the map in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the map in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть карту станции в браузере. Продолжить?","Карта станции",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть карту станции в браузере. Продолжить?","Карта станции",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/mapurl)) // CHOMPEdit
@@ -122,9 +123,9 @@
 
 	if(CONFIG_GET(string/githuburl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the GitHub in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the GitHub in your browser. Are you sure?","Visit Website",list("Yes","No"))!="Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть GitHub сервера в браузере. Продолжить?","GitHub сервера",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть GitHub сервера в браузере. Продолжить?","GitHub сервера",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/githuburl)) // CHOMPEdit
@@ -148,9 +149,9 @@
 
 	if(CONFIG_GET(string/discordurl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the Discord in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the Discord in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть Discord сервера в браузере. Продолжить?","Discord сервера",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть Discord сервера в браузере. Продолжить?","Discord сервера",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/discordurl)) // CHOMPEdit
@@ -174,9 +175,9 @@
 
 	if(CONFIG_GET(string/patreonurl)) // CHOMPEdit
 		/* Bastion of Endeavor Translation
-		if(tgui_alert(usr, "This will open the Patreon in your browser. Are you sure?","Visit Website",list("Yes","No"))=="No")
+		if(tgui_alert(usr, "This will open the Patreon in your browser. Are you sure?","Visit Website",list("Yes","No")) != "Yes")
 		*/
-		if(tgui_alert(usr, "Вы собираетесь открыть Patreon сервера в браузере. Продолжить?","Patreon сервера",list("Да","Нет"))=="Нет")
+		if(tgui_alert(usr, "Вы собираетесь открыть Patreon сервера в браузере. Продолжить?","Patreon сервера",list("Да","Нет")) != "Yes")
 		// End of Bastion of Endeavor Translation
 			return
 		src << link(CONFIG_GET(string/patreonurl)) // CHOMPEdit
@@ -191,10 +192,11 @@
 /client/verb/hotkeys_help()
 	/* Bastion of Endeavor Translation
 	set name = "hotkeys-help"
+	set category = "OOC.Resources" //CHOMPEdit
 	*/
 	set name = "Показать управление"
+	set category = "OOC.Информация"
 	// End of Bastion of Endeavor Translation
-	set category = "OOC"
 
 	/* Bastion of Endeavor Translation
 	var/admin = {"<font color='AD5AAD'>

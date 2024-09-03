@@ -138,13 +138,13 @@
 		if(!permit_human)
 			var/sure = tgui_alert(H,"Are you sure you want to try without tools? It's VERY LIKELY \
 			you will fall and get hurt. More agile species might have better luck", "Second Thoughts", list("Bring it!", "Stay grounded"))
-			if(sure == "Stay grounded") return
+			if(sure || sure == "Stay grounded") return
 			fall_chance = clamp(100 - H.species.agility, 40, 90) //This should be 80 for most species. Traceur would reduce to 10%, so clamping higher
 	//If not a human mob, must be simple or silicon. They got a var stored on their mob we can check
 	else if(!L.can_climb)
 		var/sure = tgui_alert(L,"Are you sure you want to try without tools? It's VERY LIKELY \
 			you will fall and get hurt. More agile species might have better luck", "Second Thoughts", list("Bring it!", "Stay grounded"))
-		if(sure == "Stay grounded") return
+		if(!sure || sure == "Stay grounded") return
 		if(isrobot(L))
 			fall_chance = 80 // Robots get no mercy
 		else
@@ -212,7 +212,7 @@
 /mob/living/verb/climb_down()
 	set name = "Climb down wall"
 	set desc = "attempt to climb down the wall you are standing on, in direction you're looking"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	var/fall_chance = 0	//Increased if we can't actually climb
 	var/turf/our_turf = get_turf(src) //floor we're standing on
@@ -262,13 +262,13 @@
 		if(!permit_human)
 			var/sure = tgui_alert(H,"Are you sure you want to try without tools? It's VERY LIKELY \
 			you will fall and get hurt. More agile species might have better luck", "Second Thoughts", list("Bring it!", "Stay grounded"))
-			if(sure == "Stay grounded") return
+			if(!sure || sure == "Stay grounded") return
 			fall_chance = clamp(100 - H.species.agility, 40, 90) //This should be 80 for most species. Traceur would reduce to 10%, so clamping higher
 	//If not a human mob, must be simple or silicon. They got a var stored on their mob we can check
 	else if(!src.can_climb)
 		var/sure = tgui_alert(src,"Are you sure you want to try without tools? It's VERY LIKELY \
 			you will fall and get hurt. More agile species might have better luck", "Second Thoughts", list("Bring it!", "Stay grounded"))
-		if(sure == "Stay grounded") return
+		if(!sure || sure == "Stay grounded") return
 		if(isrobot(src))
 			fall_chance = 80 // Robots get no mercy
 		else

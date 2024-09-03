@@ -39,6 +39,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Round Time: [ROUND_TIME()]",
+			"Station Date: [stationdate2text()], [capitalize(GLOB.world_time_season)]",
 			"Station Time: [stationtime2text()]",
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 			*/
@@ -48,6 +49,7 @@ SUBSYSTEM_DEF(statpanels)
 			"ID раунда: [GLOB.round_id ? GLOB.round_id : "НЕТ"]",
 			"Время сервера: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Время раунда: [ROUND_TIME()]",
+			"Дата на станции: [stationdate2text()], [capitalize(season2russian_ru(GLOB.world_time_season))]",
 			"Время на станции: [stationtime2text()]",
 			"Замедление: [round(SStime_track.time_dilation_current,1)]% в среднем ([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 			// End of Bastion of Endeavor Translation
@@ -166,11 +168,10 @@ SUBSYSTEM_DEF(statpanels)
 
 	target.stat_panel.send_message("update_stat", list(
 		global_data = global_data,
-		//ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
 		/* Bastion of Endeavor Translation
-		ping_str = "Ping: -- Not Available --",
+		ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
 		*/
-		ping_str = "Пинг: -- Недоступен --",
+		ping_str = "Пинг: [round(target.lastping, 1)] мс (Средний: [round(target.avgping, 1)] мс)",
 		// End of Bastion of Endeavor Translation
 		other_str = target.mob?.get_status_tab_items(),
 	))

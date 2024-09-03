@@ -1,5 +1,3 @@
-#define SAVE_RESET -1
-
 var/list/preferences_datums = list()
 
 /datum/preferences
@@ -42,7 +40,6 @@ var/list/preferences_datums = list()
 	var/obfuscate_key = FALSE
 	var/obfuscate_job = FALSE
 	var/chat_timestamp = FALSE
-	var/throwmode_loud = FALSE
 
 	//character preferences
 	var/real_name						//our character's name
@@ -62,6 +59,7 @@ var/list/preferences_datums = list()
 	var/blood_reagents = "default"		//blood restoration reagents
 	var/backbag = 2						//backpack type
 	var/pdachoice = 1					//PDA type
+	//var/shoe_hater = FALSE				//RS ADD - if true, will spawn with no shoes //CHOMPRemove, remove RS No shoes
 	/* Bastion of Endeavor Translation
 	var/h_style = "Bald"				//Hair type
 	*/
@@ -354,7 +352,7 @@ var/list/preferences_datums = list()
 	popup.open(FALSE) // Skip registring onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
 
-/*datum/preferences/proc/update_character_previews(mutable_appearance/MA) //CHOMPEdit _ch override.
+/datum/preferences/proc/update_character_previews(var/mob/living/carbon/human/mannequin)
 	if(!client)
 		return
 
@@ -383,9 +381,12 @@ var/list/preferences_datums = list()
 			O.pref = src
 			LAZYSET(char_render_holders, "[D]", O)
 			client.screen |= O
+		mannequin.set_dir(D)
+		mannequin.update_tail_showing()
+		mannequin.ImmediateOverlayUpdate()
+		var/mutable_appearance/MA = new(mannequin)
 		O.appearance = MA
-		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]*/
+		O.screen_loc = preview_screen_locs["[D]"]
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)
@@ -415,7 +416,7 @@ var/list/preferences_datums = list()
 			to_chat(user, "<span class='danger'>URL форума не задан в настройках сервера.</span>")
 			// End of Bastion of Endeavor Translation
 			return
-	ShowChoices(usr)
+	ShowChoices(user) //ChompEDIT - usr removal
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
@@ -610,6 +611,14 @@ var/list/preferences_datums = list()
 		// End of Bastion of Endeavor Translation
 		return
 
-	overwrite_character(slotnum)
-	sanitize_preferences()
-	ShowChoices(user)
+	/* Bastion of Endeavor Translation
+	if(tgui_alert(user, "Are you sure you want to override slot [slotnum], [name][nickname ? " ([nickname])" : ""]'s savedata?", "Confirm Override", list("No", "Yes")) == "Yes")
+	*/
+	if(tgui_alert(user, "Вы действительно хотите перезаписать слот сохранения №[slotnum], [name][nickname ? " ([nickname])" : ""]?", "Подтверждение перезаписи", list("Нет", "Да")) == "Да")
+	// End of Bastion of Endeavor Translation
+		overwrite_character(slotnum)
+		sanitize_preferences()
+		save_preferences()
+		save_character()
+		attempt_vr(user.client?.prefs_vr,"load_vore","")
+		ShowChoices(user)

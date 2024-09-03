@@ -1,7 +1,7 @@
 /client/proc/change_human_appearance_admin()
 	set name = "Change Mob Appearance - Admin"
 	set desc = "Allows you to change the mob appearance"
-	set category = "Admin"
+	set category = "Admin.Events" //CHOMPEdit
 
 	if(!check_rights(R_FUN)) return
 
@@ -15,7 +15,7 @@
 /client/proc/change_human_appearance_self()
 	set name = "Change Mob Appearance - Self"
 	set desc = "Allows the mob to change its appearance"
-	set category = "Admin"
+	set category = "Admin.Events" //CHOMPEdit
 
 	if(!check_rights(R_FUN)) return
 
@@ -37,7 +37,7 @@
 
 /client/proc/editappear()
 	set name = "Edit Appearance"
-	set category = "Fun"
+	set category = "Fun.Event Kit" //CHOMPEdit
 
 	if(!check_rights(R_FUN))	return
 
@@ -46,9 +46,8 @@
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
 		return
-	switch(tgui_alert(usr, "Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Tajaran can result in unintended consequences.","Danger!",list("Yes","No")))
-		if("No")
-			return
+	if(tgui_alert(usr, "Are you sure you wish to edit this mob's appearance? Skrell, Unathi, Tajaran can result in unintended consequences.","Danger!",list("Yes","No")) != "Yes")
+		return
 	var/new_facial = input(usr, "Please select facial hair color.", "Character Generation") as color
 	if(new_facial)
 		M.r_facial = hex2num(copytext(new_facial, 2, 4))

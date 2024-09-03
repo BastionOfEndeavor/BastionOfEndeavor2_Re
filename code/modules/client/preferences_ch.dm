@@ -1,7 +1,7 @@
 /client/verb/toggle_looping_alarms()
 	/* Bastion of Endeavor Translation
 	set name = "Looping Alarms"
-	set category = "Preferences"
+	set category = "Preferences.Sounds" //CHOMPEdit
 	set desc = "Toggles alarm sound loops."
 	*/
 	set name = "Звуки тревог"
@@ -26,7 +26,7 @@
 /client/verb/toggle_sleep_music()
 	/* Bastion of Endeavor Translation
 	set name = "Toggle Sleeping Music"
-	set category = "Preferences"
+	set category = "Preferences.Sounds" //CHOMPEdit
 	set desc = "When enabled, you will hear cozy music played during surgery, cryo, and sleeper pod usage."
 	*/
 	set name = "Музыка при сне"
@@ -48,6 +48,7 @@
 
 	feedback_add_details("admin_verb", "TSleepMusic")
 
+/* // Up-ported to Virgo, disabling here
 /datum/preferences/proc/update_character_previews(var/mob/living/carbon/human/mannequin)
 	if(!client)
 		return
@@ -83,3 +84,4 @@
 		var/mutable_appearance/MA = new(mannequin)
 		O.appearance = MA
 		O.screen_loc = preview_screen_locs["[D]"]
+*/

@@ -2,10 +2,11 @@
 ////////////////////SUBTLE COMMAND////////////////////
 //////////////////////////////////////////////////////
 
-/mob/verb/me_verb_subtle(message as message) //This would normally go in say.dm
+/mob/verb/me_verb_subtle(message as message) //This would normally go in say.dm //CHOMPEdit
 	set name = "Subtle"
-	set category = "IC"
+	// set category = "IC.Subtle" //CHOMPEdit
 	set desc = "Emote to nearby people (and your pred/prey)"
+	set hidden = 1
 
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "Speech is currently admin-disabled.")
@@ -18,15 +19,15 @@
 	if(!message)
 		return
 
-	set_typing_indicator(FALSE)
+	client?.stop_thinking()
 	if(use_me)
 		usr.emote_vr("me",4,message)
 	else
 		usr.emote_vr(message)
 
-/mob/verb/me_verb_subtle_custom(message as message) // Literally same as above but with mode_selection set to true
+/mob/verb/me_verb_subtle_custom(message as message) // Literally same as above but with mode_selection set to true //CHOMPEdit
 	set name = "Subtle (Custom)"
-	set category = "IC"
+	// set category = "IC.Subtle" //CHOMPEdit
 	set desc = "Emote to nearby people, with ability to choose which specific portion of people you wish to target."
 
 	if(say_disabled)	//This is here to try to identify lag problems
@@ -40,7 +41,7 @@
 	if(!message)
 		return
 
-	set_typing_indicator(FALSE)
+	client?.stop_thinking()
 	if(use_me)
 		usr.emote_vr("me",4,message,TRUE)
 	else
@@ -255,11 +256,12 @@
 	to_chat(user,message)
 	to_chat(user, "<span class='danger'>^ This message was NOT SENT ^ -- It was [length] characters, and the limit is [MAX_MESSAGE_LEN]. It would fit in [posts] separate messages.</span>")
 #undef MAX_HUGE_MESSAGE_LEN
+#undef POST_DELIMITER_STR
 
 ///// PSAY /////
 
-/mob/verb/psay(message as text)
-	set category = "IC"
+/mob/verb/psay(message as text) //CHOMPEdit
+	// set category = "IC.Subtle" //CHOMPEdit
 	set name = "Psay"
 	set desc = "Talk to people affected by complete absorbed or dominate predator/prey."
 
@@ -364,8 +366,8 @@
 
 ///// PME /////
 
-/mob/verb/pme(message as message)
-	set category = "IC"
+/mob/verb/pme(message as message) //CHOMPEdit
+	// set category = "IC.Subtle" //CHOMPEdit
 	set name = "Pme"
 	set desc = "Emote to people affected by complete absorbed or dominate predator/prey."
 
@@ -468,8 +470,8 @@
 		M.forced_psay = FALSE
 		M.me_verb(message)
 
-/mob/living/verb/player_narrate(message as message)
-	set category = "IC"
+/mob/living/verb/player_narrate(message as message) //CHOMPEdit
+	// set category = "IC.Chat" //CHOMPEdit
 	set name = "Narrate (Player)"
 	set desc = "Narrate an action or event! An alternative to emoting, for when your emote shouldn't start with your name!"
 
@@ -499,7 +501,7 @@
 		ourfreq = voice_freq
 
 	if(client)
-		playsound(T, pick(emote_sound), 25, TRUE, falloff = 1 , is_global = TRUE, frequency = ourfreq, ignore_walls = FALSE, preference = /datum/client_preference/emote_sounds)
+		playsound(T, pick(emote_sound), 25, TRUE, falloff = 1 , is_global = TRUE, frequency = ourfreq, ignore_walls = TRUE, preference = /datum/client_preference/emote_sounds) //ChompEDIT - ignore walls
 
 	var/list/in_range = get_mobs_and_objs_in_view_fast(T,world.view,2,remote_ghosts = client ? TRUE : FALSE)
 	var/list/m_viewers = in_range["mobs"]
@@ -515,7 +517,7 @@
 
 /mob/verb/select_speech_bubble()
 	set name = "Select Speech Bubble"
-	set category = "OOC"
+	set category = "OOC.Chat Settings" //CHOMPEdit
 
 	var/new_speech_bubble = tgui_input_list(src, "Pick new voice (default for automatic selection)", "Character Preference", selectable_speech_bubbles)
 	if(new_speech_bubble)

@@ -1,5 +1,5 @@
 /datum/admins/proc/capture_map(tx as null|num, ty as null|num, tz as null|num, range as null|num)
-	set category = "Server"
+	set category = "Server.Game" //CHOMPEdit
 	set name = "Capture Map Part"
 	set desc = "Usage: Capture-Map-Part target_x_cord target_y_cord target_z_cord range (captures part of a map originating from bottom left corner)"
 
@@ -28,7 +28,7 @@
 					if(!hasasked)
 						var/answer = tgui_alert(usr, "Capture includes non existant turf, Continue capture?","Continue capture?", list("No", "Yes"))
 						hasasked = 1
-						if(answer == "No")
+						if(answer != "Yes")
 							return
 
 		var/list/atoms = list()

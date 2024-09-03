@@ -53,37 +53,10 @@
 
 	return loc
 
-/mob/living/carbon/brain/set_typing_indicator(var/state)
-	if(isturf(loc))
-		return ..()
-
-	if(!is_preference_enabled(/datum/client_preference/show_typing_indicator))
-		loc.cut_overlay(typing_indicator, TRUE)
-		return
-
-	var/cur_bubble_appearance = custom_speech_bubble
-	if(!cur_bubble_appearance || cur_bubble_appearance == "default")
-		cur_bubble_appearance = speech_bubble_appearance()
-	if(!typing_indicator || cur_typing_indicator != cur_bubble_appearance)
-		init_typing_indicator("[cur_bubble_appearance]_typing")
-
-	if(state && !typing)
-		add_overlay(typing_indicator, TRUE)
-		typing = TRUE
-		typing_indicator_active = typing_indicator
-	else if(typing)
-		cut_overlay(typing_indicator_active, TRUE)
-		typing = FALSE
-		if(typing_indicator_active != typing_indicator)
-			qdel(typing_indicator_active)
-		typing_indicator_active = null
-
-	return state
-
 // Vorestation edit start
 
 /mob/living/carbon/brain/verb/backup_ping()
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 	set name = "Notify Transcore"
 	set desc = "Your body is gone. Notify robotics to be resleeved!"
 	var/datum/transcore_db/db = SStranscore.db_by_mind_name(mind.name)

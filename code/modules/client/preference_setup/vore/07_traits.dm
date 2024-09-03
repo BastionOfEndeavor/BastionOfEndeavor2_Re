@@ -2,9 +2,6 @@
 #define NEUTRAL_MODE 2
 #define NEGATIVE_MODE 3
 
-#define ORGANICS	1
-#define SYNTHETICS	2
-
 var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","silver","gold","slimejelly")	//allowlist-based so people don't make their blood restored by alcohol or something really silly. use reagent IDs!
 
 /datum/preferences
@@ -341,8 +338,8 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	for(var/T in pref.pos_traits + pref.neg_traits) // CHOMPEdit: Only Positive traits cost slots now.
 		points_left -= traits_costs[T]
-	for(var/T in pref.pos_traits)
-		traits_left--
+		if(T in pref.pos_traits)
+			traits_left--
 	/* Bastion of Endeavor Translation
 	. += "<b>Traits Left:</b> [traits_left]<br>"
 	. += "<b>Points Left:</b> [points_left]<br>"
@@ -392,7 +389,7 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	/* Bastion of Endeavor Translation: Augh
 	. += "<b>Blood Color: </b>" //People that want to use a certain species to have that species traits (xenochimera/promethean/spider) should be able to set their own blood color.
-	. += "<a href='?src=\ref[src];blood_color=1'>Set Color</a>"
+	. += "<a href='?src=\ref[src];blood_color=1'>Set Color <font color='[pref.blood_color]'>&#9899;</font></a>"
 	. += "<a href='?src=\ref[src];blood_reset=1'>R</a><br>"
 	. += "<b>Blood Reagent: </b>"	//Wanna be copper-based? Go ahead.
 	. += "<a href='?src=\ref[src];blood_reagents=1'>[pref.blood_reagents]</a><br>"
@@ -424,7 +421,7 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	. += "<br>"
 	*/
 	. += "<b>Цвет крови: </b>"
-	. += "<a href='?src=\ref[src];blood_color=1'>Выбрать</a>"
+	. += "<a href='?src=\ref[src];blood_color=1'>Выбрать <font color='[pref.blood_color]'>&#9899;</font></a>"
 	. += "<a href='?src=\ref[src];blood_reset=1'>Сбросить</a><br>"
 	. += "<b>Кроветворное вещество: </b>" // sounds a lil silly but okay
 	. += "<a href='?src=\ref[src];blood_reagents=1'>[pref.blood_reagents]</a><br>"
@@ -475,9 +472,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	else if(href_list["custom_base"])
 		var/list/choices = pref.get_custom_bases_for_species()
 		/* Bastion of Endeavor Translation
-		var/text_choice = tgui_input_list(usr, "Pick an icon set for your species:","Icon Base", choices)
+		var/text_choice = tgui_input_list(user, "Pick an icon set for your species:","Icon Base", choices) //ChompEDIT - usr removal
 		*/
-		var/text_choice = tgui_input_list(usr, "Выберите тип телосложения вашего персонажа:","Основа внешности", choices)
+		var/text_choice = tgui_input_list(user, "Выберите тип телосложения вашего персонажа:","Основа внешности", choices)
 		// End of Bastion of Endeavor Translation
 		if(text_choice in choices)
 			pref.custom_base = text_choice
@@ -485,23 +482,25 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["blood_color"])
 		/* Bastion of Endeavor Translation
-		var/color_choice = input(usr, "Pick a blood color (does not apply to synths)","Blood Color",pref.blood_color) as color
+		var/color_choice = input(user, "Pick a blood color (does not apply to synths)","Blood Color",pref.blood_color) as color //ChompEDIT - usr removal
 		*/
-		var/color_choice = input(usr, "Выберите цвет крови вашего персонажа (не действует на синтетов):","Цвет крови",pref.blood_color) as color
+		var/color_choice = input(user, "Выберите цвет крови вашего персонажа (не действует на синтетов):","Цвет крови",pref.blood_color) as color
 		// End of Bastion of Endeavor Translation
 		if(color_choice)
 			pref.blood_color = sanitize_hexcolor(color_choice, default="#A10808")
 		return TOPIC_REFRESH
 
 	else if(href_list["blood_reset"])
+		var/datum/species/spec = GLOB.all_species[pref.species]
+		var/new_blood = spec.blood_color ? spec.blood_color : "#A10808"
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_alert(usr, "Reset blood color to human default (#A10808)?","Reset Blood Color",list("Reset","Cancel"))
+		var/choice = tgui_alert(user, "Reset blood color to species default ([new_blood])?","Reset Blood Color",list("Reset","Cancel")) //ChompEDIT - usr removal
 		if(choice == "Reset")
 		*/
-		var/choice = tgui_alert(usr, "Сбросить цвет крови на красный (#A10808)?","Цвет крови",list("Сбросить","Отмена"))
+		var/choice = tgui_alert(user, "Сбросить цвет крови на цвет по умолчанию ([new_blood])?","Цвет крови",list("Сбросить","Отмена")) //ChompEDIT - usr removal
 		if(choice == "Сбросить")
 		// End of Bastion of Endeavor Translation
-			pref.blood_color = "#A10808"
+			pref.blood_color = new_blood
 		return TOPIC_REFRESH
 
 	else if(href_list["blood_reagents"])
@@ -517,10 +516,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	else if(href_list["clicked_pos_trait"])
 		var/datum/trait/trait = text2path(href_list["clicked_pos_trait"])
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_alert(usr, "Remove [initial(trait.name)] and regain [initial(trait.cost)] points?","Remove Trait",list("Remove","Cancel"))
+		var/choice = tgui_alert(user, "Remove [initial(trait.name)] and regain [initial(trait.cost)] points?","Remove Trait",list("Remove","Cancel")) //ChompEDIT - usr removal
 		if(choice == "Remove")
 		*/
-		var/choice = tgui_alert(usr, "Удалить черту [initial(trait.name)] и вернуть [count_ru(initial(trait.cost), ";очко;очка;очков")]?","Удалить черту",list("Удалить","Отмена"))
+		var/choice = tgui_alert(user, "Удалить черту [initial(trait.name)] и вернуть [count_ru(initial(trait.cost), ";очко;очка;очков")]?","Удалить черту",list("Удалить","Отмена"))
 		if(choice == "Удалить")
 		// End of Bastion of Endeavor Translation
 			pref.pos_traits -= trait
@@ -531,10 +530,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	else if(href_list["clicked_neu_trait"])
 		var/datum/trait/trait = text2path(href_list["clicked_neu_trait"])
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_alert(usr, "Remove [initial(trait.name)]?","Remove Trait",list("Remove","Cancel"))
+		var/choice = tgui_alert(user, "Remove [initial(trait.name)]?","Remove Trait",list("Remove","Cancel")) //ChompEDIT - usr removal
 		if(choice == "Remove")
 		*/
-		var/choice = tgui_alert(usr, "Удалить черту [initial(trait.name)]?","Удалить черту",list("Удалить","Отмена"))
+		var/choice = tgui_alert(user, "Удалить черту [initial(trait.name)]?","Удалить черту",list("Удалить","Отмена"))
 		if(choice == "Удалить")
 		// End of Bastion of Endeavor Translation
 			pref.neu_traits -= trait
@@ -545,10 +544,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	else if(href_list["clicked_neg_trait"])
 		var/datum/trait/trait = text2path(href_list["clicked_neg_trait"])
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_alert(usr, "Remove [initial(trait.name)] and lose [initial(trait.cost)] points?","Remove Trait",list("Remove","Cancel"))
+		var/choice = tgui_alert(user, "Remove [initial(trait.name)] and lose [initial(trait.cost)] points?","Remove Trait",list("Remove","Cancel")) //ChompEDIT - usr removal
 		if(choice == "Remove")
 		*/
-		var/choice = tgui_alert(usr, "Удалить черту [initial(trait.name)] и потерять [count_ru(initial(trait.cost), ";очко;очка;очков")]?","Удалить черту",list("Удалить","Отмена"))
+		var/choice = tgui_alert(user, "Удалить черту [initial(trait.name)] и потерять [count_ru(initial(trait.cost), ";очко;очка;очков")]?","Удалить черту",list("Удалить","Отмена"))
 		if(choice == "Удалить")
 		// End of Bastion of Endeavor Translation
 			pref.neg_traits -= trait
@@ -563,9 +562,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["custom_say"])
 		/* Bastion of Endeavor Translation: This is hacky and ugly I KNOW but I want to account for plural forms too
-		var/say_choice = sanitize(tgui_input_text(usr, "This word or phrase will appear instead of 'says': [pref.real_name] says, \"Hi.\"", "Custom Say", pref.custom_say, 12), 12)
+		var/say_choice = sanitize(tgui_input_text(user, "This word or phrase will appear instead of 'says': [pref.real_name] says, \"Hi.\"", "Custom Say", pref.custom_say, 12), 12) //ChompEDIT - usr removal
 		*/
-		var/say_choice = sanitize(tgui_input_text(usr, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "говорят" : "говорит"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "говорят" : "говорит"], \"Привет.\"", "Глагол речи", pref.custom_say, 12), 12)
+		var/say_choice = sanitize(tgui_input_text(user, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "говорят" : "говорит"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "говорят" : "говорит"], \"Привет.\"", "Глагол речи", pref.custom_say, 12), 12)
 		// End of Bastion of Endeavor Translation
 		if(say_choice)
 			pref.custom_say = say_choice
@@ -573,9 +572,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["custom_whisper"])
 		/* Bastion of Endeavor Translation
-		var/whisper_choice = sanitize(tgui_input_text(usr, "This word or phrase will appear instead of 'whispers': [pref.real_name] whispers, \"Hi...\"", "Custom Whisper", pref.custom_whisper, 12), 12)
+		var/whisper_choice = sanitize(tgui_input_text(user, "This word or phrase will appear instead of 'whispers': [pref.real_name] whispers, \"Hi...\"", "Custom Whisper", pref.custom_whisper, 12), 12) //ChompEDIT - usr removal
 		*/
-		var/whisper_choice = sanitize(tgui_input_text(usr, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "шепчут" : "шепчет"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "шепчут" : "шепчет"], \"Привет...\"", "Глагол шёпота", pref.custom_whisper, 12), 12)
+		var/whisper_choice = sanitize(tgui_input_text(user, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "шепчут" : "шепчет"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "шепчут" : "шепчет"], \"Привет...\"", "Глагол шёпота", pref.custom_whisper, 12), 12)
 		// End of Bastion of Endeavor Translation
 		if(whisper_choice)
 			pref.custom_whisper = whisper_choice
@@ -583,9 +582,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["custom_ask"])
 		/* Bastion of Endeavor Translation
-		var/ask_choice = sanitize(tgui_input_text(usr, "This word or phrase will appear instead of 'asks': [pref.real_name] asks, \"Hi?\"", "Custom Ask", pref.custom_ask, 12), 12)
+		var/ask_choice = sanitize(tgui_input_text(user, "This word or phrase will appear instead of 'asks': [pref.real_name] asks, \"Hi?\"", "Custom Ask", pref.custom_ask, 12), 12) //ChompEDIT - usr removal
 		*/
-		var/ask_choice = sanitize(tgui_input_text(usr, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "спрашивают" : "спрашивает"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "спрашивают" : "спрашивает"], \"Привет?\"", "Глагол вопроса", pref.custom_ask, 12), 12)
+		var/ask_choice = sanitize(tgui_input_text(user, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "спрашивают" : "спрашивает"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "спрашивают" : "спрашивает"], \"Привет?\"", "Глагол вопроса", pref.custom_ask, 12), 12)
 		// End of Bastion of Endeavor Translation
 		if(ask_choice)
 			pref.custom_ask = ask_choice
@@ -593,9 +592,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["custom_exclaim"])
 		/* Bastion of Endeavor Translation
-		var/exclaim_choice = sanitize(tgui_input_text(usr, "This word or phrase will appear instead of 'exclaims', 'shouts' or 'yells': [pref.real_name] exclaims, \"Hi!\"", "Custom Exclaim", pref.custom_exclaim, 12), 12)
+		var/exclaim_choice = sanitize(tgui_input_text(user, "This word or phrase will appear instead of 'exclaims', 'shouts' or 'yells': [pref.real_name] exclaims, \"Hi!\"", "Custom Exclaim", pref.custom_exclaim, 12), 12) //ChompEDIT - usr removal
 		*/
-		var/exclaim_choice = sanitize(tgui_input_text(usr, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "восклицают\", \"кричат\" или \"выкрикивают" : "восклицает\", \"кричит\" или \"выкрикивает"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "восклицают" : "восклицает"], \"Привет!\"", "Глагол восклицания", pref.custom_exclaim, 12), 12)
+		var/exclaim_choice = sanitize(tgui_input_text(user, "Введите глагол, отображаемый вместо \"[pref.identifying_gender == PLURAL ? "восклицают\", \"кричат\" или \"выкрикивают" : "восклицает\", \"кричит\" или \"выкрикивает"]\":\n[pref.real_name] [pref.identifying_gender == PLURAL ? "восклицают" : "восклицает"], \"Привет!\"", "Глагол восклицания", pref.custom_exclaim, 12), 12)
 		// End of Bastion of Endeavor Translation
 		if(exclaim_choice)
 			pref.custom_exclaim = exclaim_choice
@@ -608,9 +607,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 		// End of Bastion of Endeavor Removal
 		var/old_message = pref.custom_heat.Join("\n\n")
 		/* Bastion of Endeavor Translation
-		var/new_message = sanitize(tgui_input_text(usr,"Use double enter between messages to enter a new one. Must be at least 3 characters long, 160 characters max and up to 10 messages are allowed.","Heat Discomfort messages",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
+		var/new_message = sanitize(tgui_input_text(user,"Use double enter between messages to enter a new one. Must be at least 3 characters long, 160 characters max and up to 10 messages are allowed.","Heat Discomfort messages",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0) //ChompEDIT - usr removal
 		*/
-		var/new_message = sanitize(tgui_input_text(usr,"Введите сообщения, отображаемые при дискомфорте от жары, по одному на строку. Допускается до 10 сообщений от 3 до 160 символов.","Сообщение о дискомфорте",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
+		var/new_message = sanitize(tgui_input_text(user,"Введите сообщения, отображаемые при дискомфорте от жары, по одному на строку. Допускается до 10 сообщений от 3 до 160 символов.","Сообщение о дискомфорте",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
 		// End of Bastion of Endeavor Translation
 		if(length(new_message) > 0)
 			var/list/raw_list = splittext(new_message,"\n\n")
@@ -632,9 +631,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 		// End of Bastion of Endeavor Removal
 		var/old_message = pref.custom_cold.Join("\n\n") //CHOMP Edit
 		/* Bastion of Endeavor Translation
-		var/new_message = sanitize(tgui_input_text(usr,"Use double enter between messages to enter a new one. Must be at least 3 characters long, 160 characters max and up to 10 messages are allowed.","Cold Discomfort messages",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
+		var/new_message = sanitize(tgui_input_text(user,"Use double enter between messages to enter a new one. Must be at least 3 characters long, 160 characters max and up to 10 messages are allowed.","Cold Discomfort messages",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0) //ChompEDIT - usr removal
 		*/
-		var/new_message = sanitize(tgui_input_text(usr,"Введите сообщения, отображаемые при дискомфорте от холода, по одному на строку. Допускается до 10 сообщений от 3 до 160 символов. При сбросе будут восстановлены сообщения вашей расы по умолчанию.","Сообщение о дискомфорте",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
+		var/new_message = sanitize(tgui_input_text(user,"Введите сообщения, отображаемые при дискомфорте от холода, по одному на строку. Допускается до 10 сообщений от 3 до 160 символов. При сбросе будут восстановлены сообщения вашей расы по умолчанию.","Сообщение о дискомфорте",old_message, multiline= TRUE, prevent_enter = TRUE), MAX_MESSAGE_LEN,0,0,0)
 		// End of Bastion of Endeavor Translation
 		if(length(new_message) > 0)
 			var/list/raw_list = splittext(new_message,"\n\n")
@@ -651,10 +650,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_say"])
 		/* Bastion of Endeavor Translation: Don't see the point of these but sure
-		var/say_choice = tgui_alert(usr, "Reset your Custom Say Verb?","Reset Verb",list("Yes","No"))
+		var/say_choice = tgui_alert(user, "Reset your Custom Say Verb?","Reset Verb",list("Yes","No")) //ChompEDIT - usr removal
 		if(say_choice == "Yes")
 		*/
-		var/say_choice = tgui_alert(usr, "Сбросить глагол речи?","Сбросить глагол",list("Да","Нет"))
+		var/say_choice = tgui_alert(user, "Сбросить глагол речи?","Сбросить глагол",list("Да","Нет"))
 		if(say_choice == "Да")
 		// End of Bastion of Endeavor Translation
 			pref.custom_say = null
@@ -662,10 +661,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_whisper"])
 		/* Bastion of Endeavor Translation
-		var/whisper_choice = tgui_alert(usr, "Reset your Custom Whisper Verb?","Reset Verb",list("Yes","No"))
+		var/whisper_choice = tgui_alert(user, "Reset your Custom Whisper Verb?","Reset Verb",list("Yes","No")) //ChompEDIT - usr removal
 		if(whisper_choice == "Yes")
 		*/
-		var/whisper_choice = tgui_alert(usr, "Сбросить глагол шёпота?","Сбросить глагол",list("Да","Нет"))
+		var/whisper_choice = tgui_alert(user, "Сбросить глагол шёпота?","Сбросить глагол",list("Да","Нет"))
 		if(whisper_choice == "Да")
 		// End of Bastion of Endeavor Translation
 			pref.custom_whisper = null
@@ -673,9 +672,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_ask"])
 		/* Bastion of Endeavor Translation
-		var/ask_choice = tgui_alert(usr, "Reset your Custom Ask Verb?","Reset Verb",list("Yes","No"))
+		var/ask_choice = tgui_alert(user, "Reset your Custom Ask Verb?","Reset Verb",list("Yes","No")) //ChompEDIT - usr removal
 		*/
-		var/ask_choice = tgui_alert(usr, "Сбросить глагол вопроса?","Сбросить глагол",list("Да","Нет"))
+		var/ask_choice = tgui_alert(user, "Сбросить глагол вопроса?","Сбросить глагол",list("Да","Нет"))
 		// End of Bastion of Endeavor Translation
 		if(ask_choice == "Yes")
 			pref.custom_ask = null
@@ -683,10 +682,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_exclaim"])
 		/* Bastion of Endeavor Translation
-		var/exclaim_choice = tgui_alert(usr, "Reset your Custom Exclaim Verb?","Reset Verb",list("Yes","No"))
+		var/exclaim_choice = tgui_alert(user, "Reset your Custom Exclaim Verb?","Reset Verb",list("Yes","No")) //ChompEDIT - usr removal
 		if(exclaim_choice == "Yes")
 		*/
-		var/exclaim_choice = tgui_alert(usr, "Сбросить глагол восклицания?","Сбросить глагол",list("Да","Нет"))
+		var/exclaim_choice = tgui_alert(user, "Сбросить глагол восклицания?","Сбросить глагол",list("Да","Нет"))
 		if(exclaim_choice == "Да")
 		// End of Bastion of Endeavor Translation
 			pref.custom_exclaim = null
@@ -694,10 +693,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_cold"])
 		/* Bastion of Endeavor Translation
-		var/cold_choice = tgui_alert(usr, "Reset your Custom Cold Discomfort messages?", "Reset Discomfort",list("Yes","No"))
+		var/cold_choice = tgui_alert(user, "Reset your Custom Cold Discomfort messages?", "Reset Discomfort",list("Yes","No")) //ChompEDIT - usr removal
 		if(cold_choice == "Yes")
 		*/
-		var/cold_choice = tgui_alert(usr, "Сбросить сообщение о дискомфорте от холода?","Сбросить сообщение о дискомфорте",list("Да","Нет"))
+		var/cold_choice = tgui_alert(user, "Сбросить сообщение о дискомфорте от холода?","Сбросить сообщение о дискомфорте",list("Да","Нет"))
 		if(cold_choice == "Да")
 		// End of Bastion of Endeavor Translation
 			pref.custom_cold = list()
@@ -705,10 +704,10 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 	else if(href_list["reset_heat"])
 		/* Bastion of Endeavor Translation
-		var/heat_choice = tgui_alert(usr, "Reset your Custom Heat Discomfort messages?", "Reset Discomfort",list("Yes","No"))
+		var/heat_choice = tgui_alert(user, "Reset your Custom Heat Discomfort messages?", "Reset Discomfort",list("Yes","No")) //ChompEDIT - usr removal
 		if(heat_choice == "Yes")
 		*/
-		var/heat_choice = tgui_alert(usr, "Сбросить сообщение о дискомфорте от жары?","Сбросить сообщение о дискомфорте",list("Да","Нет"))
+		var/heat_choice = tgui_alert(user, "Сбросить сообщение о дискомфорте от жары?","Сбросить сообщение о дискомфорте",list("Да","Нет"))
 		if(heat_choice == "Да")
 		// End of Bastion of Endeavor Translation
 			pref.custom_heat = list()
@@ -793,17 +792,17 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 		var/trait_choice
 		var/done = FALSE
 		while(!done)
-			trait_choice = tgui_input_list(usr, message, title, nicelist)
+			trait_choice = tgui_input_list(user, message, title, nicelist) //ChompEDIT - usr removal
 			if(!trait_choice)
 				done = TRUE
 			if(trait_choice in nicelist)
 				var/datum/trait/path = nicelist[trait_choice]
 				/* Bastion of Endeavor Translation
-				var/choice = tgui_alert(usr, "\[Cost:[initial(path.cost)]\] [initial(path.desc)]",initial(path.name), list("Take Trait","Go Back"))
-				if(choice != "Go Back")
+				var/choice = tgui_alert(user, "\[Cost:[initial(path.cost)]\] [initial(path.desc)]",initial(path.name), list("Take Trait","Go Back")) //ChompEDIT - usr removal
+				if(choice == "Take Trait")
 				*/
-				var/choice = tgui_alert(usr, "\[Стоимость: [initial(path.cost)]\] [initial(path.desc)]",initial(path.name), list("Взять черту","Назад"))
-				if(choice != "Назад")
+				var/choice = tgui_alert(user, "\[Стоимость: [initial(path.cost)]\] [initial(path.desc)]",initial(path.name), list("Взять черту","Назад"))
+				if(choice == "Взять черту")
 				// End of Bastion of Endeavor Translation
 					done = TRUE
 
@@ -817,34 +816,34 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 			if(pref.dirty_synth && !(instance.can_take & SYNTHETICS))
 				/* Bastion of Endeavor Translation
-				tgui_alert_async(usr, "The trait you've selected can only be taken by organic characters!", "Error")
+				tgui_alert_async(user, "The trait you've selected can only be taken by organic characters!", "Error") //ChompEDIT - usr removal
 				*/
-				tgui_alert_async(usr, "Данная черта может быть выбрана только органическими персонажами!", "Отмена")
+				tgui_alert_async(user, "Данная черта может быть выбрана только органическими персонажами!", "Отмена")
 				// End of Bastion of Endeavor Translation
 				//pref.dirty_synth = 0	//Just to be sure //CHOMPEdit this shit broke, stop.
 				return TOPIC_REFRESH
 
 			if(pref.gross_meatbag && !(instance.can_take & ORGANICS))
 				/* Bastion of Endeavor Translation
-				tgui_alert_async(usr, "The trait you've selected can only be taken by synthetic characters!", "Error")
+				tgui_alert_async(user, "The trait you've selected can only be taken by synthetic characters!", "Error") //ChompEDIT - usr removal
 				*/
-				tgui_alert_async(usr, "Данная черта может быть выбрана только синтетическими персонажами!", "Отмена")
+				tgui_alert_async(user, "Данная черта может быть выбрана только синтетическими персонажами!", "Отмена")
 				// End of Bastion of Endeavor Translation
 				return TOPIC_REFRESH
 
 			if(pref.species in instance.banned_species)
 				/* Bastion of Endeavor Translation
-				tgui_alert_async(usr, "The trait you've selected cannot be taken by the species you've chosen!", "Error")
+				tgui_alert_async(user, "The trait you've selected cannot be taken by the species you've chosen!", "Error") //ChompEDIT - usr removal
 				*/
-				tgui_alert_async(usr, "Данная черта не может быть выбрана для расы вашего персонажа!", "Ошибка")
+				tgui_alert_async(user, "Данная черта не может быть выбрана для расы вашего персонажа!", "Ошибка")
 				// End of Bastion of Endeavor Translation
 				return TOPIC_REFRESH
 
 			if( LAZYLEN(instance.allowed_species) && !(pref.species in instance.allowed_species))
 				/* Bastion of Endeavor Translation
-				tgui_alert_async(usr, "The trait you've selected cannot be taken by the species you've chosen!", "Error")
+				tgui_alert_async(user, "The trait you've selected cannot be taken by the species you've chosen!", "Error") //ChompEDIT - usr removal
 				*/
-				tgui_alert_async(usr, "Данная черта не может быть выбрана для расы вашего персонажа!", "Ошибка")
+				tgui_alert_async(user, "Данная черта не может быть выбрана для расы вашего персонажа!", "Ошибка")
 				// End of Bastion of Endeavor Translation
 				return TOPIC_REFRESH
 
@@ -859,6 +858,8 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 						break varconflict
 
 					for(var/V in instance.var_changes)
+						if(V == "flags")
+							continue
 						if(V in instance_test.var_changes)
 							conflict = instance_test.name
 							break varconflict
@@ -870,9 +871,9 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 
 			if(conflict)
 				/* Bastion of Endeavor Translation
-				tgui_alert_async(usr, "You cannot take this trait and [conflict] at the same time. Please remove that trait, or pick another trait to add.", "Error")
+				tgui_alert_async(user, "You cannot take this trait and [conflict] at the same time. Please remove that trait, or pick another trait to add.", "Error") //ChompEDIT - usr removal
 				*/
-				tgui_alert_async(usr, "Вы не можете взять эту черту одновременно с чертой \"[conflict].", "Ошибка")
+				tgui_alert_async(user, "Вы не можете взять эту черту одновременно с чертой \"[conflict].", "Ошибка")
 				// End of Bastion of Endeavor Translation
 				return TOPIC_REFRESH
 

@@ -38,7 +38,7 @@ var/obj/screen/robot_inventory
 	using.color = HUD.ui_color
 	using.alpha = HUD.ui_alpha
 	using.icon_state = "radio"
-	using.screen_loc = ui_movi
+	using.screen_loc = ui_borg_radio
 	using.layer = HUD_LAYER
 	adding += using
 
@@ -109,6 +109,21 @@ var/obj/screen/robot_inventory
 	using.layer = HUD_LAYER
 	adding += using
 	HUD.action_intent = using
+
+	//Move intent (walk/run)
+	using = new /obj/screen()
+	/* Bastion of Endeavor Translation
+	using.name = "mov_intent"
+	*/
+	using.name = "Передвижеие"
+	// End of Bastion of Endeavor Translation
+	using.icon = HUD.ui_style
+	using.icon_state = (m_intent == "run" ? "running" : "walking")
+	using.screen_loc = ui_movi
+	using.color = HUD.ui_color
+	using.alpha = HUD.ui_alpha
+	HUD.adding += using
+	HUD.move_intent = using
 
 //Health
 	healths = new /obj/screen()
@@ -294,7 +309,54 @@ var/obj/screen/robot_inventory
 		client.screen += list( throw_icon, zone_sel, hands, healths, pullin, robot_inventory, gun_setting_icon)
 		client.screen += HUD.adding + HUD.other
 		client.screen += client.void
+		if(vtec_active)
+			using = new /obj/screen()
+			using.name = "control_vtec"
+			using.icon = HUD.ui_style
+			using.screen_loc = ui_vtec_control
+			using.color = HUD.ui_color
+			using.alpha = HUD.ui_alpha
+			if(speed == 0)
+				using.icon_state = "speed_0"
+			else if(speed == -0.5)
+				using.icon_state = "speed_1"
+			else if(speed == -1)
+				using.icon_state = "speed_2"
+			HUD.control_vtec = using
+			m_intent = "run"
+			HUD.move_intent.icon_state = "running"
+			client.screen += HUD.control_vtec
 
+/datum/hud/proc/toggle_vtec_control()
+	if(!isrobot(mymob))
+		return
+
+	var/mob/living/silicon/robot/R = mymob
+	if(!control_vtec)
+		var/obj/screen/using = new /obj/screen()
+		/* Bastion of Endeavor Translation
+		using.name = "control_vtec"
+		*/
+		using.name = "Разгон"
+		// End of Bastion of Endeavor Translation
+		using.icon = ui_style
+		using.screen_loc = ui_vtec_control
+		using.color = ui_color
+		using.alpha = ui_alpha
+		control_vtec = using
+	if(R.vtec_active)
+		if(R.speed == 0)
+			control_vtec.icon_state = "speed_0"
+		else if(R.speed == -0.5)
+			control_vtec.icon_state = "speed_1"
+		else if(R.speed == -1)
+			control_vtec.icon_state = "speed_2"
+		R.m_intent = "run"
+		R.hud_used.move_intent.icon_state = "running"
+		R.client.screen += control_vtec
+	else
+		R.client.screen -= control_vtec
+		R.speed = 0
 
 /datum/hud/proc/toggle_show_robot_modules()
 	if(!isrobot(mymob))
@@ -349,11 +411,11 @@ var/obj/screen/robot_inventory
 		if(r.emagged || r.emag_items)
 			for(var/obj/O in r.module.emag)
 				if(!(O in r.module.modules))
-					r.module.modules.Add(r.module.emag)
+					r.module.modules.Add(O)
 		else
 			for(var/obj/O in r.module.emag)
 				if(O in r.module.modules)
-					r.module.modules.Remove(r.module.emag)
+					r.module.modules.Remove(O)
 
 		for(var/atom/movable/A in r.module.modules)
 			if(r.client && (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )

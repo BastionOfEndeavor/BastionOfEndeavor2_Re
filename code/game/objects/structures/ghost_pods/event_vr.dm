@@ -48,7 +48,7 @@
 								  "Chubby Mutated Otie" = /mob/living/simple_mob/vore/otie/feral/chubby,//CHOMPedit: more mobs
 								  "Red Otie" = /mob/living/simple_mob/vore/otie/red,
 								  "Chubby Red Otie" = /mob/living/simple_mob/vore/otie/red/chubby,//CHOMPedit: more mobs
-								  "Zorgoia" = /mob/living/simple_mob/vore/otie/zorgoia,//CHOMPedit: more mobs
+								  "Zorgoia" = /mob/living/simple_mob/vore/zorgoia,//CHOMPedit: more mobs
 								  "Corrupt Hound" = /mob/living/simple_mob/vore/aggressive/corrupthound,
 								  "Corrupt Corrupt Hound" = /mob/living/simple_mob/vore/aggressive/corrupthound/prettyboi,
 								  "Hunter Giant Spider" = /mob/living/simple_mob/animal/giant_spider/hunter,
@@ -59,6 +59,10 @@
 								  "Frost Giant Spider" = /mob/living/simple_mob/animal/giant_spider/frost,
 								  "Nurse Giant Spider" = /mob/living/simple_mob/animal/giant_spider/nurse/eggless,
 								  "Giant Spider Queen" = /mob/living/simple_mob/animal/giant_spider/nurse/queen/eggless,
+								  "Red Dragon" = /mob/living/simple_mob/vore/aggressive/dragon,
+								  "Phoron Dragon" = /mob/living/simple_mob/vore/aggressive/dragon/virgo3b,
+								  "Space Dragon" = /mob/living/simple_mob/vore/aggressive/dragon/space,
+								  "Crypt Drake" = /mob/living/simple_mob/vore/cryptdrake,
 								  "Weretiger" = /mob/living/simple_mob/vore/weretiger,
 								  "Lesser Large Dragon" = /mob/living/simple_mob/vore/bigdragon/friendly/maintpred,	//CHOMPStation add.
 								  "Catslug" = /mob/living/simple_mob/vore/alienanimals/catslug,
@@ -74,7 +78,13 @@
 								  "Scel (Blue)" = /mob/living/simple_mob/vore/scel/blue,
 								  "Scel (Purple)" = /mob/living/simple_mob/vore/scel/purple,
 								  "Scel (Red)" = /mob/living/simple_mob/vore/scel/red,
-								  "Scel (Green)" = /mob/living/simple_mob/vore/scel/green
+								  "Scel (Green)" = /mob/living/simple_mob/vore/scel/green,
+								  "Cave Stalker" = /mob/living/simple_mob/vore/stalker,
+								  "Kelpie" = /mob/living/simple_mob/vore/horse/kelpie,
+								  "Scrubble" = /mob/living/simple_mob/vore/scrubble,
+								  "Sonadile" = /mob/living/simple_mob/vore/sonadile,
+								  "kururak" = /mob/living/simple_mob/animal/sif/kururak,
+								  "Statue of Temptation" = /mob/living/simple_mob/vore/devil
 								  )
 
 /obj/structure/ghost_pod/ghost_activated/maintpred/create_occupant(var/mob/M)
@@ -91,7 +101,7 @@
 	if (not_has_ooc_text(M))
 		return
 
-	while(finalized == "No" && M.client)
+	while(finalized != "Yes" && M.client)
 		choice = tgui_input_list(M, "What type of predator do you want to play as?", "Maintpred Choice", possible_mobs)
 		if(!choice)	//We probably pushed the cancel button on the mob selection. Let's just put the ghost pod back in the list.
 			to_chat(M, "<span class='notice'>No mob selected, cancelling.</span>")
@@ -168,3 +178,15 @@
 
 /obj/structure/ghost_pod/ghost_activated/morphspawn/no_announce
 	announce_prob = 0
+
+/obj/structure/ghost_pod/ghost_activated/maintpred/redgate //For ghostpods placed in the redgate that aren't spawned via an event
+	name = "creature hole"
+	desc = "Looks like some creature dug is hiding in the redgate..."
+	announce_prob = 0
+	icon_state = "redgate_hole"
+	icon_state_opened = "redgate_hole"
+
+/obj/structure/ghost_pod/ghost_activated/maintpred/redgate/Initialize()
+	..()
+	if(!(src in active_ghost_pods))
+		active_ghost_pods += src

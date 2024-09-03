@@ -272,7 +272,7 @@
 // Parameters: None
 // Description: Allows ghosts to call communicators, if they meet all the requirements.
 /mob/observer/dead/verb/join_as_voice()
-	set category = "Ghost"
+	set category = "Ghost.Message" //CHOMPEdit
 	set name = "Call Communicator"
 	set desc = "If there is a communicator available, send a request to speak through it.  This will reset your respawn timer, if someone picks up."
 
@@ -287,7 +287,7 @@
 		return //something is terribly wrong
 
 	var/confirm = tgui_alert(src, "Would you like to talk as [src.client.prefs.real_name], over a communicator? This will reset your respawn timer, if someone answers.", "Join as Voice?", list("Yes","No"))
-	if(confirm == "No")
+	if(confirm != "Yes")
 		return
 
 	if(CONFIG_GET(flag/antag_hud_restricted) && has_enabled_antagHUD == 1) // CHOMPEdit

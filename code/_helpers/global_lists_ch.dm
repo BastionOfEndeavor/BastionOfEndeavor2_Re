@@ -1,17 +1,17 @@
 
 //Reagent Vore belly Sounds
-var/global/list/vore_reagent_sounds = list(
-		'sound/vore/walkslosh1.ogg',
-		'sound/vore/walkslosh2.ogg',
-		'sound/vore/walkslosh3.ogg',
-		'sound/vore/walkslosh4.ogg',
-		'sound/vore/walkslosh5.ogg',
-		'sound/vore/walkslosh6.ogg',
-		'sound/vore/walkslosh7.ogg',
-		'sound/vore/walkslosh8.ogg',
-		'sound/vore/walkslosh9.ogg',
-		'sound/vore/walkslosh10.ogg',
-		"None" = null)
+GLOBAL_LIST_INIT(slosh, list(
+	'sound/vore/walkslosh1.ogg',
+	'sound/vore/walkslosh2.ogg',
+	'sound/vore/walkslosh3.ogg',
+	'sound/vore/walkslosh4.ogg',
+	'sound/vore/walkslosh5.ogg',
+	'sound/vore/walkslosh6.ogg',
+	'sound/vore/walkslosh7.ogg',
+	'sound/vore/walkslosh8.ogg',
+	'sound/vore/walkslosh9.ogg',
+	'sound/vore/walkslosh10.ogg'
+))
 
 var/global/list/item_tf_spawnpoints = list() // Global variable tracking which items are item tf spawnpoints
 
@@ -64,7 +64,11 @@ var/global/list/vr_mob_tf_options = list(
 	"Tech golem" = /mob/living/simple_mob/mechanical/technomancer_golem,
 	"Metroid" = /mob/living/simple_mob/metroid/juvenile/baby,
 	"Otie" = /mob/living/simple_mob/vore/otie/cotie/chubby,
-	"Shadekin" = /mob/living/simple_mob/shadekin,
+	"Red-eyed Shadekin" = /mob/living/simple_mob/shadekin/red,
+	"Blue-eyed Shadekin" = /mob/living/simple_mob/shadekin/blue,
+	"Purple-eyed Shadekin" = /mob/living/simple_mob/shadekin/purple,
+	"Green-eyed Shadekin" = /mob/living/simple_mob/shadekin/green,
+	"Yellow-eyed Shadekin" = /mob/living/simple_mob/shadekin/yellow,
 	"Slime" = /mob/living/simple_mob/slime/xenobio/metal,
 	"Corrupt hound" = /mob/living/simple_mob/vore/aggressive/corrupthound,
 	"Deathclaw" = /mob/living/simple_mob/vore/aggressive/deathclaw/den,
@@ -117,7 +121,11 @@ var/global/list/vr_mob_tf_options = list(
 	"Техноголем" = /mob/living/simple_mob/mechanical/technomancer_golem,
 	"Метроид" = /mob/living/simple_mob/metroid/juvenile/baby,
 	"Оти" = /mob/living/simple_mob/vore/otie/cotie/chubby,
-	"Тенерождённый" = /mob/living/simple_mob/shadekin,
+	"Красноглазый тенерождённый" = /mob/living/simple_mob/shadekin/red,
+	"Синеглазый тенерождённый" = /mob/living/simple_mob/shadekin/blue,
+	"Фиолетовоглазый тенерождённый" = /mob/living/simple_mob/shadekin/purple,
+	"Зеленоглазый тенерождённый" = /mob/living/simple_mob/shadekin/green,
+	"Жёлтоглазый тенерождённый" = /mob/living/simple_mob/shadekin/yellow,
 	"Слизень" = /mob/living/simple_mob/slime/xenobio/metal,
 	"Испорченный робопёс" = /mob/living/simple_mob/vore/aggressive/corrupthound,
 	"Коготь смерти" = /mob/living/simple_mob/vore/aggressive/deathclaw/den,
@@ -346,3 +354,10 @@ var/global/list/vr_mob_spawner_options = list(
 	"Сток" = /mob/living/carbon/human/stok
 	// End of Bastion of Endeavor Translation
 	)
+
+var/global/list/selectable_footstep = list(
+	"Default" = FOOTSTEP_MOB_HUMAN,
+	"Claw" = FOOTSTEP_MOB_CLAW,
+	"Light Claw" = FOOTSTEP_MOB_TESHARI,
+	"Slither" = FOOTSTEP_MOB_SLITHER,
+)

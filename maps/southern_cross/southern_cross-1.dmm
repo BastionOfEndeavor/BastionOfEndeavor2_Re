@@ -336,7 +336,6 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/shuttle/floor/white,
 /area/shuttle/large_escape_pod2/station)
 "aaY" = (
@@ -375,13 +374,9 @@
 /area/shuttle/large_escape_pod2/station)
 "abi" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "large_escape_pod_2_hatch";
-	locked = 1;
-	name = "Large Escape Pod Hatch 2";
-	req_access = list(13)
+	name = "Large Escape Pod Hatch 2"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/large_escape_pod2/station)
 "abm" = (
@@ -447,13 +442,10 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/firstdeck/auxdockfore)
 "abF" = (
-/obj/machinery/door/airlock/glass_external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "large_escape_pod_2_berth_hatch";
-	locked = 1;
+/obj/machinery/door/airlock/glass_external/public{
 	name = "Large Escape Pod 2";
-	req_access = list(13)
+	pixel_y = -1;
+	id_tag = "large_escape_pod_2_berth"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/escape/firstdeck/ep_port)
@@ -508,12 +500,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/firstdeck/port)
 "aci" = (
-/turf/simulated/floor/airless,
-/area/hallway/primary/firstdeck/fore)
-"acj" = (
-/obj/effect/overmap/visitable/sector/Southern_Cross,
-/turf/space,
-/area/space)
+/obj/structure/ladder,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/hallway/primary/firstdeck/elevator)
 "ack" = (
 /obj/structure/sign/warning/caution,
 /turf/simulated/wall/r_wall,
@@ -1796,6 +1786,21 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/mail,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
+/obj/item/mail/blank,
 /turf/simulated/floor/tiled,
 /area/quartermaster/delivery)
 "ahk" = (
@@ -1863,13 +1868,15 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/steeldecal/steel_decals4{
 	dir = 9
 	},
 /obj/effect/floor_decal/steeldecal/steel_decals4{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/tcomm/tcomfoyer)
@@ -2838,8 +2845,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/port)
 "alx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/firstdeck)
 "alz" = (
@@ -3028,10 +3042,6 @@
 /obj/effect/floor_decal/corner/paleblue/border,
 /turf/simulated/floor/tiled/white,
 /area/medical/first_aid_station/firstdeck)
-"amR" = (
-/obj/turbolift_map_holder/southern_cross/port,
-/turf/unsimulated/mask,
-/area/hallway/primary/firstdeck/port)
 "amV" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/firstdeck/port)
@@ -3717,13 +3727,9 @@
 /area/hallway/primary/firstdeck/starboard)
 "aqv" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_1_hatch";
-	locked = 1;
-	name = "Escape Pod 1 Hatch";
-	req_access = list(13)
+	name = "Escape Pod 1 Hatch"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod1/station)
 "aqA" = (
@@ -3732,13 +3738,9 @@
 /area/shuttle/escape_pod1/station)
 "aqD" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_2_hatch";
-	locked = 1;
-	name = "Escape Pod 2 Hatch";
-	req_access = list(13)
+	name = "Escape Pod 2 Hatch"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod2/station)
 "aqG" = (
@@ -4289,8 +4291,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/foreport)
 "atS" = (
-/obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/storage/emergency_storage/firstdeck/ap_emergency)
 "atV" = (
@@ -4394,7 +4396,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/quartermaster/mininglockerroom)
 "aur" = (
-/obj/random/obstruction,
 /turf/simulated/floor/plating,
 /area/hallway/primary/firstdeck/elevator)
 "auB" = (
@@ -6039,6 +6040,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/tcomm/tcomfoyer)
 "aDn" = (
@@ -8223,6 +8225,17 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/escape/firstdeck/ep_aftport)
+"aOV" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "virologyquar";
+	name = "Virology Emergency Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/virology)
 "aPa" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 4
@@ -9310,13 +9323,9 @@
 /area/quartermaster/storage)
 "aVt" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_3_hatch";
-	locked = 1;
-	name = "Escape Pod Hatch 3";
-	req_access = list(13)
+	name = "Escape Pod Hatch 3"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod3/station)
 "aVu" = (
@@ -9681,13 +9690,9 @@
 /area/medical/virology)
 "aYb" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "large_escape_pod_1_hatch";
-	locked = 1;
-	name = "Large Escape Pod Hatch 1";
-	req_access = list(13)
+	name = "Large Escape Pod Hatch 1"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/large_escape_pod1/station)
 "aZc" = (
@@ -9940,9 +9945,6 @@
 /obj/random/maintenance/medical,
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/forestarboard)
-"beQ" = (
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "bfF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
@@ -10288,11 +10290,9 @@
 "bwS" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_5_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 5";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/hallway/secondary/escape/firstdeck/ep_aftstarboard)
@@ -10824,9 +10824,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/teleporter/firstdeck)
 "bOw" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "TCOMMS - SMES Room";
 	dir = 1
@@ -10834,6 +10831,14 @@
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -25
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcomm/tcomfoyer)
@@ -10943,6 +10948,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/elevator)
+"bVO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	external_pressure_bound = 140;
+	external_pressure_bound_default = 140;
+	icon_state = "map_vent_out";
+	use_power = 1;
+	dir = 8
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/airless,
+/area/rnd/xenobiology/xenoflora)
 "bWv" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
@@ -11121,13 +11137,9 @@
 /area/expoutpost/stationshuttle)
 "cdQ" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_5_hatch";
-	locked = 1;
-	name = "Escape Pod Hatch 5";
-	req_access = list(13)
+	name = "Escape Pod Hatch 5"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod5/station)
 "cfa" = (
@@ -11471,20 +11483,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/fore)
-"ctY" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12;
-	pixel_y = 2
-	},
-/obj/effect/floor_decal/borderfloorwhite/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/blue/bordercorner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "cuc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11928,16 +11926,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/aftport)
-"cPr" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/borderfloorwhite/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/paleblue/bordercorner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "cPy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/disposalpipe/segment{
@@ -12138,8 +12126,8 @@
 /turf/simulated/floor/tiled,
 /area/teleporter/firstdeck)
 "cYg" = (
-/obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/storage/emergency_storage/firstdeck/fp_emergency)
 "cZt" = (
@@ -12208,12 +12196,11 @@
 /turf/simulated/floor,
 /area/storage/tech)
 "dec" = (
-/obj/effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor/glass,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hallway/primary/firstdeck/aft)
 "det" = (
 /obj/item/weapon/storage/box/lights/mixed,
@@ -12374,13 +12361,10 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hangar/three)
 "dnH" = (
-/obj/machinery/door/airlock/glass_external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "large_escape_pod_1_berth_hatch";
-	locked = 1;
+/obj/machinery/door/airlock/glass_external/public{
 	name = "Large Escape Pod 1";
-	req_access = list(13)
+	pixel_y = 0;
+	id_tag = "large_escape_pod_1_berth"
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/simulated/floor,
@@ -12576,19 +12560,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/expoutpost/stationshuttle)
-"dwh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	external_pressure_bound = 140;
-	external_pressure_bound_default = 140;
-	icon_state = "map_vent_out";
-	use_power = 1
-	},
-/obj/machinery/shield_diffuser,
-/turf/simulated/floor/airless,
-/area/rnd/xenobiology/xenoflora)
-"dwn" = (
-/turf/simulated/floor/airless,
-/area/rnd/xenobiology/xenoflora)
 "dwT" = (
 /obj/effect/floor_decal/steeldecal/steel_decals4{
 	dir = 10
@@ -13267,8 +13238,8 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency_storage/firstdeck/fs_emergency)
 "dWd" = (
-/obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/storage/emergency_storage/firstdeck/fs_emergency)
 "dWe" = (
@@ -13683,8 +13654,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/port)
 "dWX" = (
-/turf/simulated/floor/airless,
-/area/maintenance/firstdeck/centralport)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/firstdeck/aft)
 "dWY" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -15656,21 +15630,6 @@
 /obj/item/weapon/storage/backpack/parachute,
 /turf/simulated/floor/tiled/techmaint,
 /area/ai_monitored/storage/eva/aux)
-"eqM" = (
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/structure/table/glass,
-/obj/structure/reagent_dispensers/virusfood{
-	pixel_x = 30
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/effect/floor_decal/borderfloorwhite{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue/border{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "erI" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -15903,13 +15862,9 @@
 /area/rnd/research/firstdeck/hallway)
 "eGF" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_4_hatch";
-	locked = 1;
-	name = "Escape Pod Hatch 4";
-	req_access = list(13)
+	name = "Escape Pod Hatch 4"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod4/station)
 "eHo" = (
@@ -16523,11 +16478,9 @@
 "frS" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_3_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 3";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/hallway/secondary/escape/firstdeck/ep_aftport)
@@ -16747,11 +16700,9 @@
 "fCD" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_4_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 4";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/hallway/secondary/escape/firstdeck/ep_aftport)
@@ -16848,29 +16799,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
-"fHt" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/lockbox/vials,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/storage/fancy/vials,
-/obj/effect/floor_decal/borderfloorwhite{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/paleblue/border{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/item/device/radio/intercom/department/medbay{
-	dir = 8;
-	pixel_x = -21
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "fHQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -17815,10 +17743,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/sensor{
-	long_range = 1;
-	name_tag = "Telecommunications"
-	},
 /obj/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
@@ -17827,6 +17751,9 @@
 	name = "Telecoms lethal turret control";
 	pixel_y = 29;
 	req_access = list(61)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcomm/tcomfoyer)
@@ -17889,6 +17816,24 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/teleporter/firstdeck)
+"gEx" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/lockbox/vials,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/storage/fancy/vials,
+/obj/effect/floor_decal/borderfloorwhite/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/bordercorner{
+	dir = 1
+	},
+/obj/item/device/antibody_scanner,
+/obj/item/device/antibody_scanner,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "gGm" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -18534,11 +18479,9 @@
 "hqi" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_1_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 1";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/firstdeck/fore)
@@ -18650,26 +18593,6 @@
 /obj/structure/sign/warning/server_room,
 /turf/simulated/wall/r_wall,
 /area/tcomm/computer)
-"hwu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/steeldecal/steel_decals4{
-	dir = 9
-	},
-/obj/effect/floor_decal/steeldecal/steel_decals4{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "hxU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18883,6 +18806,9 @@
 	name = "mailman's locker";
 	starts_with = list(/obj/item/clothing/under/rank/mailman,/obj/item/clothing/head/mailman,/obj/item/clothing/shoes/black,/obj/item/device/radio/headset/headset_cargo,/obj/item/device/radio/headset/headset_cargo/alt,/obj/item/weapon/storage/bag/mail,/obj/item/device/destTagger)
 	},
+/obj/item/mail_scanner,
+/obj/item/mail_scanner,
+/obj/item/mail_scanner,
 /turf/simulated/floor/tiled,
 /area/quartermaster/delivery)
 "hIE" = (
@@ -19072,6 +18998,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/auxdockaft)
+"hQX" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/machinery/computer/med_data/laptop,
+/obj/effect/floor_decal/borderfloorwhite/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/bordercorner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "hQZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19342,6 +19281,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research/firstdeck/hallway)
+"ihM" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/firstdeck/aft)
 "iiJ" = (
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 4
@@ -20735,13 +20683,6 @@
 /obj/effect/floor_decal/corner/purple/border,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research/firstdeck/hallway)
-"jDD" = (
-/obj/machinery/disease2/isolator,
-/obj/effect/floor_decal/borderfloorwhite,
-/obj/effect/floor_decal/corner/paleblue/border,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "jDV" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
@@ -20885,6 +20826,10 @@
 	},
 /obj/structure/sign/warning/lethal_turrets{
 	pixel_y = 32
+	},
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name_tag = "Telecommunications"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcomm/tcomfoyer)
@@ -21349,6 +21294,26 @@
 /obj/effect/floor_decal/corner/green/border,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/primary/firstdeck/apcenter)
+"kfy" = (
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/weapon/hand_labeler,
+/obj/item/weapon/folder/white,
+/obj/effect/floor_decal/borderfloorwhite{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/paleblue/border{
+	dir = 9
+	},
+/obj/item/device/radio/intercom/department/medbay{
+	dir = 8;
+	pixel_x = -21
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "kfM" = (
 /obj/machinery/atmospherics/unary/cryo_cell{
 	layer = 3.3
@@ -21700,14 +21665,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hangar/three)
-"kEe" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/machinery/computer/med_data/laptop,
-/obj/effect/floor_decal/borderfloorwhite,
-/obj/effect/floor_decal/corner/blue/border,
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "kEx" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -22032,9 +21989,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/rnd/research/firstdeck/hallway)
 "lbI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -22048,6 +22002,15 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/tcomm/tcomfoyer)
@@ -22515,10 +22478,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/fpcenter)
-"lEA" = (
-/obj/structure/sign/warning/caution,
-/turf/simulated/wall/r_wall,
-/area/hallway/secondary/escape/firstdeck/ep_aftstarboard)
 "lEZ" = (
 /obj/structure/table/bench/standard,
 /obj/effect/floor_decal/borderfloor{
@@ -22664,6 +22623,22 @@
 	},
 /turf/simulated/shuttle/floor/white,
 /area/shuttle/large_escape_pod1/station)
+"lNd" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/maintenance/substation/firstdeck)
 "lNT" = (
 /obj/machinery/telecomms/relay/preset/southerncross/d2,
 /turf/simulated/floor/tiled/dark{
@@ -24549,15 +24524,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/vaultcheckpoint)
-"nAO" = (
-/obj/effect/floor_decal/borderfloorwhite/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/paleblue/bordercorner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "nCB" = (
 /obj/effect/floor_decal/borderfloor,
 /obj/effect/floor_decal/corner/green/border,
@@ -25321,22 +25287,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
-"ouF" = (
-/obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 8
-	},
-/obj/item/weapon/hand_labeler,
-/obj/item/weapon/folder/white,
-/obj/effect/floor_decal/borderfloorwhite{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/blue/border{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virology)
 "ouG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -25446,12 +25396,6 @@
 /obj/random/trash,
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/centralport)
-"ozZ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/medical/virology)
 "oAw" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -25582,15 +25526,28 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/fpcenter)
 "oGl" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/firstdeck)
 "oGT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/firstdeck)
 "oGW" = (
 /obj/machinery/atmospherics/valve/shutoff{
 	name = "Deck 1 Central automatic shutoff valve"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/firstdeck)
@@ -25677,6 +25634,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/aftstarboard)
+"oJU" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/medical/virology)
 "oKe" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
 /turf/simulated/floor/tiled/dark{
@@ -25725,11 +25686,9 @@
 "oOM" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_2_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 2";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/firstdeck/fore)
@@ -25757,6 +25716,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/cryo/autoresleeve)
+"oPU" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/wall/r_wall,
+/area/medical/virology)
 "oRp" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -25829,13 +25795,9 @@
 /area/ai_monitored/storage/eva/aux)
 "oVU" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_pod_6_hatch";
-	locked = 1;
-	name = "Escape Pod Hatch 6";
-	req_access = list(13)
+	name = "Escape Pod Hatch 6"
 	},
+/obj/effect/map_helper/airlock/door/simple,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape_pod6/station)
 "oWj" = (
@@ -26488,6 +26450,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/firstdeck/research_access)
+"pAZ" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/airless,
+/area/space)
 "pBr" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 8
@@ -26594,6 +26566,9 @@
 "pGJ" = (
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Aft Hallway Stairs";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -26749,6 +26724,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research/firstdeck/hallway)
+"pOK" = (
+/obj/structure/table/glass,
+/obj/structure/reagent_dispensers/virusfood{
+	pixel_x = 30
+	},
+/obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/effect/floor_decal/borderfloorwhite{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/border{
+	dir = 4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "MED - Virology Starboard";
+	dir = 8
+	},
+/obj/item/weapon/storage/box/monkeycubes,
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "pOR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -26858,9 +26852,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/aft)
-"pUA" = (
-/turf/simulated/floor/airless,
-/area/hallway/secondary/escape/firstdeck/ep_aftport)
 "pUZ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/effect/floor_decal/steeldecal/steel_decals5{
@@ -26919,6 +26910,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"pVV" = (
+/obj/machinery/telecomms/relay/preset/southerncross/d0,
+/turf/simulated/floor/tiled/dark{
+	nitrogen = 100;
+	oxygen = 0;
+	temperature = 80
+	},
+/area/tcomm/chamber)
 "pWz" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -28264,6 +28263,10 @@
 /obj/structure/sign/directions/security{
 	dir = 8
 	},
+/obj/structure/sign/directions/engineering/gravgen{
+	pixel_y = 10;
+	dir = 8
+	},
 /turf/simulated/wall,
 /area/maintenance/firstdeck/foreport)
 "rqP" = (
@@ -28793,6 +28796,10 @@
 /obj/structure/sign/directions/security{
 	dir = 4
 	},
+/obj/structure/sign/directions/shuttle_bay{
+	pixel_y = 10;
+	dir = 8
+	},
 /turf/simulated/wall,
 /area/construction/firstdeck/construction4)
 "rUr" = (
@@ -29050,14 +29057,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "sdV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/table/glass,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing,
+/obj/item/tape/engineering,
+/turf/simulated/open,
 /area/hallway/primary/firstdeck/aft)
 "sea" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -30341,9 +30346,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/starboard)
-"tsx" = (
-/turf/simulated/floor/airless,
-/area/hallway/secondary/escape/firstdeck/ep_aftstarboard)
 "tsz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -30951,6 +30953,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"tYn" = (
+/obj/machinery/disease2/isolator,
+/obj/effect/floor_decal/borderfloorwhite,
+/obj/effect/floor_decal/corner/paleblue/border,
+/obj/machinery/light,
+/obj/machinery/embedded_controller/radio/airlock/access_controller{
+	id_tag = "virology_airlock_control";
+	name = "Virology Access Console";
+	pixel_x = -26;
+	tag_exterior_door = "virology_airlock_exterior";
+	tag_interior_door = "virology_airlock_interior"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "tZr" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -31229,8 +31245,8 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/firstdeck/port)
 "umm" = (
-/obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/storage/emergency_storage/firstdeck/as_emergency)
 "umz" = (
@@ -31561,6 +31577,12 @@
 	},
 /turf/simulated/floor,
 /area/tcomm/tcomstorage)
+"uBT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
+/area/rnd/xenobiology/xenoflora)
 "uCf" = (
 /obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/blue,
@@ -31932,14 +31954,14 @@
 /area/medical/genetics)
 "uPw" = (
 /obj/structure/disposaloutlet{
-	dir = 7;
+	dir = 2;
 	name = "Lost & found disposal outlet"
 	},
-/obj/structure/plasticflaps/mining,
-/obj/structure/curtain/black,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/structure/plasticflaps/mining,
+/obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
 /area/medical/cryo/autoresleeve)
 "uQd" = (
@@ -32235,6 +32257,11 @@
 	pixel_x = -5;
 	pixel_y = -5
 	},
+/obj/item/mail/blank,
+/obj/item/mail_scanner{
+	pixel_x = -5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/delivery)
 "vbP" = (
@@ -32403,6 +32430,35 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
+"vhz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"vhE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "virologyquar";
+	name = "Virology Emergency Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/virology)
 "vic" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -32582,8 +32638,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "vpc" = (
-/obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/firstdeck/centralport)
 "vpm" = (
@@ -33204,6 +33260,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/weapon/holosign_creator/medical,
+/obj/item/weapon/holosign_creator/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "vYv" = (
@@ -33612,6 +33670,22 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology)
+"wrT" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for shutters.";
+	id = "virologyquar";
+	name = "Virology Emergency Lockdown Control";
+	pixel_x = -25;
+	pixel_y = 3;
+	req_access = list(5)
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virology)
 "wsf" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/borderfloor,
@@ -33862,11 +33936,9 @@
 "wFd" = (
 /obj/machinery/door/airlock/glass_external{
 	frequency = 1380;
-	icon_state = "door_locked";
 	id_tag = "escape_pod_6_berth_hatch";
-	locked = 1;
 	name = "Escape Pod 6";
-	req_access = list(13)
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/hallway/secondary/escape/firstdeck/ep_aftstarboard)
@@ -34140,14 +34212,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/firstdeck/apcenter)
 "wTI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
-/obj/structure/flora/pottedplant/stoutbush,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing,
+/obj/item/tape/engineering,
+/turf/simulated/open,
 /area/hallway/primary/firstdeck/aft)
 "wTJ" = (
 /obj/effect/floor_decal/borderfloorwhite{
@@ -34293,7 +34363,7 @@
 "xbp" = (
 /obj/structure/sign/warning/caution,
 /turf/simulated/wall/r_wall,
-/area/hallway/secondary/escape/firstdeck/ep_aftport)
+/area/space)
 "xbG" = (
 /obj/structure/sign/directions/medical{
 	dir = 8
@@ -34394,14 +34464,16 @@
 /turf/simulated/floor,
 /area/tcomm/tcomstorage)
 "xgm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = 21
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/firstdeck/aft)
@@ -34691,12 +34763,12 @@
 	dir = 4;
 	pixel_y = 10
 	},
+/obj/structure/sign/directions/medical/virology{
+	pixel_y = -10
+	},
 /turf/simulated/wall,
 /area/construction/firstdeck/construction3)
 "xBR" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
@@ -34706,7 +34778,19 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/cable{
+	d1 = 32;
+	d2 = 8;
+	icon_state = "32-8"
+	},
+/turf/simulated/open,
 /area/tcomm/tcomfoyer)
 "xCg" = (
 /obj/structure/sign/directions/engineering{
@@ -34715,6 +34799,9 @@
 	},
 /obj/structure/sign/directions/cargo{
 	dir = 4
+	},
+/obj/structure/sign/directions/medical/resleeving{
+	pixel_y = -10
 	},
 /turf/simulated/wall,
 /area/construction/firstdeck/construction3)
@@ -34766,10 +34853,16 @@
 /turf/simulated/floor/tiled/white,
 /area/teleporter/firstdeck)
 "xGs" = (
-/obj/structure/flora/pottedplant/stoutbush,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/drooping,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/firstdeck/aft)
 "xGC" = (
@@ -35127,6 +35220,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"xXZ" = (
+/turf/simulated/wall{
+	can_open = 1;
+	desc = "A huge chunk of metal used to seperate rooms. There are scratch marks along the floor."
+	},
+/area/hallway/primary/firstdeck/elevator)
 "xYR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -35682,7 +35781,7 @@ aaa
 aaa
 aaa
 aaa
-acj
+aaa
 "}
 (2,1,1) = {"
 aaa
@@ -55141,12 +55240,12 @@ aaa
 xrX
 vYi
 aaf
-kwt
-dWX
-dWX
-dWX
-dWX
-dWX
+tvZ
+jVV
+jVV
+jVV
+jVV
+jVV
 mun
 mBs
 aqH
@@ -55399,12 +55498,12 @@ xrX
 aaf
 aaa
 aaa
-kwt
-dWX
+tvZ
+jVV
 abm
 gYF
 abm
-dWX
+jVV
 mun
 xPQ
 xPQ
@@ -55413,7 +55512,7 @@ aPZ
 aPZ
 aPZ
 aPZ
-amR
+aPZ
 kwt
 xPQ
 nFX
@@ -55657,7 +55756,7 @@ vYi
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 gfJ
 hen
@@ -55915,7 +56014,7 @@ vYi
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 gfV
 aaM
@@ -56173,7 +56272,7 @@ vYi
 aaf
 aaf
 aaf
-kwt
+tvZ
 abm
 ggs
 aaM
@@ -56431,7 +56530,7 @@ vYi
 aaa
 aaa
 aaa
-kwt
+tvZ
 abg
 gia
 aaM
@@ -56689,7 +56788,7 @@ vYi
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 giO
 aaM
@@ -56947,7 +57046,7 @@ vYi
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 gjz
 aaM
@@ -57205,7 +57304,7 @@ aaf
 aaf
 aaf
 aaf
-kwt
+tvZ
 abg
 aaC
 aaM
@@ -57463,7 +57562,7 @@ aaf
 sFQ
 aaa
 aaa
-kwt
+tvZ
 abm
 iIr
 aaM
@@ -57721,7 +57820,7 @@ aaa
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 gkb
 ahA
@@ -57979,7 +58078,7 @@ aaa
 aaa
 aaa
 aaa
-kwt
+tvZ
 abm
 vcs
 vcs
@@ -58237,7 +58336,7 @@ aaa
 aaa
 aaa
 aaa
-kwt
+tvZ
 gyr
 fPg
 fPg
@@ -64728,13 +64827,13 @@ ilU
 vBl
 pAh
 dWo
-pUA
-pUA
-pUA
+jVV
+jVV
+jVV
 xbp
-pUA
-pUA
-pUA
+jVV
+jVV
+jVV
 fCy
 rmj
 aSg
@@ -65438,7 +65537,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 anA
 anA
 akp
@@ -65696,7 +65795,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 acP
 agK
 beG
@@ -65954,7 +66053,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 anA
 anA
 akp
@@ -66244,7 +66343,7 @@ iLt
 lGa
 mQr
 oGl
-oGl
+lNd
 aga
 teK
 uqM
@@ -66470,7 +66569,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 aoa
 aoa
 akx
@@ -66728,7 +66827,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 aBL
 aho
 akw
@@ -66771,7 +66870,7 @@ ahq
 ahN
 ahY
 aoJ
-aur
+aci
 aiS
 aiS
 wSm
@@ -66986,7 +67085,7 @@ aaa
 aaa
 aaa
 aaa
-aci
+jVV
 aoa
 aoa
 akx
@@ -67287,7 +67386,7 @@ seX
 qkX
 ker
 aoJ
-qVu
+xXZ
 qVu
 aiS
 xeb
@@ -67570,7 +67669,7 @@ rUh
 uHW
 gwS
 sdV
-foQ
+dWX
 bpD
 wGo
 klm
@@ -67828,7 +67927,7 @@ ykL
 hmd
 gwS
 wTI
-foQ
+dWX
 qxf
 vmg
 klm
@@ -68086,7 +68185,7 @@ gwS
 aMW
 gwS
 xgm
-foQ
+ihM
 brP
 klm
 klm
@@ -68562,7 +68661,7 @@ fgr
 fgr
 hma
 iNo
-kkk
+pVV
 lPK
 iNo
 oTt
@@ -72984,13 +73083,13 @@ dXE
 eDP
 aLu
 nhA
-tsx
-tsx
-tsx
-lEA
-tsx
-tsx
-tsx
+jVV
+jVV
+jVV
+xbp
+jVV
+jVV
+jVV
 fCy
 rmj
 sxW
@@ -81220,9 +81319,9 @@ kcv
 rYm
 bJP
 bJP
-bJP
-ppt
-bJP
+aOV
+vhE
+aOV
 tDq
 hvg
 hvg
@@ -81478,9 +81577,9 @@ fVu
 bjM
 bJP
 bJP
-dRk
-ybM
-iEb
+bJP
+ppt
+bJP
 tDq
 kJV
 uPj
@@ -81736,9 +81835,9 @@ fVu
 lrd
 bJP
 bJP
-yks
-tMg
-xgz
+dRk
+ybM
+iEb
 tDq
 rvW
 taP
@@ -81994,9 +82093,9 @@ bnA
 dLu
 bJP
 bJP
-bJP
-guZ
-bJP
+yks
+tMg
+xgz
 tDq
 exY
 thk
@@ -82251,10 +82350,10 @@ upc
 wDG
 mGR
 bJP
-fHt
-ctY
-hwu
-kEe
+bJP
+bJP
+guZ
+bJP
 tDq
 ipN
 npi
@@ -82509,10 +82608,10 @@ dsS
 mRt
 moQ
 bJP
-ouF
-beQ
+kfy
+wrT
 nWh
-jDD
+tYn
 olG
 lRR
 ldt
@@ -82767,7 +82866,7 @@ wDG
 moQ
 moQ
 vYk
-nAO
+gEx
 nnw
 jhm
 fiA
@@ -83024,7 +83123,7 @@ uAn
 moQ
 moQ
 aAR
-cPr
+hQX
 dHL
 lfy
 hzI
@@ -83541,7 +83640,7 @@ itV
 hqU
 rqQ
 gYt
-eqM
+pOK
 gYt
 fZo
 kFh
@@ -84289,7 +84388,7 @@ aaa
 aaa
 aaa
 aaa
-dwh
+uBT
 dVL
 dWT
 dXN
@@ -84547,7 +84646,7 @@ aaa
 aaa
 aaa
 aaa
-dwn
+bVO
 dVJ
 dVH
 dVH
@@ -84833,10 +84932,10 @@ itV
 itV
 itV
 itV
-ozZ
-bJP
-bJP
-aaa
+oPU
+oJU
+oJU
+vhz
 aaa
 aaa
 aaa
@@ -85094,7 +85193,7 @@ itV
 aaa
 aaa
 vYi
-aaa
+pAZ
 aaa
 aaa
 aaa
@@ -87153,7 +87252,7 @@ bNe
 xSS
 fjS
 itV
-jVV
+aaa
 aaa
 aaa
 aaa
@@ -87411,7 +87510,7 @@ bNe
 qfl
 wmi
 lse
-jVV
+aaa
 aaa
 aaa
 aaa

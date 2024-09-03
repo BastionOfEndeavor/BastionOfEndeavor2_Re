@@ -304,6 +304,19 @@
 				var/mob/living/L = usr
 				L.resist()
 
+		if("control_vtec")
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(R.speed == 0 && R.vtec_active)
+					R.speed = -0.5
+					R.hud_used.control_vtec.icon_state = "speed_1"
+				else if(R.speed == -0.5 && R.vtec_active)
+					R.speed = -1
+					R.hud_used.control_vtec.icon_state = "speed_2"
+				else
+					R.speed = 0
+					R.hud_used.control_vtec.icon_state = "speed_0"
+
 		/* Bastion of Endeavor Translation
 		if("mov_intent")
 		*/
@@ -1232,6 +1245,11 @@
 		*/
 		CRASH("/obj/screen/ammo/proc/add_hud() вызван [icase_ru(src)] без аргумента G")
 		// End of Bastion of Endeavor Translation
+
+	//CHOMPAdd start
+	if(!G.hud_enabled)
+		return
+	//CHOMPAdd End
 
 	if(!G.has_ammo_counter())
 		return

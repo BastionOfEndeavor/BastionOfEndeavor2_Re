@@ -1,13 +1,13 @@
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	if(zMove(UP))
 		to_chat(src, "<span class='notice'>You move upwards.</span>")
 
 /mob/verb/down()
 	set name = "Move Down"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	if(zMove(DOWN))
 		to_chat(src, "<span class='notice'>You move down.</span>")
@@ -339,6 +339,11 @@
 // Mechas are anchored, so we need to override.
 /obj/mecha/can_fall()
 	return TRUE
+
+// VOREstation edit - Falling vehicles.
+/obj/vehicle/can_fall()
+	return TRUE
+// VOREstation edit end
 
 /obj/item/pipe/can_fall()
 	. = ..()

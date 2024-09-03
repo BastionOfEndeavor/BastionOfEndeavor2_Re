@@ -32,7 +32,7 @@
 /datum/admins/var/datum/virus2_editor/virus2_editor_datum = new
 /client/proc/virus2_editor()
 	set name = "Virus Editor"
-	set category = "Admin"
+	set category = "Admin.Events" //CHOMPEdit
 	if(!holder || !check_rights(R_SPAWN)) return // spawn privileges to create viruses
 
 	holder.virus2_editor_datum.show_ui(src)
@@ -194,7 +194,7 @@
 			if(!antigens.len)
 				var/a = tgui_alert(usr, "This disease has no antigens; it will be impossible to permanently immunise anyone without them.\
 								It is strongly recommended to set at least one antigen. Do you want to go back and edit your virus?", "Antigens", list("Yes", "No"))
-				if(a == "Yes") return
+				if(!a || a == "Yes") return
 			var/datum/disease2/disease/D = new
 			D.infectionchance = infectionchance
 			D.spreadtype = spreadtype

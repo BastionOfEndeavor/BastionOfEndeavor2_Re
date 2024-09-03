@@ -1,3 +1,10 @@
+/datum/sprite_accessory/tail
+    var/vore_tail_sprite_variant = ""
+    var/belly_variant_when_loaf = FALSE
+    var/fullness_icons = 0
+    var/struggle_anim = FALSE
+    var/bellies_icon_path = 'modular_chomp/icons/mob/vore/Taur_Bellies.dmi' //CHOMPEdit
+
 /datum/riding/taur
 	keytype = /obj/item/weapon/material/twohanded/riding_crop // Crack!
 	nonhuman_key_exemption = FALSE	// If true, nonhumans who can't hold keys don't need them, like borgs and simplemobs.
@@ -83,7 +90,7 @@
 
 /mob/living/carbon/human/proc/taur_mount(var/mob/living/M in living_mobs(1))
 	set name = "Taur Mount/Dismount"
-	set category = "Abilities"
+	set category = "Abilities.General" //CHOMPEdit
 	set desc = "Let people ride on you."
 
 	if(LAZYLEN(buckled_mobs))
@@ -99,7 +106,7 @@
 		visible_message("<span class='notice'>[M] starts riding [name]!</span>")
 
 /mob/living/carbon/human/attack_hand(mob/user as mob)
-	if(LAZYLEN(buckled_mobs))
+	if(LAZYLEN(buckled_mobs) && riding_datum) //CHOMPEdit
 		//We're getting off!
 		if(user in buckled_mobs)
 			riding_datum.force_dismount(user)

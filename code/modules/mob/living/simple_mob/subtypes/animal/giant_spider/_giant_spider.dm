@@ -117,6 +117,7 @@
 		/obj/item/stack/material/chitin = 1\
 		)
 
+	allow_mind_transfer = TRUE
 	can_be_drop_prey = FALSE //CHOMP Add
 	species_sounds = "Spider"
 	pain_emote_1p = list("chitter", "click") //CHOMP Add

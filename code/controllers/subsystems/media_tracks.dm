@@ -222,9 +222,9 @@ SUBSYSTEM_DEF(media_tracks)
 	var/secret = tgui_alert(C, "Дополнительно: Пометить трек как скрытый?", "Видимость трека", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
 	/* Bastion of Endeavor Translation
-	if(secret == "Cancel")
+	if(!secret || secret == "Cancel")
 	*/
-	if(secret == "Отмена")
+	if(!secret || secret == "Отмена")
 	// End of Bastion of Endeavor Translation
 		return
 	/* Bastion of Endeavor Translation
@@ -242,9 +242,9 @@ SUBSYSTEM_DEF(media_tracks)
 	var/lobby = tgui_alert(C, "Дополнительно: Пометить трек как музыку для лобби?", "Проигрывание в лобби", list("Да", "Отмена", "Нет"))
 	// End of Bastion of Endeavor Translation
 	/* Bastion of Endeavor Translation
-	if(lobby == "Cancel")
+	if(!lobby || lobby == "Cancel")
 	*/
-	if(lobby == "Отмена")
+	if(!lobby || lobby == "Отмена")
 	// End of Bastion of Endeavor Translation
 		return
 	/* Bastion of Endeavor Translation
@@ -320,6 +320,36 @@ SUBSYSTEM_DEF(media_tracks)
 	*/
 	to_chat(C, "<span class='warning>Не удалось найти соответствующий заданным параметрам трек.</span>")
 	// End of Bastion of Endeavor Translation
+
+/datum/controller/subsystem/media_tracks/proc/add_track(var/mob/user, var/new_url, var/new_title, var/new_duration, var/new_artist, var/new_genre, var/new_secret, var/new_lobby)
+	if(!check_rights(R_DEBUG|R_FUN))
+		return
+	var/datum/track/T = new(new_url, new_title, new_duration, new_artist, new_genre, new_secret, new_lobby)
+	all_tracks += T
+	/* Bastion of Endeavor Translation
+	report_progress("Media track added by [user]: [T.title]")
+	*/
+	report_progress("Пользователь [user] добавил музыкальный трек: [T.title]")
+	// End of Bastion of Endeavor Translation
+	sort_tracks()
+	return
+
+/datum/controller/subsystem/media_tracks/proc/remove_track(var/mob/user, var/datum/track/T)
+	if(!check_rights(R_DEBUG|R_FUN))
+		return
+
+	if(!T)
+		return
+
+	/* Bastion of Endeavor Translation
+	report_progress("Media track removed by [user]: [T.title]")
+	*/
+	report_progress("Пользователь [user] удалил музыкальный трек: [T.title]")
+	// End of Bastion of Endeavor Translation
+	all_tracks -= T
+	qdel(T)
+	sort_tracks()
+	return
 
 /datum/controller/subsystem/media_tracks/vv_get_dropdown()
 	. = ..()

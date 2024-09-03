@@ -155,7 +155,7 @@
 
 	var/answer = tgui_alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
 	"\The [src]", list("Yes, [density ? "open" : "close"]", "No"))
-	if(answer == "No")
+	if(!answer || answer == "No")
 		return
 	if(user.incapacitated() || (get_dist(src, user) > 1 && !issilicon(user)))
 		to_chat(user, "Sorry, you must remain able bodied and close to \the [src] in order to use it.")
@@ -250,7 +250,12 @@
 		return //Don't open the door if we're putting tape on it to tell people 'don't open the door'.
 	if(operating)
 		return//Already doing something.
-	if(C.has_tool_quality(TOOL_WELDER) && !repairing)
+	if(C.has_tool_quality(TOOL_WELDER))
+		//VOREstation Edit: Removing Material requirements on repairs
+		if(health < maxhealth)
+			..()
+			return
+		//VOREstation Edit End
 		if(prying)
 			to_chat(user, "<span class='notice'>Someone's busy prying that [density ? "open" : "closed"]!</span>")
 		var/obj/item/weapon/weldingtool/W = C.get_welder()
@@ -271,7 +276,7 @@
 		update_icon()
 		return
 
-	if(blocked && C.has_tool_quality(TOOL_CROWBAR) && !repairing)
+	if(blocked && C.has_tool_quality(TOOL_CROWBAR))
 		if(!hatch_open)
 			to_chat(user, "<span class='danger'>You must open the maintenance hatch first!</span>")
 		else

@@ -15,6 +15,7 @@
 	if(!istype(src,/mob/observer)) //CHOMPEdit
 		ghostize() //CHOMPEdit
 	//ChompEDIT start - fix hard qdels
+	QDEL_NULL(soulgem) //CHOMPAdd
 	QDEL_NULL(plane_holder)
 	QDEL_NULL(hud_used)
 	for(var/key in alerts) //clear out alerts
@@ -229,7 +230,7 @@
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
 		return TRUE
-
+/* CHOMPEdit - Moved to modular_chomp/modules/point/point.dm
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
@@ -259,7 +260,7 @@
 
 	face_atom(A)
 	return 1
-
+*/
 
 /mob/proc/ret_grab(list/L, flag)
 	return
@@ -284,7 +285,7 @@
 
 /mob/verb/memory()
 	set name = "Notes"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 	if(mind)
 		mind.show_memory(src)
 	else
@@ -292,7 +293,7 @@
 
 /mob/verb/add_memory(msg as message)
 	set name = "Add Note"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	msg = sanitize(msg)
 
@@ -380,7 +381,7 @@
 
 /mob/verb/abandon_mob()
 	set name = "Return to Menu"
-	set category = "OOC"
+	set category = "OOC.Game" //CHOMPEdit
 
 	if(stat != DEAD || !ticker)
 		to_chat(usr, "<span class='notice'><B>You must be dead to use this!</B></span>")
@@ -389,7 +390,7 @@
 	// Final chance to abort "respawning"
 	if(mind && timeofdeath) // They had spawned before
 		var/choice = tgui_alert(usr, "Returning to the menu will prevent your character from being revived in-round. Are you sure?", "Confirmation", list("No, wait", "Yes, leave"))
-		if(choice == "No, wait")
+		if(!choice || choice == "No, wait")
 			return
 		else if(mind.assigned_role)
 			var/extra_check = tgui_alert(usr, "Do you want to Quit This Round before you return to lobby?\
@@ -461,7 +462,7 @@
 
 /client/verb/changes()
 	set name = "Changelog"
-	set category = "OOC"
+	set category = "OOC.Resources" //CHOMPEdit
 	// CHOMPedit Start - Better Changelog
 	//src << browse('html/changelog.html', "window=changes;size=675x650")
 	//return
@@ -477,7 +478,7 @@
 
 /mob/verb/observe()
 	set name = "Observe"
-	set category = "OOC"
+	set category = "OOC.Game" //CHOMPEdit
 	var/is_admin = 0
 
 	if(client.holder && (client.holder.rights & R_ADMIN|R_EVENT))
@@ -519,7 +520,7 @@
 
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
-	set category = "OOC"
+	set category = "OOC.Game" //CHOMPEdit
 	unset_machine()
 	reset_view(null)
 
@@ -544,7 +545,7 @@
 /mob/verb/stop_pulling()
 
 	set name = "Stop Pulling"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 
 	if(pulling)
 		if(ishuman(pulling))
@@ -749,11 +750,11 @@
 					stat(null)
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						SS.stat_entry()
-
-			// CHOMPedit - Ticket System
-			//if(statpanel("Tickets"))
-				//GLOB.ahelp_tickets.stat_entry()
-
+			/* CHOMPedit - Ticket System
+			if(statpanel("Tickets"))
+				if(check_rights(R_ADMIN|R_SERVER,FALSE)) //Prevents non-staff from opening the list of ahelp tickets
+					GLOB.ahelp_tickets.stat_entry()
+			*/
 
 			if(length(GLOB.sdql2_queries))
 				if(statpanel("SDQL2"))
@@ -1085,7 +1086,7 @@
 /mob/verb/face_direction()
 
 	set name = "Face Direction"
-	set category = "IC"
+	set category = "IC.Game" //CHOMPEdit
 	set src = usr
 
 	set_face_dir()
@@ -1216,21 +1217,12 @@
 
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
-	if(client)
-		if(client.prefs.throwmode_loud) //CHOMPEdit: Throw notices are based on prefs, and dont ignore said prefs if you're on help intent
-			src.visible_message("<span class='notice'>[src] relaxes from their ready stance.</span>","<span class='notice'>You relax from your ready stance.</span>")
-	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
+	if(src.throw_icon && !issilicon(src)) //in case we don't have the HUD and we use the hotkey. Silicon use this for something else. Do not overwrite their HUD icon
 		src.throw_icon.icon_state = "act_throw_off"
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
-	if(client)
-		if(client.prefs.throwmode_loud) //CHOMPEdit: Throw notices are based on prefs, and dont ignore said prefs if you're on help
-			if(src.get_active_hand())
-				src.visible_message("<span class='warning'>[src] winds up to throw [get_active_hand()]!</span>","<span class='notice'>You wind up to throw [get_active_hand()].</span>")
-			else
-				src.visible_message("<span class='warning'>[src] looks ready to catch anything thrown at them!</span>","<span class='notice'>You get ready to catch anything thrown at you.</span>")
-	if(src.throw_icon)
+	if(src.throw_icon && !issilicon(src)) // Silicon use this for something else. Do not overwrite their HUD icon
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/isSynthetic()

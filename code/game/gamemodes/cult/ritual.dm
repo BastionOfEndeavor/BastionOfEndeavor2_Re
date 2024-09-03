@@ -6,7 +6,7 @@ var/global/list/engwords = list("travel", "blood", "join", "hell", "destroy", "t
 var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","mgar","balaq", "karazet", "geeri")
 
 /client/proc/check_words() // -- Urist
-	set category = "Special Verbs"
+	set category = "Admin.Secrets" //CHOMPEdit
 	set name = "Check Rune Words"
 	set desc = "Check the rune-word meaning"
 	if(!cultwords["travel"])
@@ -334,7 +334,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			return
 		else
 			switch(tgui_alert(user, "You open the tome", "Tome", list("Read it","Scribe a rune","Cancel")))
-				if("Cancel")
+				if("Cancel", null)
 					return
 				if("Read it")
 					if(usr.get_active_hand() != src)

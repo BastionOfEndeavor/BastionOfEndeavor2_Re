@@ -3,8 +3,6 @@
 #define WEIGHT_MAX 500
 #define WEIGHT_CHANGE_MIN 0
 #define WEIGHT_CHANGE_MAX 100
-#define MAX_VOICE_FREQ 70000
-#define MIN_VOICE_FREQ 15000
 
 // Define a place to save in character setup
 /datum/preferences
@@ -19,8 +17,10 @@
 	var/voice_sound = "goon speak 1"	//CHOMPEdit - Changed the default voice to one less jarring
 	var/custom_speech_bubble = "default"
 	/* Bastion of Endeavor Translation
+	var/custom_footstep = "Default"	// CHOMPAdd
 	var/species_sound = "Unset"		// CHOMPEdit: Use default species pain/scream sounds based off icon base if none set, override otherwise
 	*/
+	var/custom_footstep = "По умолчанию"
 	var/species_sound = "Не установлено"
 	// End of Bastion of Endeavor Translation
 
@@ -39,6 +39,7 @@
 	S["voice_freq"]			>> pref.voice_freq
 	S["voice_sound"]		>> pref.voice_sound
 	S["custom_speech_bubble"]		>> pref.custom_speech_bubble
+	S["custom_footstep"]	>> pref.custom_footstep // CHOMPEdit
 	S["species_sound"]		>> pref.species_sound  // CHOMPEdit
 
 /datum/category_item/player_setup_item/vore/size/save_character(var/savefile/S)
@@ -51,6 +52,7 @@
 	S["voice_freq"]			<< pref.voice_freq
 	S["voice_sound"]		<< pref.voice_sound
 	S["custom_speech_bubble"]		<< pref.custom_speech_bubble
+	S["custom_footstep"]	<< pref.custom_footstep // CHOMPEdit
 	S["species_sound"]		<< pref.species_sound // CHOMPEdit
 
 
@@ -66,6 +68,8 @@
 		pref.size_multiplier = initial(pref.size_multiplier)
 	if(!(pref.custom_speech_bubble in selectable_speech_bubbles))
 		pref.custom_speech_bubble = "default"
+	if(!(pref.custom_footstep))	// CHOMPAdd
+		pref.custom_footstep = "Default"
 	// var/datum/species/selected_species = GLOB.all_species[pref.species] // CHOMPEdit
 	if(!(pref.species_sound)) // CHOMPEdit // && selected_species.selects_bodytype
 		pref.species_sound = "Unset" // CHOMPEdit - otherwise, we leave this as null or w/e the default is
@@ -118,6 +122,7 @@
 				character.voice_sounds_list = goon_speak_skelly_sound
 				*/ //CHOMPEDIT Global voice lookup
 	character.custom_speech_bubble = pref.custom_speech_bubble
+	character.custom_footstep = pref.custom_footstep
 
 /datum/category_item/player_setup_item/vore/size/content(var/mob/user)
 	/* Bastion of Endeavor Translation
@@ -132,6 +137,7 @@
 	. += "<b>Voice Sounds:</b> <a href='?src=\ref[src];voice_sounds_list=1'>[pref.voice_sound]</a><br>"
 	. += "<a href='?src=\ref[src];voice_test=1'><b>Test Selected Voice</b></a><br>"
 	. += "<b>Custom Speech Bubble:</b> <a href='?src=\ref[src];customize_speech_bubble=1'>[pref.custom_speech_bubble]</a><br>"
+	. += "<b>Custom Footstep Sounds:</b><a href='?src=\ref[src];customize_footsteps=1'>[pref.custom_footstep]</a><br>"
 	// CHOMPEdit Start: Pain/Scream/Death Custom Sounds
 	// var/datum/species/selected_species = GLOB.all_species[pref.species]
 	// if(selected_species.selects_bodytype)
@@ -160,6 +166,7 @@
 	. += "Звук голоса: <a href='?src=\ref[src];voice_sounds_list=1'>[get_key_by_value(possible_voice_types_ru, pref.voice_sound)]</a><br>"
 	. += "<a href='?src=\ref[src];voice_test=1'><b>Прослушать голос</b></a><br>"
 	. += "Облачко речи: <a href='?src=\ref[src];customize_speech_bubble=1'>[get_key_by_value(selectable_speech_bubbles_ru, pref.custom_speech_bubble)]</a><br>"
+	. += "Звук шагов:<a href='?src=\ref[src];customize_footsteps=1'>[get_key_by_value(selectable_footstep_ru, pref.custom_footstep)]</a><br>"
 	// CHOMPEdit Start: Pain/Scream/Death Custom Sounds
 	// var/datum/species/selected_species = GLOB.all_species[pref.species]
 	// if(selected_species.selects_bodytype)
@@ -214,6 +221,8 @@
 			([WEIGHT_MIN]-[WEIGHT_MAX])", "Character Preference", null, WEIGHT_MAX, WEIGHT_MIN, round_value=FALSE)
 		if(new_weight)
 			var/unit_of_measurement = tgui_alert(user, "Is that number in pounds (lb) or kilograms (kg)?", "Confirmation", list("Pounds", "Kilograms"))
+			if(!unit_of_measurement)
+				return TOPIC_NOACTION
 			if(unit_of_measurement == "Pounds")
 				new_weight = round(text2num(new_weight),4)
 			if(unit_of_measurement == "Kilograms")
@@ -266,10 +275,10 @@
 	else if(href_list["voice_freq"])
 		/* Bastion of Endeavor Translation
 		var/list/preset_voice_freqs = list("high" = MAX_VOICE_FREQ, "middle-high" = 56250, "middle" = 42500, "middle-low"= 28750, "low" = MIN_VOICE_FREQ, "custom" = 1, "random" = 0)
-		var/choice = tgui_input_list(usr, "What would you like to set your voice frequency to? ([MIN_VOICE_FREQ] - [MAX_VOICE_FREQ])", "Voice Frequency", preset_voice_freqs)
+		var/choice = tgui_input_list(user, "What would you like to set your voice frequency to? ([MIN_VOICE_FREQ] - [MAX_VOICE_FREQ])", "Voice Frequency", preset_voice_freqs) //ChompEDIT - usr removal
 		*/
 		var/list/preset_voice_freqs = list("Высокая" = MAX_VOICE_FREQ, "Средне-высокая" = 56250, "Средняя" = 42500, "Средне-низкая"= 28750, "Низкая" = MIN_VOICE_FREQ, "Другая" = 1, "Случайная" = 0)
-		var/choice = tgui_input_list(usr, "Укажите частоту голоса вашего персонажа:", "Частота голоса", preset_voice_freqs)
+		var/choice = tgui_input_list(user, "Укажите частоту голоса вашего персонажа:", "Частота голоса", preset_voice_freqs)
 		// End of Bastion of Endeavor Translation
 		if(!choice)
 			return
@@ -308,7 +317,7 @@
 			"goon speak roach",
 			"goon speak skelly",
 			"xeno speak") // CHOMPedit
-		var/choice = tgui_input_list(usr, "Which set of sounds would you like to use for your character's speech sounds?", "Voice Sounds", possible_voice_types)
+		var/choice = tgui_input_list(user, "Which set of sounds would you like to use for your character's speech sounds?", "Voice Sounds", possible_voice_types)
 		if(!pref.voice_sound)
 			pref.voice_sound = "goon speak 1"	//CHOMPEdit - Defaults voice to a less jarring sound
 		else if(!choice)
@@ -317,23 +326,36 @@
 			pref.voice_sound = choice
 		return TOPIC_REFRESH
 		*/
-		var/choice = tgui_input_list(usr, "Укажите набор звуков, используемый для речи вашего персонажа:", "Голос персонажа", possible_voice_types_ru)
+		var/choice = tgui_input_list(user, "Укажите набор звуков, используемый для речи вашего персонажа:", "Голос персонажа", possible_voice_types_ru)
 		if(!choice)
 			pref.voice_sound = possible_voice_types_ru["Бип-буп"]
 		else
 			pref.voice_sound = possible_voice_types_ru[choice]
 		return TOPIC_REFRESH
 		// End of Bastion of Endeavor Translation
+	// CHOMPAdd Start
+	else if(href_list["customize_footsteps"])
+		/* Bastion of Endeavor Translation
+		var/list/footstep_choice = selectable_footstep
+		var/choice = tgui_input_list(user, "What footstep sounds would your character make?", "Custom Foostep Sounds", footstep_choice)
+		*/
+		var/list/footstep_choice = selectable_footstep_ru
+		var/choice = tgui_input_list(user, "Какие звуки издаёт ваш персонаж при ходьбе?", "Звук шагов", footstep_choice)
+		// End of Bastion of Endeavor Translation
+		if(choice)
+			pref.custom_footstep = footstep_choice[choice]
+			return TOPIC_REFRESH
+	// CHOMPAdd End
 	else if(href_list["customize_speech_bubble"])
 		/* Bastion of Endeavor Translation: I mean, not future-proof, but if it works it works?
-		var/choice = tgui_input_list(usr, "What speech bubble style do you want to use? (default for automatic selection)", "Custom Speech Bubble", selectable_speech_bubbles)
+		var/choice = tgui_input_list(user, "What speech bubble style do you want to use? (default for automatic selection)", "Custom Speech Bubble", selectable_speech_bubbles)
 		if(!choice)
 			pref.custom_speech_bubble = "default"
 		else
 			pref.custom_speech_bubble = choice
 		return TOPIC_REFRESH
 		*/
-		var/choice = tgui_input_list(usr, "Какое облачко вы хотели бы использовать для речи персонажа?", "Облачко речи", selectable_speech_bubbles_ru)
+		var/choice = tgui_input_list(user, "Какое облачко вы хотели бы использовать для речи персонажа?", "Облачко речи", selectable_speech_bubbles_ru)
 		if(!choice)
 			pref.custom_speech_bubble = "default"
 		else
@@ -384,9 +406,9 @@
 	else if(href_list["species_sound_options"]) // You shouldn't be able to see this option if you don't have the option to select a custom icon base, so we don't need to re-check for safety here.
 		var/list/possible_species_sound_types = species_sound_map
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_input_list(usr, "Which set of sounds would you like to use for your character's species sounds? (Cough, Sneeze, Scream, Pain, Gasp, Death)", "Species Sounds", possible_species_sound_types)
+		var/choice = tgui_input_list(user, "Which set of sounds would you like to use for your character's species sounds? (Cough, Sneeze, Scream, Pain, Gasp, Death)", "Species Sounds", possible_species_sound_types)
 		*/
-		var/choice = tgui_input_list(usr, "Какой набор расовых звуков использует ваш персонаж?", "Расовые звуки", possible_species_sound_types)
+		var/choice = tgui_input_list(user, "Какой набор расовых звуков использует ваш персонаж (кашель, чихи, крики и т.п)?", "Расовые звуки", possible_species_sound_types)
 		// End of Bastion of Endeavor Translation
 		if(!choice)
 			return TOPIC_REFRESH // No choice? Don't reset our selection
@@ -539,3 +561,8 @@
 		return TOPIC_REFRESH
 	// CHOMPEdit End
 	return ..();
+
+#undef WEIGHT_MIN
+#undef WEIGHT_MAX
+#undef WEIGHT_CHANGE_MIN
+#undef WEIGHT_CHANGE_MAX

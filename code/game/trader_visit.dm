@@ -6,11 +6,11 @@ var/can_call_traders = 1
 /client/proc/trader_ship()
 	/* Bastion of Endeavor Translation
 	set name = "Dispatch Beruang Trader Ship"
-	set category = "Special Verbs"
+	set category = "Fun.Event Kit" //CHOMPEdit
 	set desc = "Invite players to join the Beruang."
 	*/
 	set name = "Отправить Беруанг"
-	set category = "Особые глаголы"
+	set category = "Веселье.События"
 	set desc = "Пригласить игроков присоединиться к Беруангу."
 	// End of Bastion of Endeavor Translation
 
@@ -50,13 +50,11 @@ var/can_call_traders = 1
 		return
 	if(get_security_level() == "red") // Allow admins to reconsider if the alert level is Red
 		/* Bastion of Endeavor Translation
-		switch(tgui_alert(usr, "The station is in red alert. Do you still want to send traders?","Trade Ship",list("Yes","No")))
-			if("No")
+		if(tgui_alert(usr, "The station is in red alert. Do you still want to send traders?","Trade Ship",list("Yes","No")) != "Yes")
 		*/
-		switch(tgui_alert(usr, "На станции красная тревога. Вы уверены, что хотите отправить торговцев?","Торговое судно",list("Да","Нет")))
-			if("Нет")
+		if(tgui_alert(usr, "На станции красная тревога. Вы уверены, что хотите отправить торговцев?","Торговое судно",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
-				return
+			return
 	if(send_beruang)
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
@@ -78,10 +76,11 @@ var/can_call_traders = 1
 
 	/* Bastion of Endeavor Translation
 	set name = "Join Trader Visit"
+	set category = "IC.Event" //CHOMPEdit
 	*/
 	set name = "Присоединиться к торговцам"
+	set category = "IC.События"
 	// End of Bastion of Endeavor Translation
-	set category = "IC"
 
 	if(!MayRespawn(1))
 		/* Bastion of Endeavor Translation

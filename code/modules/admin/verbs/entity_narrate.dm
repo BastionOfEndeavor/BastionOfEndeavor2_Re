@@ -27,7 +27,7 @@
 /client/proc/add_mob_for_narration(E as obj|mob|turf in orange(world.view))
 	set name = "Narrate Entity (Add ref)"
 	set desc = "Saves a reference of target mob to be called when narrating."
-	set category = "Fun"
+	set category = "Fun.Narrate" //CHOMPEdit
 
 	if(!check_rights(R_FUN)) return
 
@@ -77,7 +77,7 @@
 /client/proc/remove_mob_for_narration()
 	set name = "Narrate Entity (Remove ref)"
 	set desc = "Remove mobs you're no longer narrating from your list for easier work."
-	set category = "Fun"
+	set category = "Fun.Narrate" //CHOMPEdit
 
 	if(!check_rights(R_FUN)) return
 
@@ -92,10 +92,10 @@
 	var/options = holder.entity_names + "Clear All"
 	var/removekey = tgui_input_list(usr, "Choose which entity to remove", "remove reference", options, null)
 	if(removekey == "Clear All")
-		var/confirm = tgui_alert(usr, "Do you really want to clear your entity list?", "confirm", list("Yes", "No"), "No")
-		if(confirm == "Yes")
-			holder.entity_names = list()
-			holder.entity_refs = list()
+		if(tgui_alert(usr, "Do you really want to clear your entity list?", "confirm", list("Yes", "No")) != "Yes")
+			return
+		holder.entity_names = list()
+		holder.entity_refs = list()
 	else if(removekey)
 		holder.entity_refs -= removekey
 		holder.entity_names -= removekey
@@ -107,7 +107,7 @@
 /client/proc/narrate_mob()
 	set name = "Narrate Entity (Interface)"
 	set desc = "Send either a visible or audiable message through your chosen entities using an interface"
-	set category = "Fun"
+	set category = "Fun.Narrate" //CHOMPEdit
 
 	if(!check_rights(R_FUN)) return
 
@@ -128,7 +128,7 @@
 		holder.tgui_interact(usr)
 	else
 		var/mode = tgui_alert(usr, "Speak or emote?", "mode", list("Speak", "Emote", "Cancel"))
-		if(mode == "Cancel") return
+		if(!mode || mode == "Cancel") return
 		var/message = tgui_input_text(usr, "Input what you want [which_entity] to [mode]", "narrate",
 		null, multiline = TRUE, prevent_enter = TRUE)
 		if(message)
@@ -138,7 +138,7 @@
 /client/proc/narrate_mob_args(name as text, mode as text, message as text)
 	set name = "Narrate Entity"
 	set desc = "Narrate entities using positional arguments. Name should be as saved in ref list, mode should be Speak or Emote, follow with message"
-	set category = "Fun"
+	set category = "Fun.Narrate" //CHOMPEdit
 
 
 

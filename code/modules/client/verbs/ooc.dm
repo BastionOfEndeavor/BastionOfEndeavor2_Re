@@ -2,10 +2,10 @@
 /client/verb/ooc(msg as text)
 	/* Bastion of Endeavor Translation
 	set name = "OOC"
-	set category = "OOC"
+	set category = "OOC.Chat" //CHOMPEdit
 	*/
 	set name = "Чат OOC"
-	set category = "OOC"
+	set category = "OOC.Чат"
 	set desc = "Отправить сообщение в неролевой чат OOC, видимое всем игрокам."
 	// End of Bastion of Endeavor Translation
 
@@ -138,11 +138,11 @@
 	/* Bastion of Endeavor Translation
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
-	set category = "OOC"
+	set category = "OOC.Chat" //CHOMPEdit
 	*/
 	set name = "Чат LOOC"
 	set desc = "Отправить сообщение в неролевой чат OOC, видимое только для игроков на вашем экране."
-	set category = "OOC"
+	set category = "OOC.Чат"
 	// End of Bastion of Endeavor Translation
 
 	if(say_disabled)	//This is here to try to identify lag problems
@@ -184,7 +184,7 @@
 		if(!CONFIG_GET(flag/dooc_allowed) && (mob.stat == DEAD)) // CHOMPEdit
 			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
 			return
-		if(prefs.muted & MUTE_OOC)
+		if(prefs.muted & MUTE_LOOC)
 			to_chat(src, "<span class='danger'>You cannot use OOC (muted).</span>")
 			return
 		if(findtext(msg, "byond://") && !CONFIG_GET(flag/allow_byond_links)) // CHOMPEdit
@@ -232,7 +232,7 @@
 	log_looc(msg,src)
 
 	if(msg)
-		handle_spam_prevention(MUTE_OOC)
+		handle_spam_prevention(MUTE_LOOC)
 
 	var/mob/source = mob.get_looc_source()
 	var/turf/T = get_turf(source)
@@ -271,7 +271,8 @@
 	// Admins with RLOOC displayed who weren't already in
 	for(var/client/admin in GLOB.admins)
 		if(!(admin in receivers) && admin.is_preference_enabled(/datum/client_preference/holder/show_rlooc))
-			r_receivers |= admin
+			if(check_rights(R_ADMIN|R_SERVER, FALSE, admin)) //Stop rLOOC showing for retired staff //CHOMPEdit, admins should see LOOC
+				r_receivers |= admin
 
 	msg = GLOB.is_valid_url.Replace(msg,"<span class='linkify'>$1</span>")
 

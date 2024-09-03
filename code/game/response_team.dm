@@ -10,11 +10,11 @@ var/silent_ert = 0
 /client/proc/response_team()
 	/* Bastion of Endeavor Translation
 	set name = "Dispatch Emergency Response Team"
-	set category = "Special Verbs"
+	set category = "Fun.Event Kit" //CHOMPEdit
 	set desc = "Send an emergency response team to the station"
 	*/
 	set name = "Отправить ОБР"
-	set category = "Особые глаголы"
+	set category = "Веселье.События"
 	set desc = "Отправить на станцию отряд быстрого реагирования."
 	// End of Bastion of Endeavor Translation
 
@@ -60,13 +60,11 @@ var/silent_ert = 0
 		silent_ert = 1
 	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
 		/* Bastion of Endeavor Translation
-		switch(tgui_alert(usr, "The station is not in red alert. Do you still want to dispatch a response team?","ERT",list("Yes","No")))
-			if("No")
+		if(tgui_alert(usr, "The station is not in red alert. Do you still want to dispatch a response team?","ERT",list("Yes","No")) != "Yes")
 		*/
-		switch(tgui_alert(usr, "На станции не красная тревога. Вы уверены в своём решении?","ОБР",list("Да","Нет")))
-			if("Нет")
+		if(tgui_alert(usr, "На станции не красная тревога. Вы уверены в своём решении?","ОБР",list("Да","Нет")) != "Да")
 		// End of Bastion of Endeavor Translation
-				return
+			return
 	if(send_emergency_team)
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
@@ -90,10 +88,10 @@ var/silent_ert = 0
 
 	/* Bastion of Endeavor Translation
 	set name = "Join Response Team"
-	set category = "IC"
+	set category = "IC.Event" //CHOMPEdit
 	*/
 	set name = "Присоединиться к ОБР"
-	set category = "IC"
+	set category = "IC.События"
 	// End of Bastion of Endeavor Translation
 
 	if(!MayRespawn(1))

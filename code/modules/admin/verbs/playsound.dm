@@ -6,7 +6,7 @@
 var/list/sounds_cache = list()
 
 /client/proc/play_sound(S as sound)
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Global Sound"
 	if(!check_rights(R_SOUNDS))
 		return
@@ -30,6 +30,8 @@ var/list/sounds_cache = list()
 	sounds_cache += S
 
 	var/res = tgui_alert(usr, "Show the title of this song ([S]) to the players?\nOptions 'Yes' and 'No' will play the sound.",, list("Yes", "No", "Cancel"))
+	if(!res)
+		return
 	switch(res)
 		if("Yes")
 			to_chat(world, "<span class='boldannounce'>An admin played: [S]</span>", confidential = TRUE)
@@ -48,7 +50,7 @@ var/list/sounds_cache = list()
 	feedback_add_details("admin_verb", "Play Global Sound")
 
 /client/proc/play_local_sound(S as sound)
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Local Sound"
 	if(!check_rights(R_SOUNDS))
 		return
@@ -59,7 +61,7 @@ var/list/sounds_cache = list()
 	feedback_add_details("admin_verb", "Play Local Sound")
 
 /client/proc/play_direct_mob_sound(S as sound, mob/M)
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Direct Mob Sound"
 	if(!check_rights(R_SOUNDS))
 		return
@@ -74,7 +76,7 @@ var/list/sounds_cache = list()
 	feedback_add_details("admin_verb", "Play Direct Mob Sound")
 
 /client/proc/play_z_sound(S as sound)
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Z Sound"
 	if(!check_rights(R_SOUNDS))	return
 	var/target_z = mob.z
@@ -83,7 +85,7 @@ var/list/sounds_cache = list()
 
 	sounds_cache += S
 
-	if(tgui_alert(usr, "Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request", list("Play","Cancel")) == "Cancel")
+	if(tgui_alert(usr, "Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request", list("Play","Cancel")) != "Play")
 		return
 
 	log_admin("[key_name(src)] played sound [S] on Z[target_z]")
@@ -96,7 +98,7 @@ var/list/sounds_cache = list()
 
 
 /client/proc/play_server_sound()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Server Sound"
 	if(!check_rights(R_SOUNDS))
 		return
@@ -213,7 +215,7 @@ var/list/sounds_cache = list()
 	feedback_add_details("admin_verb", "Play Internet Sound")
 
 /client/proc/play_web_sound()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Play Internet Sound"
 	if(!check_rights(R_SOUNDS))
 		return
@@ -241,7 +243,7 @@ var/list/sounds_cache = list()
 		web_sound(usr, null)
 
 /client/proc/stop_sounds()
-	set category = "Debug"
+	set category = "Debug.Dangerous" //CHOMPEdit
 	set name = "Stop All Playing Sounds"
 	if(!src.holder)
 		return
@@ -263,7 +265,7 @@ var/list/sounds_cache = list()
 
 /*
 /client/proc/cuban_pete()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Cuban Pete Time"
 
 	message_admins("[key_name_admin(usr)] has declared Cuban Pete Time!", 1)
@@ -279,7 +281,7 @@ var/list/sounds_cache = list()
 
 
 /client/proc/bananaphone()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Banana Phone"
 
 	message_admins("[key_name_admin(usr)] has activated Banana Phone!", 1)
@@ -290,7 +292,7 @@ var/list/sounds_cache = list()
 
 
 /client/proc/space_asshole()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Space Asshole"
 
 	message_admins("[key_name_admin(usr)] has played the Space Asshole Hymn.", 1)
@@ -301,7 +303,7 @@ var/list/sounds_cache = list()
 
 
 /client/proc/honk_theme()
-	set category = "Fun"
+	set category = "Fun.Sounds" //CHOMPEdit
 	set name = "Honk"
 
 	message_admins("[key_name_admin(usr)] has creeped everyone out with Blackest Honks.", 1)

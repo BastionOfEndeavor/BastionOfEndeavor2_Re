@@ -5,7 +5,7 @@
 #define MIN_CLIENT_VERSION	0		//Just an ambiguously low version for now, I don't want to suddenly stop people playing.
 									//I would just like the code ready should it ever need to be used.
 
-//#define TOPIC_DEBUGGING 1
+//# define TOPIC_DEBUGGING 1
 
 	/*
 	When somebody clicks a link in game, this Topic is called first.
@@ -177,6 +177,9 @@
 		asset_cache_preload_data(href_list["asset_cache_preload_data"])
 		return
 
+	if(href_list["commandbar_typing"])
+		handle_commandbar_typing(href_list)
+
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
 		if("mentorholder")	hsrc = (check_rights(R_ADMIN, 0) ? holder : mentorholder)
@@ -261,6 +264,8 @@
 	stat_panel.subscribe(src, .proc/on_stat_panel_message)
 
 	// Instantiate tgui panel
+	tgui_say = new(src, "tgui_say")
+	initialize_commandbar_spy()
 	tgui_panel = new(src, "browseroutput")
 
 	GLOB.tickets.ClientLogin(src) // CHOMPedit - Tickets System
@@ -300,6 +305,7 @@
 	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 	// Initialize tgui panel
+	tgui_say.initialize()
 	tgui_panel.initialize()
 
 	connection_time = world.time
@@ -349,6 +355,7 @@
 		void = new()
 	screen += void
 
+	//disabled because we don't use the ingame changelog system any more // CHOMPEdit: Enabled because we do
 	if((prefs.lastchangelog != changelog_hash) && isnewplayer(src.mob)) //bolds the changelog button on the interface so we know there are updates.
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='info'>You have unread updates in the changelog.</span>")
@@ -632,10 +639,10 @@
 /client/verb/character_setup()
 	/* Bastion of Endeavor Translation
 	set name = "Character Setup"
-	set category = "Preferences"
+	set category = "Preferences.Character" //CHOMPEdit
 	*/
 	set name = "Редактор персонажа"
-	set category = "Предпочтения"
+	set category = "Предпочтения.Персонаж"
 	// End of Bastion of Endeavor Translation
 	if(prefs)
 		prefs.ShowChoices(usr)
@@ -752,10 +759,11 @@
 /client/verb/toggle_fullscreen()
 	/* Bastion of Endeavor Translation
 	set name = "Toggle Fullscreen"
+	set category = "OOC.Client Settings" //CHOMPEdit
 	*/
 	set name = "Полноэкранный режим"
+	set category = "OOC.Настройки клиента"
 	// End of Bastion of Endeavor Translation
-	set category = "OOC"
 
 	fullscreen = !fullscreen
 
@@ -773,10 +781,20 @@
 		winset(usr, "mainwindow", "is-maximized=false")
 		winset(usr, "mainwindow", "on-size=attempt_auto_fit_viewport") // The attempt_auto_fit_viewport() proc is not implemented yet
 
+/*CHOMPRemove Start, we use TGPanel
+/client/verb/toggle_verb_panel()
+	set name = "Toggle Verbs"
+	set category = "OOC.Client Settings" //CHOMPEdit
+
+	show_verb_panel = !show_verb_panel
+
+	to_chat(usr, "Your verbs are now [show_verb_panel ? "on" : "off. To turn them back on, type 'toggle-verbs' into the command bar."].")
+*///CHOMPRemove End
+
 /*
 /client/verb/toggle_status_bar()
 	set name = "Toggle Status Bar"
-	set category = "OOC"
+	set category = "OOC.Client Settings" //CHOMPEdit
 
 	show_status_bar = !show_status_bar
 

@@ -149,7 +149,8 @@ SUBSYSTEM_DEF(plants)
 			return
 
 /datum/controller/subsystem/plants/proc/add_plant(var/obj/effect/plant/plant)
-	processing |= plant
+	if(!QDELETED(plant)) //CHOMPEdit GC
+		processing |= plant //CHOMPEdit GC
 
 /datum/controller/subsystem/plants/proc/remove_plant(var/obj/effect/plant/plant)
 	processing -= plant
@@ -158,11 +159,11 @@ SUBSYSTEM_DEF(plants)
 // Debug for testing seed genes.
 /client/proc/show_plant_genes()
 	/* Bastion of Endeavor Translation
-	set category = "Debug"
+	set category = "Debug.Investigate" //CHOMPEdit
 	set name = "Show Plant Genes"
 	set desc = "Prints the round's plant gene masks."
 	*/
-	set category = "Отладка"
+	set category = "Отладка.Мониторинг"
 	set name = "Показать гены растений"
 	set desc = "Отобразить генетические маски растений в этом раунде."
 	// End of Bastion of Endeavor Translation
@@ -179,3 +180,5 @@ SUBSYSTEM_DEF(plants)
 
 	for(var/mask in SSplants.gene_tag_masks)
 		to_chat(usr, "[mask]: [SSplants.gene_tag_masks[mask]]")
+
+#undef PLANT_TICK_TIME

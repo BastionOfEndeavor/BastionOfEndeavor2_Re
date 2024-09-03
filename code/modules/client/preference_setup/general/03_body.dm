@@ -4,8 +4,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
 	var/animations_toggle = FALSE
 
-	var/icon/bgstate = "000"
-	var/list/bgstate_options = list("000", "midgrey", "FFF", "white", "steel", "techmaint", "dark", "plating", "reinforced")
+	var/icon/bgstate = "steel"
+	var/list/bgstate_options = list("steel", "000", "midgrey", "FFF", "white", "techmaint", "desert", "grass", "snow")
 
 	var/ear_style		// Type of selected ear style
 	var/r_ears = 30		// Ear color.
@@ -927,9 +927,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(pref.body_descriptors[desc_id])
 				var/datum/mob_descriptor/descriptor = mob_species.descriptors[desc_id]
 				/* Bastion of Endeavor Translation: A bit iffy about this, might need to get looked at for mob localization
-				var/choice = tgui_input_list(usr, "Please select a descriptor.", "Descriptor", descriptor.chargen_value_descriptors)
+				var/choice = tgui_input_list(user, "Please select a descriptor.", "Descriptor", descriptor.chargen_value_descriptors) //ChompEDIT - usr removal
 				*/
-				var/choice = tgui_input_list(usr, "Выберите описание.", "Описание", descriptor.chargen_value_descriptors)
+				var/choice = tgui_input_list(user, "Выберите описание.", "Описание", descriptor.chargen_value_descriptors)
 				// End of Bastion of Endeavor Translation
 				if(choice && mob_species.descriptors[desc_id]) // Check in case they sneakily changed species.
 					pref.body_descriptors[desc_id] = descriptor.chargen_value_descriptors[choice]
@@ -948,9 +948,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["show_species"])
 		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
 		/* Bastion of Endeavor Translation
-		var/choice = tgui_input_list(usr, "Which species would you like to look at?", "Species Choice", GLOB.playable_species)
+		var/choice = tgui_input_list(user, "Which species would you like to look at?", "Species Choice", GLOB.playable_species) //ChompEDIT - usr removal
 		*/
-		var/choice = tgui_input_list(usr, "Выберите интересующую расу, чтобы увидеть её описание:", "Выбор расы", GLOB.playable_species)
+		var/choice = tgui_input_list(user, "Выберите интересующую расу, чтобы увидеть её описание:", "Выбор расы", GLOB.playable_species)
 		// End of Bastion of Endeavor Translation
 		if(!choice) return
 		pref.species_preview = choice
@@ -959,7 +959,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_HANDLED
 
 	else if(href_list["disabilities_yw"])
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["set_species"])
 		user << browse(null, "window=species")
@@ -1022,6 +1022,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/min_age = get_min_age()
 			var/max_age = get_max_age()
 			pref.age = max(min(pref.age, max_age), min_age)
+			pref.blood_color = setting_species.blood_color // VOREstation edit
 
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
@@ -1281,9 +1282,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/M = href_list["marking_color"]
 		if (isnull(pref.body_markings[M]["color"]))
 			/* Bastion of Endeavor Translation
-			if (tgui_alert(user, "You currently have customized marking colors. This will reset each bodypart's color. Are you sure you want to continue?","Reset Bodypart Colors",list("Yes","No")) == "No")
+			if (tgui_alert(user, "You currently have customized marking colors. This will reset each bodypart's color. Are you sure you want to continue?","Reset Bodypart Colors",list("Yes","No")) != "Yes")
 			*/
-			if (tgui_alert(user, "Ваша особенность тела настроена отдельно для разных частей тела. Смена цвета приведёт к сбросу этой настройки. Вы действительно хотите изменить цвет?","Сброс цвета части тела",list("Да","Нет")) == "No")
+			if (tgui_alert(user, "Ваша особенность тела настроена отдельно для разных частей тела. Смена цвета приведёт к сбросу этой настройки. Вы действительно хотите изменить цвет?","Сброс цвета части тела",list("Да","Нет")) != "Да")
 			// End of Bastion of Endeavor Translation
 				return TOPIC_NOACTION
 		/* Bastion of Endeavor Translation
@@ -1686,7 +1687,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])
 		pref.disabilities ^= disability_flag
-		Disabilities_YW(usr) //YW Edit
+		Disabilities_YW(user) //YW Edit //ChompEDIT - usr removal
 
 	else if(href_list["toggle_preview_value"])
 		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
@@ -1724,23 +1725,23 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["wingdings"])
 		pref.wingdings = !pref.wingdings
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["colorblind_mono"])
 		pref.colorblind_mono = !pref.colorblind_mono
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["colorblind_vulp"])
 		pref.colorblind_vulp = !pref.colorblind_vulp
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["colorblind_taj"])
 		pref.colorblind_taj = !pref.colorblind_taj
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["haemophilia"])
 		pref.haemophilia = !pref.haemophilia
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	else if(href_list["reset_disabilities"])
 		pref.wingdings = 0
@@ -1748,7 +1749,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.colorblind_taj = 0
 		pref.colorblind_vulp = 0
 		pref.haemophilia = 0
-		Disabilities_YW(usr)
+		Disabilities_YW(user) //ChompEDIT - usr removal
 
 	//YW Add End
 
@@ -2015,7 +2016,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	dat += "<td width = 200 align='center'>"
 	if("preview" in cached_icon_states(current_species.icobase))
 		// Bastion of Endeavor TODO: Pay special attention to this when localizing species
-		usr << browse_rsc(icon(current_species.icobase,"preview"), "species_preview_[current_species.name].png")
+		user << browse_rsc(icon(current_species.icobase,"preview"), "species_preview_[current_species.name].png") //ChompEDIT usr -> user
 		dat += "<img src='species_preview_[current_species.name].png' width='64px' height='64px'><br/><br/>"
 	/* Bastion of Endeavor Translation
 	dat += "<b>Language:</b> [current_species.species_language]<br/>"

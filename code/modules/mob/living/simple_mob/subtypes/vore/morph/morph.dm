@@ -247,7 +247,7 @@
 
 /mob/living/simple_mob/vore/morph/proc/morph_color()
 	set name = "Pick Color"
-	set category = "Abilities"
+	set category = "Abilities.Settings" //CHOMPEdit
 	set desc = "You can set your color!"
 	var/newcolor = input(usr, "Choose a color.", "", color) as color|null
 	if(newcolor)
@@ -257,7 +257,7 @@
 
 /mob/living/simple_mob/vore/morph/proc/take_over_prey()
 	set name = "Take Over Prey"
-	set category = "Abilities"
+	set category = "Abilities.Morph" //CHOMPEdit
 	set desc = "Take command of your prey's body."
 	if(morphed)
 		to_chat(src, "<span class='warning'>You must restore to your original form first!</span>")
@@ -265,48 +265,45 @@
 	var/list/possible_mobs = list()
 	for(var/obj/belly/B in src.vore_organs)
 		for(var/mob/living/H in B)
-			if( (ishuman(H) || isrobot(H)) && H.ckey )
+			if((ishuman(H) || isrobot(H)) && H.ckey)
 				possible_mobs += H
 			else
 				continue
-		var/mob/living/carbon/human/M
-		var/input = tgui_input_list(src, "Select a mob to take over:", "Take Over Prey", possible_mobs)
-		if(!input)
-			return
-		M = input
-		if(!M)
+		var/mob/living/L = tgui_input_list(src, "Select a mob to take over:", "Take Over Prey", possible_mobs)
+		if(!L)
 			return
 		// Adding a ishuman check here, since silicon mobs don't have a resleeve_lock from what I can tell.
-		if(ishuman(M))
+		if(ishuman(L))
+			var/mob/living/carbon/human/M = L
 			if(M.resleeve_lock && ckey != M.resleeve_lock)
 				to_chat(src, "<span class='warning'>\The [M] cannot be impersonated!</span>")
 				return
-		if(tgui_alert(src, "You selected [M] to attempt to take over. Are you sure?", "Take Over Prey",list("No","Yes")) == "Yes")
-			log_admin("[key_name_admin(src)] offered [M] to swap bodies as a morph.")
-			if(tgui_alert(M, "\The [src] has elected to attempt to take over your body and control you. Is this something you will allow to happen?", "Allow Morph To Take Over",list("No","Yes")) == "Yes")
-				if(tgui_alert(M, "Are you sure? The only way to undo this on your own is to OOC Escape.", "Allow Morph To Take Over",list("No","Yes")) == "Yes")
+		if(tgui_alert(src, "You selected [L] to attempt to take over. Are you sure?", "Take Over Prey",list("No","Yes")) == "Yes")
+			log_admin("[key_name_admin(src)] offered [L] to swap bodies as a morph.")
+			if(tgui_alert(L, "\The [src] has elected to attempt to take over your body and control you. Is this something you will allow to happen?", "Allow Morph To Take Over",list("No","Yes")) == "Yes")
+				if(tgui_alert(L, "Are you sure? The only way to undo this on your own is to OOC Escape.", "Allow Morph To Take Over",list("No","Yes")) == "Yes")
 					if(buckled)
 						buckled.unbuckle_mob()
-					if(M.buckled)
-						M.buckled.unbuckle_mob()
+					if(L.buckled)
+						L.buckled.unbuckle_mob()
 					if(LAZYLEN(buckled_mobs))
 						for(var/buckledmob in buckled_mobs)
 							riding_datum.force_dismount(buckledmob)
-					if(LAZYLEN(M.buckled_mobs))
-						for(var/p_buckledmob in M.buckled_mobs)
-							M.riding_datum.force_dismount(p_buckledmob)
+					if(LAZYLEN(L.buckled_mobs))
+						for(var/p_buckledmob in L.buckled_mobs)
+							L.riding_datum.force_dismount(p_buckledmob)
 					if(pulledby)
 						pulledby.stop_pulling()
-					if(M.pulledby)
-						M.pulledby.stop_pulling()
+					if(L.pulledby)
+						L.pulledby.stop_pulling()
 					stop_pulling()
 					original_ckey = ckey
-					log_and_message_admins("[key_name_admin(src)] has swapped bodies with [key_name_admin(M)] as a morph at [get_area(src)] - [COORD(src)].")
-					new /mob/living/simple_mob/vore/morph/dominated_prey(M.vore_selected, M.ckey, src, M)
+					log_and_message_admins("[key_name_admin(src)] has swapped bodies with [key_name_admin(L)] as a morph at [get_area(src)] - [COORD(src)].")
+					new /mob/living/simple_mob/vore/morph/dominated_prey(L.vore_selected, L.ckey, src, L)
 				else
-					to_chat(src, "<span class='warning'>\The [M] declined your request for control.</span>")
+					to_chat(src, "<span class='warning'>\The [L] declined your request for control.</span>")
 			else
-				to_chat(src, "<span class='warning'>\The [M] declined your request for control.</span>")
+				to_chat(src, "<span class='warning'>\The [L] declined your request for control.</span>")
 
 /mob/living/simple_mob/vore/morph/dominated_prey
 	name = "subservient node"
@@ -376,3 +373,5 @@
 		prey_body.forceMove(parent_morph.vore_selected)
 		log_and_message_admins("[key_name_admin(prey_body)] and [key_name_admin(parent_morph)] have been returned to their original bodies. [get_area(src)] - [COORD(src)].")
 	qdel(src)
+
+#undef MORPH_COOLDOWN
