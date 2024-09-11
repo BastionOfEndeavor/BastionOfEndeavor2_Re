@@ -44,10 +44,17 @@
 			if(istype(H) && istype(H.species, /datum/species/shadekin))
 				/* Bastion of Endeavor Translation
 				to_chat(usr,"<span class='notice'><b>Energy:</b> [H.shadekin_get_energy(H)]</span>")
+<<<<<<< HEAD
 				*/
 				to_chat(usr,"<span class='notice'><b>Энергия:</b> [H.shadekin_get_energy(H)]</span>")
 				// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+		if("glamour")
+			var/mob/living/carbon/human/H = usr
+			if(istype(H))
+				to_chat(usr,"<span class='notice'><b>Energy:</b> [H.species.lleill_energy]/[H.species.lleill_energy_max]</span>")
+>>>>>>> eb4f254c80 ([MIRROR] [Ready] Hanner Species (#8923))
 		if("danger level")
 		*/
 		if("Уровень опасности")
@@ -145,11 +152,15 @@
 				else if(H.revive_ready == REVIVING_DONE)
 					/* Bastion of Endeavor Translation
 					to_chat(usr, "<span class='warning'>You should have a notification + alert for this! Bug report that this is still here!</span>")
+<<<<<<< HEAD
 					*/
 					to_chat(usr, "<span class='warning'>Возрождение должно сопровождаться уведомлением и иконкой! Доложите об этом баге!</span>")
 					// End of Bastion of Endeavor Translation
 					
 		/* Bastion of Endeavor Translation
+=======
+
+>>>>>>> eb4f254c80 ([MIRROR] [Ready] Hanner Species (#8923))
 		if("Ready to Hatch") // Allow Viewing Reconstruction Timer + Hatching for 'chimera
 		*/
 		if("Готовность вылупиться")
