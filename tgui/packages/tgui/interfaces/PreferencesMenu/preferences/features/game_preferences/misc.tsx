@@ -152,3 +152,11 @@ export const MessengerEmbeds: FeatureToggle = {
   // End of Bastion of Endeavor Translation
   component: CheckboxInput,
 };
+
+export const AutoPunctuation: FeatureToggle = {
+  name: 'Automatic Punctuation',
+  category: 'GAMEPLAY',
+  description:
+    'When enabled, if your message ends in a letter with no punctuation, a period will be added.',
+  component: CheckboxInput,
+};
