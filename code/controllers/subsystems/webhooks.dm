@@ -99,11 +99,15 @@ SUBSYSTEM_DEF(webhooks)
 		return
 
 	if(!SSwebhooks.subsystem_initialized)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, SPAN_WARNING("Let the webhook subsystem initialize before trying to reload it."))
 		*/
 		to_chat(usr, SPAN_WARNING("Позвольте системе вебхуков инициализироваться, прежде чем пытаться её перезагрузить."))
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("Let the webhook subsystem initialize before trying to reload it."))
+>>>>>>> 31407a0be3 ([MIRROR] First part of a span rework (#9120))
 		return
 
 	/* Bastion of Endeavor Translation
@@ -128,11 +132,15 @@ SUBSYSTEM_DEF(webhooks)
 		return
 
 	if(!length(SSwebhooks.webhook_decls))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, SPAN_WARNING("Webhook list is empty; either webhooks are disabled, webhooks aren't configured, or the subsystem hasn't initialized."))
 		*/
 		to_chat(usr, SPAN_WARNING("Список вебхуков пуст; вебхуки либо выключены, либо не настроены, либо подсистема ещё не инициализирована."))
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("Webhook list is empty; either webhooks are disabled, webhooks aren't configured, or the subsystem hasn't initialized."))
+>>>>>>> 31407a0be3 ([MIRROR] First part of a span rework (#9120))
 		return
 
 	/* Bastion of Endeavor Translation
