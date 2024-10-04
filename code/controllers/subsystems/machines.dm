@@ -36,11 +36,15 @@ SUBSYSTEM_DEF(machines)
 
 /datum/controller/subsystem/machines/Initialize() // CHOMPEdit
 	makepowernets()
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	admin_notice("<span class='danger'>Initializing atmos machinery.</span>", R_DEBUG)
 	*/
 	admin_notice("<span class='danger'>Инициализация атмосферной аппаратуры.</span>", R_DEBUG)
 	// End of Bastion of Endeavor Translation
+=======
+	admin_notice(span_danger("Initializing atmos machinery."), R_DEBUG)
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	setup_atmos_machinery(all_machines)
 	fire()
 	return SS_INIT_SUCCESS // CHOMPEdit

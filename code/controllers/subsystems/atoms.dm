@@ -26,11 +26,15 @@ SUBSYSTEM_DEF(atoms)
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	/* Bastion of Endeavor Translation
 	to_world_log("Initializing objects")
+<<<<<<< HEAD
 	admin_notice("<span class='danger'>Initializing objects</span>", R_DEBUG)
 	*/
 	to_world_log("Инициализация объектов.")
 	admin_notice("<span class='danger'>Инициализация объектов.</span>", R_DEBUG)
 	// End of Bastion of Endeavor Translation
+=======
+	admin_notice(span_danger("Initializing objects"), R_DEBUG)
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	InitializeAtoms()
 	return SS_INIT_SUCCESS // CHOMPEdit
 

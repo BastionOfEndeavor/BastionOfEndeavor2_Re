@@ -330,11 +330,15 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Admin Log',
     description: 'ADMIN LOG: Urist McAdmin has jumped to coordinates X, Y, Z',
+<<<<<<< HEAD
     */
     name: 'Лог администраторов',
     description: 'АДМИН-ЛОГ: Админ МакПедаль прыгнул на координаты X, Y, Z',
     /* End of Bastion of Endeavor Translation */
     selector: '.log_message',
+=======
+    selector: '.log_message, .filter_adminlog',
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
     admin: true,
   },
   {
@@ -353,10 +357,14 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
+<<<<<<< HEAD
     */
     name: 'Лог отладки',
     description: 'ОТЛАДКА: Recover() подсистемы SSPlanets.',
     /* End of Bastion of Endeavor Translation */
+=======
+    selector: '.filter_debuglogs',
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
     admin: true,
   },
 ];

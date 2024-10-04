@@ -10,24 +10,32 @@
 		// End of Bastion of Endeavor Translation
 			var/turf/T = get_turf(usr)
 			var/darkness = round(1 - T.get_lumcount(),0.1)
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr,"<span class='notice'><b>Darkness:</b> [darkness]</span>")
 			*/
 			to_chat(usr,"<span class='notice'><b>Тьма:</b> [darkness]</span>")
 			// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+			to_chat(usr,span_notice("<b>Darkness:</b> [darkness]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("energy")
 		*/
 		if("Энергия")
 		// End of Bastion of Endeavor Translation
 			var/mob/living/simple_mob/shadekin/SK = usr
 			if(istype(SK))
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				to_chat(usr,"<span class='notice'><b>Energy:</b> [SK.energy] ([SK.dark_gains])</span>")
 				*/
 				to_chat(usr,"<span class='notice'><b>Энергия:</b> [SK.energy] ([SK.dark_gains])</span>")
 				// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+				to_chat(usr,span_notice("<b>Energy:</b> [SK.energy] ([SK.dark_gains])"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("shadekin status")
 		*/
 		if("Состояние")
@@ -35,6 +43,7 @@
 			var/turf/T = get_turf(usr)
 			if(T)
 				var/darkness = round(1 - T.get_lumcount(),0.1)
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				to_chat(usr,"<span class='notice'><b>Darkness:</b> [darkness]</span>")
 				*/
@@ -48,18 +57,28 @@
 				to_chat(usr,"<span class='notice'><b>Энергия:</b> [H.shadekin_get_energy(H)]</span>")
 				// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+				to_chat(usr,span_notice("<b>Darkness:</b> [darkness]"))
+			var/mob/living/carbon/human/H = usr
+			if(istype(H) && istype(H.species, /datum/species/shadekin))
+				to_chat(usr,span_notice("<b>Energy:</b> [H.shadekin_get_energy(H)]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("glamour")
 		*/
 		if("Гламур")
 		// End of Bastion of Endeavor Translation
 			var/mob/living/carbon/human/H = usr
 			if(istype(H))
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				to_chat(usr,"<span class='notice'><b>Energy:</b> [H.species.lleill_energy]/[H.species.lleill_energy_max]</span>")
 				*/
 				to_chat(usr,"<span class='notice'><b>Энергия:</b> [H.species.lleill_energy]/[H.species.lleill_energy_max]</span>")
 				// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+				to_chat(usr,span_notice("<b>Energy:</b> [H.species.lleill_energy]/[H.species.lleill_energy_max]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("danger level")
 		*/
 		if("Уровень опасности")
@@ -67,6 +86,7 @@
 			var/mob/living/carbon/human/H = usr
 			if(istype(H) && istype(H.species, /datum/species/xenochimera))
 				if(H.feral > 50)
+<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
 					to_chat(usr, "<span class='warning'>You are currently <b>completely feral.</b></span>")
 					*/
@@ -112,10 +132,30 @@
 						*/
 						to_chat(usr, "<span class='warning'>Дрожь мешает вам сосредоточиться.</span>")
 						// End of Bastion of Endeavor Translation
+=======
+					to_chat(usr, span_warning("You are currently <b>completely feral.</b>"))
+				else if(H.feral > 10)
+					to_chat(usr, span_warning("You are currently <b>crazed and confused.</b>"))
+				else if(H.feral > 0)
+					to_chat(usr, span_warning("You are currently <b>acting on instinct.</b>"))
+				else
+					to_chat(usr, span_notice("You are currently <b>calm and collected.</b>"))
+				if(H.feral > 0)
+					var/feral_passing = TRUE
+					if(H.traumatic_shock > min(60, H.nutrition/10))
+						to_chat(usr, span_warning("Your pain prevents you from regaining focus."))
+						feral_passing = FALSE
+					if(H.feral + H.nutrition < 150)
+						to_chat(usr, span_warning("Your hunger prevents you from regaining focus."))
+						feral_passing = FALSE
+					if(H.jitteriness >= 100)
+						to_chat(usr, span_warning("Your jitterness prevents you from regaining focus."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 						feral_passing = FALSE
 					if(feral_passing)
 						var/turf/T = get_turf(H)
 						if(T.get_lumcount() <= 0.1)
+<<<<<<< HEAD
 							/* Bastion of Endeavor Translation
 							to_chat(usr, "<span class='notice'>You are slowly calming down in darkness' safety...</span>")
 							*/
@@ -142,6 +182,16 @@
 						to_chat(usr, "<span class='warning'>Голод постепенно доводит вас до неуравновешенности.</span>")
 						// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
+=======
+							to_chat(usr, span_notice("You are slowly calming down in darkness' safety..."))
+						else if(isbelly(H.loc)) // Safety message for if inside a belly.
+							to_chat(usr, span_notice("You are slowly calming down within the darkness of something's belly, listening to their body as it moves around you. ...safe..."))
+						else
+							to_chat(usr, span_notice("You are slowly calming down... But safety of darkness is much preferred."))
+				else
+					if(H.nutrition < 150)
+						to_chat(usr, span_warning("Your hunger is slowly making you unstable."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("Reconstructing Form") // Allow Viewing Reconstruction Timer + Hatching for 'chimera
 		*/
 		if("Воссоздание формы")
@@ -149,6 +199,7 @@
 			var/mob/living/carbon/human/H = usr
 			if(istype(H) && istype(H.species, /datum/species/xenochimera)) // If you're somehow able to click this while not a chimera, this should prevent weird runtimes. Will need changing if regeneration is ever opened to non-chimera using the same alert.
 				if(H.revive_ready == REVIVING_NOW)
+<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
 					to_chat(usr, "<span class='notice'>We are currently reviving, and will be done in [round((H.revive_finished - world.time) / 10)] seconds, or [round(((H.revive_finished - world.time) * 0.1) / 60)] minutes.</span>")
 					*/
@@ -160,6 +211,11 @@
 					*/
 					to_chat(usr, "<span class='warning'>Возрождение должно сопровождаться уведомлением и иконкой! Доложите об этом баге!</span>")
 					// End of Bastion of Endeavor Translation
+=======
+					to_chat(usr, span_notice("We are currently reviving, and will be done in [round((H.revive_finished - world.time) / 10)] seconds, or [round(((H.revive_finished - world.time) * 0.1) / 60)] minutes."))
+				else if(H.revive_ready == REVIVING_DONE)
+					to_chat(usr, span_warning("You should have a notification + alert for this! Bug report that this is still here!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 		/* Bastion of Endeavor Translation
 		if("Ready to Hatch") // Allow Viewing Reconstruction Timer + Hatching for 'chimera

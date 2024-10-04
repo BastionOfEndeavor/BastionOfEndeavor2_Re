@@ -135,11 +135,15 @@
 			_AddElement(lst)
 		/* Bastion of Endeavor Translation
 		log_admin("[key_name(usr)] has added [result] [datumname] to [key_name(src)].")
+<<<<<<< HEAD
 		message_admins("<span class='notice'>[key_name_admin(usr)] has added [result] [datumname] to [key_name_admin(src)].</span>")
 		*/
 		log_admin("[key_name(usr)] применил [datumname] [result] к [key_name(src)].")
 		message_admins("<span class='notice'>[key_name_admin(usr)] применил [datumname] [result] к [key_name_admin(src)].</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		message_admins(span_notice("[key_name_admin(usr)] has added [result] [datumname] to [key_name_admin(src)]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 /datum/proc/vv_get_header()
 	. = list()

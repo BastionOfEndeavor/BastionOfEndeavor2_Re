@@ -89,11 +89,15 @@
 
 	/* Bastion of Endeavor Translation
 	msg += "<b>Total Players: [length(Lines)]</b>"
+<<<<<<< HEAD
 	msg = "<span class='filter_notice'>[jointext(msg, "<br>")]</span>"
 	*/
 	msg += "<b>Всего игроков: [length(Lines)]</b>"
 	msg = "<span class='filter_notice'>[jointext(msg, "<br>")]</span>"
 	// End of Bastion of Endeavor Translation
+=======
+	msg = span_filter_notice("[jointext(msg, "<br>")]")
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	to_chat(src,msg)
 
 /client/verb/staffwho()
@@ -255,4 +259,4 @@
 	msg += "\n<span class='info'>Запросы в Помощь администратора дублируются в Discord. Если в сети нет администраторов, вы можете все равно оставить запрос, и кто-то из администраторов может увидеть его в Discord и ответить при первой же возможности.</span>"
 	// End of Bastion of Endeavor Translation
 
-	to_chat(src,"<span class='filter_notice'>[jointext(msg, "<br>")]</span>")
+	to_chat(src,span_filter_notice("[jointext(msg, "<br>")]"))

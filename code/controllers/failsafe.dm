@@ -61,6 +61,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe) // CHOMPEdit - Managed Globals
 						if(4,5)
 							--defcon
 						if(3)
+<<<<<<< HEAD
 							/* Bastion of Endeavor Translation
 							log_and_message_admins("<span class='adminnotice'>SSfailsafe Notice: DEFCON [defcon_pretty()]. The Master Controller (\ref[Master]) has not fired in the last [(5-defcon) * processing_interval] ticks.</span>")
 							*/
@@ -81,24 +82,42 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe) // CHOMPEdit - Managed Globals
 							*/
 							log_and_message_admins("<span class='boldannounce'>Предупреждение SSfailsafe: DEFCON [defcon_pretty()]. Главный контроллер (\ref[Master]) всё ещё не срабатывает уже [count_ru(((5-defcon) * processing_interval), "тик;;а;ов")]. Производим принудительный перезапуск...</span>")
 							// End of Bastion of Endeavor Translation
+=======
+							log_and_message_admins(span_adminnotice("SSfailsafe Notice: DEFCON [defcon_pretty()]. The Master Controller (\ref[Master]) has not fired in the last [(5-defcon) * processing_interval] ticks."))
+							--defcon
+						if(2)
+							log_and_message_admins(span_boldannounce("SSfailsafe Warning: DEFCON [defcon_pretty()]. The Master Controller (\ref[Master]) has not fired in the last [(5-defcon) * processing_interval] ticks. Automatic restart in [processing_interval] ticks."))
+							--defcon
+						if(1)
+
+							log_and_message_admins(span_boldannounce("SSfailsafe Warning: DEFCON [defcon_pretty()]. The Master Controller (\ref[Master]) has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting..."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 							--defcon
 							var/rtn = Recreate_MC()
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
+<<<<<<< HEAD
 								/* Bastion of Endeavor Translation
 								log_and_message_admins("<span class='adminnotice'>SSfailsafe Notice: MC (New:\ref[Master]) restarted successfully</span>")
 								*/
 								log_and_message_admins("<span class='adminnotice'>Информация SSfailsafe: ГК (Новый:\ref[Master]) успешно перезапущен.</span>")
 								// End of Bastion of Endeavor Translation
+=======
+								log_and_message_admins(span_adminnotice("SSfailsafe Notice: MC (New:\ref[Master]) restarted successfully"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 							else if(rtn < 0)
 								/* Bastion of Endeavor Translation
 								log_game("SSfailsafe Notice: Could not restart MC (\ref[Master]), runtime encountered. Entering defcon 0")
+<<<<<<< HEAD
 								log_and_message_admins("<span class='boldannounce'>SSFAILSAFE ERROR: DEFCON [defcon_pretty()]. Could not restart MC (\ref[Master]), runtime encountered. I will silently keep retrying.</span>")
 								*/
 								log_game("Предупреждение SSfailsafe: Не удалось перезапустить ГК (\ref[Master]), получен рантайм. Входим в defcon 0.")
 								log_and_message_admins("<span class='boldannounce'>ОШИБКА SSFAILSAFE: DEFCON [defcon_pretty()]. Не удалось перезапустить ГК (\ref[Master]), получен рантайм. Продолжаем попытки молча...</span>")
 								// End of Bastion of Endeavor Translation
+=======
+								log_and_message_admins(span_boldannounce("SSFAILSAFE ERROR: DEFCON [defcon_pretty()]. Could not restart MC (\ref[Master]), runtime encountered. I will silently keep retrying."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 							//if the return number was 0, it just means the mc was restarted too recently, and it just needs some time before we try again
 							//no need to handle that specially when defcon 0 can handle it
 						if(0) //DEFCON 0! (mc failed to restart)
@@ -106,11 +125,15 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe) // CHOMPEdit - Managed Globals
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
+<<<<<<< HEAD
 								/* Bastion of Endeavor Translation
 								log_and_message_admins("<span class='adminnotice'>SSfailsafe Notice: MC (New:\ref[Master]) restarted successfully</span>")
 								*/
 								log_and_message_admins("<span class='adminnotice'>Информация SSfailsafe: ГК (Новый:\ref[Master]) успешно перезапущен.</span>")
 								// End of Bastion of Endeavor Translation
+=======
+								log_and_message_admins(span_adminnotice("SSfailsafe Notice: MC (New:\ref[Master]) restarted successfully"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 				else
 					defcon = min(defcon + 1,5)
 					master_iteration = Master.iteration

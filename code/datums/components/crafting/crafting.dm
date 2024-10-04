@@ -488,6 +488,7 @@
 					user.put_in_hands(result)
 				else
 					result.forceMove(user.drop_location())
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				to_chat(user, "<span class='notice'>[TR.name] constructed.</span>")
 				*/
@@ -500,6 +501,12 @@
 				*/
 				to_chat(user, "<span class='warning'>Не удалось изготовить [TR.result_name_ru][result]</span>")
 				// End of Bastion of Endeavor Translation
+=======
+				to_chat(user, span_notice("[TR.name] constructed."))
+				TR.on_craft_completion(user, result)
+			else
+				to_chat(user, span_warning("Construction failed[result]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			busy = FALSE
 		if("toggle_recipes")
 			display_craftable_only = !display_craftable_only

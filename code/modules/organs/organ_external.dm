@@ -157,11 +157,15 @@
 		I.loc = get_turf(user) //just in case something was embedded that is not an item
 		if(istype(I))
 			user.put_in_hands(I)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		user.visible_message("<span class='danger'>\The [user] rips \the [I] out of \the [src]!</span>")
 		*/
 		user.visible_message("<span class='danger'>[interact_ru(user, "выдернул", I)] из [gcase_ru(src)]!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		user.visible_message(span_danger("\The [user] rips \the [I] out of \the [src]!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return //no eating the limb until everything's been removed
 	return ..()
 
@@ -171,30 +175,42 @@
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			. += "<span class='danger'>There is \a [I] sticking out of it.</span>"
 			*/
 			. += "<span class='danger'>В [verb_ru(src, ";нём;ней;нём;них;")] торчит [ncase_ru(I)].</span>"
 			// End of Bastion of Endeavor Translation
+=======
+			. += span_danger("There is \a [I] sticking out of it.")
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/living/user as mob)
 	switch(stage)
 		if(0)
 			if(istype(W,/obj/item/surgical/scalpel))
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				*/
 				user.visible_message("<span class='danger'><b>[cap_ru(user)]</b> [verb_ru(user, "сделал")] разрез на [acase_ru(src)] с помощью [gcase_ru(W)]!</span>")
 				// End of Bastion of Endeavor Translation
+=======
+				user.visible_message(span_danger("<b>[user]</b> cuts [src] open with [W]!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 				stage++
 				return
 		if(1)
 			if(istype(W,/obj/item/surgical/retractor))
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation: WHat the hell even is this interaction
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				*/
 				user.visible_message("<span class='danger'><b>[cap_ru(user)]</b> [verb_ru(user, "вскрыл")] [acase_ru(src)] как яйцо с помощью [gcase_ru(W)]!</span>")
 				// End of Bastion of Endeavor Translation
+=======
+				user.visible_message(span_danger("<b>[user]</b> cracks [src] open like an egg with [W]!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 				stage++
 				return
 		if(2)
@@ -203,6 +219,7 @@
 					var/obj/item/removing = pick(contents)
 					removing.loc = get_turf(user.loc)
 					user.put_in_hands(removing)
+<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
 					user.visible_message("<span class='danger'><b>[user]</b> extracts [removing] from [src] with [W]!</span>")
 					*/
@@ -214,6 +231,11 @@
 					*/
 					user.visible_message("<span class='danger'><b>[cap_ru(user)]</b> безрезультатно [verb_ru(user, "покопал;ся;ась;ось;ись;")] [prep_ru(src, "в")] [pcase_ru(src)] с помощью [gcase_ru(W)].</span>")
 					// End of Bastion of Endeavor Translation
+=======
+					user.visible_message(span_danger("<b>[user]</b> extracts [removing] from [src] with [W]!"))
+				else
+					user.visible_message(span_danger("<b>[user]</b> fishes around fruitlessly in [src] with [W]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 				return
 	..()
 
@@ -469,6 +491,7 @@
 		else return 0
 
 	if(!damage_amount)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(user, "<span class='notice'>Nothing to fix!</span>")
 		*/
@@ -482,6 +505,13 @@
 		*/
 		to_chat(user, "<span class='danger'>Повреждения на [pcase_ru(src)] слишком серьёзные, чтобы их можно было отремонтировать внешне.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(user, span_notice("Nothing to fix!"))
+		return 0
+
+	if(brute_dam + burn_dam >= min_broken_damage) //VOREStation Edit - Makes robotic limb damage scalable
+		to_chat(user, span_danger("The damage is far too severe to patch over externally."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return 0
 
 	if(user == src.owner)
@@ -492,20 +522,28 @@
 			grasp = "r_hand"
 
 		if(grasp)
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation: i'm changing the proc used here for a less safe one since it originally returns a name var, shouldnt runtime though
 			to_chat(user, "<span class='warning'>You can't reach your [src.name] while holding [tool] in your [owner.get_bodypart_name(grasp)].</span>")
 			*/
 			to_chat(user, "<span class='warning'>Вы не можете дотянуться до [gcase_ru(src)], держа [acase_ru(tool)] в [verb_ru(owner.get_organ(grasp), "св;оём;оей;оём;их;")] [pcase_ru(owner.get_organ(grasp))].</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(user, span_warning("You can't reach your [src.name] while holding [tool] in your [owner.get_bodypart_name(grasp)]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return 0
 
 	user.setClickCooldown(user.get_attack_speed(tool))
 	if(!do_mob(user, owner, 10))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(user, "<span class='warning'>You must stand still to do that.</span>")
 		*/
 		to_chat(user, "<span class='warning'>Чтобы починить повреждения, вам необходимо стоять на месте.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(user, span_warning("You must stand still to do that."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return 0
 
 	switch(damage_type)
@@ -616,6 +654,7 @@ This function completely restores a damaged organ to perfect condition.
 				W.open_wound(damage)
 				if(prob(25))
 					if(robotic >= ORGAN_ROBOT)
+<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
 						owner.visible_message("<span class='danger'>The damage to [owner.name]'s [name] worsens.</span>",\
 						"<span class='danger'>The damage to your [name] worsens.</span>",\
@@ -635,6 +674,15 @@ This function completely restores a damaged organ to perfect condition.
 						"<span class='danger'>Рана на [verb_ru(src, "ваш;ем;ей;ем;их;")] [pcase_ru(src)] расширилась с тошнотворным звуком.</span>",\
 						"<span class='danger'>Вы слышите тошнотворный звук разрыва плоти.</span>")
 						// End of Bastion of Endeavor Translation
+=======
+						owner.visible_message(span_danger("The damage to [owner.name]'s [name] worsens."),\
+						span_danger("The damage to your [name] worsens."),\
+						span_danger("You hear the screech of abused metal."))
+					else
+						owner.visible_message(span_danger("The wound on [owner.name]'s [name] widens with a nasty ripping noise."),\
+						span_danger("The wound on your [name] widens with a nasty ripping noise."),\
+						span_danger("You hear a nasty ripping noise, as if flesh is being torn apart."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 				return
 
 	//Creating wound
@@ -790,11 +838,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(. >= 3 && antibiotics < ANTIBIO_OD)	//INFECTION_LEVEL_THREE
 		if (!(status & ORGAN_DEAD))
 			status |= ORGAN_DEAD
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(owner, "<span class='notice'>You can't feel your [name] anymore...</span>")
 			*/
 			to_chat(owner, "<span class='notice'>Вы больше не чувствуете [verb_ru(src, "сво;й;ю;й;и;")] [acase_ru(src)]...</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(owner, span_notice("You can't feel your [name] anymore..."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			owner.update_icons_body()
 			for (var/obj/item/organ/external/child in children)
 				child.germ_level += 110 //Burst of infection from a parent organ becoming necrotic
@@ -957,6 +1009,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				/* Bastion of Endeavor Translation
 				var/gore_sound = "[(robotic >= ORGAN_ROBOT) ? "tortured metal" : "ripping tendons and flesh"]"
 				owner.visible_message(
+<<<<<<< HEAD
 					"<span class='danger'>\The [owner]'s [src.name] flies off in an arc!</span>",\
 					"<span class='moderate'><b>Your [src.name] goes flying off!</b></span>",\
 					"<span class='danger'>You hear a terrible sound of [gore_sound].</span>")
@@ -967,12 +1020,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 					"<span class='moderate'><b>[verb_ru(src, "ваш;;а;е;и;")] [ncase_ru(src)] [verb_ru(src, "отлетел")] от вас!</b></span>",\
 					"<span class='danger'>[gore_sound].</span>")
 				// End of Bastion of Endeavor Translation
+=======
+					span_danger("\The [owner]'s [src.name] flies off in an arc!"),\
+					span_moderate("<b>Your [src.name] goes flying off!</b>"),\
+					span_danger("You hear a terrible sound of [gore_sound]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if(DROPLIMB_BURN)
 			if(cannot_gib)
 				return
 			/* Bastion of Endeavor Translation
 			var/gore = "[(robotic >= ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
+<<<<<<< HEAD
 				"<span class='danger'>\The [owner]'s [src.name] flashes away into ashes!</span>",\
 				"<span class='moderate'><b>Your [src.name] flashes away into ashes!</b></span>",\
 				"<span class='danger'>You hear a crackling sound[gore].</span>")
@@ -983,6 +1042,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 				"<span class='moderate'><b>[verb_ru(src, "ваш;;а;е;и;")] [ncase_ru(src)] [verb_ru(src, "превратил;ся;ась;ось;ись;")] в пепел!</b></span>",\
 				"<span class='danger'>Вы слышите треск[gore].</span>")
 			// End of Bastion of Endeavor Translation
+=======
+				span_danger("\The [owner]'s [src.name] flashes away into ashes!"),\
+				span_moderate("<b>Your [src.name] flashes away into ashes!</b>"),\
+				span_danger("You hear a crackling sound[gore]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if(DROPLIMB_BLUNT)
 			if(cannot_gib)
 				return
@@ -990,6 +1054,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			var/gore = "[(robotic >= ORGAN_ROBOT) ? "": " in shower of gore"]"
 			var/gore_sound = "[(status >= ORGAN_ROBOT) ? "rending sound of tortured metal" : "sickening splatter of gore"]"
 			owner.visible_message(
+<<<<<<< HEAD
 				"<span class='danger'>\The [owner]'s [src.name] explodes[gore]!</span>",\
 				"<span class='moderate'><b>Your [src.name] explodes[gore]!</b></span>",\
 				"<span class='danger'>You hear the [gore_sound].</span>")
@@ -1001,6 +1066,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 				"<span class='moderate'><b>[verb_ru(src, "ваш;;а;е;и;")] [ncase_ru(src)] [verb_ru(src, "разорвал;ся;ась;ось;ись;")] на кусочки[gore]!</b></span>",\
 				"<span class='danger'>Вы слышите [gore_sound].</span>")
 			// End of Bastion of Endeavor Translation
+=======
+				span_danger("\The [owner]'s [src.name] explodes[gore]!"),\
+				span_moderate("<b>Your [src.name] explodes[gore]!</b>"),\
+				span_danger("You hear the [gore_sound]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
@@ -1190,6 +1260,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(organ_can_feel_pain() && !isbelly(owner.loc) && !isliving(owner.loc))
 			//CHOMPEdit Begin
 			owner.custom_pain(pick(\
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				"<span class='danger'>You hear a loud cracking sound coming from \the [owner].</span>",\
 				"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
@@ -1199,6 +1270,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 				"<span class='danger'>Вы чувствуете, как что-то сломалось в [verb_ru(src, "ваш;ем;ей;ем;их;")] [pcase_ru(src)]!</span>",\
 				"<span class='danger'>Вы слышите, как что-то громко хрустнуло.</span>"),brokenpain)
 				// End of Bastion of Endeavor Translation
+=======
+				span_danger("You hear a loud cracking sound coming from \the [owner]."),\
+				span_danger("Something feels like it shattered in your [name]!"),\
+				span_danger("You hear a sickening crack.")),brokenpain)
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			//CHOMPEdit End
 			owner.emote("scream")
 		jostle_bone()	//VOREStation Edit End
@@ -1361,11 +1437,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(!owner || loc != owner)
 		return
 	if(!silent)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		owner.visible_message("<span class='danger'>\The [W] sticks in the wound!</span>")
 		*/
 		owner.visible_message("<span class='danger'>[cap_ru(W)] [verb_ru(W, "застрял")] в ране!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		owner.visible_message(span_danger("\The [W] sticks in the wound!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	implants += W
 	owner.embedded_flag = 1
 	add_verb(owner,/mob/proc/yank_out_object)  //CHOMPEdit
@@ -1423,6 +1503,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(is_robotic && sabotaged)
 		/* Bastion of Endeavor Translation
 		victim.visible_message(
+<<<<<<< HEAD
 			"<span class='danger'>\The [victim]'s [src.name] explodes violently!</span>",\
 			"<span class='danger'>Your [src.name] explodes!</span>",\
 			"<span class='danger'>You hear an explosion!</span>")
@@ -1432,6 +1513,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='danger'>[verb_ru(src, "ваш;;а;е;и;")] [ncase_ru(src)] [verb_ru(src, "взорвал;ся;ась;ось;ись;")]!</span>",\
 			"<span class='danger'>Вы слышите взрыв!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+			span_danger("\The [victim]'s [src.name] explodes violently!"),\
+			span_danger("Your [src.name] explodes!"),\
+			span_danger("You hear an explosion!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		explosion(get_turf(owner),-1,-1,2,3)
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, victim)
@@ -1449,6 +1535,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if(owner)
 		if(type == "brute")
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			owner.visible_message("<span class='danger'>You hear a sickening cracking sound coming from \the [owner]'s [name].</span>",	\
 			"<span class='danger'>Your [name] becomes a mangled mess!</span>",	\
@@ -1468,6 +1555,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='danger'>[verb_ru(src, "ваш;;а;е;и;")] [ncase_ru(src)] [verb_ru(src, "расплавил;ся;ась;ось;ись;")]!</span>",	\
 			"<span class='danger'>Вы слышите мерзкое шипение.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			owner.visible_message(span_danger("You hear a sickening cracking sound coming from \the [owner]'s [name]."),	\
+			span_danger("Your [name] becomes a mangled mess!"),	\
+			span_danger("You hear a sickening crack."))
+		else
+			owner.visible_message(span_danger("\The [owner]'s [name] melts away, turning into mangled mess!"),	\
+			span_danger("Your [name] melts away!"),	\
+			span_danger("You hear a sickening sizzle."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	disfigured = 1
 
 /obj/item/organ/external/proc/jostle_bone(force)

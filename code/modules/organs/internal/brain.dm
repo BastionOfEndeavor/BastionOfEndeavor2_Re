@@ -139,12 +139,16 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 
 	brainmob.languages = H.languages
 
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	// Bastion of Endeavor TODO (MOB Realname / Initial): Again initial and real_name stuff is fucky so I'm not sure if this is ok
 	to_chat(brainmob, "<span class='notice'>You feel slightly disoriented. That's normal when you're just \a [initial(src.name)].</span>")
 	*/
 	to_chat(brainmob, "<span class='notice'>Вы чувствуете себя слегка [verb_ru(H, "дезориентированн;ым;ой;ым;ыми;")]. Это не удивительно, когда от вас [verb_ru(src, "остал;ся;ась;ось;ись;")] всего лишь [ncase_ru(src)].</span>")
 	// End of Bastion of Endeavor Translation
+=======
+	to_chat(brainmob, span_notice("You feel slightly disoriented. That's normal when you're just \a [initial(src.name)]."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	callHook("debrain", list(brainmob))
 
 /obj/item/organ/internal/brain/examine(mob/user) // -- TLE
@@ -350,6 +354,7 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 /decl/chemical_reaction/instant/promethean_brain_revival/on_reaction(var/datum/reagents/holder)
 	var/obj/item/organ/internal/brain/slime/brain = holder.my_atom
 	if(brain.reviveBody())
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		brain.visible_message("<span class='notice'>[brain] bubbles, surrounding itself with a rapidly expanding mass of slime!</span>")
 		*/
@@ -361,6 +366,11 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 		*/
 		brain.visible_message("<span class='warning'>[cap_ru(brain)] странно [verb_ru(brain, "дёрга;ется;ется;ется;ются;")], но быстро [verb_ru(brain, "успокаива;ется;ется;ется;ются;")].</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		brain.visible_message(span_notice("[brain] bubbles, surrounding itself with a rapidly expanding mass of slime!"))
+	else
+		brain.visible_message(span_warning("[brain] shifts strangely, but falls still."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 /obj/item/organ/internal/brain/golem
 	name = "chem"

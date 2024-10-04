@@ -83,11 +83,15 @@
 
 	if(href_list["irc_msg"])
 		if(!holder && received_irc_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more than 10 minutes since an admin on IRC has responded to you</span>")
 			*/
 			to_chat(usr, "<span class='warning'>Вы больше не можете использовать это, так как прошло 10 минут с ответа администратора.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_warning("You are no longer able to use this, it's been more than 10 minutes since an admin on IRC has responded to you"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 		if(mute_irc)
 			/* Bastion of Endeavor Translation
@@ -111,29 +115,41 @@
 				GLOB.pending_discord_registrations -= list(L)
 				var/time = L["time"]
 				if((world.realtime - time) > 10 MINUTES)
+<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
 					to_chat(src, "<span class='warning'>Sorry, that link has expired. Please request another on Discord.</span>")
 					*/
 					to_chat(src, "<span class='warning'>Данная ссылка уже не действительна. Пожалуйста, запросите новую.</span>")
 					// End of Bastion of Endeavor Translation
+=======
+					to_chat(src, span_warning("Sorry, that link has expired. Please request another on Discord."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 					return
 				sane = TRUE
 				break
 
 		if(!sane)
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(src, "<span class='warning'>Sorry, that link doesn't appear to be valid. Please try again.</span>")
 			*/
 			to_chat(src, "<span class='warning'>Эта ссылка недействительна. Попробуйте ещё раз.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(src, span_warning("Sorry, that link doesn't appear to be valid. Please try again."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 
 		var/sql_discord = sql_sanitize_text(their_id)
 		var/sql_ckey = sql_sanitize_text(ckey)
 		var/datum/db_query/query = SSdbcore.NewQuery("UPDATE erro_player SET discord_id = :t_discord_id WHERE ckey = :t_ckey", list("t_discord_id" = sql_discord, "t_ckey" = sql_ckey)) //CHOMPEdit TGSQL
 		if(query.Execute())
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(src, "<span class='notice'>Registration complete! Thank you for taking the time to register your Discord ID.</span>")
+=======
+			to_chat(src, span_notice("Registration complete! Thank you for taking the time to register your Discord ID."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			log_and_message_admins("[ckey] has registered their Discord ID. Their Discord snowflake ID is: [their_id]") //YW EDIT
 			admin_chat_message(message = "[ckey] has registered their Discord ID. Their Discord is: <@[their_id]>", color = "#4eff22") //YW EDIT
 			notes_add(ckey, "Discord ID: [their_id]")
@@ -146,8 +162,12 @@
 			world.VgsAddMemberRole(their_id)
 			qdel(query) //CHOMPEdit TGSQL
 		else
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(src, "<span class='warning'>There was an error registering your Discord ID in the database. Contact an administrator.</span>")
+=======
+			to_chat(src, span_warning("There was an error registering your Discord ID in the database. Contact an administrator."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			log_and_message_admins("[ckey] failed to register their Discord ID. Their Discord snowflake ID is: [their_id]. Is the database connected?")
 			*/
 			to_chat(src, "<span class='warning'>Не удалось зарегистрировать ваш тег в базе данных. Свяжитесь с администратором.</span>")
@@ -166,11 +186,15 @@
 
 	//byond bug ID:2256651
 	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)</span>")
 		*/
 		to_chat(src, "<span class='danger'>Зафиксирована ошибка в получении ресурсов вашим клиентом. Устанавливаем соединение... (Если это сообщение появляется несколько раз, перезайдите в BYOND)</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		src << browse("...", "window=asset_cache_browser")
 		return
 	if (href_list["asset_cache_preload_data"])
@@ -319,6 +343,7 @@
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<h1 class='alert'>Custom Event</h1>")
 		to_chat(src, "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>")
+<<<<<<< HEAD
 		*/
 		to_chat(src, "<h1 class='alert'>Особое событие</h1>")
 		to_chat(src, "<h2 class='alert'>На станции происходит особое событие. Информация OOC:</h2>")
@@ -332,6 +357,13 @@
 		*/
 		to_chat(src, "<span class='warning'>Не удалось подключиться к браузеру кэша ассетов. Если вы используете самодельный скин, то разрешите DreamSeeker загрузить новый, если нет – доложите администраторам. Это не критическая ошибка, но приводит к огромным проблемам с прогрузкой ресурсов.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_alert("[custom_event_msg]"))
+		to_chat(src, "<br>")
+
+	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
+		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 	if(holder)
 		add_admin_verbs()
@@ -360,11 +392,15 @@
 
 	//disabled because we don't use the ingame changelog system any more // CHOMPEdit: Enabled because we do
 	if((prefs.lastchangelog != changelog_hash) && isnewplayer(src.mob)) //bolds the changelog button on the interface so we know there are updates.
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='info'>You have unread updates in the changelog.</span>")
 		*/
 		to_chat(src, "<span class='info'>В списке изменений есть непрочитанные вами записи.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_info("You have unread updates in the changelog."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		winset(src, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
 		if(CONFIG_GET(flag/aggressive_changelog)) // CHOMPEdit
 			src.changes()
@@ -516,7 +552,7 @@
 		if (CONFIG_GET(flag/panic_bunker) && !holder && !deadmin_holder) // CHOMPEdit
 			/* Bastion of Endeavor Translation
 			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
-			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
+			message_admins(span_adminnotice("Failed Login: [key] - New account attempting to connect during panic bunker"))
 			disconnect_with_message("Sorry but the server is currently not accepting connections from never before seen players.")
 			*/
 			log_adminwarn("Неудачное подключение: [key] – новая учётная запись попыталась подключиться во время режима бункера.")
