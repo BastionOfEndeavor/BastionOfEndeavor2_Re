@@ -25,13 +25,13 @@
 /mob/living/silicon/ai/ClickOn(var/atom/A, params)
 	if(!checkClickCooldown())
 		return
-	
+
 	setClickCooldown(1)
 
 	if(client.buildmode) // comes after object.Click to allow buildmode gui objects to be clicked
 		build_click(src, client.buildmode, params, A)
 		return
-		
+
 	if(multicam_on)
 		var/turf/T = get_turf(A)
 		if(T)
@@ -177,11 +177,15 @@
 		// End of Bastion of Endeavor Translation
 		return
 	lights = !lights
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	to_chat(user, "<span class='notice'>Lights are now [lights ? "on." : "off."]</span>")
 	*/
 	to_chat(user, "<span class='notice'>Свет теперь [lights ? "включён" : "выключен"].</span>")
 	// End of Bastion of Endeavor Translation
+=======
+	to_chat(user, span_notice("Lights are now [lights ? "on." : "off."]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	update_icon()
 	return TRUE
 

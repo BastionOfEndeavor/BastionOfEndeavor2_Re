@@ -14,6 +14,7 @@
 	key_to_ignore = ckey(sanitize(key_to_ignore))
 	if(prefs && prefs.ignored_players)
 		if(key_to_ignore in prefs.ignored_players)
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='warning'>[key_to_ignore] is already being ignored.</span>")
 			*/
@@ -26,15 +27,25 @@
 			*/
 			to_chat(usr, "<span class='notice'>Вы не можете заблокировать себя.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_warning("[key_to_ignore] is already being ignored."))
+			return
+		if(key_to_ignore == usr.ckey)
+			to_chat(usr, span_notice("You can't ignore yourself."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 
 		prefs.ignored_players |= key_to_ignore
 		SScharacter_setup.queue_preferences_save(prefs)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='notice'>Now ignoring <b>[key_to_ignore]</b>.</span>")
 		*/
 		to_chat(usr, "<span class='notice'>Сообщения <b>[key_to_ignore]</b> в чате OOC и чате мёртвых теперь будут скрыты.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_notice("Now ignoring <b>[key_to_ignore]</b>."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 /client/verb/unignore()
 	/* Bastion of Endeavor Translation
@@ -48,6 +59,7 @@
 	// End of Bastion of Endeavor Translation
 
 	if(!prefs)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='warning'>Preferences not found.</span>")
 		*/
@@ -61,6 +73,13 @@
 		*/
 		to_chat(usr, "<span class='warning'>В вашем черном списке нет игроков.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("Preferences not found."))
+		return
+
+	if(!prefs.ignored_players?.len)
+		to_chat(usr, span_warning("You aren't ignoring any players."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	/* Bastion of Endeavor Translation
@@ -72,6 +91,7 @@
 		return
 	key_to_unignore = ckey(sanitize(key_to_unignore))
 	if(!(key_to_unignore in prefs.ignored_players))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='warning'>[key_to_unignore] isn't being ignored.</span>")
 		*/
@@ -85,6 +105,13 @@
 	*/
 	to_chat(usr, "<span class='notice'>Сообщения <b>[key_to_unignore]</b> в чате OOC и чате мёртвых теперь снова будут показываться.</span>")
 	// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("[key_to_unignore] isn't being ignored."))
+		return
+	prefs.ignored_players -= key_to_unignore
+	SScharacter_setup.queue_preferences_save(prefs)
+	to_chat(usr, span_notice("Reverted ignore on <b>[key_to_unignore]</b>."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 /mob/proc/is_key_ignored(var/key_to_check)
 	if(client)

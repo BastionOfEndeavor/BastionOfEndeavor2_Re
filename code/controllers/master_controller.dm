@@ -32,11 +32,15 @@ var/global/pipe_processing_killed = 0
 		job_master = new /datum/controller/occupations()
 		job_master.SetupOccupations()
 		job_master.LoadJobs("config/jobs.txt")
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		admin_notice("<span class='danger'>Job setup complete</span>", R_DEBUG)
 		*/
 		admin_notice("<span class='danger'>Подготовка работ завершена.</span>", R_DEBUG)
 		// End of Bastion of Endeavor Translation
+=======
+		admin_notice(span_danger("Job setup complete"), R_DEBUG)
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 	if(!syndicate_code_phrase)		syndicate_code_phrase	= generate_code_phrase()
 	if(!syndicate_code_response)	syndicate_code_response	= generate_code_phrase()
@@ -48,11 +52,15 @@ var/global/pipe_processing_killed = 0
 	// SetupXenoarch() - Moved to SSxenoarch
 
 	transfer_controller = new
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	admin_notice("<span class='danger'>Initializations complete.</span>", R_DEBUG)
 	*/
 	admin_notice("<span class='danger'>Инициализации завершены.</span>", R_DEBUG)
 	// End of Bastion of Endeavor Translation
+=======
+	admin_notice(span_danger("Initializations complete."), R_DEBUG)
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 // #if UNIT_TEST
 // # define CHECK_SLEEP_MASTER // For unit tests we don't care about a smooth lobby screen experience. We care about speed.

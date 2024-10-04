@@ -84,11 +84,15 @@
 	// End of Bastion of Endeavor Translation
 
 	if(!GLOB.revdata)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='warning'>Please wait until server initializations are complete.</span>")
 		*/
 		to_chat(src, "<span class='warning'>Пожалуйста, сперва дождитесь окончания инициализации.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_warning("Please wait until server initializations are complete."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	var/list/msg = list()

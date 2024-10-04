@@ -19,6 +19,7 @@ var/silent_ert = 0
 	// End of Bastion of Endeavor Translation
 
 	if(!holder)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		*/
@@ -45,6 +46,18 @@ var/silent_ert = 0
 		*/
 		to_chat(usr, "<span class='danger'>Отряд быстрого реагирования уже отправлен!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_danger("Only administrators may use this command."))
+		return
+	if(!ticker)
+		to_chat(usr, span_danger("The game hasn't started yet!"))
+		return
+	if(ticker.current_state == 1)
+		to_chat(usr, span_danger("The round hasn't started yet!"))
+		return
+	if(send_emergency_team)
+		to_chat(usr, span_danger("[using_map.boss_name] has already dispatched an emergency response team!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 	/* Bastion of Endeavor Translation
 	if(tgui_alert(usr, "Do you want to dispatch an Emergency Response Team?","ERT",list("Yes","No")) != "Yes")
@@ -66,11 +79,15 @@ var/silent_ert = 0
 		// End of Bastion of Endeavor Translation
 			return
 	if(send_emergency_team)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
 		*/
 		to_chat(usr, "<span class='danger'>Вас кто-то опередил!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_danger("Looks like somebody beat you to it!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	/* Bastion of Endeavor Translation
@@ -95,11 +112,15 @@ var/silent_ert = 0
 	// End of Bastion of Endeavor Translation
 
 	if(!MayRespawn(1))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='warning'>You cannot join the response team at this time.</span>")
 		*/
 		to_chat(usr, "<span class='warning'>Вы не можете сейчас присоединиться к ОБР.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("You cannot join the response team at this time."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	if(istype(usr,/mob/observer/dead) || istype(usr,/mob/new_player))
@@ -111,11 +132,15 @@ var/silent_ert = 0
 			// End of Bastion of Endeavor Translation
 			return
 		if(jobban_isbanned(usr, JOB_SYNDICATE) || jobban_isbanned(usr, JOB_EMERGENCY_RESPONSE_TEAM) || jobban_isbanned(usr, JOB_SECURITY_OFFICER))
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='danger'>You are jobbanned from the emergency reponse team!</span>")
 			*/
 			to_chat(usr, "<span class='danger'>Вам запрещено состоять в отряде быстрого реагирования!</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_danger("You are jobbanned from the emergency reponse team!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 		if(ert.current_antagonists.len >= ert.hard_cap)
 			/* Bastion of Endeavor Translation

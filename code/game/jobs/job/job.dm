@@ -106,11 +106,15 @@
 
 		H.mind.initial_account = M
 
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
 	*/
 	to_chat(H, "<span class='notice'><b>Номер вашего счёта – [M.account_number], пароль – [M.remote_access_pin].</b></span>")
 	// End of Bastion of Endeavor Translation
+=======
+	to_chat(H, span_notice("<b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b>"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/qdel()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title)

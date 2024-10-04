@@ -13,11 +13,15 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 
 	// This is primarily to stop malicious users from trying to lag the server by spamming this verb
 	if(!usr.checkMoveCooldown())
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation: this one is weird because it prevents you from using this verb while moving
 		to_chat(usr, "<span class='warning'>Don't spam character directory refresh.</span>")
 		*/
 		to_chat(usr, "<span class='warning'>Список персонажей не может быть открыт многократно или во время передвижения.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("Don't spam character directory refresh."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 	usr.setMoveCooldown(10)
 
@@ -385,11 +389,15 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 	if(action == "refresh")
 		// This is primarily to stop malicious users from trying to lag the server by spamming this verb
 		if(!usr.checkMoveCooldown())
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation: This one is weird because it prevents you from accessing character directory while moving
 			to_chat(usr, "<span class='warning'>Don't spam character directory refresh.</span>")
 			*/
 			to_chat(usr, "<span class='warning'>Список персонажей не может быть открыт многократно или в течение передвижения.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_warning("Don't spam character directory refresh."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 		usr.setMoveCooldown(10)
 		update_tgui_static_data(usr, ui)
@@ -404,11 +412,15 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 	var/can_set_mind = !!user.mind
 	if (!can_set_prefs && !can_set_mind)
 		if (!overwrite_prefs && !!user.client.prefs)
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(user, "<span class='warning'>You cannot change these settings if you don't have a mind to save them to. Enable overwriting prefs and switch to a slot you're fine with overwriting.</span>")
 			*/
 			to_chat(user, "<span class='warning'>Вы не можете изменять эти настройки, не имея разума для их сохранения. Разрешите перезапись предпочтений и переключитесь на слот, в который вы хотите сохранить изменения.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(user, span_warning("You cannot change these settings if you don't have a mind to save them to. Enable overwriting prefs and switch to a slot you're fine with overwriting."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 	switch(action)
 		if ("setTag")
@@ -435,11 +447,15 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 				visible = user.mind.show_in_directory
 			else if (can_set_prefs)
 				visible = user.client.prefs.show_in_directory
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='notice'>You are now [!visible ? "shown" : "not shown"] in the directory.</span>")
 			*/
 			to_chat(usr, "<span class='notice'>Ваш персонаж теперь [!visible ? "будет" : "не будет"] отображаться в списке.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_notice("You are now [!visible ? "shown" : "not shown"] in the directory."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return set_for_mind_or_prefs(user, action, !visible, can_set_prefs, can_set_mind)
 		if ("editAd")
 			var/current_ad = (can_set_mind ? usr.mind.directory_ad : null) || (can_set_prefs ? usr.client.prefs.directory_ad : null)
@@ -488,11 +504,15 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 	can_set_prefs &&= !!user.client.prefs
 	can_set_mind &&= !!user.mind
 	if (!can_set_prefs && !can_set_mind)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(user, "<span class='warning'>You seem to have lost either your mind, or your current preferences, while changing the values.[action == "editAd" ? " Here is your ad that you wrote. [new_value]" : null]</span>")
 		*/
 		to_chat(user, "<span class='warning'>Ошибка: пока вы изменяли предпочтения, затерялась запись о ваших настройках или разума персонажа.[action == "editAd" ? " Вот, что вы написали. [new_value]" : null]</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(user, span_warning("You seem to have lost either your mind, or your current preferences, while changing the values.[action == "editAd" ? " Here is your ad that you wrote. [new_value]" : null]"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 	switch(action)
 		if ("setTag")

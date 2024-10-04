@@ -72,11 +72,15 @@ var/global/list/all_tooltip_styles = list(
 
 	if(!ishuman(usr))
 		if(!isrobot(usr))
+<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='warning'>You must be a human or a robot to use this verb.</span>")
 			*/
 			to_chat(usr, "<span class='warning'>Чтобы изменить оформление своего интерфейса, необходимо быть человеком или роботом.</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_chat(usr, span_warning("You must be a human or a robot to use this verb."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 			return
 
 	/* Bastion of Endeavor Translation

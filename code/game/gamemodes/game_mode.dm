@@ -733,11 +733,15 @@ var/global/list/additional_antag_types = list()
 	if(!player || !player.current) return
 
 	var/obj_count = 1
+<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	to_chat(player.current, "<span class='notice'>Your current objectives:</span>")
 	*/
 	to_chat(player.current, "<span class='notice'>Ваши текущие цели:</span>")
 	// End of Bastion of Endeavor Translation
+=======
+	to_chat(player.current, span_notice("Your current objectives:"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	for(var/datum/objective/objective in player.objectives)
 		/* Bastion of Endeavor Translation
 		to_chat(player.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
@@ -756,6 +760,7 @@ var/global/list/additional_antag_types = list()
 	// End of Bastion of Endeavor Translation
 
 	if(!ticker || !ticker.mode)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='warning'>Something is terribly wrong; there is no gametype.</span>")
 		*/
@@ -769,14 +774,25 @@ var/global/list/additional_antag_types = list()
 		*/
 		to_chat(usr, "<span class='notice'><b>Игровой режим – [capitalize(ticker.mode.name)]</b></span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("Something is terribly wrong; there is no gametype."))
+		return
+
+	if(master_mode != "secret")
+		to_chat(usr, span_notice("<b>The roundtype is [capitalize(ticker.mode.name)]</b>"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if(ticker.mode.round_description)
-			to_chat(usr, "<span class='notice'><i>[ticker.mode.round_description]</i></span>")
+			to_chat(usr, span_notice("<i>[ticker.mode.round_description]</i>"))
 		if(ticker.mode.extended_round_description)
-			to_chat(usr, "<span class='notice'>[ticker.mode.extended_round_description]</span>")
+			to_chat(usr, span_notice("[ticker.mode.extended_round_description]"))
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='notice'><i>Shhhh</i>. It's a secret.</span>")
 		*/
 		to_chat(usr, "<span class='notice'><i>Тсссс</i>. Это секрет.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_notice("<i>Shhhh</i>. It's a secret."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return

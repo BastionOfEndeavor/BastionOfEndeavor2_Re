@@ -15,6 +15,7 @@ var/can_call_traders = 1
 	// End of Bastion of Endeavor Translation
 
 	if(!holder)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		*/
@@ -41,6 +42,18 @@ var/can_call_traders = 1
 		*/
 		to_chat(usr, "<span class='danger'>Беруанг уже был отправлен в этом раунде!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_danger("Only administrators may use this command."))
+		return
+	if(!ticker)
+		to_chat(usr, span_danger("The game hasn't started yet!"))
+		return
+	if(ticker.current_state == 1)
+		to_chat(usr, span_danger("The round hasn't started yet!"))
+		return
+	if(send_beruang)
+		to_chat(usr, span_danger("The Beruang has already been sent this round!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 	/* Bastion of Endeavor Translation
 	if(tgui_alert(usr, "Do you want to dispatch the Beruang trade ship?","Trade Ship",list("Yes","No")) != "Yes")
@@ -56,11 +69,15 @@ var/can_call_traders = 1
 		// End of Bastion of Endeavor Translation
 			return
 	if(send_beruang)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
 		*/
 		to_chat(usr, "<span class='danger'>Вас кто-то опередил!</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_danger("Looks like somebody beat you to it!"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	/* Bastion of Endeavor Translation
@@ -83,11 +100,15 @@ var/can_call_traders = 1
 	// End of Bastion of Endeavor Translation
 
 	if(!MayRespawn(1))
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "<span class='warning'>You cannot join the traders.</span>")
 		*/
 		to_chat(usr, "<span class='warning'>Вы не можете сейчас присоединиться к торговцам.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("You cannot join the traders."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 	if(istype(usr,/mob/observer/dead) || istype(usr,/mob/new_player))

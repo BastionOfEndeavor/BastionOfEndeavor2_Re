@@ -19,6 +19,7 @@
 				// End of Bastion of Endeavor Unicode Edit
 				src << link(output)
 			else
+<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
 				to_chat(src, "<span class='warning'> The wiki search URL is not set in the server configuration.</span>")
 				*/
@@ -32,6 +33,13 @@
 		*/
 		to_chat(src, "<span class='warning'>URL вики не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+				to_chat(src, span_warning(" The wiki search URL is not set in the server configuration."))
+		else
+			src << link(CONFIG_GET(string/wikiurl)) // CHOMPEdit
+	else
+		to_chat(src, span_warning("The wiki URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 /client/verb/forum()
@@ -52,11 +60,15 @@
 			return
 		src << link(CONFIG_GET(string/forumurl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>URL форума не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_warning("The forum URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return
 
 /client/verb/rules()
@@ -78,11 +90,15 @@
 			return
 		src << link(CONFIG_GET(string/rulesurl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>The rules URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>URL правил сервера не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("The rules URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return
 
 /client/verb/map()
@@ -104,11 +120,15 @@
 			return
 		src << link(CONFIG_GET(string/mapurl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>The map URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>URL карты станции не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("The map URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return
 
 /client/verb/github()
@@ -130,11 +150,15 @@
 			return
 		src << link(CONFIG_GET(string/githuburl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>The GitHub URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>GitHub сервера не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("The GitHub URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return
 
 /client/verb/discord()
@@ -156,11 +180,15 @@
 			return
 		src << link(CONFIG_GET(string/discordurl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>The Discord URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>Discord сервера не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("The Discord URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return
 
 /client/verb/patreon()
@@ -182,11 +210,15 @@
 			return
 		src << link(CONFIG_GET(string/patreonurl)) // CHOMPEdit
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='danger'>The Patreon URL is not set in the server configuration.</span>")
 		*/
 		to_chat(src, "<span class='warning'>Patreon сервера не задан в конфигурации сервера.</span>")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(src, span_danger("The Patreon URL is not set in the server configuration."))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	return
 
 /client/verb/hotkeys_help()

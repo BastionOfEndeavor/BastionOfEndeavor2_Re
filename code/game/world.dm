@@ -504,6 +504,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			/* Bastion of Endeavor Translation
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
+<<<<<<< HEAD
 			to_world("<span class='boldannounce'>[key_name_admin(usr)] has requested an immediate world restart via client side debugging tools</span>")
 			*/
 			log_admin("[key_name(usr)] запросил перезапуск мира через инструменты отладки на стороне клиента.")
@@ -517,6 +518,12 @@ var/world_topic_spam_protect_time = world.timeofday
 			*/
 			to_world("<span class='boldannounce'>Перезапуск мира по запросу хоста!</span>")
 			// End of Bastion of Endeavor Translation
+=======
+			to_world(span_boldannounce("[key_name_admin(usr)] has requested an immediate world restart via client side debugging tools"))
+
+		else
+			to_world(span_boldannounce("Rebooting world immediately due to host request"))
+>>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 	else
 		Master.Shutdown()	//run SS shutdowns
 		for(var/client/C in GLOB.clients)
