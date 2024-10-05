@@ -10,11 +10,15 @@
 	if(SSvote.active_vote)
 		SSvote.active_vote.tgui_interact(usr)
 	else
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "There is no active vote")
 		*/
 		to_chat(usr, "На данный момент не проводится голосование.")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("There is no active vote"))
+>>>>>>> d9c751c787 ([MIRROR] span_warning for vote messages (#9168))
 
 /client/proc/start_vote()
 	/* Bastion of Endeavor Translation
@@ -31,11 +35,15 @@
 		return
 
 	if(SSvote.active_vote)
+<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
 		to_chat(usr, "A vote is already in progress")
 		*/
 		to_chat(usr, "На данный момент уже проводится голосование.")
 		// End of Bastion of Endeavor Translation
+=======
+		to_chat(usr, span_warning("A vote is already in progress"))
+>>>>>>> d9c751c787 ([MIRROR] span_warning for vote messages (#9168))
 		return
 
 	var/vote_types = subtypesof(/datum/vote)

@@ -179,8 +179,12 @@
 
     return null
 
+<<<<<<< HEAD
 /datum/vote/proc/announce(start_text, var/time = vote_time)
     /* Bastion of Endeavor Translation
+=======
+/datum/vote/proc/announce(start_text, var/time = vote_time/10)
+>>>>>>> d9c751c787 ([MIRROR] span_warning for vote messages (#9168))
     to_chat(world, span_lightpurple("Type <b>vote</b> or click <a href='?src=\ref[src];[HrefToken()];vote=open'>here</a> to place your vote. \
         You have [time] seconds to vote."))
     */
