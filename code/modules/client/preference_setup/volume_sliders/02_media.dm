@@ -48,6 +48,7 @@
 	. += "Use HTML5 if it works for you. If neither HTML5 nor WMP work, you'll have to fall back to using VLC, "
 	. += "but this requires you have the VLC client installed on your comptuer."
 	. += "Try the others if you want but you'll probably just get no music.<br>"
+<<<<<<< HEAD
 	*/
 	. += "<b>Громкость музыкального автомата: </b>"
 	. += "<a href='?src=\ref[src];change_media_volume=1'><b>[round(pref.media_volume * 100)]%</b></a><br>"
@@ -59,6 +60,11 @@
 	. += (pref.media_player == 2) ? "<span class='linkOn'><b>HTML5</b></span> " : "<a href='?src=\ref[src];set_media_player=2'>HTML5</a> "
 	. += (pref.media_player == 1) ? "<span class='linkOn'><b>WMP</b></span> " : "<a href='?src=\ref[src];set_media_player=1'>WMP</a> "
 	. += (pref.media_player == 0) ? "<span class='linkOn'><b>VLC</b></span> " : "<a href='?src=\ref[src];set_media_player=0'>VLC</a> "
+=======
+	. += (pref.media_player == 2) ? (span_linkOn(span_bold("HTML5")) + " ") : "<a href='?src=\ref[src];set_media_player=2'>HTML5</a> "
+	. += (pref.media_player == 1) ? (span_linkOn(span_bold("WMP")) + " ") : "<a href='?src=\ref[src];set_media_player=1'>WMP</a> "
+	. += (pref.media_player == 0) ? (span_linkOn(span_bold("VLC")) + " ") : "<a href='?src=\ref[src];set_media_player=0'>VLC</a> "
+>>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
 	. += "<br>"
 
 /* Bastion of Endeavor Edit: 
