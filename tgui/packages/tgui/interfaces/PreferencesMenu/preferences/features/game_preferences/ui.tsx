@@ -1,4 +1,9 @@
-import { CheckboxInput, FeatureToggle } from '../base';
+import {
+  CheckboxInput,
+  FeatureNumeric,
+  FeatureSliderInput,
+  FeatureToggle,
+} from '../base';
 
 export const BROWSER_STYLED: FeatureToggle = {
   /* Bastion of Endeavor Translation
@@ -51,4 +56,18 @@ export const TGUI_SAY_LIGHT_MODE: FeatureToggle = {
   description: 'Использовать светлую тему TGUI при Речи вслух.',
   // End of Bastion of Endeavor Translation
   component: CheckboxInput,
+};
+
+export const tgui_say_emotes: FeatureToggle = {
+  name: 'Say: Use TGUI For Emotes',
+  category: 'UI',
+  description: 'Sets whether to use TGUI Say for emotes.',
+  component: CheckboxInput,
+};
+
+export const tgui_say_height: FeatureNumeric = {
+  name: 'Say: TGUI Height (Lines)',
+  category: 'UI',
+  description: 'Amount of lines to show in the tgui say input.',
+  component: FeatureSliderInput,
 };
