@@ -318,9 +318,15 @@
 	init_verbs()
 
 /client/verb/fit_viewport()
+	/* Bastion of Endeavor Translation
 	set name = "Fit Viewport"
 	set category = "OOC.Client Settings" //CHOMPEdit
 	set desc = "Fit the width of the map window to match the viewport"
+	*/
+	set name = "Сбросить ширину окна"
+	set category = "OOC.Игра"
+	set desc = "Выровнять ширину окна игры и чата"
+	// End of Bastion of Endeavor Translation
 
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
@@ -332,7 +338,11 @@
 	// Client closed the window? Some other error? This is unexpected behaviour, let's
 	// CRASH with some info.
 	if(!sizes["mapwindow.size"])
+		/* Bastion of Endeavor Translation
 		CRASH("sizes does not contain mapwindow.size key. This means a winget failed to return what we wanted. --- sizes var: [sizes] --- sizes length: [length(sizes)]")
+		*/
+		CRASH("sizes не содержит mapwindow.size key. Это означате, что winget не возвратил нужную информацию. --- sizes: [sizes] --- length(sizes): [length(sizes)]")
+		// End of Bastion of Endeavor Translation
 
 	var/list/map_size = splittext(sizes["mapwindow.size"], "x")
 
@@ -349,7 +359,11 @@
 		// Looks like we expect mapwindow.size to be "ixj" where i and j are numbers.
 		// If we don't get our expected 2 outputs, let's give some useful error info.
 		if(length(map_size) != 2)
+			/* Bastion of Endeavor Translation
 			CRASH("map_size of incorrect length --- map_size var: [map_size] --- map_size length: [length(map_size)]")
+			*/
+			CRASH("map_size недопустимой длины --- map_size: [map_size] --- length(map_size): [length(map_size)]")
+			// End of Bastion of Endeavor Translation
 		var/height = text2num(map_size[2])
 		desired_width = round(height * aspect_ratio)
 
