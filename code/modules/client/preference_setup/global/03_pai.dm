@@ -10,15 +10,11 @@
 
 	var/datum/paiCandidate/candidate
 
-<<<<<<< HEAD
 /* Bastion of Endeavor Edit
-/datum/category_item/player_setup_item/player_global/pai/load_preferences(var/savefile/S)
-*/
-/datum/category_item/player_setup_item/antagonism/pai/load_preferences(var/savefile/S)
-// End of Bastion of Endeavor Edit
-=======
 /datum/category_item/player_setup_item/player_global/pai/load_preferences(datum/json_savefile/savefile)
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+*/
+/datum/category_item/player_setup_item/antagonism/pai/load_preferences(datum/json_savefile/savefile)
+// End of Bastion of Endeavor Edit
 	if(!candidate)
 		candidate = new()
 	var/preference_mob = preference_mob()
@@ -32,15 +28,11 @@
 
 	candidate.savefile_load(preference_mob)
 
-<<<<<<< HEAD
-/* Bastion of Endeavor Edit
-/datum/category_item/player_setup_item/player_global/pai/save_preferences(var/savefile/S)
-*/
-/datum/category_item/player_setup_item/antagonism/pai/save_preferences(var/savefile/S)
-// End of Bastion of Endeavor Edit
-=======
+/* Bastion of Endeavor Translation
 /datum/category_item/player_setup_item/player_global/pai/save_preferences(datum/json_savefile/savefile)
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+*/
+/datum/category_item/player_setup_item/antagonism/pai/save_preferences(datum/json_savefile/savefile)
+// End of Bastion of Endeavor Translation
 	if(!candidate)
 		return
 

@@ -58,7 +58,7 @@ Controlled by the player_tips subsystem under code/controllers/subsystems/player
 	*/
 	set name = "Запросить периодическую подсказку"
 	set desc = "Показать подсказку на выбранную тему."
-	set category = "OOC.Настройки игры"
+	set category = "OOC.Информация"
 	// End of Bastion of Endeavor Translation
 
 	/* Bastion of Endeavor Translation

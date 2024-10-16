@@ -4,15 +4,16 @@ import {
 } from '../../../../../PreferencesMenu/preferences/features/base';
 
 export const EMOTE_VARY: FeatureToggle = {
-  name: 'Random emote pitch',
-  category: 'GAMEPLAY',
-  description: 'Enable random emote pitch.',
+  name: 'Случайный тон звуковых действий',
+  category: 'ИГРА',
+  description: 'Случайное изменение высоты голоса при звуковых действиях.',
   component: CheckboxInput,
 };
 
 export const AUTOTRANSCORE: FeatureToggle = {
-  name: 'Automatic transcore notification',
-  category: 'GAMEPLAY',
-  description: 'Enable automatic transcore notification.',
+  name: 'Автоматическое уведомление трансядра',
+  category: 'ИГРА',
+  description:
+    'Автоматически уведомлять трансядро о вашей смерти с имплантатом резервного копирования.',
   component: CheckboxInput,
 };

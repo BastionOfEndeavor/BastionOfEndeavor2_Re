@@ -29,12 +29,8 @@
 	msg = sanitize(msg)
 	if(!msg)	return
 
-<<<<<<< HEAD
-	if(!is_preference_enabled(/datum/client_preference/show_ooc))
-		/* Bastion of Endeavor Translation
-=======
 	if(!prefs?.read_preference(/datum/preference/toggle/show_ooc))
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+		/* Bastion of Endeavor Translation
 		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
 		*/
 		to_chat(src, "<span class='warning'>У вас на данный момент отключён чат OOC.</span>")
@@ -172,12 +168,8 @@
 	if(!msg)
 		return
 
-<<<<<<< HEAD
-	if(!is_preference_enabled(/datum/client_preference/show_looc))
-		/* Bastion of Endeavor Translation: for some reason it uses a different span, dunno why
-=======
 	if(!prefs?.read_preference(/datum/preference/toggle/show_looc))
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+		/* Bastion of Endeavor Translation: for some reason it uses a different span, dunno why
 		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
 		*/
 		to_chat(src, "<span class='warning'>У вас на данный момент отключён чат LOOC.</span>")

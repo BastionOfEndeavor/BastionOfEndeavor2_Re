@@ -89,7 +89,11 @@ export const FeatureColorInput = (props: FeatureValueProps<string>) => {
           />
         </Stack.Item>
 
+        {/* Bastion of Endeavor Translation
         {!props.shrink && <Stack.Item>Change</Stack.Item>}
+        */}
+        {!props.shrink && <Stack.Item>Редактировать</Stack.Item>}
+        {/* End of Bastion of Endeavor Translation */}
       </Stack>
     </Button>
   );
@@ -168,7 +172,11 @@ export const FeatureNumberInput = (
   props: FeatureValueProps<number, number, FeatureNumericData>,
 ) => {
   if (!props.serverData) {
+    /* Bastion of Endeavor Translation
     return <Box>Loading...</Box>;
+    */
+    return <Box>Загрузка...</Box>;
+    // End of Bastion of Endeavor Translation
   }
 
   return (
@@ -188,7 +196,11 @@ export const FeatureSliderInput = (
   props: FeatureValueProps<number, number, FeatureNumericData>,
 ) => {
   if (!props.serverData) {
+    /* Bastion of Endeavor Translation
     return <Box>Loading...</Box>;
+    */
+    return <Box>Загрузка...</Box>;
+    // End of Bastion of Endeavor Translation
   }
 
   return (
@@ -253,7 +265,11 @@ export const FeatureShortTextInput = (
   props: FeatureValueProps<string, string, FeatureShortTextData>,
 ) => {
   if (!props.serverData) {
+    /* Bastion of Endeavor Translation
     return <Box>Loading...</Box>;
+    */
+    return <Box>Загрузка...</Box>;
+    // End of Bastion of Endeavor Translation
   }
 
   return (

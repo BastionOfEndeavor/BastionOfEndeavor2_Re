@@ -30,12 +30,8 @@
 	save_data["flavor_texts_feet"]		= pref.flavor_texts["feet"]
 	save_data["custom_link"]			= pref.custom_link
 
-<<<<<<< HEAD
 	// Bastion of Endeavor TODO: Do we need to come back to this after mobs are localized?
-	S["flavour_texts_robot_Default"] << pref.flavour_texts_robot["Default"]
-=======
 	save_data["flavour_texts_robot_Default"] = pref.flavour_texts_robot["Default"]
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
 	for(var/module in robot_module_types)
 		save_data["flavour_texts_robot_[module]"] = pref.flavour_texts_robot[module]
 

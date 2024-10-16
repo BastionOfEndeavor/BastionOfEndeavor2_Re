@@ -144,7 +144,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/proc/pref_deserialize(input, datum/preferences/preferences)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
+	/* Bastion of Endeavor Translation
 	CRASH("`pref_deserialize()` was not implemented on [type]!")
+	*/
+	CRASH("Прок `pref_deserialize()` не реализован для типа [type]!")
+	// End of Bastion of Endeavor Translation
 
 /// Called on the input while saving.
 /// Input is the current value, output is what to save in the savefile.
@@ -158,7 +162,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/proc/create_default_value()
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
+	/* Bastion of Endeavor Translation
 	CRASH("`create_default_value()` was not implemented on [type]!")
+	*/
+	CRASH("Прок `create_default_value()` не реализован для типа [type]!")
+	// End of Bastion of Endeavor Translation
 
 /// Produce a default, potentially random value for when no value for this
 /// preference is found in the savefile.
@@ -226,7 +234,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/proc/apply_to_human(mob/living/carbon/human/target, value)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
+	/* Bastion of Endeavor Translation
 	CRASH("`apply_to_human()` was not implemented for [type]!")
+	*/
+	CRASH("Прок `apply_to_human()` не реализован для типа [type]!")
+	// End of Bastion of Endeavor Translation
 
 /// Returns which savefile to use for a given savefile identifier
 /datum/preferences/proc/get_save_data_for_savefile_identifier(savefile_identifier)
@@ -235,7 +247,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	if(!client)
 		return null
 	if(!savefile)
+		/* Bastion of Endeavor Translation
 		CRASH("Attempted to get the savedata for [savefile_identifier] of [client] without a savefile. This should have been handled by load_preferences()")
+		*/
+		CRASH("Попытка получить данные сохранения для идентификатора [savefile_identifier] клиента [client], не имея файла сохранения. Это должно быть решено проком load_preferences()")
+		// End of Bastion of Endeavor Translation
 
 	// Both of these will cache savefiles, but only for a tick.
 	// This is because storing a savefile will lock it, causing later issues down the line.
@@ -246,7 +262,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 		if(PREFERENCE_PLAYER)
 			return savefile.get_entry()
 		else
+			/* Bastion of Endeavor Translation
 			CRASH("Unknown savefile identifier [savefile_identifier]")
+			*/
+			CRASH("Неизвестный идентификатор файла сохранения [savefile_identifier]")
+			// End of Bastion of Endeavor Translation
 
 /// Read a /datum/preference type and return its value.
 /// This will write to the savefile if a value was not found with the new value.
@@ -262,7 +282,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 		// else if(!MC_RUNNING())
 		// 	extra_info = "Info was attempted to be retrieved before the MC started, but not while it was actively initializing a subsystem"
 
+		/* Bastion of Endeavor Translation
 		CRASH("Preference type `[preference_type]` is invalid! [extra_info]")
+		*/
+		CRASH("Тип предпочтения `[preference_type]` недопустим! [extra_info]")
+		// End of Bastion of Endeavor Translation
 
 	if(preference_type in value_cache)
 		return value_cache[preference_type]
@@ -273,7 +297,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 		if(write_preference(preference_entry, value))
 			return value
 		else
+			/* Bastion of Endeavor Translation
 			CRASH("Couldn't write the default value for [preference_type] (received [value])")
+			*/
+			CRASH("Не удалось записать значение по умолчанию для предпочтения [preference_type] (значение - [value])")
+			// End of Bastion of Endeavor Translation
 	value_cache[preference_type] = value
 	return value
 
@@ -321,7 +349,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/proc/is_valid(value)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
+	/* Bastion of Endeavor Translation
 	CRASH("`is_valid()` was not implemented for [type]!")
+	*/
+	CRASH("Прок `is_valid()` не реализован для типа [type]!")
+	// End of Bastion of Endeavor Translation
 
 /// Returns data to be sent to users in the menu
 /datum/preference/proc/compile_ui_data(mob/user, value)
@@ -413,14 +445,22 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /// If `should_generate_icons` is TRUE, then you will also need to implement `icon_for(value)`
 /// for every possible value.
 /datum/preference/choiced/proc/init_possible_values()
+	/* Bastion of Endeavor Translation
 	CRASH("`init_possible_values()` was not implemented for [type]!")
+	*/
+	CRASH("Прок `init_possible_values()` не реализован для типа [type]!")
+	// End of Bastion of Endeavor Translation
 
 /// When `should_generate_icons` is TRUE, this proc is called for every value.
 /// It can return either an icon or a typepath to an atom to create.
 /datum/preference/choiced/proc/icon_for(value)
 	SHOULD_CALL_PARENT(FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
+	/* Bastion of Endeavor Translation
 	CRASH("`icon_for()` was not implemented for [type], even though should_generate_icons = TRUE!")
+	*/
+	CRASH("Прок `icon_for()` не реализован для типа [type], при этом should_generate_icons = TRUE!")
+	// End of Bastion of Endeavor Translation
 
 /datum/preference/choiced/is_valid(value)
 	return value in get_choices()
@@ -469,7 +509,11 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 	return sanitize_hexcolor(input)
 
 /datum/preference/color/is_valid(value)
+	/* Bastion of Endeavor Unicode Edit: JUST IN CASE
 	return findtext(value, GLOB.is_color)
+	*/
+	return findtext_char(value, GLOB.is_color)
+	// End of Bastion of Endeavor Unicode Edit
 
 /// A numeric preference with a minimum and maximum value
 /datum/preference/numeric
@@ -534,13 +578,21 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 
 
 /datum/preference/text/pref_deserialize(input, datum/preferences/preferences)
+	/* Bastion of Endeavor Unicode Edit: Just in case
 	return should_strip_html ? STRIP_HTML_SIMPLE(input, maximum_value_length) : copytext(input, 1, maximum_value_length)
+	*/
+	return should_strip_html ? STRIP_HTML_SIMPLE(input, maximum_value_length) : copytext_char(input, 1, maximum_value_length)
+	// End of Bastion of Endeavor Unicode Edit
 
 /datum/preference/text/create_default_value()
 	return ""
 
 /datum/preference/text/is_valid(value)
+	/* Bastion of Endeavor Unicode Edit: Just in case
 	return istext(value) && length(value) < maximum_value_length
+	*/
+	return istext(value) && length_char(value) < maximum_value_length
+	// End of Bastion of Endeavor Unicode Edit
 
 /datum/preference/text/compile_constant_data()
 	return list("maximum_length" = maximum_value_length)

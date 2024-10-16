@@ -233,7 +233,11 @@ var/list/preferences_datums = list()
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
 	else
+		/* Bastion of Endeavor Translation
 		CRASH("attempted to create a preferences datum without a client or mock!")
+		*/
+		CRASH("Попытка создать датум предпочтений без клиента или наводки!")
+		// End of Bastion of Endeavor Translation
 	load_savefile()
 
 	// Legacy code
@@ -535,17 +539,7 @@ var/list/preferences_datums = list()
 		to_chat(user, "<span class='warning'>У вас уже открыто окно выбора слота!</span>")
 		// End of Bastion of Endeavor Translation
 		return
-<<<<<<< HEAD
-	var/savefile/S = new /savefile(path)
-	if(!S)
-		/* Bastion of Endeavor Translation
-		error("Somehow missing savefile path?! [path]")
-		*/
-		error("Каким-то образом пропал путь файла сохранения?! [path]")
-		// End of Bastion of Endeavor Translation
-=======
 	if(!savefile)
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
 		return
 
 	var/default
@@ -603,17 +597,7 @@ var/list/preferences_datums = list()
 		to_chat(user, "<span class='warning'>У вас уже открыто окно выбора слота!</span>")
 		// End of Bastion of Endeavor Translation
 		return
-<<<<<<< HEAD
-	var/savefile/S = new /savefile(path)
-	if(!S)
-		/* Bastion of Endeavor Translation
-		error("Somehow missing savefile path?! [path]")
-		*/
-		error("Каким-то образом пропал путь файла сохранения?! [path]")
-		// End of Bastion of Endeavor Translation
-=======
 	if(!savefile)
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
 		return
 
 	var/list/charlist = list()
@@ -626,14 +610,10 @@ var/list/preferences_datums = list()
 		if(!name)
 			/* Bastion of Endeavor Translation
 			name = "[i] - \[Unused Slot\]"
-<<<<<<< HEAD
 			*/
 			name = "[i] - \[Свободный слот\]"
 			// End of Bastion of Endeavor Translation
-		if(i == default_slot)
-=======
 		else if(i == default_slot)
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
 			name = "►[i] - [name]"
 		else
 			name = "[i] - [name]"
@@ -659,15 +639,11 @@ var/list/preferences_datums = list()
 		// End of Bastion of Endeavor Translation
 		return
 
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	if(tgui_alert(user, "Are you sure you want to override slot [slotnum], [name][nickname ? " ([nickname])" : ""]'s savedata?", "Confirm Override", list("No", "Yes")) == "Yes")
-	*/
-	if(tgui_alert(user, "Вы действительно хотите перезаписать слот сохранения №[slotnum], [name][nickname ? " ([nickname])" : ""]?", "Подтверждение перезаписи", list("Нет", "Да")) == "Да")
-	// End of Bastion of Endeavor Translation
-=======
 	if(tgui_alert(user, "Are you sure you want to override slot [slotnum], [choice]'s savedata?", "Confirm Override", list("No", "Yes")) == "Yes")
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+	*/
+	if(tgui_alert(user, "Вы действительно хотите перезаписать слот сохранения №[slotnum], [choice]?", "Подтверждение перезаписи", list("Нет", "Да")) == "Да")
+	// End of Bastion of Endeavor Translation
 		overwrite_character(slotnum)
 		sanitize_preferences()
 		save_character()

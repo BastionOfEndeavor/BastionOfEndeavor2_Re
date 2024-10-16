@@ -1,7 +1,11 @@
 /datum/preferences/tgui_interact(mob/user, datum/tgui/ui, datum/tgui/parent_ui, custom_state)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		/* Bastion of Endeavor Translation
 		ui = new(user, src, "PreferencesMenu", "Preferences")
+		*/
+		ui = new(user, src, "PreferencesMenu", "Предпочтения")
+		// End of Bastion of Endeavor Translation
 		ui.set_autoupdate(FALSE)
 		ui.open()
 

@@ -53,10 +53,11 @@
 /datum/category_group/player_setup_category/global_preferences
 	/* Bastion of Endeavor Translation
 	name = "Global"
-	*/
-	name = "Настройки"
-	// End of Bastion of Endeavor Translation
 	sort_order = 6 //VOREStation Edit due to above commented out
+	*/
+	name = "Настройки клиента"
+	sort_order = 7
+	// End of Bastion of Endeavor Translation
 	category_item_type = /datum/category_item/player_setup_item/player_global
 
 /****************************
@@ -108,7 +109,11 @@
 			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
 			dat += "<a href='?src=\ref[src];category=\ref[PS]'>[PS.name]</a> "
+	/* Bastion of Endeavor Translation
 	dat += "<a href='?src=\ref[src];game_prefs=1'>Game Options</a>"
+	*/
+	dat += "<a href='?src=\ref[src];game_prefs=1'>Настройки игры</a>"
+	// End of Bastion of Endeavor Translation
 	return dat
 
 /datum/category_collection/player_setup_collection/proc/content(var/mob/user)

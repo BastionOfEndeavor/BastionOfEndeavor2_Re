@@ -31,7 +31,11 @@ export const GamePreferenceWindow = (props: {
   }
 
   return (
+    /* Bastion of Endeavor Translation
     <Window title="Game Preferences" width={920} height={770}>
+    */
+    <Window title="Настройки игры" width={920} height={770}>
+      {/* End of Bastion of Endeavor Translation */}
       <Window.Content>
         <Stack vertical fill>
           {/* <Stack.Item>

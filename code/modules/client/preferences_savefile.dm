@@ -41,23 +41,43 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	// Migration for client preferences
 	if(current_version < 13)
+		/* Bastion of Endeavor Translation
 		log_debug("[client_ckey] preferences migrating from [current_version] to v13....")
 		to_chat(client, span_danger("Migrating savefile from version [current_version] to v13..."))
+		*/
+		log_debug("Производится перенос предпочтений [client_ckey] с v[current_version] на v13...")
+		to_chat(client, span_danger("Производится перенос файла сохранения с v[current_version] на v13..."))
+		// End of Bastion of Endeavor Translation
 
 		migration_13_preferences(S)
 
+		/* Bastion of Endeavor Translation
 		log_debug("[client_ckey] preferences successfully migrated from [current_version] to v13.")
 		to_chat(client, span_danger("v13 savefile migration complete."))
+		*/
+		log_debug("Успешно завершен перенос предпочтений [client_ckey] с v[current_version] на v13.")
+		to_chat(client, span_danger("Завершен перенос файла сохранения на v13."))
+		// End of Bastion of Endeavor Translation
 
 	// Migration for nifs
 	if(current_version < 14)
+		/* Bastion of Endeavor Translation
 		log_debug("[client_ckey] preferences migrating from [current_version] to v14....")
 		to_chat(client, span_danger("Migrating savefile from version [current_version] to v14..."))
+		*/
+		log_debug("Производится перенос предпочтений [client_ckey] с v[current_version] на v14...")
+		to_chat(client, span_danger("Производится перенос файла сохранения с v[current_version] на v14..."))
+		// End of Bastion of Endeavor Translation
 
 		migration_14_nifs(S)
 
+		/* Bastion of Endeavor Translation
 		log_debug("[client_ckey] preferences successfully migrated from [current_version] to v14.")
 		to_chat(client, span_danger("v14 savefile migration complete."))
+		*/
+		log_debug("Успешно завершен перенос предпочтений [client_ckey] с v[current_version] на v14.")
+		to_chat(client, span_danger("Завершен перенос файла сохранения на v14."))
+		// End of Bastion of Endeavor Translation
 
 
 /datum/preferences/proc/update_character(current_version, list/save_data)
@@ -68,8 +88,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /// Migrates from byond savefile to json savefile
 /datum/preferences/proc/try_savefile_type_migration()
+	/* Bastion of Endeavor Translation
 	log_debug("[client_ckey] preferences migrating from savefile to JSON...")
 	to_chat(client, span_danger("Savefile migration to JSON in progress..."))
+	*/
+	log_debug("Производится перенос предпочтений [client_ckey] из файла сохранения в формат JSON...")
+	to_chat(client, span_danger("Производится перенос файла сохранения в формат JSON..."))
+	// End of Bastion of Endeavor Translation
 
 	load_path(client.ckey, "preferences.sav") // old save file
 	var/old_path = path
@@ -80,8 +105,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	json_savefile.import_byond_savefile(new /savefile(old_path))
 	json_savefile.save()
 
+	/* Bastion of Endeavor Translation
 	log_debug("[client_ckey] preferences successfully migrated from savefile to JSON.")
 	to_chat(client, span_danger("Savefile migration to JSON is complete."))
+	*/
+	log_debug("Успешно завершен перенос предпочтений [client_ckey] из файла сохранения в формат JSON.")
+	to_chat(client, span_danger("Завершен перенос файла сохранения в формат JSON."))
+	// End of Bastion of Endeavor Translation
 
 	return TRUE
 
@@ -92,15 +122,27 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /datum/preferences/proc/load_savefile()
 	if(load_and_save && !path)
+		/* Bastion of Endeavor Translation
 		CRASH("Attempted to load savefile without first loading a path!")
+		*/
+		CRASH("Попытка загрузить файл сохранения, не загрузив предварительно путь!")
+		// End of Bastion of Endeavor Translation
 	savefile = new /datum/json_savefile(load_and_save ? path : null)
 
 /datum/preferences/proc/load_preferences()
 	if(!savefile)
+		/* Bastion of Endeavor Translation
 		stack_trace("Attempted to load the preferences of [client] without a savefile; did you forget to call load_savefile?")
+		*/
+		stack_trace("Попытка загрузить предпочтения [client] без файла сохранения; упущен прок load_savefile?")
+		// End of Bastion of Endeavor Translation
 		load_savefile()
 		if(!savefile)
+			/* Bastion of Endeavor Translation
 			stack_trace("Failed to load the savefile for [client] after manually calling load_savefile; something is very wrong.")
+			*/
+			stack_trace("Не удалось загрузить файл сохранения клиента [client] при вызове load_savefile; что-то пошло очень не так.")
+			// End of Bastion of Endeavor Translation
 			return FALSE
 
 	var/needs_update = save_data_needs_update(savefile.get_entry())
@@ -129,9 +171,15 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		// var/old_max_save_slots = max_save_slots
 
 		for(var/slot in savefile.get_entry()) //but first, update all current character slots.
+			/* Bastion of Endeavor Unicode Edit: I don't trust, sorry
 			if (copytext(slot, 1, 10) != "character")
 				continue
 			var/slotnum = text2num(copytext(slot, 10))
+			*/
+			if (copytext_char(slot, 1, 10) != "character")
+				continue
+			var/slotnum = text2num(copytext_char(slot, 10))
+			// End of Bastion of Endeavor Unicode Edit
 			if (!slotnum)
 				continue
 			// max_save_slots = max(max_save_slots, slotnum) //so we can still update byond member slots after they lose memeber status
@@ -149,7 +197,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 /datum/preferences/proc/save_preferences()
 	if(!savefile)
+		/* Bastion of Endeavor Translation
 		CRASH("Attempted to save the preferences of [client] without a savefile. This should have been handled by load_preferences()")
+		*/
+		CRASH("Попытка сохранить предпочтения [client] без файла сохранения. С этим должен был разобраться load_preferences()")
+		// End of Bastion of Endeavor Translation
 	savefile.set_entry("version", SAVEFILE_VERSION_MAX) //updates (or failing that the sanity checks) will ensure data is not invalid at load. Assume up-to-date
 
 	player_setup.save_preferences(savefile)

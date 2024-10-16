@@ -30,38 +30,16 @@
 	pref.metadata_favs					= save_data["OOC_Notes_Favs"]
 	pref.matadata_ooc_style				= save_data["OOC_Notes_System"]
 	//CHOMPAdd End
-
-<<<<<<< HEAD
+	
 	// Bastion of Endeavor Addition: Cases for names
-	S["cases_ncase"]	    	>> pref.cases[NCASE]
-	S["cases_gcase"]			>> pref.cases[GCASE]
-	S["cases_dcase"]			>> pref.cases[DCASE]
-	S["cases_acase"]			>> pref.cases[ACASE]
-	S["cases_icase"]			>> pref.cases[ICASE]
-	S["cases_pcase"]			>> pref.cases[PCASE]
+	pref.cases[NCASE]					= save_data["cases_ncase"]
+	pref.cases[GCASE]					= save_data["cases_gcase"]
+	pref.cases[DCASE]					= save_data["cases_dcase"]
+	pref.cases[ACASE]					= save_data["cases_acase"]
+	pref.cases[ICASE]					= save_data["cases_icase"]
+	pref.cases[PCASE]					= save_data["cases_pcase"]
 	// End of Bastion of Endeavor Addition
 
-/datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
-	S["real_name"]				<< pref.real_name
-	S["nickname"]				<< pref.nickname
-	S["name_is_always_random"]	<< pref.be_random_name
-	S["gender"]					<< pref.biological_gender
-	S["id_gender"]				<< pref.identifying_gender
-	S["age"]					<< pref.age
-	S["bday_month"]				<< pref.bday_month
-	S["bday_day"]				<< pref.bday_day
-	S["last_bday_note"]			<< pref.last_birthday_notification
-	S["bday_announce"]			<< pref.bday_announce
-	S["spawnpoint"]				<< pref.spawnpoint
-	S["OOC_Notes"]				<< pref.metadata
-	S["OOC_Notes_Likes"]		<< pref.metadata_likes
-	S["OOC_Notes_Disikes"]		<< pref.metadata_dislikes
-	//CHOMPEdit Start
-	S["OOC_Notes_Favs"]			<< pref.metadata_favs
-	S["OOC_Notes_Maybes"]		<< pref.metadata_maybes
-	S["OOC_Notes_System"]		<< pref.matadata_ooc_style
-	//CHOMPEdit End
-=======
 /datum/category_item/player_setup_item/general/basic/save_character(list/save_data)
 	save_data["real_name"]				= pref.real_name
 	save_data["nickname"]				= pref.nickname
@@ -82,15 +60,14 @@
 	save_data["OOC_Notes_Favs"]			= pref.metadata_favs
 	save_data["OOC_Notes_System"]		= pref.matadata_ooc_style
 	//CHOMPAdd End
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
 
 	// Bastion of Endeavor Addition: Cases for names
-	S["cases_ncase"]			<< pref.cases[NCASE]
-	S["cases_gcase"]			<< pref.cases[GCASE]
-	S["cases_dcase"]			<< pref.cases[DCASE]
-	S["cases_acase"]			<< pref.cases[ACASE]
-	S["cases_icase"]			<< pref.cases[ICASE]
-	S["cases_pcase"]			<< pref.cases[PCASE]
+	save_data["cases_ncase"]			= pref.cases[NCASE]
+	save_data["cases_gcase"]			= pref.cases[GCASE]
+	save_data["cases_dcase"]			= pref.cases[DCASE]
+	save_data["cases_acase"]			= pref.cases[ACASE]
+	save_data["cases_icase"]			= pref.cases[ICASE]
+	save_data["cases_pcase"]			= pref.cases[PCASE]
 	// End of Bastion of Endeavor Addition
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()

@@ -614,29 +614,26 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(ind > 1)
 				/* Bastion of Endeavor Translation: not really a translation buuuuuuuut
 				. += ", "
-<<<<<<< HEAD
 				*/
 				. += "<br>"
 				// End of Bastion of Endeavor Translation
-			var/datum/robolimb/R
-			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
-				R = all_robolimbs[pref.rlimb_data[name]]
-			else
-				R = basic_robolimb
-			/* Bastion of Endeavor Translation
-=======
 
 			var/datum/robolimb/R = basic_robolimb
 			var/key = pref.rlimb_data[name]
 			if(!istext(key))
+				/* Bastion of Endeavor Translation
 				log_debug("Bad rlimb_data for [key_name(pref.client)], [name] was set to [key]")
 				to_chat(usr, span_warning("Error loading robot limb data for `[name]`, clearing pref."))
+				*/
+				log_debug("Повреждённые данные rlimb_data для [key_name(pref.client)], имя [name] назначено на [key]")
+				to_chat(usr, span_warning("Ошибка при загрузке протезов из файла сохранений `[name]`. Настройки сброшены."))
+				// End of Bastion of Endeavor Translation
 				pref.rlimb_data -= name
 			else
 				R = LAZYACCESS(all_robolimbs, key)
 				if(!istype(R))
 					R = basic_robolimb
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+			/* Bastion of Endeavor Translation
 			. += "\t[R.company] [organ_name] prosthesis"
 			*/
 			. += "\t– [non_type_verb_ru(morphable_1 = "простетическ;ий ;ая ;ое ;ие ", noun = organ_name, after_word = " ([R.company])")]"

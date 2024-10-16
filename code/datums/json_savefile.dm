@@ -52,7 +52,11 @@ GENERAL_PROTECT_DATUM(/datum/json_savefile)
 		tree = json_decode(rustg_file_read(path))
 		return TRUE
 	catch(var/exception/err)
+		/* Bastion of Endeavor Translation
 		stack_trace("failed to load json savefile at '[path]': [err]")
+		*/
+		stack_trace("Не удалось загрузить файл сохранения JSON '[path]': [err]")
+		// End of Bastion of Endeavor Translation
 		return FALSE
 
 /datum/json_savefile/proc/save()
@@ -95,7 +99,11 @@ GENERAL_PROTECT_DATUM(/datum/json_savefile)
 	var/temporary_file_storage = "data/preferences_export_working_directory/[file_name]"
 
 	if(!text2file(json_encode(tree, JSON_PRETTY_PRINT), temporary_file_storage))
+		/* Bastion of Endeavor Translation
 		tgui_alert(requester, "Failed to export preferences to JSON! You might need to try again later.", "Export Preferences JSON")
+		*/
+		tgui_alert(requester, "Не удалось экспортировать Предпочтения в формат JSON! Попробуйте ещё раз позже.", "Экспорт настроек в JSON")
+		// End of Bastion of Endeavor Translation
 		return
 
 	var/exportable_json = file(temporary_file_storage)
@@ -107,10 +115,18 @@ GENERAL_PROTECT_DATUM(/datum/json_savefile)
 /// Just done like this to make the code in the export_json_to_client() proc a bit cleaner.
 /datum/json_savefile/proc/json_export_checks(mob/requester)
 	if(!COOLDOWN_FINISHED(src, download_cooldown))
+		/* Bastion of Endeavor Translation
 		tgui_alert(requester, "You must wait [DisplayTimeText(COOLDOWN_TIMELEFT(src, download_cooldown))] before exporting your preferences again!", "Export Preferences JSON")
+		*/
+		tgui_alert(requester, "Подождите ещё [count_ru(DisplayTimeText(COOLDOWN_TIMELEFT(src, download_cooldown)), "секунд;у;ы;")], прежде чем пытаться экспортировать Предпочтения!", "Экспорт настроек в JSON")
+		// End of Bastion of Endeavor Translation
 		return FALSE
 
+	/* Bastion of Endeavor Translation
 	if(tgui_alert(requester, "Are you sure you want to export your preferences as a JSON file? This will save to a file on your computer.", "Export Preferences JSON", list("Cancel", "Yes")) == "Yes")
+	*/
+	if(tgui_alert(requester, "Вы действительно хотите экспортировать ваши Предпочтения в формате JSON? Файл будет сохранён на вашем компьютере.", "Экспорт настроек в JSON", list("Отмена", "Да")) == "Да")
+	// End of Bastion of Endeavor Translation
 		return TRUE
 
 	return FALSE

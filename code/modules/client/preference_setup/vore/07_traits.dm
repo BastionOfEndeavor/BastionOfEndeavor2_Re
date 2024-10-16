@@ -212,16 +212,28 @@ var/global/list/valid_bloodreagents = list("default","iron","copper","phoron","s
 	//Neutral traits
 	for(var/datum/trait/path as anything in pref.neu_traits)
 		if(!(path in neutral_traits))
+			/* Bastion of Endeavor Translation
 			to_world_log("removing [path] for not being in neutral_traits")
+			*/
+			to_world_log("Удаляем [path], не находящийся в neutral_traits.")
+			// End of Bastion of Endeavor Translation
 			pref.neu_traits -= path
 			continue
 		if(!(pref.species == SPECIES_CUSTOM) && !(path in everyone_traits_neutral))
+			/* Bastion of Endeavor Translation
 			to_world_log("removing [path] for not being a custom species")
+			*/
+			to_world_log("Удаляем [path], не являющийся особой расой.")
+			// End of Bastion of Endeavor Translation
 			pref.neu_traits -= path
 			continue
 		var/take_flags = initial(path.can_take)
 		if((pref.dirty_synth && !(take_flags & SYNTHETICS)) || (pref.gross_meatbag && !(take_flags & ORGANICS)))
+			/* Bastion of Endeavor Translation
 			to_world_log("removing [path] for being a dirty synth")
+			*/
+			to_world_log("Удаляем [path] за несоответствие органику/синтету.")
+			// End of Bastion of Endeavor Translation
 			pref.neu_traits -= path
 	//Negative traits
 	for(var/datum/trait/path as anything in pref.neg_traits)

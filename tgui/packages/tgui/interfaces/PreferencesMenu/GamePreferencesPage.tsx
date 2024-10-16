@@ -74,7 +74,11 @@ export const GamePreferencesPage = (props) => {
             />
           )) || (
             <Box as="b" color="red">
+              {/* Bastion of Endeavor Translation
               ...is not filled out properly!!!
+              */}
+              ...данные повреждены!
+              {/* End of Bastion of Endeavor Translation */}
             </Box>
           )}
         </Flex.Item>
@@ -86,7 +90,11 @@ export const GamePreferencesPage = (props) => {
       children: child,
     };
 
+    /* Bastion of Endeavor Translation
     const category = feature?.category || 'ERROR';
+    */
+    const category = feature?.category || 'ОШИБКА';
+    // End of Bastion of Endeavor Translation
 
     gamePreferences[category] = binaryInsertPreference(
       gamePreferences[category] || [],
@@ -116,7 +124,11 @@ export const GamePreferencesPage = (props) => {
   return (
     <>
       {!gamePreferenceEntries.length && (
+        /* Bastion of Endeavor Translation
         <Section title="No Results">No results found.</Section>
+        */
+        <Section title="Нет результатов">Ничего не найдено.</Section>
+        // End of Bastion of Endeavor Translation
       )}
       <Box position="absolute" right={4} top={4} style={{ zIndex: '100' }}>
         {searchVisible && (
@@ -130,7 +142,11 @@ export const GamePreferencesPage = (props) => {
         <Button
           selected={searchVisible}
           icon="magnifying-glass"
+          /* Bastion of Endeavor Translation
           tooltip="Search"
+          */
+          tooltip="Поиск"
+          // End of Bastion of Endeavor Translation
           tooltipPosition="bottom"
           onClick={() => {
             setSearchVisible(!searchVisible);

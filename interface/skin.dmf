@@ -1051,6 +1051,11 @@ menu "menu"
 		category = "&Меню"
 		saved-params = "is-checked"
 	elem
+		name = "&Настройки игры"
+		command = "game-options"
+		category = "&Меню"
+		saved-params = "is-checked"
+	elem
 		name = "&Микшер"
 		command = "Микшер"
 		category = "&Меню"
@@ -1273,10 +1278,6 @@ menu "menu"
 		command = "hotkeys-help"
 		category = "&Help"
 		saved-params = "is-checked"
-<<<<<<< HEAD
-*/
-// End of Bastion of Endeavor Removal
-=======
 	elem
 		name = "&Preferences"
 		command = ""
@@ -1291,7 +1292,8 @@ menu "menu"
 		command = "game-options"
 		category = "&Preferences"
 		saved-params = "is-checked"
->>>>>>> 2986497a43 ([MIRROR] Revert "Revert "/tg/ preference datums part 1: take two"" (#8929))
+*/
+// End of Bastion of Endeavor Removal
 
 window "mainwindow"
 	elem "mainwindow"

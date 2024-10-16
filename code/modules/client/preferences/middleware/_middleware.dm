@@ -17,7 +17,11 @@
 
 	if (isnull(key))
 		// + 2 coming from the off-by-one of copytext, and then another from the slash
+		/* Bastion of Endeavor Unicode Edit: JUUUUUUUUST in case
 		key = copytext("[type]", length("[parent_type]") + 2)
+		*/
+		key = copytext("[type]", length("[parent_type]") + 2)
+		// End of Bastion of Endeavor Unicode Edit
 
 /datum/preference_middleware/Destroy()
 	preferences = null

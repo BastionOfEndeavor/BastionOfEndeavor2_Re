@@ -651,8 +651,13 @@
 		prefs.ShowChoices(usr)
 
 /client/verb/game_options()
+	/* Bastion of Endeavor Translation
 	set name = "Game Options"
 	set category = "Preferences"
+	*/
+	set name = "Настройки игры"
+	set category = "Предпочтения.Игра"
+	// End of Bastion of Endeavor Translation
 	if(prefs)
 		prefs.tgui_interact(usr)
 
@@ -771,7 +776,7 @@
 	set category = "OOC.Client Settings" //CHOMPEdit
 	*/
 	set name = "Полноэкранный режим"
-	set category = "OOC.Настройки клиента"
+	set category = "Предпочтения.Игра"
 	// End of Bastion of Endeavor Translation
 
 	fullscreen = !fullscreen
