@@ -131,53 +131,6 @@ var/const/CSN_FREQ = 1365 //VOREStation Add
 var/const/OUT_FREQ = 1367 //CHOMPstation Add
 
 var/list/radiochannels = list(
-<<<<<<< HEAD
-	/* Bastion of Endeavor Translation: Shortening the names to take less space, russian text is long is enough as it is
-	"Common"		= PUB_FREQ,
-	"Science"		= SCI_FREQ,
-	"Command"		= COMM_FREQ,
-	"Medical"		= MED_FREQ,
-	"Engineering"	= ENG_FREQ,
-	"Security" 		= SEC_FREQ,
-	"Bodycam"		= BDCM_FREQ, // CHOMPEdit
-	"Response Team" = ERT_FREQ,
-	"Special Ops" 	= DTH_FREQ,
-	"Mercenary" 	= SYND_FREQ,
-	"Raider"		= RAID_FREQ,
-	"Supply" 		= SUP_FREQ,
-	"Service" 		= SRV_FREQ,
-	"Explorer"		= EXP_FREQ, //CHOMP explo keep
-	"AI Private"	= AI_FREQ,
-	"Entertainment" = ENT_FREQ,
-	"Medical(I)"	= MED_I_FREQ,
-	"Security(I)"	= SEC_I_FREQ,
-	"Talon"			= TALON_FREQ, //VOREStation Add
-	"Casino" 		= CSN_FREQ,
-	"Outsider" 		= OUT_FREQ //CHOMPstation Add
-	*/
-	"Общий"						= PUB_FREQ,
-	"Научный"					= SCI_FREQ, 
-	"Командование"				= COMM_FREQ, 
-	"Медицинский"				= MED_FREQ,
-	"Инженерный"				= ENG_FREQ,
-	"СБ" 						= SEC_FREQ,
-	"Нательная камера"			= BDCM_FREQ,
-	"ОБР" 						= ERT_FREQ,
-	"Спецотряд" 				= DTH_FREQ,
-	"Наёмники" 					= SYND_FREQ,
-	"Налётчики"					= RAID_FREQ,
-	"Грузовой" 					= SUP_FREQ,
-	"Обслуживание" 				= SRV_FREQ,
-	"Экспедиция"				= EXP_FREQ,
-	"Канал ИИ"					= AI_FREQ,
-	"Развлечения" 				= ENT_FREQ,
-	"Медицинский (В)"			= MED_I_FREQ,
-	"СБ (В)"					= SEC_I_FREQ,
-	"Коготь"					= TALON_FREQ,
-	"Казино" 					= CSN_FREQ,
-	"Посторонние" 				= OUT_FREQ
-	// End of Bastion of Endeavor Translation
-=======
 	CHANNEL_COMMON			= PUB_FREQ,
 	CHANNEL_SCIENCE			= SCI_FREQ,
 	CHANNEL_COMMAND			= COMM_FREQ,
@@ -199,7 +152,6 @@ var/list/radiochannels = list(
 	CHANNEL_TALON			= TALON_FREQ, //VOREStation Add
 	CHANNEL_CASINO			= CSN_FREQ,
 	CHANNEL_OUTSIDER		= OUT_FREQ //CHOMPstation Add
->>>>>>> 4153768ba1 ([MIRROR] Job rank and radio channel rework (#8965))
 )
 
 // Hey, if anyone ever needs to update tgui/packages/tgui/constants.js with new radio channels

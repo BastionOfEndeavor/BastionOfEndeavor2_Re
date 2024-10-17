@@ -72,15 +72,11 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 	pref.be_special	= sanitize_integer(pref.be_special, 0, 16777215, initial(pref.be_special)) //VOREStation Edit - 24 bits of support
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: Translate the jobbans
-	if(jobban_isbanned(user, "Syndicate"))
-=======
 	if(jobban_isbanned(user, JOB_SYNDICATE))
->>>>>>> 4153768ba1 ([MIRROR] Job rank and radio channel rework (#8965))
 		. += "<b>You are banned from antagonist roles.</b>"
 	*/
-	if(jobban_isbanned(user, "Syndicate"))
+	if(jobban_isbanned(user, JOB_SYNDICATE))
 		. += "<b>Вам запрещено играть на особых ролях.</b>"
 	// End of Bastion of Endeavor Translation
 		pref.be_special = 0

@@ -50,16 +50,6 @@
 
 #define BLUE_SHIELDED 2 // Shield from bluespace teleportation (telescience)
 
-<<<<<<< HEAD
-//Assistant/Visitor/Whatever
-/* Bastion of Endeavor Translation
-#define USELESS_JOB "Visitor"
-*/
-#define USELESS_JOB "Посетитель"
-// End of Bastion of Endeavor Translation
-
-=======
->>>>>>> 4153768ba1 ([MIRROR] Job rank and radio channel rework (#8965))
 //Herm Gender
 #define HERM "herm"
 
