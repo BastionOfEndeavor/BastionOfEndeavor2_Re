@@ -2,12 +2,9 @@
 	var/extra_languages = 0
 	/* Bastion of Endeavor Translation
 	var/preferred_language = "common" // VOREStation Edit: Allow selecting a preferred language
-<<<<<<< HEAD
 	*/
 	var/preferred_language = "Общий" // VOREStation Edit: Allow selecting a preferred language
 	// End of Bastion of Endeavor Translation
-=======
-	var/runechat_color = COLOR_BLACK
 >>>>>>> 7dc3a70376 ([MIRROR] Allow choosing your own runechat color (#9082))
 
 /datum/category_item/player_setup_item/general/language
@@ -132,15 +129,13 @@
 	. += "<b>Language Keys</b><br>"
 	. += " [jointext(pref.language_prefixes, " ")] <a href='?src=\ref[src];change_prefix=1'>Change</a> <a href='?src=\ref[src];reset_prefix=1'>Reset</a><br>"
 	. += "<b>Preferred Language</b> <a href='?src=\ref[src];pref_lang=1'>[pref.preferred_language]</a><br>" // VOREStation Add
-<<<<<<< HEAD
+	. += "<b>Runechat Color</b> <a href='?src=\ref[src];pref_runechat_color=1'>Change Runechat Color</a> [color_square(hex = pref.runechat_color)]"
 	*/
 	. += "<b>Клавиши языков</b><br>"
 	. += " [jointext(pref.language_prefixes, " ")] <a href='?src=\ref[src];change_prefix=1'>Изменить</a> <a href='?src=\ref[src];reset_prefix=1'>Сбросить</a><br>"
 	. += "<b>Предпочитаемый язык:</b> <a href='?src=\ref[src];pref_lang=1'>[pref.preferred_language]</a><br>" // VOREStation Add
+	. += "<b>Цвет сообщений Runechat</b> <a href='?src=\ref[src];pref_runechat_color=1'>Изменить</a> [color_square(hex = pref.runechat_color)]"
 	// End of Bastion of Endeavor Translation
-=======
-	. += "<b>Runechat Color</b> <a href='?src=\ref[src];pref_runechat_color=1'>Change Runechat Color</a> [color_square(hex = pref.runechat_color)]"
->>>>>>> 7dc3a70376 ([MIRROR] Allow choosing your own runechat color (#9082))
 
 /datum/category_item/player_setup_item/general/language/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["remove_language"])
@@ -301,7 +296,11 @@
 	// VOREStation Add End
 
 	else if(href_list["pref_runechat_color"])
+		/* Bastion of Endeavor Translation
 		var/new_runechat_color = input(user, "Choose your character's runechat colour (#000000 for random):", "Character Preference", pref.runechat_color) as color|null
+		*/
+		var/new_runechat_color = input(user, "Выберите цвет ваших сообщений Runechat – всплывающих сообщений над персонажами (#000000 для случайного цвета):", "Цвет сообщений Runechat", pref.runechat_color) as color|null
+		// End of Bastion of Endeavor Translation
 		if(new_runechat_color && CanUseTopic(user))
 			pref.runechat_color = new_runechat_color
 			// whenever we change this, we update our mob
