@@ -655,15 +655,11 @@
 /client/verb/game_options()
 	/* Bastion of Endeavor Translation
 	set name = "Game Options"
-<<<<<<< HEAD
-	set category = "Preferences"
+	set category = "Preferences.Game" //CHOMPEdit
 	*/
 	set name = "Настройки игры"
 	set category = "Предпочтения.Игра"
 	// End of Bastion of Endeavor Translation
-=======
-	set category = "Preferences.Game" //CHOMPEdit
->>>>>>> d7759055ff (don't assume it's a human (#9091))
 	if(prefs)
 		prefs.tgui_interact(usr)
 
