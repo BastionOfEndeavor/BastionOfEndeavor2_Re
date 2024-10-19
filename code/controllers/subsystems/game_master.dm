@@ -200,15 +200,11 @@ SUBSYSTEM_DEF(game_master)
 	if(check_rights(R_ADMIN|R_EVENT|R_DEBUG))
 		SSgame_master.interact(usr)
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(usr, span("warning", "You do not have sufficient rights to view the GM panel, sorry."))
-		*/
-		to_chat(usr, span("warning", "К сожалению, у вас недостаточно прав для просмотра панели Игрового мастера."))
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(usr, span_warning("You do not have sufficient rights to view the GM panel, sorry."))
->>>>>>> 31407a0be3 ([MIRROR] First part of a span rework (#9120))
+		*/
+		to_chat(usr, span_warning("К сожалению, у вас недостаточно прав для просмотра панели Игрового мастера."))
+		// End of Bastion of Endeavor Translation
 
 /datum/controller/subsystem/game_master/proc/interact(var/client/user)
 	if(!user)

@@ -37,15 +37,11 @@ Controlled by the player_tips subsystem under code/controllers/subsystems/player
 		for(var/mob/M in player_list)
 			if(M.client?.prefs?.read_preference(/datum/preference/toggle/player_tips))
 				if(!M.key && !(M.key in HasReceived))
-<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
-					to_chat(M, SPAN_WARNING("You have periodic player tips enabled. You may turn them off at any time with the Toggle Receiving Player Tips verb in Preferences, or in character set up under the OOC tab!\n Player tips appear every 45-75 minutes."))
-					*/
-					to_chat(M, SPAN_WARNING("У вас включена рассылка периодических подсказок. Её можно выключить с помощью глагола Периодические подсказки во вкладке Предпочтения или в Редакторе персонажа!\n Подсказки появляются каждые 45-75 минут."))
-					// End of Bastion of Endeavor Translation
-=======
 					to_chat(M, span_warning("You have periodic player tips enabled. You may turn them off at any time with the Toggle Receiving Player Tips verb in Preferences, or in character set up under the OOC tab!\n Player tips appear every 45-75 minutes."))
->>>>>>> 31407a0be3 ([MIRROR] First part of a span rework (#9120))
+					*/
+					to_chat(M, span_warning("У вас включена рассылка периодических подсказок. Её можно выключить с помощью глагола Периодические подсказки во вкладке Предпочтения или в Редакторе персонажа!\n Подсказки появляются каждые 45-75 минут."))
+					// End of Bastion of Endeavor Translation
 					HasReceived.Add(M.key)
 				tip = GLOB.is_valid_url.Replace(tip,"<span class='linkify'>$1</span>")
 				to_chat(M, span_notice("[tip]"))
