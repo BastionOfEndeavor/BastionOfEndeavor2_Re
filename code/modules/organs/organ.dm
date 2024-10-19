@@ -552,12 +552,8 @@ var/list/organ_cache = list()
 
 	var/obj/item/newmeat = new meat_type(newtarget)
 
-<<<<<<< HEAD
-	if(istype(newmeat, /obj/item/weapon/reagent_containers/food/snacks/meat))
-		/* Bastion of Endeavor Translation: This is a REALLY experimental way of going about doing cases but I guess we'll see.
-=======
 	if(istype(newmeat, /obj/item/reagent_containers/food/snacks/meat))
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+		/* Bastion of Endeavor Translation: This is a REALLY experimental way of going about doing cases but I guess we'll see.
 		newmeat.name = "[src.name] [newmeat.name]"	// "liver meat" "heart meat", etc.
 		*/
 		newmeat.case_blueprint_ru[1] += " из [gcase_ru(src)]"

@@ -49,45 +49,9 @@ SUBSYSTEM_DEF(circuit)
 
 	/* Bastion of Endeavor Translation
 	circuit_fabricator_recipe_list["Assemblies"] = list(
-<<<<<<< HEAD
 	*/
 	circuit_fabricator_recipe_list["Корпусы"] = list(
 	// End of Bastion of Endeavor Translation
-		/obj/item/device/electronic_assembly/default,
-		/obj/item/device/electronic_assembly/calc,
-		/obj/item/device/electronic_assembly/clam,
-		/obj/item/device/electronic_assembly/simple,
-		/obj/item/device/electronic_assembly/hook,
-		/obj/item/device/electronic_assembly/pda,
-		/obj/item/device/electronic_assembly/tiny/default,
-		/obj/item/device/electronic_assembly/tiny/cylinder,
-		/obj/item/device/electronic_assembly/tiny/scanner,
-		/obj/item/device/electronic_assembly/tiny/hook,
-		/obj/item/device/electronic_assembly/tiny/box,
-		/obj/item/device/electronic_assembly/medium/default,
-		/obj/item/device/electronic_assembly/medium/box,
-		/obj/item/device/electronic_assembly/medium/clam,
-		/obj/item/device/electronic_assembly/medium/medical,
-		/obj/item/device/electronic_assembly/medium/gun,
-		/obj/item/device/electronic_assembly/medium/radio,
-		/obj/item/device/electronic_assembly/large/default,
-		/obj/item/device/electronic_assembly/large/scope,
-		/obj/item/device/electronic_assembly/large/terminal,
-		/obj/item/device/electronic_assembly/large/arm,
-		/obj/item/device/electronic_assembly/large/tall,
-		/obj/item/device/electronic_assembly/large/industrial,
-		/obj/item/device/electronic_assembly/drone/default,
-		/obj/item/device/electronic_assembly/drone/arms,
-		/obj/item/device/electronic_assembly/drone/secbot,
-		/obj/item/device/electronic_assembly/drone/medbot,
-		/obj/item/device/electronic_assembly/drone/genbot,
-		/obj/item/device/electronic_assembly/drone/android,
-		/obj/item/device/electronic_assembly/wallmount/tiny,
-		/obj/item/device/electronic_assembly/wallmount/light,
-		/obj/item/device/electronic_assembly/wallmount,
-		/obj/item/device/electronic_assembly/wallmount/heavy,
-		/obj/item/weapon/implant/integrated_circuit,
-=======
 		/obj/item/electronic_assembly/default,
 		/obj/item/electronic_assembly/calc,
 		/obj/item/electronic_assembly/clam,
@@ -122,7 +86,6 @@ SUBSYSTEM_DEF(circuit)
 		/obj/item/electronic_assembly/wallmount,
 		/obj/item/electronic_assembly/wallmount/heavy,
 		/obj/item/implant/integrated_circuit,
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
 		/obj/item/clothing/under/circuitry,
 		/obj/item/clothing/gloves/circuitry,
 		/obj/item/clothing/glasses/circuitry,
@@ -134,16 +97,10 @@ SUBSYSTEM_DEF(circuit)
 
 	/* Bastion of Endeavor Translation
 	circuit_fabricator_recipe_list["Tools"] = list(
-<<<<<<< HEAD
 	*/
 	circuit_fabricator_recipe_list["Инструменты"] = list(
 	// End of Bastion of Endeavor Translation
-		/obj/item/device/integrated_electronics/wirer,
-		/obj/item/device/integrated_electronics/debugger,
-		/obj/item/device/integrated_electronics/detailer
-=======
 		/obj/item/integrated_electronics/wirer,
 		/obj/item/integrated_electronics/debugger,
 		/obj/item/integrated_electronics/detailer
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
 		)

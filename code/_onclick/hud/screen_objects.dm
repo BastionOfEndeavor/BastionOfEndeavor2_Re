@@ -431,7 +431,7 @@
 							else
 								nicename = list("в своей правой руке", "в своей левой руке", "на своей спине")
 								tankcheck = list(C.r_hand, C.l_hand, C.back)
-							var/obj/item/weapon/rig/Rig = C.get_rig()
+							var/obj/item/rig/Rig = C.get_rig()
 							if(Rig)
 								if(Rig.air_supply && !Rig.offline)
 									//from = "in"

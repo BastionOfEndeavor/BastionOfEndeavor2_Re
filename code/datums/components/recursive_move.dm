@@ -118,12 +118,8 @@
 	parents.Cut()
 
 //the banana peel of testing stays
-<<<<<<< HEAD
-/obj/item/weapon/bananapeel/testing
-	/* Bastion of Endeavor Translation
-=======
 /obj/item/bananapeel/testing
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+	/* Bastion of Endeavor Translation
 	name = "banana peel of testing"
 	desc = "spams world log with debugging information"
 	*/
@@ -131,12 +127,8 @@
 	desc = "Флудит в лог мира отладочной информацией."
 	// End of Bastion of Endeavor Translation
 
-<<<<<<< HEAD
-/obj/item/weapon/bananapeel/testing/proc/shmove(var/atom/source, var/atom/old_loc, var/atom/new_loc)
-	/* Bastion of Endeavor Translation
-=======
 /obj/item/bananapeel/testing/proc/shmove(var/atom/source, var/atom/old_loc, var/atom/new_loc)
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+	/* Bastion of Endeavor Translation
 	world.log << "the [source] moved from [old_loc]([old_loc.x],[old_loc.y],[old_loc.z]) to [new_loc]([new_loc.x],[new_loc.y],[new_loc.z])"
 	*/
 	world.log << "Источник [source] переместился с [old_loc]([old_loc.x],[old_loc.y],[old_loc.z]) на [new_loc]([new_loc.x],[new_loc.y],[new_loc.z])."

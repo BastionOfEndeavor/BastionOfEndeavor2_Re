@@ -582,12 +582,8 @@ var/const/standard_monitor_styles = "blank=ipc_blank;\
 	icon_state = "datadisk2"
 	var/species = SPECIES_HUMAN
 
-<<<<<<< HEAD
 /* Bastion of Endeavor Removal : I think the sanest move here is to just remove this bit and handle these individually per species
-/obj/item/weapon/disk/species/Initialize()
-=======
 /obj/item/disk/species/Initialize()
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
 	. = ..()
 	if(species)
 		name = "[species] [initial(name)]"

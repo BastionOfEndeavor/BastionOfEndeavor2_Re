@@ -759,12 +759,8 @@ var/global/datum/controller/occupations/job_master
 		to_chat(H, "<span class='filter_notice'><b>[job.supervisors]<br>Особые обстоятельства могут это изменить.</b></span>")
 		// End of Bastion of Endeavor Translation
 	if(job.has_headset)
-<<<<<<< HEAD
-		H.equip_to_slot_or_del(new /obj/item/device/radio/headset(H), slot_l_ear)
-		/* Bastion of Endeavor Translation: Oddly, I am removing a bit of clarity here, since say code isn't localized at the time of doing this
-=======
 		H.equip_to_slot_or_del(new /obj/item/radio/headset(H), slot_l_ear)
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+		/* Bastion of Endeavor Translation: Oddly, I am removing a bit of clarity here, since say code isn't localized at the time of doing this
 		to_chat(H, "<span class='filter_notice'><b>To speak on your department's radio channel use :h. For the use of other channels, examine your headset.</b></span>")
 		*/
 		to_chat(H, "<span class='filter_notice'><b>Осмотрите свою гарнитуру, чтобы увидеть список доступных вам каналов рации.</b></span>")

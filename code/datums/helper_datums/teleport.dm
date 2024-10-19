@@ -195,12 +195,8 @@ var/bluespace_item_types = newlist(/obj/item/storage/backpack/holding,
 	return 1
 
 /datum/teleport/instant/science/teleportChecks()
-<<<<<<< HEAD
-	if(istype(teleatom, /obj/item/weapon/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
-		/* Bastion of Endeavor Translation
-=======
 	if(istype(teleatom, /obj/item/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+		/* Bastion of Endeavor Translation
 		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 		*/
 		teleatom.visible_message("<span class='danger'>[interact_ru(teleatom, "отскочил")] от портала!</span>")

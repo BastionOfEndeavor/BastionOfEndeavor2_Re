@@ -180,12 +180,8 @@
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/living/user as mob)
 	switch(stage)
 		if(0)
-<<<<<<< HEAD
-			if(istype(W,/obj/item/weapon/surgical/scalpel))
-				/* Bastion of Endeavor Translation
-=======
 			if(istype(W,/obj/item/surgical/scalpel))
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+				/* Bastion of Endeavor Translation
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				*/
 				user.visible_message("<span class='danger'><b>[cap_ru(user)]</b> [verb_ru(user, "сделал")] разрез на [acase_ru(src)] с помощью [gcase_ru(W)]!</span>")
@@ -193,12 +189,8 @@
 				stage++
 				return
 		if(1)
-<<<<<<< HEAD
-			if(istype(W,/obj/item/weapon/surgical/retractor))
-				/* Bastion of Endeavor Translation: WHat the hell even is this interaction
-=======
 			if(istype(W,/obj/item/surgical/retractor))
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+				/* Bastion of Endeavor Translation: WHat the hell even is this interaction
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				*/
 				user.visible_message("<span class='danger'><b>[cap_ru(user)]</b> [verb_ru(user, "вскрыл")] [acase_ru(src)] как яйцо с помощью [gcase_ru(W)]!</span>")

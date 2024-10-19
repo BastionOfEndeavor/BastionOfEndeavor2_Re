@@ -145,12 +145,8 @@
 
 // I'm on a
 /datum/riding/boat
-<<<<<<< HEAD
-	keytype = /obj/item/weapon/oar
-	/* Bastion of Endeavor Translation
-=======
 	keytype = /obj/item/oar
->>>>>>> 5ea698a0ef ([MIRROR] Removes /obj/item/weapon and /obj/item/device [MDB IGNORE] (#9084))
+	/* Bastion of Endeavor Translation
 	key_name = "an oar"
 	*/
 	key_name = "весло"
