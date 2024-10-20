@@ -59,73 +59,52 @@
 			drop_from_inventory(glasses)
 			aug.integrated_object.forceMove(aug)
 			if(!glasses)
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_chat(src, "<span class='alien'>Your [aug.integrated_object] retract into your skull.</span>")
+				to_chat(src, span_alien("Your [aug.integrated_object] retract into your skull."))
 				*/
-				to_chat(src, "<span class='alien'>[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "втягива;ется;ется;ется;ются;")] в ваш череп.</span>")
+				to_chat(src, span_alien("[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "втягива;ется;ется;ется;ются;")] в ваш череп."))
 				// End of Bastion of Endeavor Translation
 		else if(!istype(glasses, /obj/item/clothing/glasses/hud/security/jensenshades))
 			/* Bastion of Endeavor Translation
-			to_chat(src, "<span class='notice'>\The [glasses] block your shades from deploying.</span>")
+			to_chat(src, span_notice("\The [glasses] block your shades from deploying."))
 			*/
-			to_chat(src, "<span class='notice'>[concat_ru("Ваш;;а;е;и;", glasses)] не [verb_ru(aug.integrated_object, "позволя;ет;ет;ет;ют;")] теплолинзам вытянуться.</span>")
+			to_chat(src, span_notice("[concat_ru("Ваш;;а;е;и;", glasses)] не [verb_ru(aug.integrated_object, "позволя;ет;ет;ет;ют;")] теплолинзам вытянуться."))
 			// End of Bastion of Endeavor Translation
 		else if(istype(glasses, /obj/item/clothing/glasses/hud/security/jensenshades))
 			var/obj/item/G = glasses
 			if(G.canremove)
 				/* Bastion of Endeavor Translation
-				to_chat(src, "<span class='notice'>\The [G] are not your integrated shades.</span>")
+				to_chat(src, span_notice("\The [G] are not your integrated shades."))
 				*/
-				to_chat(src, "<span class='notice'>[cap_ru(G)] [verb_ru(G, "не вживл;ён;ена;ено;ены;")] в вас.</span>")
+				to_chat(src, span_notice("[cap_ru(G)] [verb_ru(G, "не вживл;ён;ена;ено;ены;")] в вас."))
 				// End of Bastion of Endeavor Translation
 			else
 				drop_from_inventory(G)
 				/* Bastion of Endeavor Translation
-				to_chat(src, "<span class='notice'>\The [G] retract into your skull.</span>")
-				*/
-				to_chat(src, "<span class='alien'>[concat_ru("Ваш;;а;е;и;", G)] [verb_ru(G, "втягива;ется;ется;ется;ются;")] в ваш череп.</span>")
-				// End of Bastion of Endeavor Translation
-=======
-				to_chat(src, span_alien("Your [aug.integrated_object] retract into your skull."))
-		else if(!istype(glasses, /obj/item/clothing/glasses/hud/security/jensenshades))
-			to_chat(src, span_notice("\The [glasses] block your shades from deploying."))
-		else if(istype(glasses, /obj/item/clothing/glasses/hud/security/jensenshades))
-			var/obj/item/G = glasses
-			if(G.canremove)
-				to_chat(src, span_notice("\The [G] are not your integrated shades."))
-			else
-				drop_from_inventory(G)
 				to_chat(src, span_notice("\The [G] retract into your skull."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_chat(src, span_alien("[concat_ru("Ваш;;а;е;и;", G)] [verb_ru(G, "втягива;ется;ется;ется;ются;")] в ваш череп."))
+				// End of Bastion of Endeavor Translation
 				qdel(G)
 
 	else
 		if(aug && aug.integrated_object)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(src, "<span class='alien'>Your [aug.integrated_object] deploy.</span>")
-			*/
-			to_chat(src, "<span class='alien'>[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "опуска;ется;ется;ется;ются;")] из вашего черепа.</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_chat(src, span_alien("Your [aug.integrated_object] deploy."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(src, span_alien("[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "опуска;ется;ется;ется;ются;")] из вашего черепа."))
+			// End of Bastion of Endeavor Translation
 			equip_to_slot(aug.integrated_object, slot_glasses, 0, 1)
 			if(!glasses || glasses != aug.integrated_object)
 				aug.integrated_object.forceMove(aug)
 		else
 			var/obj/item/clothing/glasses/hud/security/jensenshades/J = new(get_turf(src))
 			equip_to_slot(J, slot_glasses, 1, 1)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(src, "<span class='notice'>Your [aug.integrated_object] deploy.</span>")
-			*/
-			to_chat(src, "<span class='alien'>[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "выдвига;ется;ется;ется;ются;")] из вашего черепа.</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_chat(src, span_notice("Your [aug.integrated_object] deploy."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(src, span_alien("[concat_ru("Ваш;;а;е;и;", aug.integrated_object)] [verb_ru(aug.integrated_object, "выдвига;ется;ется;ется;ются;")] из вашего черепа."))
+			// End of Bastion of Endeavor Translation
 
 /obj/item/organ/internal/augment/bioaugment/sprint_enhance
 	name = "locomotive optimization implant"

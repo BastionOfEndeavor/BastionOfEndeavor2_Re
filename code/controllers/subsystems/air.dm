@@ -72,7 +72,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 Всего симулируемых тюрфов: [simulated_turf_count]
 Всего зон: [zones.len]
 Всего краёв: [edges.len]
-Всего активных краёв: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "Нет"]
+Всего активных краёв: [active_edges.len ? span_danger("[active_edges.len]") : "Нет"]
 Всего несимулируемых тюрфов: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
 	// End of Bastion of Endeavor Translation

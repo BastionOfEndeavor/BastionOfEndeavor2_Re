@@ -1627,7 +1627,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				organ = O_STOMACH
 			if("Мозг")
 				if(pref.organ_data[BP_HEAD] != "cyborg")
-					to_chat(user, "<span class='warning'>Иметь неорганический мозг разрешено только в полностью простетическом теле.</span>")
+					to_chat(user, span_warning("Иметь неорганический мозг разрешено только в полностью простетическом теле."))
 					return
 				organ = "brain"
 			// End of Bastion of Endeavor Translation

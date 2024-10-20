@@ -197,15 +197,11 @@
 		// End of Bastion of Endeavor Translation
 		if (!ISINRANGE(new_size,25,200))
 			pref.size_multiplier = 1
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(user, "<span class='notice'>Invalid size.</span>")
-			*/
-			to_chat(user, "<span class='notice'>Недопустимый размер.</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_chat(user, span_notice("Invalid size."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(user, span_notice("Недопустимый размер."))
+			// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 		else if(new_size)
 			pref.size_multiplier = (new_size/100)
@@ -436,10 +432,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have cough sounds!</span>")
+			to_chat(user, span_warning("This set does not have cough sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком кашля!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком кашля!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)
@@ -460,10 +456,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have sneeze sounds!</span>")
+			to_chat(user, span_warning("This set does not have sneeze sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком чиха!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком чиха!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)
@@ -484,10 +480,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have scream sounds!</span>")
+			to_chat(user, span_warning("This set does not have scream sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком крика!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком крика!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)
@@ -508,10 +504,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have pain sounds!</span>")
+			to_chat(user, span_warning("This set does not have pain sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком крика от боли!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком крика от боли!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)
@@ -532,10 +528,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have gasp sounds!</span>")
+			to_chat(user, span_warning("This set does not have gasp sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком вздохов от удушья!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком вздохов от удушья!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)
@@ -556,10 +552,10 @@
 			S = sound(pick(oursound))
 		/* Bastion of Endeavor Translation
 		if(pref.species_sound == "None" || oursound == null)
-			to_chat(user, "<span class='warning'>This set does not have death sounds!</span>")
+			to_chat(user, span_warning("This set does not have death sounds!"))
 		*/
 		if(pref.species_sound == "Нет" || oursound == null)
-			to_chat(user, "<span class='warning'>Этот набор расовых звуков не обладает звуком предсмертного хрипа!</span>")
+			to_chat(user, span_warning("Этот набор расовых звуков не обладает звуком предсмертного хрипа!"))
 		// End of Bastion of Endeavor Translation
 			return TOPIC_REFRESH
 		S.frequency = pick(pref.voice_freq)

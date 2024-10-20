@@ -93,15 +93,11 @@
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(owner, "<span class='danger'>You go blind!</span>")
-		*/
-		to_chat(owner, "<span class='danger'>Вы ослепли!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(owner, span_danger("You go blind!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(owner, span_danger("Вы ослепли!"))
+		// End of Bastion of Endeavor Translation
 
 /obj/item/organ/internal/eyes/process() //Eye damage replaces the old eye_stat var.
 	..()

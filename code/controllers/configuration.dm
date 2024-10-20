@@ -72,15 +72,11 @@ var/list/gamemode_cache = list()
 
 	var/static/respawn = 1
 	var/static/respawn_time = 3000			// time before a dead player is allowed to respawn (in ds, though the config file asks for minutes, and it's converted below)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	var/static/respawn_message = "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>"
-	*/
-	var/static/respawn_message = "<span class='notice'><B>Не забудьте выбрать другого персонажа и соответствующе отыгрывать!</B></span>"
-	// End of Bastion of Endeavor Translation
-=======
 	var/static/respawn_message = span_notice("<B>Make sure to play a different character, and please roleplay correctly!</B>")
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	var/static/respawn_message = span_notice("<B>Не забудьте выбрать другого персонажа и соответствующе отыгрывать!</B>")
+	// End of Bastion of Endeavor Translation
 
 	var/static/guest_jobban = 1
 	var/static/usewhitelist = 0

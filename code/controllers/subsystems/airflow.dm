@@ -125,15 +125,11 @@ SUBSYSTEM_DEF(airflow)
 		return FALSE
 
 	if (ismob(src))
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(src,"<span class='danger'>You are pushed away by airflow!</span>")
-		*/
-		to_chat(src,"<span class='danger'>Вас уносит потоком воздуха!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(src,span_danger("You are pushed away by airflow!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(src,span_danger("Вас уносит потоком воздуха!"))
+		// End of Bastion of Endeavor Translation
 
 	last_airflow = world.time
 	var/airflow_falloff = 9 - sqrt((x - airflow_dest.x) ** 2 + (y - airflow_dest.y) ** 2)

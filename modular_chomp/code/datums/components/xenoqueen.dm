@@ -26,8 +26,8 @@
 
 /datum/modifier/aura/xenoqueenbuff
 	name = "Adrenal Surge"
-	on_created_text = "<span class='notice'>The influence of a nearby Xenomorph Queen strengthens your body... </span>"
-	on_expired_text = "<span class='warning'>You feel the influence of the Queen slip away, causing your body to relax.</span>"
+	on_created_text = span_notice("The influence of a nearby Xenomorph Queen strengthens your body... ")
+	on_expired_text = span_warning("You feel the influence of the Queen slip away, causing your body to relax.")
 	stacks = MODIFIER_STACK_FORBID
 	aura_max_distance = 7 // Viewrange.
 	mob_overlay_state = "purple_electricity_constant"

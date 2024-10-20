@@ -119,15 +119,11 @@ var/const/tk_maxrange = 15
 	if(focus)
 		d = max(d, get_dist(user, focus)) // whichever is further
 	if(d > tk_maxrange)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='notice'>Your mind won't reach that far.</span>")
-		*/
-		to_chat(user, "<span class='notice'>Ваш разум не дотягивается до [gcase_ru(target)].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_notice("Your mind won't reach that far."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_notice("Ваш разум не дотягивается до [gcase_ru(target)]."))
+		// End of Bastion of Endeavor Translation
 		return
 
 	if(!focus)

@@ -86,15 +86,11 @@
 		if(C.prefs?.read_preference(/datum/preference/toggle/show_debug_logs))
 			to_chat(C,
 					type = MESSAGE_TYPE_DEBUG,
-<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
-					html = "<span class='filter_debuglog'>DEBUG: [text]</span>")
-					*/
-					html = "<span class='filter_debuglog'>ОТЛАДКА: [text]</span>")
-					// End of Bastion of Endeavor Translation
-=======
 					html = span_filter_debuglogs("DEBUG: [text]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+					*/
+					html = span_filter_debuglogs("ОТЛАДКА: [text]"))
+					// End of Bastion of Endeavor Translation
 
 /proc/log_game(text)
 	if (CONFIG_GET(flag/log_game)) // CHOMPEdit

@@ -42,11 +42,11 @@
 	/* Bastion of Endeavor Translation
 	global_announcer.autosay("Engineering has selected [chosen_type.name] as todays engine.", "Engine Constructor")
 	to_world_log("Chose Engine Map: [chosen_type.name]")
-	admin_notice("<span class='danger'>Chose Engine Map: [chosen_type.name]</span>", R_DEBUG)
+	admin_notice(span_danger("Chose Engine Map: [chosen_type.name]"), R_DEBUG)
 	*/
 	global_announcer.autosay("Выбранный инженерным отделом генератор – [chosen_type.name].", "Установщик генераторов")
 	to_world_log("Выбранный генератор: [chosen_type.name]")
-	admin_notice("<span class='danger'>Выбранный генератор: [chosen_type.name]</span>", R_DEBUG)
+	admin_notice(span_danger("Выбранный генератор: [chosen_type.name]"), R_DEBUG)
 	// End of Bastion of Endeavor Translation
 
 	// Annihilate movable atoms

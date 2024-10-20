@@ -379,27 +379,19 @@ var/obj/screen/robot_inventory
 		//r.client.screen += robot_inventory	//"store" icon
 
 		if(!r.module)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(usr, "<span class='danger'>No module selected</span>")
+			to_chat(usr, span_danger("No module selected"))
 			*/
-			to_chat(usr, "<span class='danger'>Не выбран модуль.</span>")
+			to_chat(usr, span_danger("Не выбран модуль."))
 			// End of Bastion of Endeavor Translation
 			return
 
 		if(!r.module.modules)
 			/* Bastion of Endeavor Translation: sorry what 
-			to_chat(usr, "<span class='danger'>Selected module has no modules to select</span>")
-			*/
-			to_chat(usr, "<span class='danger'>В данном модуле отсутствуют модули.</span>")
-			// End of Bastion of Endeavor Translation
-=======
-			to_chat(usr, span_danger("No module selected"))
-			return
-
-		if(!r.module.modules)
 			to_chat(usr, span_danger("Selected module has no modules to select"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(usr, span_danger("В данном модуле отсутствуют модули."))
+			// End of Bastion of Endeavor Translation
 			return
 
 		if(!r.robot_modules_background)

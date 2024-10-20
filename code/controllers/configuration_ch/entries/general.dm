@@ -254,13 +254,13 @@
 
 /datum/config_entry/string/respawn_message
 	/* Bastion of Endeavor Translation
-	default = "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>"
+	default = span_notice("<B>Make sure to play a different character, and please roleplay correctly!</B>")
 	*/
-	default = "<span class='notice'><B>Не забудьте выбрать другого персонажа и соответствующе отыгрывать!</B></span>"
+	default = span_notice("<B>Не забудьте выбрать другого персонажа и соответствующе отыгрывать!</B>")
 	// End of Bastion of Endeavor Translation
 
 /datum/config_entry/string/respawn_message/ValidateAndSet(str_val)
-	return "<span class='notice'><B>[str_val]</B></span>"
+	return span_notice("<B>[str_val]</B>")
 
 /datum/config_entry/flag/guest_jobban
 	default = TRUE

@@ -403,18 +403,13 @@
 
 /obj/item/organ/external/head/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/toy/plushie) || istype(I, /obj/item/organ/external/head))
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		user.visible_message("<span class='notice'>[user] makes \the [I] kiss \the [src]!.</span>", \
-		"<span class='notice'>You make \the [I] kiss \the [src]!.</span>")
-		*/
-		user.visible_message("<span class='notice'>[interact_ru(user, "заставил", I)] поцеловать [acase_ru(src)]!.</span>", \
-		"<span class='notice'>Вы заставили [acase_ru(I)] поцеловать [acase_ru(src)]!.</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		user.visible_message(span_notice("[user] makes \the [I] kiss \the [src]!."), \
 		span_notice("You make \the [I] kiss \the [src]!."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		user.visible_message(span_notice("[interact_ru(user, "заставил", I)] поцеловать [acase_ru(src)]!."), \
+		span_notice("Вы заставили [acase_ru(I)] поцеловать [acase_ru(src)]!."))
+		// End of Bastion of Endeavor Translation
 	return ..()
 
 /obj/item/organ/external/head/get_icon(var/skeletal, var/can_apply_transparency = TRUE)

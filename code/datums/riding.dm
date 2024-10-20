@@ -97,15 +97,11 @@
 	if(only_one_driver && ridden.buckled_mobs.len)
 		var/mob/living/driver = ridden.buckled_mobs[1]
 		if(driver != user)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(user, "<span class='warning'>\The [ridden] can only be controlled by one person at a time, and is currently being controlled by \the [driver].</span>")
-			*/
-			to_chat(user, "<span class='warning'>[interact_ru(driver, "уже управля;ет;ет;ет;ют", ridden, TRUE)].</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_chat(user, span_warning("\The [ridden] can only be controlled by one person at a time, and is currently being controlled by \the [driver]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(user, span_warning("[interact_ru(driver, "уже управля;ет;ет;ет;ют", ridden, TRUE)]."))
+			// End of Bastion of Endeavor Translation
 			return
 
 	if(world.time < next_vehicle_move)
@@ -121,15 +117,11 @@
 		handle_vehicle_layer()
 		handle_vehicle_offsets()
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation: Not future-proof but what are the odds?
-		to_chat(user, "<span class='warning'>You'll need [key_name] in one of your hands to move \the [ridden].</span>")
-		*/
-		to_chat(user, "<span class='warning'>Чтобы управлять [icase_ru(ridden)], вам необходимо держать [key_name] в одной из рук.</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("You'll need [key_name] in one of your hands to move \the [ridden]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("Чтобы управлять [icase_ru(ridden)], вам необходимо держать [key_name] в одной из рук."))
+		// End of Bastion of Endeavor Translation
 
 /datum/riding/proc/Unbuckle(atom/movable/M)
 //	addtimer(CALLBACK(ridden, TYPE_PROC_REF(/atom/movable, unbuckle_mob), M), 0, TIMER_UNIQUE)
@@ -167,28 +159,20 @@
 	var/turf/current = get_turf(ridden)
 
 	if(istype(current, /turf/simulated/floor/water/underwater)) //don't work at the bottom of the ocean!
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>The boat has sunk!</span>")
-		*/
-		to_chat(user, "<span class='warning'>Лодка утонула!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("The boat has sunk!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("Лодка утонула!"))
+		// End of Bastion of Endeavor Translation
 		return FALSE
 	else if(istype(next, /turf/simulated/floor/water) || istype(current, /turf/simulated/floor/water)) //We can move from land to water, or water to land, but not from land to land
 		..()
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>Boats don't go on land!</span>")
-		*/
-		to_chat(user, "<span class='warning'>Лодки не плывут по земле!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("Boats don't go on land!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("Лодки не плывут по земле!"))
+		// End of Bastion of Endeavor Translation
 		return FALSE
 
 /datum/riding/boat/small // 'Small' boats can hold up to two people.

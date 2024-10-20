@@ -327,15 +327,11 @@ var/list/preferences_datums = list()
 	if(!user || !user.client)	return
 
 	if(!get_mob_by_key(client_ckey))
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='danger'>No mob exists for the given client!</span>")
-		*/
-		to_chat(user, "<span class='danger'>За данным клиентом не закреплено существо!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_danger("No mob exists for the given client!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_danger("За данным клиентом не закреплено существо!"))
+		// End of Bastion of Endeavor Translation
 		return
 
 	if(!char_render_holders)
@@ -446,15 +442,11 @@ var/list/preferences_datums = list()
 		if(CONFIG_GET(string/forumurl)) // CHOMPEdit
 			user << link(CONFIG_GET(string/forumurl)) // CHOMPEdit
 		else
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
-			*/
-			to_chat(user, "<span class='danger'>URL форума не задан в настройках сервера.</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_chat(user, span_danger("The forum URL is not set in the server configuration."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(user, span_danger("URL форума не задан в настройках сервера."))
+			// End of Bastion of Endeavor Translation
 			return
 	ShowChoices(user) //ChompEDIT - usr removal
 	return 1
@@ -541,15 +533,11 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/open_load_dialog(mob/user)
 	if(selecting_slots)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>You already have a slot selection dialog open!</span>")
-		*/
-		to_chat(user, "<span class='warning'>У вас уже открыто окно выбора слота!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("You already have a slot selection dialog open!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("У вас уже открыто окно выбора слота!"))
+		// End of Bastion of Endeavor Translation
 		return
 	if(!savefile)
 		return
@@ -603,15 +591,11 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/open_copy_dialog(mob/user)
 	if(selecting_slots)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>You already have a slot selection dialog open!</span>")
-		*/
-		to_chat(user, "<span class='warning'>У вас уже открыто окно выбора слота!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("You already have a slot selection dialog open!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("У вас уже открыто окно выбора слота!"))
+		// End of Bastion of Endeavor Translation
 		return
 	if(!savefile)
 		return
