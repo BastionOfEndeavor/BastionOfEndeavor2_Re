@@ -275,14 +275,10 @@ var/global/datum/controller/subsystem/ticker/ticker
 		//call a transfer shuttle vote
 		/* Bastion of Endeavor Translation
 		to_world("<span class='danger'>The round has ended!</span>")
-<<<<<<< HEAD
 		*/
 		to_world("<span class='danger'>Раунд завершён!</span>")
 		// End of Bastion of Endeavor Translation
-		SSvote.autotransfer()
-=======
 		new /datum/vote/crew_transfer
->>>>>>> 0f5272e622 ([MIRROR] TGUI Vote Panel (#9131))
 
 // Called during GAME_STATE_FINISHED (RUNLEVEL_POSTGAME)
 /datum/controller/subsystem/ticker/proc/post_game_tick()

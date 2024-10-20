@@ -1,5 +1,9 @@
 SUBSYSTEM_DEF(vote)
+	/* Bastion of Endeavor Translation
 	name = "Vote"
+	*/
+	name = "Голосования"
+	// End of Bastion of Endeavor Translation
 	wait = 10
 	priority = FIRE_PRIORITY_VOTE
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
