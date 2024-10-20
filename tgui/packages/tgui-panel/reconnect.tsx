@@ -36,23 +36,17 @@ export const ReconnectButton = (props) => {
       <Button
         color="white"
         icon="power-off"
+        /* Bastion of Endeavor Translation
         tooltip="Relaunch game"
+        */
+        tooltip="Перезапустить игру"
+        // End of Bastion of Endeavor Translation
         tooltipPosition="bottom-end"
         onClick={() => {
           location.href = `byond://${url}`;
           Byond.command('.quit');
         }}
-<<<<<<< HEAD
-      >
-        {/* Bastion of Endeavor Translation
-        Relaunch game
-        */}
-        Перезапустить игру
-        {/* End of Bastion of Endeavor Translation */}
-      </Button>
-=======
       />
->>>>>>> 6edfa1fda9 ([MIRROR] Move tgui panel notifications to top (tgstation/tgstation#85084) (#9138))
       <Button
         color="white"
         onClick={() => {
