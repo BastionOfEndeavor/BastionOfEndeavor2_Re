@@ -26,15 +26,11 @@
 	// This is very ghetto way of rebooting an IPC. TODO better way.
 	if(owner && owner.stat == DEAD)
 		owner.set_stat(CONSCIOUS)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		owner.visible_message("<span class='danger'>\The [owner] twitches visibly!</span>")
-		*/
-		owner.visible_message("<span class='danger'>[interact_ru(owner, "резко вздрогнул")]!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		owner.visible_message(span_danger("\The [owner] twitches visibly!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		owner.visible_message(span_danger("[interact_ru(owner, "резко вздрогнул")]!"))
+		// End of Bastion of Endeavor Translation
 
 /obj/item/organ/internal/cell/emp_act(severity)
 	..()
@@ -108,15 +104,11 @@
 		owner.set_stat(CONSCIOUS)
 		dead_mob_list -= owner
 		living_mob_list |= owner
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		owner.visible_message("<span class='danger'>\The [owner] twitches visibly!</span>")
-		*/
-		owner.visible_message("<span class='danger'>[interact_ru(owner, "резко вздрогнул")]!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		owner.visible_message(span_danger("\The [owner] twitches visibly!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		owner.visible_message(span_danger("[interact_ru(owner, "резко вздрогнул")]!"))
+		// End of Bastion of Endeavor Translation
 
 /obj/item/organ/internal/mmi_holder/removed(var/mob/living/user)
 

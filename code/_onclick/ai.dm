@@ -177,15 +177,11 @@
 		// End of Bastion of Endeavor Translation
 		return
 	lights = !lights
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	to_chat(user, "<span class='notice'>Lights are now [lights ? "on." : "off."]</span>")
-	*/
-	to_chat(user, "<span class='notice'>Свет теперь [lights ? "включён" : "выключен"].</span>")
-	// End of Bastion of Endeavor Translation
-=======
 	to_chat(user, span_notice("Lights are now [lights ? "on." : "off."]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	to_chat(user, span_notice("Свет теперь [lights ? "включён" : "выключен"]."))
+	// End of Bastion of Endeavor Translation
 	update_icon()
 	return TRUE
 

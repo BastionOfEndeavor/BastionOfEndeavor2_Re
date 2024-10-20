@@ -12,23 +12,17 @@
 	if(!client) return
 	client.inquisitive_ghost = !client.inquisitive_ghost
 	if(client.inquisitive_ghost)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(src, "<span class='notice'>You will now examine everything you click on.</span>")
-		*/
-		to_chat(src, "<span class='notice'>Вы теперь будете осматривать всё, на что нажимаете.</span>")
-		// End of Bastion of Endeavor Translation
-	else
-		/* Bastion of Endeavor Translation
-		to_chat(src, "<span class='notice'>You will no longer examine things you click on.</span>")
-		*/
-		to_chat(src, "<span class='notice'>Вы больше не будете осматривать всё, на что нажимаете.</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(src, span_notice("You will now examine everything you click on."))
+		*/
+		to_chat(src, span_notice("Вы теперь будете осматривать всё, на что нажимаете."))
+		// End of Bastion of Endeavor Translation
 	else
+		/* Bastion of Endeavor Translation
 		to_chat(src, span_notice("You will no longer examine things you click on."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(src, span_notice("Вы больше не будете осматривать всё, на что нажимаете."))
+		// End of Bastion of Endeavor Translation
 
 /mob/observer/dead/DblClickOn(var/atom/A, var/params)
 	if(client.buildmode)

@@ -37,18 +37,14 @@
 				organ_tag = O_AUG_L_FOREARM
 				parent_organ = BP_L_ARM
 				target_slot = slot_l_hand
-<<<<<<< HEAD
 				// Bastion of Endeavor Addition
 				parent_organ_ru = "левую руку"
 				// End of Bastion of Endeavor Addition
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='notice'>You swap \the [src]'s servos to install neatly into \the lower [parent_organ] mount.</span>")
-		*/
-		to_chat(user, "<span class='notice'>Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_notice("You swap \the [src]'s servos to install neatly into \the lower [parent_organ] mount."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_notice("Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru]."))
+		// End of Bastion of Endeavor Translation
 		return
 
 	. = ..()
@@ -102,15 +98,11 @@
 				parent_organ_ru = "левую ладонь"
 				// End of Bastion of Endeavor Addition
 				target_slot = slot_l_hand
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='notice'>You swap \the [src]'s servos to install neatly into \the upper [parent_organ] mount.</span>")
-		*/
-		to_chat(user, "<span class='notice'>Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_notice("You swap \the [src]'s servos to install neatly into \the upper [parent_organ] mount."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_notice("Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru]."))
+		// End of Bastion of Endeavor Translation
 		return
 
 	. = ..()
@@ -160,18 +152,14 @@
 				organ_tag = O_AUG_L_UPPERARM
 				parent_organ = BP_L_ARM
 				target_slot = slot_l_hand
-<<<<<<< HEAD
 				// Bastion of Endeavor Addition
 				parent_organ_ru = "левую руку"
 				// End of Bastion of Endeavor Addition
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='notice'>You swap \the [src]'s servos to install neatly into \the upper [parent_organ] mount.</span>")
-		*/
-		to_chat(user, "<span class='notice'>Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_notice("You swap \the [src]'s servos to install neatly into \the upper [parent_organ] mount."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_notice("Вы переключили cервоприводы [gcase_ru(src)] в режим установки в [parent_organ_ru]."))
+		// End of Bastion of Endeavor Translation
 		return
 
 	. = ..()

@@ -123,39 +123,28 @@ var/list/gear_datums = list()
 	var/total_cost = 0
 	for(var/gear_name in pref.gear)
 		if(!gear_datums[gear_name])
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation: Hacky and afwul
-			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
+			to_chat(preference_mob, span_warning("You cannot have more than one of the \the [gear_name]"))
 			*/
-			to_chat(preference_mob, "<span class='warning'>Вы не можете иметь больше одного экземпляра данного предмета ([gear_name]).</span>")
+			to_chat(preference_mob, span_warning("Вы не можете иметь больше одного экземпляра данного предмета ([gear_name])."))
 			// End of Bastion of Endeavor Translation
 			pref.gear -= gear_name
 		else if(!(gear_name in valid_gear_choices()))
 			/* Bastion of Endeavor Translation
-			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species or item.</span>")		//Vorestation Edit
-			*/
-			to_chat(preference_mob, "<span class='warning'>Вы не можете выбрать данный предмет ([gear_name]), поскольку не обладаете вайтлистом на него или расу, для которой он предназначен.</span>")		//Vorestation Edit
-			// End of Bastion of Endeavor Translation
-=======
-			to_chat(preference_mob, span_warning("You cannot have more than one of the \the [gear_name]"))
-			pref.gear -= gear_name
-		else if(!(gear_name in valid_gear_choices()))
 			to_chat(preference_mob, span_warning("You cannot take \the [gear_name] as you are not whitelisted for the species or item."))		//Vorestation Edit
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_chat(preference_mob, span_warning("Вы не можете выбрать данный предмет ([gear_name]), поскольку не обладаете вайтлистом на него или расу, для которой он предназначен."))		//Vorestation Edit
+			// End of Bastion of Endeavor Translation
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
 			if(total_cost + G.cost > MAX_GEAR_COST)
 				pref.gear -= gear_name
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_chat(preference_mob, "<span class='warning'>You cannot afford to take \the [gear_name]</span>")
-				*/
-				to_chat(preference_mob, "<span class='warning'>У вас не хватает очков, чтобы выбрать данный предмет ([gear_name]).</span>")
-				// End of Bastion of Endeavor Translation
-=======
 				to_chat(preference_mob, span_warning("You cannot afford to take \the [gear_name]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_chat(preference_mob, span_warning("У вас не хватает очков, чтобы выбрать данный предмет ([gear_name])."))
+				// End of Bastion of Endeavor Translation
 			else
 				total_cost += G.cost
 

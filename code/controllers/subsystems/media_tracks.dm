@@ -158,27 +158,19 @@ SUBSYSTEM_DEF(media_tracks)
 	if(islist(json))
 		for(var/song in json)
 			if(!islist(song))
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_chat(C, "<span class='warning'>Song appears to be malformed.</span>")
-				*/
-				to_chat(C, "<span class='warning'>Песня не соответствует формату.</span>")
-				// End of Bastion of Endeavor Translation
-				continue
-			var/list/songdata = song
-			if(!songdata["url"] || !songdata["title"] || !songdata["duration"])
-				/* Bastion of Endeavor Translation
-				to_chat(C, "<span class='warning'>URL, Title, or Duration was missing from a song. Skipping.</span>")
-				*/
-				to_chat(C, "<span class='warning'>В треке не указаны URL, название или длительность. Пропускаем.</span>")
-				// End of Bastion of Endeavor Translation
-=======
 				to_chat(C, span_warning("Song appears to be malformed."))
+				*/
+				to_chat(C, span_warning("Песня не соответствует формату."))
+				// End of Bastion of Endeavor Translation
 				continue
 			var/list/songdata = song
 			if(!songdata["url"] || !songdata["title"] || !songdata["duration"])
+				/* Bastion of Endeavor Translation
 				to_chat(C, span_warning("URL, Title, or Duration was missing from a song. Skipping."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_chat(C, span_warning("В треке не указаны URL, название или длительность. Пропускаем."))
+				// End of Bastion of Endeavor Translation
 				continue
 			var/datum/track/T = new(songdata["url"], songdata["title"], songdata["duration"], songdata["artist"], songdata["genre"], songdata["secret"], songdata["lobby"], songdata["casino"]) //ChompEDIT, included 'casino'
 			all_tracks += T
@@ -323,15 +315,11 @@ SUBSYSTEM_DEF(media_tracks)
 			sort_tracks()
 			return
 
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	to_chat(C, "<span class='warning'>Couldn't find a track matching the specified parameters.</span>")
-	*/
-	to_chat(C, "<span class='warning'>Не удалось найти соответствующий заданным параметрам трек.</span>")
-	// End of Bastion of Endeavor Translation
-=======
 	to_chat(C, span_warning("Couldn't find a track matching the specified parameters."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	to_chat(C, span_warning("Не удалось найти соответствующий заданным параметрам трек."))
+	// End of Bastion of Endeavor Translation
 
 /datum/controller/subsystem/media_tracks/proc/add_track(var/mob/user, var/new_url, var/new_title, var/new_duration, var/new_artist, var/new_genre, var/new_secret, var/new_lobby)
 	if(!check_rights(R_DEBUG|R_FUN))

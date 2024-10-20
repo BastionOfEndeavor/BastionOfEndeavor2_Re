@@ -326,15 +326,11 @@
 				if(iscarbon(usr))
 					var/mob/living/carbon/C = usr
 					if(C.legcuffed)
-<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
-						to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
-						*/
-						to_chat(C, "<span class='notice'>Ваши ноги связаны! Вы не сможете бегать, пока не снимете [acase_ru(C.legcuffed)]!</span>")
-						// End of Bastion of Endeavor Translation
-=======
 						to_chat(C, span_notice("You are legcuffed! You cannot run until you get [C.legcuffed] removed!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+						*/
+						to_chat(C, span_notice("Ваши ноги связаны! Вы не сможете бегать, пока не снимете [acase_ru(C.legcuffed)]!"))
+						// End of Bastion of Endeavor Translation
 						C.m_intent = "walk"	//Just incase
 						C.hud_used.move_intent.icon_state = "walking"
 						return 1
@@ -378,15 +374,11 @@
 				if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
 					if(C.internal)
 						C.internal = null
-<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
-						to_chat(C, "<span class='notice'>No longer running on internals.</span>")
-						*/
-						to_chat(C, "<span class='notice'>Вы больше не дышите через систему подачи воздуха.</span>")
-						// End of Bastion of Endeavor Translation
-=======
 						to_chat(C, span_notice("No longer running on internals."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+						*/
+						to_chat(C, span_notice("Вы больше не дышите через систему подачи воздуха."))
+						// End of Bastion of Endeavor Translation
 						if(C.internals)
 							C.internals.icon_state = "internal0"
 					else
@@ -398,15 +390,11 @@
 								no_mask = 1
 
 						if(no_mask)
-<<<<<<< HEAD
 							/* Bastion of Endeavor Translation
-							to_chat(C, "<span class='notice'>You are not wearing a suitable mask or helmet.</span>")
-							*/
-							to_chat(C, "<span class='notice'>Вы не носите подходящий шлем или маску.</span>")
-							// End of Bastion of Endeavor Translation
-=======
 							to_chat(C, span_notice("You are not wearing a suitable mask or helmet."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+							*/
+							to_chat(C, span_notice("Вы не носите подходящий шлем или маску."))
+							// End of Bastion of Endeavor Translation
 							return 1
 						else
 							var/list/nicename = null
@@ -507,15 +495,11 @@
 							//We've determined the best container now we set it as our internals
 
 							if(best)
-<<<<<<< HEAD
 								/* Bastion of Endeavor Translation: This doesn't work as well in russian so I'm flipping this entirely.
-								to_chat(C, "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>")
-								*/
-								to_chat(C, "<span class='notice'>Вы теперь дышите через [acase_ru(tankcheck[best])] [nicename[best]].</span>")
-								// End of Bastion of Endeavor Translation
-=======
 								to_chat(C, span_notice("You are now running on internals from [tankcheck[best]] [from] your [nicename[best]]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+								*/
+								to_chat(C, span_notice("Вы теперь дышите через [acase_ru(tankcheck[best])] [nicename[best]]."))
+								// End of Bastion of Endeavor Translation
 								C.internal = tankcheck[best]
 
 
@@ -523,16 +507,12 @@
 								if(C.internals)
 									C.internals.icon_state = "internal1"
 							else
-<<<<<<< HEAD
 								/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: As of right now, atmos is not localized, so a bandaid correction is added. Does this need fixing later on? I don't know.
-								to_chat(C, "<span class='notice'>You don't have a[breathes=="oxygen" ? "n oxygen" : addtext(" ",breathes)] tank.</span>")
+								to_chat(C, span_notice("You don't have a[breathes=="oxygen" ? "n oxygen" : addtext(" ",breathes)] tank."))
 								*/
-								to_chat(C, "<span class='notice'>На вас нет [(breathes=="oxygen") ? "кислородного" : (breathes=="phoron") ? "форонового" : "азотного"] баллона.</span>")
+								to_chat(C, span_notice("На вас нет [(breathes=="oxygen") ? "кислородного" : (breathes=="phoron") ? "форонового" : "азотного"] баллона."))
 								// End of Bastion of Endeavor Translation
 		/* Bastion of Endeavor Translation
-=======
-								to_chat(C, span_notice("You don't have a[breathes=="oxygen" ? "n oxygen" : addtext(" ",breathes)] tank."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		if("act_intent")
 		*/
 		if("Намерение")
@@ -657,15 +637,11 @@
 				if(i)
 					s.can_use(u,i)
 				else
-<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
-					to_chat(usr, "<span class='notice'>You're not holding anything to use. You need to have something in your active hand to use it.</span>")
-					*/
-					to_chat(usr, "<span class='notice'>Вы ничего не держите в своей руке. Чтобы использовать предмет, необходимо взять его в активную руку.</span>")
-					// End of Bastion of Endeavor Translation
-=======
 					to_chat(usr, span_notice("You're not holding anything to use. You need to have something in your active hand to use it."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+					*/
+					to_chat(usr, span_notice("Вы ничего не держите в своей руке. Чтобы использовать предмет, необходимо взять его в активную руку."))
+					// End of Bastion of Endeavor Translation
 
 		/* Bastion of Endeavor Translation
 		if("module")

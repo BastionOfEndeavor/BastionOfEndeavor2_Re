@@ -222,25 +222,18 @@ Proc for attack log creation, because really why not
 	if(!time)
 		return TRUE //Done!
 	if(user.status_flags & DOING_TASK)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>You're in the middle of doing something else already.</span>")
-		*/ 
-		to_chat(user, "<span class='warning'>Вы уже в процессе выполнения другого действия.</span>")
-		// End of Bastion of Endeavor Translation
-		return FALSE //Performing an exclusive do_after or do_mob already
-	if(target?.flags & IS_BUSY)
-		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>Someone is already doing something with \the [target].</span>")
-		*/
-		to_chat(user, "<span class='warning'>Кто-то уже выполняет действие [prep_adv_ru("с", target, ICASE)].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("You're in the middle of doing something else already."))
+		*/ 
+		to_chat(user, span_warning("Вы уже в процессе выполнения другого действия."))
+		// End of Bastion of Endeavor Translation
 		return FALSE //Performing an exclusive do_after or do_mob already
 	if(target?.flags & IS_BUSY)
+		/* Bastion of Endeavor Translation
 		to_chat(user, span_warning("Someone is already doing something with \the [target]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("Кто-то уже выполняет действие [prep_adv_ru("с", target, ICASE)]."))
+		// End of Bastion of Endeavor Translation
 		return FALSE
 	var/user_loc = user.loc
 	var/target_loc = target.loc
@@ -303,25 +296,18 @@ Proc for attack log creation, because really why not
 	if(!delay)
 		return TRUE //Okay. Done.
 	if(user.status_flags & DOING_TASK)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>You're in the middle of doing something else already.</span>")
-		*/
-		to_chat(user, "<span class='warning'>Вы уже в процессе выполнения другого действия.</span>")
-		// End of Bastion of Endeavor Translation
-		return FALSE //Performing an exclusive do_after or do_mob already
-	if(target?.flags & IS_BUSY)
-		/* Bastion of Endeavor Translation
-		to_chat(user, "<span class='warning'>Someone is already doing something with \the [target].</span>")
-		*/
-		to_chat(user, "<span class='warning'>Кто-то уже выполняет действие [prep_adv_ru("с", target, ICASE)].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(user, span_warning("You're in the middle of doing something else already."))
+		*/
+		to_chat(user, span_warning("Вы уже в процессе выполнения другого действия."))
+		// End of Bastion of Endeavor Translation
 		return FALSE //Performing an exclusive do_after or do_mob already
 	if(target?.flags & IS_BUSY)
+		/* Bastion of Endeavor Translation
 		to_chat(user, span_warning("Someone is already doing something with \the [target]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(user, span_warning("Кто-то уже выполняет действие [prep_adv_ru("с", target, ICASE)]."))
+		// End of Bastion of Endeavor Translation
 		return FALSE
 
 	var/atom/target_loc = null
@@ -428,14 +414,10 @@ Proc for attack log creation, because really why not
 /proc/not_has_ooc_text(mob/user)
 	/* Bastion of Endeavor Translation
 	if (CONFIG_GET(flag/allow_metadata) && (!user.client?.prefs?.metadata || length(user.client.prefs.metadata) < 15)) // CHOMPEdit
-<<<<<<< HEAD
-		to_chat(user, "<span class='warning'>Please set informative OOC notes related to RP/ERP preferences. Set them using the 'OOC Notes' button on the 'General' tab in character setup.</span>")
+		to_chat(user, span_warning("Please set informative OOC notes related to RP/ERP preferences. Set them using the 'OOC Notes' button on the 'General' tab in character setup."))
 	*/
 	if (CONFIG_GET(flag/allow_metadata) && (!user.client?.prefs?.metadata || length_char(user.client.prefs.metadata) < 15)) // CHOMPEdit
-		to_chat(user, "<span class='warning'>Пожалуйста, добавьте для своего персонажа информативные Примечания OOC, относящиеся к пожеланиям в ролевом отыгрыше. Это можно сделать на вкладке Общее в Редакторе персонажа.</span>")
+		to_chat(user, span_warning("Пожалуйста, добавьте для своего персонажа информативные Примечания OOC, относящиеся к пожеланиям в ролевом отыгрыше. Это можно сделать на вкладке Общее в Редакторе персонажа."))
 	// End of Bastion of Endeavor Translation
-=======
-		to_chat(user, span_warning("Please set informative OOC notes related to RP/ERP preferences. Set them using the 'OOC Notes' button on the 'General' tab in character setup."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		return TRUE
 	return FALSE

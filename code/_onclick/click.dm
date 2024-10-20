@@ -336,15 +336,11 @@
 		nutrition = max(nutrition - rand(1,5),0)
 		handle_regular_hud_updates()
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
-		*/
-		to_chat(src, "<span class='warning'>У вас закончилась энергия! Вам необходима еда!</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(src, span_warning("You're out of energy!  You need food!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(src, span_warning("У вас закончилась энергия! Вам необходима еда!"))
+		// End of Bastion of Endeavor Translation
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A)

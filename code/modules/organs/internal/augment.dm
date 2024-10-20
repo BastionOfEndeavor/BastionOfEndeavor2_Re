@@ -65,15 +65,11 @@
 			return
 
 	if(robotic && owner.get_restraining_bolt())
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(owner, "<span class='warning'>\The [src] doesn't respond.</span>")
-		*/
-		to_chat(owner, "<span class='warning'>[cap_ru(src)] не [verb_ru(src, "отвеча;ет;ет;ет;ют;")].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(owner, span_warning("\The [src] doesn't respond."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(owner, span_warning("[cap_ru(src)] не [verb_ru(src, "отвеча;ет;ет;ет;ют;")]."))
+		// End of Bastion of Endeavor Translation
 		return
 
 	var/item_to_equip = integrated_object
@@ -167,27 +163,19 @@
 	if(buckled)
 		var/obj/Ob = buckled
 		if(Ob.buckle_lying)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_chat(M, "<span class='notice'>You cannot use your augments when restrained.</span>")
+			to_chat(M, span_notice("You cannot use your augments when restrained."))
 			*/
-			to_chat(M, "<span class='notice'>Вы не можете использовать аугментации в текущем положении.</span>")
+			to_chat(M, span_notice("Вы не можете использовать аугментации в текущем положении."))
 			// End of Bastion of Endeavor Translation
 			return 0
 
 	if((slot == slot_l_hand && l_hand) || (slot == slot_r_hand && r_hand))
 		/* Bastion of Endeavor Translation
-		to_chat(M,"<span class='warning'>Your hand is full.  Drop something first.</span>")
-		*/
-		to_chat(M,"<span class='warning'>Сперва освободите руку, чтобы использовать аугментацию.</span>")
-		// End of Bastion of Endeavor Translation
-=======
-			to_chat(M, span_notice("You cannot use your augments when restrained."))
-			return 0
-
-	if((slot == slot_l_hand && l_hand) || (slot == slot_r_hand && r_hand))
 		to_chat(M,span_warning("Your hand is full.  Drop something first."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_chat(M,span_warning("Сперва освободите руку, чтобы использовать аугментацию."))
+		// End of Bastion of Endeavor Translation
 		return 0
 
 	var/del_if_failure = destroy_on_drop

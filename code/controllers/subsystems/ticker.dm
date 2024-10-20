@@ -84,18 +84,13 @@ var/global/datum/controller/subsystem/ticker/ticker
 			post_game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_welcome()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	to_world("<span class='boldannounce notice'><em>Welcome to the pregame lobby!</em></span>")
-	to_world("<span class='boldannounce notice'>Please set up your character and select ready. The round will start in [pregame_timeleft] seconds.</span>")
-	*/
-	to_world("<span class='boldannounce notice'><em>Добро пожаловать в предыгровое лобби!</em></span>")
-	to_world("<span class='boldannounce notice'>Настройте своего персонажа и нажмите \"Готов\". Раунд начнётся через [count_ru(pregame_timeleft, "секунд;у;ы;")].</span>")
-	// End of Bastion of Endeavor Translation
-=======
 	to_world(span_boldannounce(span_notice("<em>Welcome to the pregame lobby!</em>")))
 	to_world(span_boldannounce(span_notice("Please set up your character and select ready. The round will start in [pregame_timeleft] seconds.")))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	to_world(span_boldannounce(span_notice("<em>Добро пожаловать в предыгровое лобби!</em>")))
+	to_world(span_boldannounce(span_notice("Настройте своего персонажа и нажмите \"Готов\". Раунд начнётся через [count_ru(pregame_timeleft, "секунд;у;ы;")].")))
+	// End of Bastion of Endeavor Translation
 	world << sound('sound/misc/server-ready.ogg', volume = 100)
 
 // Called during GAME_STATE_PREGAME (RUNLEVEL_LOBBY)
@@ -144,15 +139,11 @@ var/global/datum/controller/subsystem/ticker/ticker
 	var/list/runnable_modes = config.get_runnable_modes()
 	if((master_mode == "random") || (master_mode == "secret"))
 		if(!runnable_modes.len)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_world("<span class='danger'><B>Unable to choose playable game mode.</B> Reverting to pregame lobby.</span>")
-			*/
-			to_world("<span class='danger'><B>Не удалось выбрать играбельный режим игры.</B> Возвращаемся в предыгровое лобби.</span>")
-			// End of Bastion of Endeavor Translation
-=======
 			to_world(span_danger("<B>Unable to choose playable game mode.</B> Reverting to pregame lobby."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_world(span_danger("<B>Не удалось выбрать играбельный режим игры.</B> Возвращаемся в предыгровое лобби."))
+			// End of Bastion of Endeavor Translation
 			return 0
 		if(secret_force_mode != "secret")
 			src.mode = config.pick_mode(secret_force_mode)
@@ -165,15 +156,11 @@ var/global/datum/controller/subsystem/ticker/ticker
 		src.mode = config.pick_mode(master_mode)
 
 	if(!src.mode)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='danger'>Serious error in mode setup! Reverting to pregame lobby.</span>") //Uses setup instead of set up due to computational context.
-		*/
-		to_world("<span class='danger'>Серьёзная ошибка в подготовке режима игры! Возвращаемся в предыгровое лобби.</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_world(span_danger("Serious error in mode setup! Reverting to pregame lobby.")) //Uses setup instead of set up due to computational context.
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_world(span_danger("Серьёзная ошибка в подготовке режима игры! Возвращаемся в предыгровое лобби."))
+		// End of Bastion of Endeavor Translation
 		return 0
 
 	job_master.ResetOccupations()
@@ -182,45 +169,33 @@ var/global/datum/controller/subsystem/ticker/ticker
 	job_master.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	if(!src.mode.can_start())
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='danger'><B>Unable to start [mode.name].</B> Not enough players readied, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]] players needed. Reverting to pregame lobby.</span>") // CHOMPEdit
-		*/
-		to_world("<span class='danger'><B>Не удалось запустить режим [mode.name].</B> Готово недостаточно игроков из необходимых, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]]. Возвращаемся в предыгровое лобби.</span>") // CHOMPEdit
-		// End of Bastion of Endeavor Translation
-=======
 		to_world(span_danger("<B>Unable to start [mode.name].</B> Not enough players readied, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]] players needed. Reverting to pregame lobby.")) // CHOMPEdit
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_world(span_danger("<B>Не удалось запустить режим [mode.name].</B> Готово недостаточно игроков из необходимых, [CONFIG_GET(keyed_list/player_requirements)[mode.config_tag]]. Возвращаемся в предыгровое лобби.")) // CHOMPEdit
+		// End of Bastion of Endeavor Translation
 		mode.fail_setup()
 		mode = null
 		job_master.ResetOccupations()
 		return 0
 
 	if(hide_mode)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='notice'><B>The current game mode is - Secret!</B></span>")
-		*/
-		to_world("<span class='notice'><B>Текущий режим игры – секретный!</B></span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_world(span_notice("<B>The current game mode is - Secret!</B>"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_world(span_notice("<B>Текущий режим игры – секретный!</B>"))
+		// End of Bastion of Endeavor Translation
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
 				tmpmodes+=M.name
 			tmpmodes = sortList(tmpmodes)
 			if(tmpmodes.len)
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_world("<span class='info'><B>Possibilities:</B> [english_list(tmpmodes, and_text= "; ", comma_text = "; ")]</span>")
-				*/
-				to_world("<span class='info'><B>Возможны:</B> [english_list(tmpmodes, and_text= ", ", comma_text = ", ")]</span>")
-				// End of Bastion of Endeavor Translation
-=======
 				to_world(span_info("<B>Possibilities:</B> [english_list(tmpmodes, and_text= "; ", comma_text = "; ")]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_world(span_info("<B>Возможны:</B> [english_list(tmpmodes, and_text= ", ", comma_text = ", ")]"))
+				// End of Bastion of Endeavor Translation
 	else
 		src.mode.announce()
 	return 1
@@ -243,20 +218,16 @@ var/global/datum/controller/subsystem/ticker/ticker
 			/* Bastion of Endeavor Translation
 			if (S.name != "AI")
 			*/
+			// Bastion of Endeavor TODO: Shouldn't this be translated?
 			if (S.name != "Искусственный интеллект")
 			// End of Bastion of Endeavor Translation
 				qdel(S)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='boldannounce notice'><em>Enjoy the game!</em></span>")
+		to_world(span_boldannounce(span_notice("<em>Enjoy the game!</em>")))
 		*/
-		to_world("<span class='boldannounce notice'><em>Приятной игры!</em></span>")
+		to_world(span_boldannounce(span_notice("<em>Приятной игры!</em>")))
 		// End of Bastion of Endeavor Translation
 		world << sound('sound/AI/welcome.ogg') //CHOMPEdit: Reverted to default welcome from Yawn edit
-=======
-		to_world(span_boldannounce(span_notice("<em>Enjoy the game!</em>")))
-		world << sound('sound/AI/welcome.ogg') // Skie
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
 
@@ -303,17 +274,12 @@ var/global/datum/controller/subsystem/ticker/ticker
 		end_game_state = END_GAME_MODE_FINISHED // Only do this cleanup once!
 		mode.cleanup()
 		//call a transfer shuttle vote
-<<<<<<< HEAD
-		/* Bastion of Endeavor Translation
-		to_world("<span class='danger'>The round has ended!</span>")
-		*/
-		to_world("<span class='danger'>Раунд завершён!</span>")
-		// End of Bastion of Endeavor Translation
-=======
-		to_world(span_danger("The round has ended!"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 		new /datum/vote/crew_transfer
-		to_world("<span class='danger'>The round has ended!</span>")
+		/* Bastion of Endeavor Translation
+		to_world(span_danger("The round has ended!"))
+		*/
+		to_world(span_danger("Раунд завершён!"))
+		// End of Bastion of Endeavor Translation
 
 // Called during GAME_STATE_FINISHED (RUNLEVEL_POSTGAME)
 /datum/controller/subsystem/ticker/proc/post_game_tick()
@@ -329,15 +295,11 @@ var/global/datum/controller/subsystem/ticker/ticker
 				// End of Bastion of Endeavor Translation
 				restart_timeleft = 1 MINUTE // No point waiting five minutes if everyone's dead.
 				if(!delay_end)
-<<<<<<< HEAD
 					/* Bastion of Endeavor Translation
-					to_world("<span class='notice'><b>Rebooting due to destruction of [station_name()] in [round(restart_timeleft/600)] minute\s.</b></span>")
-					*/
-					to_world("<span class='notice'><b>Перезагрузка в связи с уничтожением [station_name_ru(GCASE)] через [count_ru(round(restart_timeleft/600), "минут;у;ы;")].</b></span>")
-					// End of Bastion of Endeavor Translation
-=======
 					to_world(span_notice("<b>Rebooting due to destruction of [station_name()] in [round(restart_timeleft/600)] minute\s.</b>"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+					*/
+					to_world(span_notice("<b>Перезагрузка в связи с уничтожением [station_name_ru(GCASE)] через [count_ru(round(restart_timeleft/600), "минут;у;ы;")].</b>"))
+					// End of Bastion of Endeavor Translation
 					last_restart_notify = world.time
 			else
 				/* Bastion of Endeavor Translation
@@ -355,37 +317,26 @@ var/global/datum/controller/subsystem/ticker/ticker
 		if(END_GAME_ENDING)
 			restart_timeleft -= (world.time - last_fire)
 			if(delay_end)
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_world("<span class='notice'><b>An admin has delayed the round end.</b></span>")
-				*/
-				to_world("<span class='notice'><b>Администратор отложил завершение раунда.</b></span>")
-				// End of Bastion of Endeavor Translation
-				end_game_state = END_GAME_DELAYED
-			else if(restart_timeleft <= 0)
-				/* Bastion of Endeavor Translation
-				to_world("<span class='warning'><b>Restarting world!</b></span>")
-				*/
-				to_world("<span class='warning'><b>Производится перезапуск мира!</b></span>")
-				// End of Bastion of Endeavor Translation
-				sleep(5)
-				world.Reboot()
-			else if (world.time - last_restart_notify >= 1 MINUTE)
-				/* Bastion of Endeavor Translation
-				to_world("<span class='notice'><b>Restarting in [round(restart_timeleft/600, 1)] minute\s.</b></span>")
-				*/
-				to_world("<span class='notice'><b>Перезапуск мира через [count_ru(round(restart_timeleft/600, 1), "минут;у;ы;")].</b></span>")
-				// End of Bastion of Endeavor Translation
-=======
 				to_world(span_notice("<b>An admin has delayed the round end.</b>"))
+				*/
+				to_world(span_notice("<b>Администратор отложил завершение раунда.</b>"))
+				// End of Bastion of Endeavor Translation
 				end_game_state = END_GAME_DELAYED
 			else if(restart_timeleft <= 0)
+				/* Bastion of Endeavor Translation
 				to_world(span_warning("<b>Restarting world!</b>"))
+				*/
+				to_world(span_warning("<b>Производится перезапуск мира!</b>"))
+				// End of Bastion of Endeavor Translation
 				sleep(5)
 				world.Reboot()
 			else if (world.time - last_restart_notify >= 1 MINUTE)
+				/* Bastion of Endeavor Translation
 				to_world(span_notice("<b>Restarting in [round(restart_timeleft/600, 1)] minute\s.</b>"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_world(span_notice("<b>Перезапуск мира через [count_ru(round(restart_timeleft/600, 1), "минут;у;ы;")].</b>"))
+				// End of Bastion of Endeavor Translation
 				last_restart_notify = world.time
 			return
 		if(END_GAME_DELAYED)
@@ -583,116 +534,84 @@ var/global/datum/controller/subsystem/ticker/ticker
 	if(captainless)
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				to_chat(M, "<span class='notice'>Site Management is not forced on anyone.</span>")
+				to_chat(M, span_notice("Site Management is not forced on anyone."))
 				*/
-				to_chat(M, "<span class='notice'>Менеджер объекта на данный момент отсутствует.</span>")
+				to_chat(M, span_notice("Менеджер объекта на данный момент отсутствует."))
 				// End of Bastion of Endeavor Translation
 
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: This is cheap af and will need changing after we get localized gamemodes. (one day)
-	to_world("<span class='filter_system'><br><br><br><H1>A round of [mode.name] has ended!</H1></span>")
-	*/
-	to_world("<span class='filter_system'><br><br><br><H1>[mode.name] раунд окончен!</H1></span>")
-	// End of Bastion of Endeavor Translation
-=======
-				to_chat(M, span_notice("Site Management is not forced on anyone."))
-
-
-/datum/controller/subsystem/ticker/proc/declare_completion()
 	to_world(span_filter_system("<br><br><br><H1>A round of [mode.name] has ended!</H1>"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	to_world(span_filter_system("<br><br><br><H1>[mode.name] раунд окончен!</H1>"))
+	// End of Bastion of Endeavor Translation
 	for(var/mob/Player in player_list)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				if(emergency_shuttle.departed && emergency_shuttle.evac)
 					if(isNotAdminLevel(playerTurf.z))
-<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
-						to_chat(Player, "<span class='filter_system'>[span_blue("<b>You survived the round, but remained on [station_name()] as [Player.real_name].</b>")]</span>")
-						*/
-						to_chat(Player, "<span class='filter_system'>[span_blue("<b>[Player.real_name] успешно [verb_ru(Player, "пережил")] смену, однако [verb_ru(Player, "остал;ся;ась;ось;ись;")] на территории [station_name_ru(GCASE)].</b>")]</span>")
-						// End of Bastion of Endeavor Translation
-					else
-						/* Bastion of Endeavor Translation
-						to_chat(Player, "<span class='filter_system'>[span_green("<b>You managed to survive the events on [station_name()] as [Player.real_name].</b>")]</span>")
-						*/
-						to_chat(Player, "<span class='filter_system'>[span_green("<b>[Player.real_name] успешно [verb_ru(Player, "пережил")] события на [station_name_ru(PCASE)].</b>")]</span>")
-						// End of Bastion of Endeavor Translation
-				else if(isAdminLevel(playerTurf.z))
-					/* Bastion of Endeavor Translation
-					to_chat(Player, "<span class='filter_system'>[span_green("<b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b>")]</span>")
-					*/
-					to_chat(Player, "<span class='filter_system'>[span_green("<b>[Player.real_name] успешно [verb_ru(Player, "завершил")] трансфер экипажа после событий на [station_name_ru(PCASE)].</b>")]</span>")
-					// End of Bastion of Endeavor Translation
-				else if(issilicon(Player))
-					/* Bastion of Endeavor Translation
-					to_chat(Player, "<span class='filter_system'>[span_green("<b>You remain operational after the events on [station_name()] as [Player.real_name].</b>")]</span>")
-					*/
-					to_chat(Player, "<span class='filter_system'>[span_green("<b>[Player.real_name] [verb_ru(Player, "сохранил")] исправность после событий на [station_name_ru(PCASE)].</b>")]</span>")
-					// End of Bastion of Endeavor Translation
-				else
-					/* Bastion of Endeavor Translation
-					to_chat(Player, "<span class='filter_system'>[span_blue("<b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b>")]</span>")
-					*/
-					to_chat(Player, "<span class='filter_system'>[span_blue("<b>[Player.real_name] [verb_ru(Player, "пропустил")] трансфер экипажа после событий на [station_name_ru(PCASE)].</b>")]</span>")
-					// End of Bastion of Endeavor Translation
-=======
 						to_chat(Player, span_filter_system("[span_blue("<b>You survived the round, but remained on [station_name()] as [Player.real_name].</b>")]"))
+						*/
+						to_chat(Player, span_filter_system("[span_blue("<b>[Player.real_name] успешно [verb_ru(Player, "пережил")] смену, однако [verb_ru(Player, "остал;ся;ась;ось;ись;")] на территории [station_name_ru(GCASE)].</b>")]"))
+						// End of Bastion of Endeavor Translation
 					else
+						/* Bastion of Endeavor Translation
 						to_chat(Player, span_filter_system("[span_green("<b>You managed to survive the events on [station_name()] as [Player.real_name].</b>")]"))
+						*/
+						to_chat(Player, span_filter_system("[span_green("<b>[Player.real_name] успешно [verb_ru(Player, "пережил")] события на [station_name_ru(PCASE)].</b>")]"))
+						// End of Bastion of Endeavor Translation
 				else if(isAdminLevel(playerTurf.z))
+					/* Bastion of Endeavor Translation
 					to_chat(Player, span_filter_system("[span_green("<b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b>")]"))
+					*/
+					to_chat(Player, span_filter_system("[span_green("<b>[Player.real_name] успешно [verb_ru(Player, "завершил")] трансфер экипажа после событий на [station_name_ru(PCASE)].</b>")]"))
+					// End of Bastion of Endeavor Translation
 				else if(issilicon(Player))
+					/* Bastion of Endeavor Translation
 					to_chat(Player, span_filter_system("[span_green("<b>You remain operational after the events on [station_name()] as [Player.real_name].</b>")]"))
+					*/
+					to_chat(Player, span_filter_system("[span_green("<b>[Player.real_name] [verb_ru(Player, "сохранил")] исправность после событий на [station_name_ru(PCASE)].</b>")]"))
+					// End of Bastion of Endeavor Translation
 				else
+					/* Bastion of Endeavor Translation
 					to_chat(Player, span_filter_system("[span_blue("<b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b>")]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+					*/
+					to_chat(Player, span_filter_system("[span_blue("<b>[Player.real_name] [verb_ru(Player, "пропустил")] трансфер экипажа после событий на [station_name_ru(PCASE)].</b>")]"))
+					// End of Bastion of Endeavor Translation
 			else
 				if(istype(Player,/mob/observer/dead))
 					var/mob/observer/dead/O = Player
 					if(!O.started_as_observer)
-<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
-						to_chat(Player, "<span class='filter_system'>[span_red("<b>You did not survive the events on [station_name()]...</b>")]</span>")
+						to_chat(Player, span_filter_system("[span_red("<b>You did not survive the events on [station_name()]...</b>")]"))
 						*/
-						to_chat(Player, "<span class='filter_system'>[span_red("<b>[Player.real_name] не [verb_ru(Player, "пережил")] события, произошедшие на [station_name_ru(PCASE)]...</b>")]</span>")
+						to_chat(Player, span_filter_system("[span_red("<b>[Player.real_name] не [verb_ru(Player, "пережил")] события, произошедшие на [station_name_ru(PCASE)]...</b>")]"))
 						// End of Bastion of Endeavor Translation
 				else
 					/* Bastion of Endeavor Translation
-					to_chat(Player, "<span class='filter_system'>[span_red("<b>You did not survive the events on [station_name()]...</b>")]</span>")
-					*/
-					to_chat(Player, "<span class='filter_system'>[span_red("<b>[Player.real_name] не [verb_ru(Player, "пережил")] события, произошедшие на [station_name_ru(PCASE)]...</b>")]</span>")
-					// End of Bastion of Endeavor Translation
-=======
-						to_chat(Player, span_filter_system("[span_red("<b>You did not survive the events on [station_name()]...</b>")]"))
-				else
 					to_chat(Player, span_filter_system("[span_red("<b>You did not survive the events on [station_name()]...</b>")]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+					*/
+					to_chat(Player, span_filter_system("[span_red("<b>[Player.real_name] не [verb_ru(Player, "пережил")] события, произошедшие на [station_name_ru(PCASE)]...</b>")]"))
+					// End of Bastion of Endeavor Translation
 	to_world("<br>")
 
 	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
 		if (aiPlayer.stat != 2)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			to_world("<span class='filter_system'><b>[aiPlayer.name]'s laws at the end of the round were:</b></span>") // VOREStation edit
-			*/
-			to_world("<span class='filter_system'><b>Перечень законов [gcase_ru(aiPlayer)] к концу раунда был следующим:</b></span>") // VOREStation edit
-			// End of Bastion of Endeavor Translation
-		else
-			/* Bastion of Endeavor Translation
-			to_world("<span class='filter_system'><b>[aiPlayer.name]'s laws when it was deactivated were:</b></span>") // VOREStation edit
-			*/
-			to_world("<span class='filter_system'><b>Перечень законов [gcase_ru(aiPlayer)] на момент деактивации был следующим:</b></span>") // VOREStation edit
-			// End of Bastion of Endeavor Translation
-=======
 			to_world(span_filter_system("<b>[aiPlayer.name]'s laws at the end of the round were:</b>")) // VOREStation edit
+			*/
+			to_world(span_filter_system("<b>Перечень законов [gcase_ru(aiPlayer)] к концу раунда был следующим:</b>")) // VOREStation edit
+			// End of Bastion of Endeavor Translation
 		else
+			/* Bastion of Endeavor Translation
 			to_world(span_filter_system("<b>[aiPlayer.name]'s laws when it was deactivated were:</b>")) // VOREStation edit
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+			*/
+			to_world(span_filter_system("<b>Перечень законов [gcase_ru(aiPlayer)] на момент деактивации был следующим:</b>")) // VOREStation edit
+			// End of Bastion of Endeavor Translation
 		aiPlayer.show_laws(1)
 
 		if (aiPlayer.connected_robots.len)
@@ -704,14 +623,10 @@ var/global/datum/controller/subsystem/ticker/ticker
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
 				/* Bastion of Endeavor Translation
 				robolist += "[robo.name][robo.stat?" (Deactivated), ":", "]"  // VOREStation edit
-<<<<<<< HEAD
 				*/
 				robolist += "[robo.name][robo.stat?" ([verb_ru(robo, "Деактивирован;;а;о;ы;")]), ":", "]"  // VOREStation edit
 				// End of Bastion of Endeavor Translation
-			to_world("<span class='filter_system'>[robolist]</span>")
-=======
 			to_world(span_filter_system("[robolist]"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
 
 	var/dronecount = 0
 
@@ -728,37 +643,27 @@ var/global/datum/controller/subsystem/ticker/ticker
 
 		if (!robo.connected_ai)
 			if (robo.stat != 2)
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation: Probably going to stick to name vars as well
-				to_world("<span class='filter_system'><b>[robo.name] survived as an AI-less stationbound synthetic! Its laws were:</b></span>") // VOREStation edit
+				to_world(span_filter_system("<b>[robo.name] survived as an AI-less stationbound synthetic! Its laws were:</b>")) // VOREStation edit
 				*/
-				to_world("<span class='filter_system'><b>[robo.name] [verb_ru(robo, "выжил")], будучи станционным синтетиком без ИИ. [verb_ru(robo, ";Его;Её;Его;Их;")] перечень законов:</b></span>") // VOREStation edit
+				to_world(span_filter_system("<b>[robo.name] [verb_ru(robo, "выжил")], будучи станционным синтетиком без ИИ. [verb_ru(robo, ";Его;Её;Его;Их;")] перечень законов:</b>")) // VOREStation edit
 				// End of Bastion of Endeavor Translation
 			else
 				/* Bastion of Endeavor Translation
-				to_world("<span class='filter_system'><b>[robo.name] was unable to survive the rigors of being a stationbound synthetic without an AI. Its laws were:</b></span>") // VOREStation edit
-				*/
-				to_world("<span class='filter_system'><b>[robo.name] не [verb_ru(robo, "смог;;ла;ло;ли;;")] пережить события на станции, будучи станционным синтетиком без ИИ. [verb_ru(robo, ";Его;Её;Его;Их;")] перечень законов:</b></span>") // VOREStation edit
-				// End of Bastion of Endeavor Translation
-=======
-				to_world(span_filter_system("<b>[robo.name] survived as an AI-less stationbound synthetic! Its laws were:</b>")) // VOREStation edit
-			else
 				to_world(span_filter_system("<b>[robo.name] was unable to survive the rigors of being a stationbound synthetic without an AI. Its laws were:</b>")) // VOREStation edit
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+				*/
+				to_world(span_filter_system("<b>[robo.name] не [verb_ru(robo, "смог;;ла;ло;ли;;")] пережить события на станции, будучи станционным синтетиком без ИИ. [verb_ru(robo, ";Его;Её;Его;Их;")] перечень законов:</b>")) // VOREStation edit
+				// End of Bastion of Endeavor Translation
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_world("<span class='filter_system'><b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b></span>")
-		*/
-		to_world("<span class='filter_system'><b>На момент конца раунда [dronecount>1 ? "было активно" : "был активен"] [count_ru(dronecount, ";ремонтный дрон;ремонтных дрона;ремонтных дронов")].</b></span>")
-		// End of Bastion of Endeavor Translation
-=======
 		to_world(span_filter_system("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>"))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		to_world(span_filter_system("<b>На момент конца раунда [dronecount>1 ? "было активно" : "был активен"] [count_ru(dronecount, ";ремонтный дрон;ремонтных дрона;ремонтных дронов")].</b>"))
+		// End of Bastion of Endeavor Translation
 
 	mode.declare_completion()//To declare normal completion.
 

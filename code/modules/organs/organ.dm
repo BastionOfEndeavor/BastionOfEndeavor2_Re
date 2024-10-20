@@ -205,15 +205,11 @@ var/list/organ_cache = list()
 /obj/item/organ/examine(mob/user)
 	. = ..()
 	if(status & ORGAN_DEAD)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		. += "<span class='notice'>Decay appears to have set in.</span>"
-		*/
-		. += "<span class='notice'>Похоже, [verb_ru(src, "он;;а;о;и;")] уже [verb_ru(src, "начал")] разлагаться.</span>"
-		// End of Bastion of Endeavor Translation
-=======
 		. += span_notice("Decay appears to have set in.")
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		. += span_notice("Похоже, [verb_ru(src, "он;;а;о;и;")] уже [verb_ru(src, "начал")] разлагаться.")
+		// End of Bastion of Endeavor Translation
 
 //A little wonky: internal organs stop calling this (they return early in process) when dead, but external ones cause further damage when dead
 /obj/item/organ/proc/handle_germ_effects()
@@ -482,15 +478,11 @@ var/list/organ_cache = list()
 	if(robotic >= ORGAN_ROBOT)
 		return
 
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	to_chat(user, "<span class='notice'>You take an experimental bite out of \the [src].</span>")
-	*/
-	to_chat(user, "<span class='notice'>Вы попробовали [acase_ru(src)] на вкус.</span>")
-	// End of Bastion of Endeavor Translation
-=======
 	to_chat(user, span_notice("You take an experimental bite out of \the [src]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+	*/
+	to_chat(user, span_notice("Вы попробовали [acase_ru(src)] на вкус."))
+	// End of Bastion of Endeavor Translation
 	var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 	blood_splatter(src,B,1)
 
@@ -542,25 +534,18 @@ var/list/organ_cache = list()
 
 /obj/item/organ/proc/butcher(var/obj/item/O, var/mob/living/user, var/atom/newtarget)
 	if(robotic >= ORGAN_ROBOT)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		user?.visible_message("<span class='notice'>[user] disassembles \the [src].</span>")
-		*/
-		user?.visible_message("<span class='notice'>[interact_ru(user, "разобрал", src)].</span>")
-		// End of Bastion of Endeavor Translation
-
-	else
-		/* Bastion of Endeavor Translation
-		user?.visible_message("<span class='notice'>[user] butchers \the [src].</span>")
-		*/
-		user?.visible_message("<span class='notice'>[interact_ru(user, "разделал", src)].</span>")
-		// End of Bastion of Endeavor Translation
-=======
 		user?.visible_message(span_notice("[user] disassembles \the [src]."))
+		*/
+		user?.visible_message(span_notice("[interact_ru(user, "разобрал", src)]."))
+		// End of Bastion of Endeavor Translation
 
 	else
+		/* Bastion of Endeavor Translation
 		user?.visible_message(span_notice("[user] butchers \the [src]."))
->>>>>>> ab154b48b2 ([MIRROR] refactors most spans (#9139))
+		*/
+		user?.visible_message(span_notice("[interact_ru(user, "разделал", src)]."))
+		// End of Bastion of Endeavor Translation
 
 	if(!newtarget)
 		newtarget = get_turf(src)
