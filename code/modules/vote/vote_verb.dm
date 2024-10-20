@@ -1,10 +1,6 @@
 /client/verb/vote()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	set category = "OOC"
-=======
 	set category = "OOC.Game" // CHOMPedit
->>>>>>> 8f8959323b (Places the new vote verbs in their rightful place (#9148))
 	set name = "Vote"
 	*/
 	set category = "OOC.Игра"
@@ -21,12 +17,8 @@
 		// End of Bastion of Endeavor Translation
 
 /client/proc/start_vote()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	set category = "Admin"
-=======
 	set category = "Admin.Game" // CHOMPEdit
->>>>>>> 8f8959323b (Places the new vote verbs in their rightful place (#9148))
 	set name = "Start Vote"
 	set desc = "Start a vote on the server"
 	*/
