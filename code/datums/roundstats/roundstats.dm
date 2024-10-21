@@ -103,7 +103,7 @@ var/global/list/security_printer_tickets = list()	//VOREStation Edit
 	//VOREStation add Start - Ticket time!
 	if(security_printer_tickets.len)
 		/* Bastion of Endeavor Translation
-		valid_stats_list.Add("<span class = 'danger'>[security_printer_tickets.len] unique security tickets were issued today!</span><br>Examples include:")
+				valid_stats_list.Add(span_danger("[security_printer_tickets.len] unique security tickets were issued today!") + "<br>Examples include:")
 		*/
 		valid_stats_list.Add(span_danger("[count_ru(security_printer_tickets.len, ";штраф был выписан;штрафа было выписано;штрафов было выписано")] службой безопасности за эту смену!") + "<br>По таким причинам, как:")
 		// End of Bastion of Endeavor Translation

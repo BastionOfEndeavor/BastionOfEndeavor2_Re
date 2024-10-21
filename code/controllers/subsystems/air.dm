@@ -58,14 +58,14 @@ SUBSYSTEM_DEF(air)
 
 	// CHOMPEdit
 	/* Bastion of Endeavor Translation
-	admin_notice({"<span class='danger'>Geometry initialized in [round(0.1*(REALTIMEOFDAY-start_timeofday),0.1)](?) seconds.</span>
-<span class='info'>
-Total Simulated Turfs: [simulated_turf_count]
-Total Zones: [zones.len]
-Total Edges: [edges.len]
-Total Active Edges: [active_edges.len ? span_danger("[active_edges.len]") : "None"]
-Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
-</span>"}, R_DEBUG)
+	admin_notice(span_danger("Geometry initialized in [round(0.1*(REALTIMEOFDAY-start_timeofday),0.1)](?) seconds.") + \
+span_info("<br>\
+Total Simulated Turfs: [simulated_turf_count]<br>\
+Total Zones: [zones.len]<br>\
+Total Edges: [edges.len]<br>\
+Total Active Edges: [active_edges.len ? span_danger("[active_edges.len]") : "None"]<br>\
+Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]\
+"), R_DEBUG)
 	*/
 	admin_notice(span_danger("Геометрия инициализирована за [count_ru(round(0.1*(REALTIMEOFDAY-start_timeofday),0.1), "секунд;у;ы;")].") + \
 span_info("<br>\

@@ -140,7 +140,7 @@ var/global/datum/controller/subsystem/ticker/ticker
 	if((master_mode == "random") || (master_mode == "secret"))
 		if(!runnable_modes.len)
 			/* Bastion of Endeavor Translation
-			to_world(span_danger("<B>Unable to choose playable game mode.</B> Reverting to pregame lobby."))
+			to_world(span_danger(span_bold("Unable to choose playable game mode.") + " Reverting to pregame lobby."))
 			*/
 			to_world(span_danger(span_bold("Не удалось выбрать играбельный режим игры.") + " Возвращаемся в предыгровое лобби."))
 			// End of Bastion of Endeavor Translation
