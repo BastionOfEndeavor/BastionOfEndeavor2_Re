@@ -87,14 +87,14 @@
 			/* Bastion of Endeavor Translation
 			to_chat(usr, span_warning("You are no longer able to use this, it's been more than 10 minutes since an admin on IRC has responded to you"))
 			*/
-			to_chat(usr, span_warning("Вы больше не можете использовать это, так как прошло 10 минут с ответа администратора."))
+			to_chat(src, span_warning("Вы больше не можете использовать это, так как прошло 10 минут с ответа администратора."))
 			// End of Bastion of Endeavor Translation
 			return
 		if(mute_irc)
 			/* Bastion of Endeavor Translation
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on IRC</span>")
 			*/
-			to_chat(usr, span_warning("Вы не можете использовать это, так как вашему клиенту запрещено отправлять сообщения в IRC администраторам."))
+			to_chat(src, span_warning("Вы не можете использовать это, так как вашему клиенту запрещено отправлять сообщения в IRC администраторам."))
 			// End of Bastion of Endeavor Translation
 =======
 			to_chat(src, span_warning("You are no longer able to use this, it's been more than 10 minutes since an admin on IRC has responded to you"))
@@ -829,11 +829,20 @@
 */
 
 /client/verb/show_active_playtime()
+	/* Bastion of Endeavor Translation
 	set name = "Active Playtime"
 	set category = "IC.Game"
+	*/
+	set name = "Отыгранные часы"
+	set category = "OOC.Игра"
+	// End of Bastion of Endeavor Translation
 
 	if(!play_hours.len)
+		/* Bastion of Endeavor Translation
 		to_chat(src, span_warning("Persistent playtime disabled!"))
+		*/
+		to_chat(src, span_warning("Накопление времени отключено!"))
+		// End of Bastion of Endeavor Translation
 		return
 
 	var/department_hours = ""
@@ -841,9 +850,17 @@
 		if(!isnum(play_hour) && isnum(play_hours[play_hour]))
 			department_hours += "<br>\t[capitalize(play_hour)]: [play_hours[play_hour]]"
 	if(!department_hours)
+		/* Bastion of Endeavor Translation
 		to_chat(src, span_warning("No recorded playtime found!"))
+		*/
+		to_chat(src, span_warning("Отыгранные часы отсутствуют!"))
+		// End of Bastion of Endeavor Translation
 		return
+	/* Bastion of Endeavor Translation
 	to_chat(src, span_info("Your department hours:" + department_hours))
+	*/
+	to_chat(src, span_info("Ваши отыгранные часы в отделах:" + department_hours))
+	// End of Bastion of Endeavor Translation
 
 /// compiles a full list of verbs and sends it to the browser
 /client/proc/init_verbs()
