@@ -56,15 +56,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'System Messages',
     description: 'Messages from your client, always enabled',
-<<<<<<< HEAD
     */
     name: 'Системные сообщения',
     description: 'Сообщения клиента (всегда активно)',
     /* End of Bastion of Endeavor Translation */
-    selector: '.boldannounce',
-=======
     selector: '.boldannounce, .world, .span_filter_system, .sinister',
->>>>>>> a92a42b85b (converts our spans (#9185))
     important: true,
   },
   // Basic types
@@ -95,15 +91,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Local',
     description: 'In-character local messages (say, emote, etc)',
-<<<<<<< HEAD
     */
     name: 'Сообщения поблизости',
     description: 'Ролевые сообщения поблизости (речь, действия и т.п)',
     /* End of Bastion of Endeavor Translation */
-    selector: '.say, .emote, .emotesubtle',
-=======
     selector: '.say, .emote, .emotesubtle, .pnarrate, .filter_say',
->>>>>>> a92a42b85b (converts our spans (#9185))
   },
   {
     type: MESSAGE_TYPE_PLOCALCHAT,
@@ -224,15 +216,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Admin PMs',
     description: 'Messages to/from admins (adminhelp)',
-<<<<<<< HEAD
     */
     name: 'Сообщения администрации',
     description: 'Сообщения администраторов в Помощи администратора',
     /* End of Bastion of Endeavor Translation */
-    selector: '.pm, .adminhelp',
-=======
     selector: '.pm, .adminhelp, .filter_pm',
->>>>>>> a92a42b85b (converts our spans (#9185))
   },
   {
     type: MESSAGE_TYPE_MENTORPM,
@@ -250,16 +238,12 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Combat Log',
     description: 'Urist McTraitor has stabbed you with a knife!',
-<<<<<<< HEAD
     */
     name: 'Боевые сообщения',
     description: 'Антагонист МакПредатель проткнул вас ножом!',
     /* End of Bastion of Endeavor Translation */
-    selector: '.danger, .attack, .disarm, .passive, .bolddanger',
-=======
     selector:
       '.danger, .attack, .disarm, .passive, .bolddanger, .filter_combat',
->>>>>>> a92a42b85b (converts our spans (#9185))
   },
   {
     type: MESSAGE_TYPE_CHATPRINT,
@@ -347,14 +331,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Admin Log',
     description: 'ADMIN LOG: Urist McAdmin has jumped to coordinates X, Y, Z',
-<<<<<<< HEAD
     */
     name: 'Лог администраторов',
     description: 'АДМИН-ЛОГ: Админ МакПедаль прыгнул на координаты X, Y, Z',
     /* End of Bastion of Endeavor Translation */
     selector: '.log_message, .filter_adminlog',
-=======
->>>>>>> a92a42b85b (converts our spans (#9185))
     admin: true,
   },
   {
@@ -373,14 +354,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
-<<<<<<< HEAD
     */
     name: 'Лог отладки',
     description: 'ОТЛАДКА: Recover() подсистемы SSPlanets.',
     /* End of Bastion of Endeavor Translation */
     selector: '.filter_debuglogs',
-=======
->>>>>>> a92a42b85b (converts our spans (#9185))
     admin: true,
   },
 ];
