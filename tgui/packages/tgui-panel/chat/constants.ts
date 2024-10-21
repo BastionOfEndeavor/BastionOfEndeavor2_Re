@@ -335,7 +335,6 @@ export const MESSAGE_TYPES = [
     name: 'Лог администраторов',
     description: 'АДМИН-ЛОГ: Админ МакПедаль прыгнул на координаты X, Y, Z',
     /* End of Bastion of Endeavor Translation */
-    selector: '.log_message, .filter_adminlog',
     admin: true,
   },
   {
@@ -358,7 +357,6 @@ export const MESSAGE_TYPES = [
     name: 'Лог отладки',
     description: 'ОТЛАДКА: Recover() подсистемы SSPlanets.',
     /* End of Bastion of Endeavor Translation */
-    selector: '.filter_debuglogs',
     admin: true,
   },
 ];
