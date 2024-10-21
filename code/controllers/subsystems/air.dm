@@ -57,7 +57,6 @@ SUBSYSTEM_DEF(air)
 		CHECK_TICK
 
 	// CHOMPEdit
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
 	admin_notice({"<span class='danger'>Geometry initialized in [round(0.1*(REALTIMEOFDAY-start_timeofday),0.1)](?) seconds.</span>
 <span class='info'>
@@ -68,25 +67,15 @@ Total Active Edges: [active_edges.len ? span_danger("[active_edges.len]") : "Non
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
 	*/
-	admin_notice({"<span class='danger'>Геометрия инициализирована за [count_ru(round(0.1*(REALTIMEOFDAY-start_timeofday),0.1), "секунд;у;ы;")].</span>
-<span class='info'>
-Всего симулируемых тюрфов: [simulated_turf_count]
-Всего зон: [zones.len]
-Всего краёв: [edges.len]
-Всего активных краёв: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "Нет"]
-Всего несимулируемых тюрфов: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
-</span>"}, R_DEBUG)
-	// End of Bastion of Endeavor Translation
-=======
-	admin_notice(span_danger("Geometry initialized in [round(0.1*(REALTIMEOFDAY-start_timeofday),0.1)](?) seconds.") + \
+	admin_notice(span_danger("Геометрия инициализирована за [count_ru(round(0.1*(REALTIMEOFDAY-start_timeofday),0.1), "секунд;у;ы;")].") + \
 span_info("<br>\
-Total Simulated Turfs: [simulated_turf_count]<br>\
-Total Zones: [zones.len]<br>\
-Total Edges: [edges.len]<br>\
-Total Active Edges: [active_edges.len ? span_danger("[active_edges.len]") : "None"]<br>\
-Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]\
+Всего симулируемых тюрфов: [simulated_turf_count]\
+Всего зон: [zones.len]\
+Всего краёв: [edges.len]\
+Всего активных краёв: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "Нет"]\
+Всего несимулируемых тюрфов: [world.maxx*world.maxy*world.maxz - simulated_turf_count]\
 "), R_DEBUG)
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+	// End of Bastion of Endeavor Translation
 
 	// Note - Baystation settles the air by running for one tick.  We prefer to not have active edges.
 	// Maps should not have active edges on boot.  If we've got some, log it so it can get fixed.

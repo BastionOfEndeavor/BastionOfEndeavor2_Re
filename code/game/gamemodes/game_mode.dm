@@ -167,15 +167,11 @@ var/global/list/additional_antag_types = list()
 				return
 
 /datum/game_mode/proc/announce() //to be called when round starts
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	to_world("<B>The current game mode is [capitalize(name)]!</B>")
-	*/
-	to_world("<B>Текущий режим игры – [capitalize(name)]!</B>")
-	// End of Bastion of Endeavor Translation
-=======
 	to_world(span_bold("The current game mode is [capitalize(name)]!"))
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+	*/
+	to_world(span_bold("Текущий режим игры – [capitalize(name)]!"))
+	// End of Bastion of Endeavor Translation
 	if(round_description)
 		to_world("[round_description]")
 	if(round_autoantag)
@@ -185,15 +181,11 @@ var/global/list/additional_antag_types = list()
 		to_world("Антагонисты будут добавлены автомагически при необходимости.")
 		// End of Bastion of Endeavor Translation
 	if(antag_templates && antag_templates.len)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		var/antag_summary = "<b>Possible antagonist types:</b> "
-		*/
-		var/antag_summary = "<b>Возможные антагонисты:</b> "
-		// End of Bastion of Endeavor Translation
-=======
 		var/antag_summary = span_bold("Possible antagonist types:") + " "
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+		*/
+		var/antag_summary = span_bold("Возможные антагонисты:") + " "
+		// End of Bastion of Endeavor Translation
 		var/i = 1
 		for(var/datum/antagonist/antag in antag_templates)
 			if(i > 1)
@@ -465,10 +457,10 @@ var/global/list/additional_antag_types = list()
 
 	var/text = ""
 	if(surviving_total > 0)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation: rewriting a part of this for simplicity sake
-		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += "<br>There [surviving_total>1 ? ("were " + span_bold("[surviving_total] survivors")) : ("was " + span_bold("one survivor"))] ("
+		text += span_bold("[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts")
+		text += ".<br>"
 		*/
 		text += "<br>[count_ru(surviving_total, "Остал;ся;ось;ось", TRUE)] <b>[count_ru(surviving_total, "выживш;ий;их;их")]</b>"
 		if(escaped_total == 0)
@@ -476,11 +468,6 @@ var/global/list/additional_antag_types = list()
 		else text+= " (<b>[emergency_shuttle.evac ? count_ru(escaped_total, "сбежал;;и;и") : "[count_ru(escaped_total, "попал;;и;и")] на трансфер"])</b>"
 		text += " и <b>[count_ru(ghosts, "призрак;;а;ов")]</b>.<br>"
 		// End of Bastion of Endeavor Translation
-=======
-		text += "<br>There [surviving_total>1 ? ("were " + span_bold("[surviving_total] survivors")) : ("was " + span_bold("one survivor"))] ("
-		text += span_bold("[escaped_total>0 ? escaped_total : "none"] [emergency_shuttle.evac ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts")
-		text += ".<br>"
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
 	else
 		/* Bastion of Endeavor Translation
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
@@ -637,17 +624,12 @@ var/global/list/additional_antag_types = list()
 //Reports player logouts//
 //////////////////////////
 /proc/display_roundstart_logout_report()
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	var/msg = "<span class='notice'><b>Roundstart logout report</b>\n\n"
-	*/
-	// </span> -- have to add this or our linter will start whining
-	var/msg = "<span class='notice'><b>Отчёт об отключениях на старте раунда:</b>\n\n"
-	// End of Bastion of Endeavor Translation
-=======
 	var/msg = span_bold("Roundstart logout report")
+	*/
+	var/msg = span_bold("Отчёт об отключениях на старте раунда:")
+	// End of Bastion of Endeavor Translation
 	msg += "<br><br>"
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
 	for(var/mob/living/L in mob_list)
 
 		if(L.ckey)
@@ -657,59 +639,41 @@ var/global/list/additional_antag_types = list()
 					found = 1
 					break
 			if(!found)
-<<<<<<< HEAD
 				/* Bastion of Endeavor Translation
-				msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] ([span_yellow("<b>Disconnected</b>")])\n"
-				*/
-				msg += "<b>[L.name]</b> ([L.ckey]), [L.job] ([span_yellow("<b>[verb_ru(L, "Отключ;ён;ена;ено;ены;")]</b>")])\n"
-				// End of Bastion of Endeavor Translation
-
-		if(L.ckey && L.client)
-			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))	//Connected, but inactive (alt+tabbed or something)
-				/* Bastion of Endeavor Translation
-				msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] ([span_yellow("<b>Connected, Inactive</b>")])\n"
-				*/
-				msg += "<b>[L.name]</b> ([L.ckey]), [L.job] ([span_yellow("<b>[verb_ru(L, "Подключ;ён;ена;ено;ены;")], [verb_ru(L, "неактив;ен;на;но;ны;")]</b>")])\n"
-				// End of Bastion of Endeavor Translation
-				continue //AFK client
-			if(L.stat)
-				if(L.suiciding)	//Suicider
-					/* Bastion of Endeavor Translation
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] ([span_red("<b>Suicide</b>")])\n"
-					*/
-					msg += "<b>[L.name]</b> ([L.ckey]), [L.job] ([span_red("<b>[verb_ru(L, "Самоубил;ся;ась;ось;ись;")]</b>")])\n"
-					// End of Bastion of Endeavor Translation
-					continue //Disconnected client
-				if(L.stat == UNCONSCIOUS)
-					/* Bastion of Endeavor Translation
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
-					*/
-					msg += "<b>[L.name]</b> ([L.ckey]), [L.job] ([verb_ru(L, "Умира;ет;ет;ет;ют;")])\n"
-					// End of Bastion of Endeavor Translation
-					continue //Unconscious
-				if(L.stat == DEAD)
-					/* Bastion of Endeavor Translation
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dead)\n"
-					*/
-					msg += "<b>[L.name]</b> ([L.ckey]), [L.job] ([verb_ru(L, ";Мёртв;Мертва;Мертво;Мертвы;")])\n"
-					// End of Bastion of Endeavor Translation
-=======
 				msg += "[span_bold(L.name)] ([L.ckey]), the [L.job] ([span_yellow(span_bold("Disconnected"))])<br>"
+				*/
+				msg += "[span_bold(L.name)] ([L.ckey]), [L.job] ([span_yellow(span_bold("[verb_ru(L, "Отключ;ён;ена;ено;ены;")]"))])<br>"
+				// End of Bastion of Endeavor Translation
 
 		if(L.ckey && L.client)
 			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))	//Connected, but inactive (alt+tabbed or something)
+				/* Bastion of Endeavor Translation
 				msg += "[span_bold(L.name)] ([L.ckey]), the [L.job] ([span_yellow(span_bold("Connected, Inactive"))])<br>"
+				*/
+				msg += "[span_bold(L.name)] ([L.ckey]), [L.job] ([span_yellow(span_bold("[verb_ru(L, "Подключ;ён;ена;ено;ены;")], [verb_ru(L, "неактив;ен;на;но;ны;")]"))])<br>"
+				// End of Bastion of Endeavor Translation
 				continue //AFK client
 			if(L.stat)
 				if(L.suiciding)	//Suicider
+					/* Bastion of Endeavor Translation
 					msg += "[span_bold(L.name)] ([L.ckey]), the [L.job] ([span_red(span_bold("Suicide"))])<br>"
+					*/
+					msg += "[span_bold(L.name)] ([L.ckey]), [L.job] ([span_red(span_bold("[verb_ru(L, "Самоубил;ся;ась;ось;ись;")]"))])<br>"
+					// End of Bastion of Endeavor Translation
 					continue //Disconnected client
 				if(L.stat == UNCONSCIOUS)
+					/* Bastion of Endeavor Translation
 					msg += "[span_bold(L.name)] ([L.ckey]), the [L.job] (Dying)<br>"
+					*/
+					msg += "[span_bold(L.name)] ([L.ckey]), [L.job] ([verb_ru(L, "Умира;ет;ет;ет;ют;")])<br>"
+					// End of Bastion of Endeavor Translation
 					continue //Unconscious
 				if(L.stat == DEAD)
+					/* Bastion of Endeavor Translation
 					msg += "[span_bold(L.name)] ([L.ckey]), the [L.job] (Dead)<br>"
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+					*/
+					msg += "[span_bold(L.name)] ([L.ckey]), [L.job] ([verb_ru(L, ";Мёртв;Мертва;Мертво;Мертвы;")])<br>"
+					// End of Bastion of Endeavor Translation
 					continue //Dead
 
 			continue //Happy connected client
@@ -717,47 +681,33 @@ var/global/list/additional_antag_types = list()
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					if(L.suiciding)	//Suicider
-<<<<<<< HEAD
 						/* Bastion of Endeavor Translation
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] ([span_red("<b>Suicide</b>")])\n"
-						*/
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), [L.job] ([span_red("<b>[verb_ru(L, "Самоубил;ся;ась;ось;ись;")]</b>")])\n"
-						// End of Bastion of Endeavor Translation
-						continue //Disconnected client
-					else
-						/* Bastion of Endeavor Translation
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"
-						*/
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), [L.job] ([verb_ru(L, ";Мёртв;Мертва;Мертво;Мертвы;")])\n"
-						// End of Bastion of Endeavor Translation
-						continue //Dead mob, ghost abandoned
-				else
-					if(D.can_reenter_corpse)
-						/* Bastion of Endeavor Translation
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] ([span_red("<b>Adminghosted</b>")])\n"
-						*/
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), [L.job] ([span_red("<b>В режиме админ-призрака</b>")])\n"
-						// End of Bastion of Endeavor Translation
-						continue //Lolwhat
-					else
-						/* Bastion of Endeavor Translation
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] ([span_red("<b>Ghosted</b>")])\n"
-						*/
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), [L.job] ([span_red("<b>В режиме призрака</b>")])\n"
-						// End of Bastion of Endeavor Translation
-=======
 						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), the [L.job] ([span_red(span_bold("Suicide"))])<br>"
+						*/
+						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), [L.job] ([span_red(span_bold("[verb_ru(L, "Самоубил;ся;ась;ось;ись;")]"))])<br>"
+						// End of Bastion of Endeavor Translation
 						continue //Disconnected client
 					else
+						/* Bastion of Endeavor Translation
 						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), the [L.job] (Dead)<br>"
+						*/
+						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), [L.job] ([verb_ru(L, ";Мёртв;Мертва;Мертво;Мертвы;")])<br>"
+						// End of Bastion of Endeavor Translation
 						continue //Dead mob, ghost abandoned
 				else
 					if(D.can_reenter_corpse)
+						/* Bastion of Endeavor Translation
 						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), the [L.job] ([span_red(span_bold("Adminghosted"))])<br>"
+						*/
+						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), [L.job] ([span_red(span_bold("В режиме админ-призрака"))])<br>"
+						// End of Bastion of Endeavor Translation
 						continue //Lolwhat
 					else
+						/* Bastion of Endeavor Translation
 						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), the [L.job] ([span_red(span_bold("Ghosted"))])<br>"
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+						*/
+						msg += "[span_bold(L.name)] ([ckey(D.mind.key)]), [L.job] ([span_red(span_bold("В режиме призрака"))])<br>"
+						// End of Bastion of Endeavor Translation
 						continue //Ghosted while alive
 
 			continue // CHOMPEdit: Escape infinite loop in case there's nobody connected. Shouldn't happen ever, but.
@@ -790,15 +740,11 @@ var/global/list/additional_antag_types = list()
 	to_chat(player.current, span_notice("Ваши текущие цели:"))
 	// End of Bastion of Endeavor Translation
 	for(var/datum/objective/objective in player.objectives)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(player.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
-		*/
-		to_chat(player.current, "<B>Цель #[obj_count]</B>: [objective.explanation_text]")
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(player.current, span_bold("Objective #[obj_count]") + ": [objective.explanation_text]")
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+		*/
+		to_chat(player.current, span_bold("Цель #[obj_count]") + ": [objective.explanation_text]")
+		// End of Bastion of Endeavor Translation
 		obj_count++
 
 /mob/verb/check_round_info()
@@ -819,27 +765,19 @@ var/global/list/additional_antag_types = list()
 		return
 
 	if(master_mode != "secret")
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(usr, span_notice("<b>The roundtype is [capitalize(ticker.mode.name)]</b>"))
-		*/
-		to_chat(usr, span_notice("<b>Игровой режим – [capitalize(ticker.mode.name)]</b>"))
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(usr, span_notice(span_bold("The roundtype is [capitalize(ticker.mode.name)]")))
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+		*/
+		to_chat(usr, span_notice(span_bold("Игровой режим – [capitalize(ticker.mode.name)]")))
+		// End of Bastion of Endeavor Translation
 		if(ticker.mode.round_description)
 			to_chat(usr, span_notice(span_italics("[ticker.mode.round_description]")))
 		if(ticker.mode.extended_round_description)
 			to_chat(usr, span_notice("[ticker.mode.extended_round_description]"))
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		to_chat(usr, span_notice("<i>Shhhh</i>. It's a secret."))
-		*/
-		to_chat(usr, span_notice("<i>Тсссс</i>. Это секрет."))
-		// End of Bastion of Endeavor Translation
-=======
 		to_chat(usr, span_notice(span_italics("Shhhh") + ". It's a secret."))
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+		*/
+		to_chat(usr, span_notice(span_italics("Тссс") + ". Это секрет."))
+		// End of Bastion of Endeavor Translation
 	return

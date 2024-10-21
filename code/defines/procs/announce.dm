@@ -114,35 +114,25 @@
 			to_chat(M, command)
 
 /datum/announcement/priority/Message(var/message as text, var/message_title as text, var/list/zlevels)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
-	*/
-	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
-	// End of Bastion of Endeavor Translation
-
-/datum/announcement/priority/command/Message(var/message as text, var/message_title as text, var/list/zlevels)
-	/* Bastion of Endeavor Translation
-	global_announcer.autosay("<span class='alert'>[command_name()] - [message_title]:</span> [message]", ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
-	*/
-	global_announcer.autosay("<span class='alert'>[command_name_ru(NCASE)] – [message_title]:</span> [message]", ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
-	// End of Bastion of Endeavor Translation
-
-/datum/announcement/priority/security/Message(var/message as text, var/message_title as text, var/list/zlevels)
-	/* Bastion of Endeavor Translation
-	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
-	*/
-	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
-	// End of Bastion of Endeavor Translation
-=======
 	global_announcer.autosay(span_alert("[message_title]:") + " [message]", announcer ? announcer : ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
+	*/
+	global_announcer.autosay(span_alert("[message_title]:") + " [message]", announcer ? announcer : ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
+	// End of Bastion of Endeavor Translation
 
 /datum/announcement/priority/command/Message(var/message as text, var/message_title as text, var/list/zlevels)
+	/* Bastion of Endeavor Translation
 	global_announcer.autosay(span_alert("[command_name()] - [message_title]:") + " [message]", ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
+	*/
+	global_announcer.autosay(span_alert("[command_name_ru(NCASE)] – [message_title]:") + " [message]", ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
+	// End of Bastion of Endeavor Translation
 
 /datum/announcement/priority/security/Message(var/message as text, var/message_title as text, var/list/zlevels)
+	/* Bastion of Endeavor Translation
 	global_announcer.autosay(span_alert("[message_title]:") + " [message]", ANNOUNCER_NAME, channel = "Common", zlevels = zlevels)
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
+	*/
+	global_announcer.autosay(span_alert("[message_title]:") + " [message]", ANNOUNCER_NAME, channel = "Общий", zlevels = zlevels)
+	// End of Bastion of Endeavor Translation
 
 /datum/announcement/proc/NewsCast(var/message as text, var/message_title as text)
 	if(!newscast)

@@ -193,15 +193,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'OOC',
     description: 'The bluewall of global OOC messages',
-<<<<<<< HEAD
     */
     name: 'OOC',
     description: 'Глобальные неролевые сообщения в чате OOC',
     /* End of Bastion of Endeavor Translation */
-    selector: '.ooc, .adminooc, .adminobserverooc, .oocplain',
-=======
     selector: '.ooc, .adminooc, .adminobserverooc, .oocplain, .aooc',
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
   },
   {
     type: MESSAGE_TYPE_LOOC,
@@ -242,15 +238,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Combat Log',
     description: 'Urist McTraitor has stabbed you with a knife!',
-<<<<<<< HEAD
     */
     name: 'Боевые сообщения',
     description: 'Антагонист МакПредатель проткнул вас ножом!',
     /* End of Bastion of Endeavor Translation */
-    selector: '.danger',
-=======
     selector: '.danger, .attack, .disarm, .passive, .bolddanger',
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
   },
   {
     type: MESSAGE_TYPE_CHATPRINT,
@@ -361,16 +353,11 @@ export const MESSAGE_TYPES = [
     /* Bastion of Endeavor Translation
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
-<<<<<<< HEAD
     */
     name: 'Лог отладки',
     description: 'ОТЛАДКА: Recover() подсистемы SSPlanets.',
     /* End of Bastion of Endeavor Translation */
     selector: '.filter_debuglogs',
-=======
-    selector:
-      '.filter_debuglogs, .debug_error, .debug_warning, .debug_info, .debug_debug, .debug_trace',
->>>>>>> 14f0302bef ([MIRROR] some more spans (#9170))
     admin: true,
   },
 ];
