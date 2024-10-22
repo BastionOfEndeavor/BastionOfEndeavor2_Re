@@ -94,7 +94,11 @@
 		return offset_to_screen_loc(base_x - target_offset, base_y, view)
 	if(base_y + target_offset < view_size[2])
 		return offset_to_screen_loc(base_x, base_y + target_offset, view)
+	/* Bastion of Endeavor Translation
 	stack_trace("You passed in a scren location {[target_loc]} and offset {[target_offset]} that can't be fit in the viewport Width {[view_size[1]]}, Height {[view_size[2]]}. what did you do lad")
+	*/
+	stack_trace("Передана локация экрана {[target_loc]} и оффсет {[target_offset]}, их нельзя вместить в окно шириной {[view_size[1]]} и высотой {[view_size[2]]}.")
+	// End of Bastion of Endeavor Translation
 	return null // The fuck did you do lad
 
 /// Takes a screen_loc string and cut out any directions like NORTH or SOUTH

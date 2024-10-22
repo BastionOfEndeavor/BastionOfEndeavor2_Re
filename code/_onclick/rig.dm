@@ -23,28 +23,20 @@
 		hardsuit_click_mode = 0
 
 	switch(hardsuit_click_mode)
-<<<<<<< HEAD
-		if(MIDDLE_CLICK)
+		if(HARDSUIT_MIDDLE_CLICK)
 			/* Bastion of Endeavor Translation
 			to_chat(src, "Hardsuit activation mode set to middle-click.")
 			*/
 			to_chat(src, "Активация жёсткого скафандра установлена на среднюю кнопку мыши.")
 			// End of Bastion of Endeavor Translation
-		if(ALT_CLICK)
+		if(HARDSUIT_ALT_CLICK)
 			/* Bastion of Endeavor Translation
 			to_chat(src, "Hardsuit activation mode set to alt-click.")
 			*/
 			to_chat(src, "Активация жёсткого скафандра установлена на Alt+ЛКМ.")
 			// End of Bastion of Endeavor Translation
-		if(CTRL_CLICK)
-			/* Bastion of Endeavor Translation
-=======
-		if(HARDSUIT_MIDDLE_CLICK)
-			to_chat(src, "Hardsuit activation mode set to middle-click.")
-		if(HARDSUIT_ALT_CLICK)
-			to_chat(src, "Hardsuit activation mode set to alt-click.")
 		if(HARDSUIT_CTRL_CLICK)
->>>>>>> cb45bebdc3 ([MIRROR] General improvements to Action Buttons (#9250))
+			/* Bastion of Endeavor Translation
 			to_chat(src, "Hardsuit activation mode set to control-click.")
 			*/
 			to_chat(src, "Активация жёсткого скафандра установлена на Ctrl+ЛКМ.")
@@ -54,15 +46,11 @@
 			/* Bastion of Endeavor Translation
 			soft_assert(0, "Bad hardsuit click mode: [hardsuit_click_mode] - expected 0 to [MAX_HARDSUIT_CLICK_MODE]")
 			to_chat(src, "Somehow you bugged the system. Setting your hardsuit mode to middle-click.")
-<<<<<<< HEAD
 			*/
 			soft_assert(0, "Недопустимый режим активации жёсткого скафандра: [hardsuit_click_mode] – ожидалось значение от 0 до [MAX_HARDSUIT_CLICK_MODE]")
 			to_chat(src, "Вы каким-то образом сломали систему. Активация жёсткого скафандра установлена на среднюю кнопку мыши.")
 			// End of Bastion of Endeavor Translation
-			hardsuit_click_mode = MIDDLE_CLICK
-=======
 			hardsuit_click_mode = HARDSUIT_MIDDLE_CLICK
->>>>>>> cb45bebdc3 ([MIRROR] General improvements to Action Buttons (#9250))
 
 /mob/living/MiddleClickOn(atom/A)
 	if(client && client.hardsuit_click_mode == HARDSUIT_MIDDLE_CLICK)

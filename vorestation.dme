@@ -23,11 +23,8 @@
 #include "code\names.dm"
 #include "code\world.dm"
 #include "code\__defines\__globals.dm"
-<<<<<<< HEAD
 #include "code\__defines\_case_defines_ru.dm"
-=======
 #include "code\__defines\_click.dm"
->>>>>>> cb45bebdc3 ([MIRROR] General improvements to Action Buttons (#9250))
 #include "code\__defines\_compile_options.dm"
 #include "code\__defines\_helpers.dm"
 #include "code\__defines\_lists.dm"
