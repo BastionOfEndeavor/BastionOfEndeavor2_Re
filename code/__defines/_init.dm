@@ -9,7 +9,11 @@
 	#if defined(ENABLE_BYOND_TRACY)
 	var/tracy_init = call_ext("prof.dll", "init")() // Setup Tracy integration
 	if(tracy_init != "0")
+		/* Bastion of Endeavor Translation
 		CRASH("Tracy init error: [tracy_init]")
+		*/
+		CRASH("Ошибка инициализации Tracy: [tracy_init]")
+		// End of Bastion of Endeavor Translation
 	#endif
 	// After that, the debugger is initialized.
 	// Doing it this early makes it possible to set breakpoints in the New()
