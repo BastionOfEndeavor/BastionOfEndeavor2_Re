@@ -71,15 +71,11 @@
 /obj/item/organ/internal/heart/grey/colormatch/slime/process()
 	..()
 	if(!(QDELETED(src)) && src.loc != owner)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		visible_message("<b>\The [src]</b> splatters!")
-		*/
-		visible_message("<b>[cap_ru(src)]</b> [verb_ru(src, "разбрызгива;ется;ется;ется;ются;")]!")
-		// End of Bastion of Endeavor Translation
-=======
 		visible_message(span_infoplain(span_bold("\The [src]") + " splatters!"))
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
+		*/
+		visible_message(span_infoplain(span_bold("[cap_ru(src)]") + " [verb_ru(src, "разбрызгива;ется;ется;ется;ются;")]!"))
+		// End of Bastion of Endeavor Translation
 		var/turf/T = get_turf(src)
 		var/obj/effect/decal/cleanable/blood/B = new (T)
 
@@ -128,15 +124,11 @@
 	..()
 
 	if(!(QDELETED(src)) && src.loc != owner)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		visible_message("<b>\The [src]</b> splatters!")
-		*/
-		visible_message("<b>[cap_ru(src)]</b> [verb_ru(src, "разбрызгива;ется;ется;ется;ются;")]!")
-		// End of Bastion of Endeavor Translation
-=======
 		visible_message(span_infoplain(span_bold("\The [src]") + " splatters!"))
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
+		*/
+		visible_message(span_infoplain(span_bold("[cap_ru(src)]") + " [verb_ru(src, "разбрызгива;ется;ется;ется;ются;")]!"))
+		// End of Bastion of Endeavor Translation
 		var/turf/T = get_turf(src)
 		var/obj/effect/decal/cleanable/blood/B = new (T)
 

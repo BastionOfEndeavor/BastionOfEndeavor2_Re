@@ -74,15 +74,11 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
 	/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: Translate the jobbans
 	if(jobban_isbanned(user, JOB_SYNDICATE))
-<<<<<<< HEAD
-		. += "<b>You are banned from antagonist roles.</b>"
+		. += span_bold("You are banned from antagonist roles.") + ""
 	*/
 	if(jobban_isbanned(user, JOB_SYNDICATE))
-		. += "<b>Вам запрещено играть на особых ролях.</b>"
+		. += span_bold("Вам запрещено играть на особых ролях.") + ""
 	// End of Bastion of Endeavor Translation
-=======
-		. += span_bold("You are banned from antagonist roles.")
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 		pref.be_special = 0
 	else
 		/* Bastion of Endeavor Translation: Making a table so that it looks pretty, Bastion of Endeavor TODO: Translate the jobbans
@@ -100,15 +96,15 @@ var/global/list/special_roles = list( //keep synced with the defines BE_* in set
 			//CHOMPEdit End
 				n++
 		*/
-		. += "<b>Появление в качестве особых ролей</b>"
+		. += span_bold("Появление в качестве особых ролей") + ""
 		. += "<table>"
 		var/n = 0
 		for (var/i in special_roles)
 			if(special_roles[i]) //if mode is available on the server
 				if(jobban_isbanned(user, i) || (i == "positronic brain" && jobban_isbanned(user, "AI") && jobban_isbanned(user, "Cyborg")) || (i == "pAI candidate" && jobban_isbanned(user, "pAI")))
-					. += "<tr><td>Быть [i]:</td><td><font color=red><b>\[ЗАПРЕЩЕНО]</b></font></td></tr>"
+					. += "<tr><td>Быть [i]:</td><td><font color=red>" + span_bold("\[ЗАПРЕЩЕНО]") + "</font></td></tr>"
 				else
-					. += "<tr><td>Быть [i]:</td><td><a href='?src=\ref[src];be_special=[n]'><b>[pref.be_special&(1<<n) ? "Да" : "Нет"]</b></a></td></tr>"
+					. += "<tr><td>Быть [i]:</td><td><a href='?src=\ref[src];be_special=[n]'>" + span_bold("[pref.be_special&(1<<n) ? "Да" : "Нет"]") + "</a></td></tr>"
 			// CHOMPEdit Start -  Add header for Ghost roles section
 			if(i == "призраком")
 				. += "<tr><td><h4><u>РОЛИ ДЛЯ ПРИЗРАКОВ</u> – Эти роли не являются антагонистами и могут выбираться призраками.</h4></td></tr>"

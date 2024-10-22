@@ -43,15 +43,11 @@
 
 /* Bastion of Endeavor Edit
 /datum/category_item/player_setup_item/player_global/pai/content(var/mob/user)
-<<<<<<< HEAD
 */
 /datum/category_item/player_setup_item/antagonism/pai/content(var/mob/user)
 // End of Bastion of Endeavor Edit
 	/* Bastion of Endeavor Translation
-	. += "<b>pAI:</b><br>"
-=======
 	. += span_bold("pAI:") + "<br>"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 	if(!candidate)
 		log_debug("[user] pAI prefs have a null candidate var.")
 		return .
@@ -60,7 +56,7 @@
 	. += "Role: <a href='?src=\ref[src];option=role'>[candidate.role ? TextPreview(candidate.role, 40) : "None Set"]</a><br>"
 	. += "OOC Comments: <a href='?src=\ref[src];option=ooc'>[candidate.comments ? TextPreview(candidate.comments, 40) : "None Set"]</a><br>"
 	*/
-	. += "<b>Персональный ИИ</b><br>"
+	. += span_bold("Персональный ИИ:") + "<br>"
 	if(!candidate)
 		log_debug("Переменная candidate в настройках ПИИ [gcase_ru(user)] оказалась null.")
 		return .

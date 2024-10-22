@@ -57,14 +57,9 @@
 	pref.chat_timestamp		= sanitize_integer(pref.chat_timestamp, 0, 1, initial(pref.chat_timestamp))
 
 /datum/category_item/player_setup_item/player_global/ui/content(var/mob/user)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	. = "<b>UI Style:</b> <a href='?src=\ref[src];select_style=1'><b>[pref.UI_style]</b></a><br>"
-	. += "<b>Custom UI</b> (recommended for White UI):<br>"
-=======
 	. = span_bold("UI Style:") + " <a href='?src=\ref[src];select_style=1'><b>[pref.UI_style]</b></a><br>"
 	. += span_bold("Custom UI") + " (recommended for White UI):<br>"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 	. += "-Color: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [color_square(hex = pref.UI_style_color)] <a href='?src=\ref[src];reset=ui'>reset</a><br>"
 	. += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	. += span_bold("Tooltip Style:") + " <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltipstyle]</b></a><br>"
@@ -86,24 +81,24 @@
 		else
 			. += "<a href='?src=\ref[src];select_ooc_color=1'><b>[pref.ooccolor]</b></a> [color_square(hex = pref.ooccolor)]<a href='?src=\ref[src];reset=ooc'>reset</a><br>"
 	*/
-	. = "<b>Стиль интерфейса:</b> <a href='?src=\ref[src];select_style=1'><b>[pref.UI_style]</b></a><br>"
-	. += "<b>Персонализация</b> (рекомендуется использовать Белый стиль):<br>"
+	. = span_bold("Стиль интерфейса:") + " <a href='?src=\ref[src];select_style=1'><b>[pref.UI_style]</b></a><br>"
+	. += span_bold("Персонализация") + " (рекомендуется использовать Белый стиль):<br>"
 	. += "- Цвет: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [color_square(hex = pref.UI_style_color)] <a href='?src=\ref[src];reset=ui'>Сбросить</a><br>"
 	. += "- Альфа (прозрачность): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> <a href='?src=\ref[src];reset=alpha'>Сбросить</a><br>"
-	. += "<b>Стиль всплывающих подсказок:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[get_key_by_value(all_tooltip_styles_ru, pref.tooltipstyle)]</b></a><br>"
-	. += "<b>FPS клиента:</b> <a href='?src=\ref[src];select_client_fps=1'><b>[pref.client_fps]</b></a><br>"
-	. += "<b>Частота звуков окружения:</b> <a href='?src=\ref[src];select_ambience_freq=1'><b>[pref.ambience_freq]</b></a><br>"
-	. += "<b>Вероятность звуков окружения:</b> <a href='?src=\ref[src];select_ambience_chance=1'><b>[pref.ambience_chance]</b></a><br>"
-	. += "<b>Режим окон TGUI:</b> <a href='?src=\ref[src];tgui_fancy=1'><b>[(pref.tgui_fancy) ? "Красивый (по умолчанию)" : "Совместимость (медленнее)"]</b></a><br>"
-	. += "<b>Размещение окон TGUI:</b> <a href='?src=\ref[src];tgui_lock=1'><b>[(pref.tgui_lock) ? "Главный монитор" : "Свободное (по умолчанию)"]</b></a><br>"
-	. += "<b>Система ввода TGUI:</b> <a href='?src=\ref[src];tgui_input_mode=1'><b>[(pref.tgui_input_mode) ? "Включена (по умолчанию)" : "Выключена"]</b></a><br>" // doesn't match the original string because we flipped the default preference
-	. += "<b>Крупные кнопки TGUI:</b> <a href='?src=\ref[src];tgui_large_buttons=1'><b>[(pref.tgui_large_buttons) ? "Включены (по умолчанию)" : "Выключены"]</b></a><br>"
-	. += "<b>Смена мест кнопок TGUI:</b> <a href='?src=\ref[src];tgui_swapped_buttons=1'><b>[(pref.tgui_swapped_buttons) ? "Включена" : "Выключена (по умолчанию)"]</b></a><br>"
-	. += "<b>Скрывать Ckey в лобби:</b> <a href='?src=\ref[src];obfuscate_key=1'><b>[(pref.obfuscate_key) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
-	. += "<b>Скрывать должность в лобби:</b> <a href='?src=\ref[src];obfuscate_job=1'><b>[(pref.obfuscate_job) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
-	. += "<b>Отметки времени:</b> <a href='?src=\ref[src];chat_timestamps=1'><b>[(pref.chat_timestamp) ? "Включены" : "Отключены (по умолчанию)"]</b></a><br>"
+	. += span_bold("Стиль всплывающих подсказок:") + " <a href='?src=\ref[src];select_tooltip_style=1'><b>[get_key_by_value(all_tooltip_styles_ru, pref.tooltipstyle)]</b></a><br>"
+	. += span_bold("FPS клиента:") + " <a href='?src=\ref[src];select_client_fps=1'><b>[pref.client_fps]</b></a><br>"
+	. += span_bold("Частота звуков окружения:") + " <a href='?src=\ref[src];select_ambience_freq=1'><b>[pref.ambience_freq]</b></a><br>"
+	. += span_bold("Вероятность звуков окружения:") + " <a href='?src=\ref[src];select_ambience_chance=1'><b>[pref.ambience_chance]</b></a><br>"
+	. += span_bold("Режим окон TGUI:") + " <a href='?src=\ref[src];tgui_fancy=1'><b>[(pref.tgui_fancy) ? "Красивый (по умолчанию)" : "Совместимость (медленнее)"]</b></a><br>"
+	. += span_bold("Размещение окон TGUI:") + " <a href='?src=\ref[src];tgui_lock=1'><b>[(pref.tgui_lock) ? "Главный монитор" : "Свободное (по умолчанию)"]</b></a><br>"
+	. += span_bold("Система ввода TGUI:") + " <a href='?src=\ref[src];tgui_input_mode=1'><b>[(pref.tgui_input_mode) ? "Включена (по умолчанию)" : "Выключена"]</b></a><br>" // doesn't match the original string because we flipped the default preference
+	. += span_bold("Крупные кнопки TGUI:") + " <a href='?src=\ref[src];tgui_large_buttons=1'><b>[(pref.tgui_large_buttons) ? "Включены (по умолчанию)" : "Выключены"]</b></a><br>"
+	. += span_bold("Смена мест кнопок TGUI:") + " <a href='?src=\ref[src];tgui_swapped_buttons=1'><b>[(pref.tgui_swapped_buttons) ? "Включена" : "Выключена (по умолчанию)"]</b></a><br>"
+	. += span_bold("Скрывать Ckey в лобби:") + " <a href='?src=\ref[src];obfuscate_key=1'><b>[(pref.obfuscate_key) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
+	. += span_bold("Скрывать должность в лобби:") + " <a href='?src=\ref[src];obfuscate_job=1'><b>[(pref.obfuscate_job) ? "Включено" : "Отключено (по умолчанию)"]</b></a><br>"
+	. += span_bold("Отметки времени:") + " <a href='?src=\ref[src];chat_timestamps=1'><b>[(pref.chat_timestamp) ? "Включены" : "Отключены (по умолчанию)"]</b></a><br>"
 	if(can_select_ooc_color(user))
-		. += "<b>Цвет в чате OOC: </b>"
+		. += span_bold("Цвет в чате OOC: ") + ""
 		if(pref.ooccolor == initial(pref.ooccolor))
 			. += "<a href='?src=\ref[src];select_ooc_color=1'><b>По умолчанию</b></a><br>"
 		else

@@ -89,17 +89,13 @@
 
 	. = list()
 	. += "<tt><center>"
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation: Bastion of Endeavor TODO: Will need to put more info here once HRP job whitelist is implemented
-	. += "<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>"
+	. += span_bold("Choose occupation chances") + "<br>Unavailable occupations are crossed out.<br>"
 	*/
-	. += "<b>Укажите приоритеты выбора профессии для этого персонажа.</b><br>"
+	. += span_bold("Укажите приоритеты выбора профессии для этого персонажа.") + "<br>"
 	. += "Данные приоритеты отражают шанс получения этой роли в самом начале раунда.<br>Если раунд уже начался, вам будет предложена любая роль из доступных.<br>Недоступные профессии перечёркнуты.<br>"
 	. += "Нажмите на название профессии, чтобы получить информацию о ней или выбрать альтернативное название."
 	// End of Bastion of Endeavor Translation
-=======
-	. += span_bold("Choose occupation chances") + "<br>Unavailable occupations are crossed out.<br>"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 	. += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?src=\ref[src];level=' + level + ';set_job=' + encodeURIComponent(rank); return false; }</script>"
 	. += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%' valign='top'>" // Table within a table for alignment, also allows you to easily add more columns.
 	. += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -301,31 +297,23 @@
 
 	switch(pref.alternate_option)
 		if(GET_RANDOM_JOB)
-<<<<<<< HEAD
 			/* Bastion of Endeavor Translation
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a></u>"
-			*/
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>получить случайную.</a></u>"
-			// End of Bastion of Endeavor Translation
-		if(BE_ASSISTANT)
-			/* Bastion of Endeavor Translation
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u>"
-			*/
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>стать ассистентом.</a></u>"
-			// End of Bastion of Endeavor Translation
-		if(RETURN_TO_LOBBY)
-			/* Bastion of Endeavor Translation
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
-			*/
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>вернуться обратно в лобби.</a></u>"
-			// End of Bastion of Endeavor Translation
-=======
 			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a>")
+			*/
+			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>получить случайную.</a>")
+			// End of Bastion of Endeavor Translation
 		if(BE_ASSISTANT)
+			/* Bastion of Endeavor Translation
 			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a>")
+			*/
+			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>стать ассистентом.</a>")
+			// End of Bastion of Endeavor Translation
 		if(RETURN_TO_LOBBY)
+			/* Bastion of Endeavor Translation
 			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a>")
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
+			*/
+			. += span_underline("<a href='?src=\ref[src];job_alternative=1'>вернуться обратно в лобби.</a>")
+			// End of Bastion of Endeavor Translation
 
 	/* Bastion of Endeavor Translation
 	. += "<a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
@@ -398,14 +386,14 @@
 		dat += "<center>"
 		dat += "<p style='background-color: [job.selection_color]'><br></p>"
 		if(job.alt_titles)
-			dat += "<i><b>[job.alt_titles.len > 1 ? "Альтернативные названия" : "Альтернативное название"]:</b><br>[capitalize(lowertext(english_list(job.alt_titles)))].</i>"
+			dat += span_italics(span_bold("[job.alt_titles.len > 1 ? "Альтернативное название" : "Альтернативные названия"]") + " [english_list(job.alt_titles)].")
 		send_rsc(user, job.get_job_icon(), "job[ckey(rank)].png")
 		dat += "<img src=job[ckey(rank)].png width=96 height=96 style='text-align:center'><br>"
 		if(job.departments)
-			dat += "[job.departments.len > 1 ? "<b>Ваши отделы:</b><br>" : "<b>Ваш отдел</b>:"] [capitalize(lowertext(english_list(job.departments)))]."
+			dat += "[job.departments.len > 1 ? span_bold("Ваши отделы:") + "<br>" : span_bold("Ваш отдел") + ":"] [capitalize(lowertext(english_list(job.departments)))]."
 			if(LAZYLEN(job.departments_managed))
 				dat += "<br><b>Под вашим руководством:</b>[LAZYLEN(job.departments_managed) > 1 ? "<br>" : " "][capitalize(lowertext(english_list(job.departments_managed)))]."
-		dat += "<b>[job.supervisors]</b>"
+		dat += span_bold("[job.supervisors]")
 		dat += "<hr style='clear:left;'>"
 		if(CONFIG_GET(string/wikiurl)) // CHOMPEdit
 			dat += "<br><a href='?src=\ref[src];job_wiki=[rank]'>\[Открыть страницу на вики\]</a>"

@@ -153,8 +153,10 @@
 	. += "<a href='?src=\ref[src];gasp_test=1'><b>Test Gasp Sounds</b></a><br>"
 	. += "<a href='?src=\ref[src];death_test=1'><b>Test Death Sounds</b></a><br>"
 	// CHOMPEdit End: Pain/Scream/Death Custom Sounds
+	. += span_bold("Relative Weight:") + " <a href='?src=\ref[src];weight=1'>[pref.weight_vr]</a><br>"
+	. += span_bold("Weight Gain Rate:") + " <a href='?src=\ref[src];weight_gain=1'>[pref.weight_gain]</a><br>"
+	. += span_bold("Weight Loss Rate:") + " <a href='?src=\ref[src];weight_loss=1'>[pref.weight_loss]</a><br>"
 	. += "<br>"
-<<<<<<< HEAD
 	. += "<b>Relative Weight:</b>  <a href='?src=\ref[src];weight=1'>[pref.weight_vr]</a><br>"
 	. += "<b>Weight Gain Rate:</b> <a href='?src=\ref[src];weight_gain=1'>[pref.weight_gain]</a><br>"
 	. += "<b>Weight Loss Rate:</b> <a href='?src=\ref[src];weight_loss=1'>[pref.weight_loss]</a><br>"
@@ -164,7 +166,7 @@
 	. += "Масштабирование: <a [pref.fuzzy ? "" : ""] href='?src=\ref[src];toggle_fuzzy=1'><b>[pref.fuzzy ? "Размытое" : "Резкое"]</b></a><br>"
 	. += "Центр масштабирования: <a [pref.offset_override ? "" : ""] href='?src=\ref[src];toggle_offset_override=1'><b>[pref.offset_override ? "Несимметричный" : "Симметричный"]</b></a><br>"
 	. += "<br>" // CHOMPEdit: Fancy:tm:
-	. += "<b>Настройка речи персонажа</b>" // CHOMPEdit: Fancy:tm:
+	. += span_bold("Настройка речи персонажа") // CHOMPEdit: Fancy:tm:
 	. += "<br>"  // CHOMPEdit
 	. += "Частота голоса: <a href='?src=\ref[src];voice_freq=1'>[pref.voice_freq]</a><br>"
 	. += "Звук голоса: <a href='?src=\ref[src];voice_sounds_list=1'>[get_key_by_value(possible_voice_types_ru, pref.voice_sound)]</a><br>"
@@ -183,16 +185,11 @@
 	. += "<a href='?src=\ref[src];death_test=1'>Прослушать предсмертный хрип</a><br>"
 	// CHOMPEdit End: Pain/Scream/Death Custom Sounds
 	. += "<br>"
-	. += "<b>Настройка веса</b><br>"
+	. += span_bold("Настройка веса") + "<br>"
 	. += "Относительный вес: <a href='?src=\ref[src];weight=1'>[pref.weight_vr]</a><br>"
 	. += "Скорость обретения веса: <a href='?src=\ref[src];weight_gain=1'>[pref.weight_gain]</a><br>"
 	. += "Скорость потери веса: <a href='?src=\ref[src];weight_loss=1'>[pref.weight_loss]</a><br>"
 	// End of Bastion of Endeavor Translation
-=======
-	. += span_bold("Relative Weight:") + " <a href='?src=\ref[src];weight=1'>[pref.weight_vr]</a><br>"
-	. += span_bold("Weight Gain Rate:") + " <a href='?src=\ref[src];weight_gain=1'>[pref.weight_gain]</a><br>"
-	. += span_bold("Weight Loss Rate:") + " <a href='?src=\ref[src];weight_loss=1'>[pref.weight_loss]</a><br>"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 
 /datum/category_item/player_setup_item/vore/size/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["size_multiplier"])

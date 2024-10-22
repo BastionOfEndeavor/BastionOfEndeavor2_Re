@@ -94,55 +94,37 @@
 	var/list/msg = list()
 
 	if(GLOB.revdata.revision)
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		msg += "<b>Server revision:</b> B:[GLOB.revdata.branch] D:[GLOB.revdata.date]"
-=======
 		msg += span_bold("Server revision:") + " B:[GLOB.revdata.branch] D:[GLOB.revdata.date]"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
 		if(CONFIG_GET(string/githuburl)) // CHOMPEdit
 			msg += span_bold("Commit:") + " <a href='[CONFIG_GET(string/githuburl)]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>" // CHOMPEdit
 		else
-<<<<<<< HEAD
-			msg += "<b>Commit:</b> [GLOB.revdata.revision]" // CHOMPEdit - Actually SHOW the revision
-		*/
-		msg += "<b>Ревизия сервера:</b> Ветвь:[GLOB.revdata.branch] Дата:[GLOB.revdata.date]"
-		if(CONFIG_GET(string/githuburl)) // CHOMPEdit
-			msg += "<b>Коммит:</b> <a href='[CONFIG_GET(string/githuburl)]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>" // CHOMPEdit
-		else
-			msg += "<b>Коммит:</b> [GLOB.revdata.revision]" // CHOMPEdit - Actually SHOW the revision
-		// End of Bastion of Endeavor Translation
-	else
-		/* Bastion of Endeavor Translation
-		msg += "<b>Server revision:</b> Unknown"
-		*/
-		msg += "<b>Ревизия сервера:</b> Неизвестна"
-		// End of Bastion of Endeavor Translation
-
-	if(world.TgsAvailable())
-		var/datum/tgs_version/version = world.TgsVersion()
-		/* Bastion of Endeavor Translation
-		msg += "<b>TGS version:</b> [version.raw_parameter]"
-		*/
-		msg += "<b>Версия TGS:</b> [version.raw_parameter]"
-		// End of Bastion of Endeavor Translation
-		var/datum/tgs_version/api_version = world.TgsApiVersion()
-		/* Bastion of Endeavor Translation
-		msg += "<b>DMAPI version:</b> [api_version.raw_parameter]"
-		*/
-		msg += "<b>Версия DMAPI:</b> [api_version.raw_parameter]"
-		// End of Bastion of Endeavor Translation
-=======
 			msg += span_bold("Commit:") + " [GLOB.revdata.revision]" // CHOMPEdit - Actually SHOW the revision
 	else
 		msg += span_bold("Server revision:") + " Unknown"
+		*/
+		msg += span_bold("Ревизия сервера:") + " Ветвь: [GLOB.revdata.branch] Дата: [GLOB.revdata.date]"
+		if(CONFIG_GET(string/githuburl)) // CHOMPEdit
+			msg += span_bold("Коммит:") + " <a href='[CONFIG_GET(string/githuburl)]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>" // CHOMPEdit
+		else
+			msg += span_bold("Коммит:") + " [GLOB.revdata.revision]" // CHOMPEdit - Actually SHOW the revision
+	else
+		msg += span_bold("Ревизия сервера:") + " Неизвестно"
+		// End of Bastion of Endeavor Translation
 
 	if(world.TgsAvailable())
 		var/datum/tgs_version/version = world.TgsVersion()
+		/* Bastion of Endeavor Translation
 		msg += span_bold("TGS version:") + " [version.raw_parameter]"
+		*/
+		msg += span_bold("Версия TGS:") + " [version.raw_parameter]"
+		// End of Bastion of Endeavor Translation
 		var/datum/tgs_version/api_version = world.TgsApiVersion()
+		/* Bastion of Endeavor Translation
 		msg += span_bold("DMAPI version:") + " [api_version.raw_parameter]"
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
+		*/
+		msg += span_bold("Версия DMAPI:") + " [api_version.raw_parameter]"
+		// End of Bastion of Endeavor Translation
 
 	if(GLOB.revdata.testmerge.len)
 		msg += GLOB.revdata.GetTestMergeInfo()

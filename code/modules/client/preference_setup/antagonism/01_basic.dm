@@ -48,14 +48,14 @@ var/global/list/uplink_locations = list("КПК", "Гарнитура", "Нет"
 	else
 		. +="<a href='?src=\ref[src];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
 	*/
-	. += "<b>Настройки антагонистических ролей</b><br>"
+	. += span_bold("Настройки антагонистических ролей") + "<br>"
 	. += "Группировка: <a href='?src=\ref[src];antagfaction=1'>[pref.antag_faction]</a><br/>"
 	. += "Отображение фракции в канале связи: <a href='?src=\ref[src];antagvis=1'>[pref.antag_vis]</a><br/>"
 	. += "Размещение канала: <a href='?src=\ref[src];antagtask=1'>[pref.uplinklocation]</a>"
 	. += "<br><br>"
-	. += "<b>Сведения для шантажа</b><br>"
+	. += span_bold("Сведения для шантажа") + "<br>"
 	if(jobban_isbanned(user, "Records"))
-		. += "<b>Вам запрещено использовать записи персонажа.</b><br>"
+		. += span_bold("Вам запрещено использовать записи персонажа.") + "<br>"
 	else
 		. +="<a href='?src=\ref[src];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
 	// End of Bastion of Endeavor Translation

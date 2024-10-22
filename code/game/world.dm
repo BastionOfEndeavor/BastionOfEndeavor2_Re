@@ -674,15 +674,11 @@ var/world_topic_spam_protect_time = world.timeofday
 		if(master_mode)
 			features += master_mode
 	else
-<<<<<<< HEAD
 		/* Bastion of Endeavor Translation
-		features += "<b>STARTING</b>"
-		*/
-		features += "<b>НАЧИНАЕТСЯ</b>"
-		// End of Bastion of Endeavor Translation
-=======
 		features += span_bold("STARTING")
->>>>>>> 7416cbea22 ([MIRROR] next set of spans (#9247))
+		*/
+		features += span_bold("НАЧИНАЕТСЯ")
+		// End of Bastion of Endeavor Translation
 
 	if (!CONFIG_GET(flag/enter_allowed))
 		/* Bastion of Endeavor Translation
