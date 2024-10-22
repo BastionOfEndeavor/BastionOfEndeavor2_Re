@@ -168,15 +168,11 @@ SUBSYSTEM_DEF(statpanels)
 
 	target.stat_panel.send_message("update_stat", list(
 		global_data = global_data,
-<<<<<<< HEAD:code/controllers/subsystems/statpanel_ch.dm
 		/* Bastion of Endeavor Translation
-		ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
-		*/
-		ping_str = "Пинг: [round(target.lastping, 1)] мс (Средний: [round(target.avgping, 1)] мс)",
-		// End of Bastion of Endeavor Translation
-=======
 		ping_str = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)", // CHOMPEdit
->>>>>>> 4d9879937f ([MIRROR] Port tg statpanel (#9242)):code/controllers/subsystems/statpanel.dm
+		*/
+		ping_str = "Пинг: [round(target.lastping, 1)] мс (Средний: [round(target.avgping, 1)] мс)", // CHOMPEdit
+		// End of Bastion of Endeavor Translation
 		other_str = target.mob?.get_status_tab_items(),
 	))
 

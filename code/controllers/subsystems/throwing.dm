@@ -14,15 +14,11 @@ SUBSYSTEM_DEF(throwing)
 	var/list/processing = list()
 
 /datum/controller/subsystem/throwing/stat_entry(msg)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	msg = "P:[length(processing)]"
-	*/
-	msg = "| Обрабатывается: [length(processing)]"
-	// End of Bastion of Endeavor Translation
-=======
 	msg = "P:[processing.len]"
->>>>>>> 4d9879937f ([MIRROR] Port tg statpanel (#9242))
+	*/
+	msg = "О:[processing.len]"
+	// End of Bastion of Endeavor Translation
 	return ..()
 
 /datum/controller/subsystem/throwing/fire(resumed = 0)

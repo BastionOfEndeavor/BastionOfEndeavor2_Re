@@ -59,15 +59,11 @@ SUBSYSTEM_DEF(timer)
 	bucket_resolution = world.tick_lag
 
 /datum/controller/subsystem/timer/stat_entry(msg)
-<<<<<<< HEAD
 	/* Bastion of Endeavor Translation
-	msg = "B:[bucket_count] P:[length(second_queue)] H:[length(hashes)] C:[length(clienttime_timers)] S:[length(timer_id_dict)] RST:[bucket_reset_count]"
+	msg = "B:[bucket_count] P:[length(second_queue)] H:[length(hashes)] C:[length(clienttime_timers)] S:[length(timer_id_dict)] RST:[bucket_reset_count]" // CHOMPEdit
 	*/
 	msg = "| Вёдер: [bucket_count] | Очередь: [length(second_queue)] | Хэшей: [length(hashes)] | Клиентовых: [length(clienttime_timers)] | Активных: [length(timer_id_dict)] | Сбросов: [bucket_reset_count]"
 	// End of Bastion of Endeavor Translation
-=======
-	msg = "B:[bucket_count] P:[length(second_queue)] H:[length(hashes)] C:[length(clienttime_timers)] S:[length(timer_id_dict)] RST:[bucket_reset_count]" // CHOMPEdit
->>>>>>> 4d9879937f ([MIRROR] Port tg statpanel (#9242))
 	return ..()
 
 /datum/controller/subsystem/timer/proc/dump_timer_buckets(full = TRUE)

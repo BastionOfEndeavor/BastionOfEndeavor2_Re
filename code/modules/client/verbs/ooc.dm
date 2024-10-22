@@ -306,20 +306,6 @@
 		return eyeobj
 	return src
 
-<<<<<<< HEAD
-//CHOMPEdit Begin
-/client/verb/fix_stat_panel()
-	/* Bastion of Endeavor Translation
-	set name = "Fix Stat Panel"
-	*/
-	set name = "Починить верхнюю панель"
-	// End of Bastion of Endeavor Translation
-	set hidden = TRUE
-
-	init_verbs()
-
-=======
->>>>>>> 4d9879937f ([MIRROR] Port tg statpanel (#9242))
 /client/verb/fit_viewport()
 	/* Bastion of Endeavor Translation
 	set name = "Fit Viewport"
@@ -415,7 +401,11 @@
 		addtimer(CALLBACK(src, VERB_REF(fit_viewport), 1 SECONDS))
 
 /client/verb/fix_stat_panel()
+	/* Bastion of Endeavor Translation
 	set name = "Fix Stat Panel"
+	*/
+	set name = "Починить верхнюю панель"
+	// End of Bastion of Endeavor Translation
 	set hidden = TRUE
 
 	init_verbs()

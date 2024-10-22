@@ -835,7 +835,11 @@ function draw_verbs(cat) {
 			a.href = "#";
 			a.onclick = make_verb_onclick(command.replace(/\s/g, "-"));
 			a.className = "grid-item";
+			/* Bastion of Endeavor Translation
 			a.title = desc || "No description";
+			*/
+			a.title = desc || "Нет описания";
+			// End of Bastion of Endeavor Translation
 			var t = document.createElement("span");
 			t.textContent = command;
 			t.className = "grid-item-text";
