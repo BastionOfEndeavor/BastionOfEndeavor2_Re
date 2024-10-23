@@ -155,7 +155,7 @@ var/global/list/vr_mob_tf_options = list(
 	"ПЫЛЕЖОР ДЕЛЮКС" = /mob/living/simple_mob/vore/aggressive/corrupthound/swoopie,
 	"Наблюдатель бездны" = /mob/living/simple_mob/vore/vore_hostile/abyss_lurker,
 	"Прыгун бездны" = /mob/living/simple_mob/vore/vore_hostile/leaper,
-	"Желеобразный куб" = /mob/living/simple_mob/vore/vore_hostile/gelatinous_cube)
+	"Желеобразный куб" = /mob/living/simple_mob/vore/vore_hostile/gelatinous_cube),
 	"Грифон" = /mob/living/simple_mob/vore/gryphon
 	// End of Bastion of Endeavor Translation
 
