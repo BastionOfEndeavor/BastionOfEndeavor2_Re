@@ -1,14 +1,9 @@
 /datum/action
 	/* Bastion of Endeavor Translation
 	var/name = "Generic Action"
-<<<<<<< HEAD
 	*/
 	var/name = "Некое действие"
 	// End of Bastion of Endeavor Translation
-	var/action_type = AB_ITEM
-	var/procname = null
-=======
->>>>>>> 45025bd128 ([MIRROR] Ports tgstation/tgstation/pull/15673 (#9270))
 	var/atom/movable/target = null
 	var/check_flags = 0
 	var/processing = 0
