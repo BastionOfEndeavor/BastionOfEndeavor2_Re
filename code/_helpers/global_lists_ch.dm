@@ -97,8 +97,8 @@ var/global/list/vr_mob_tf_options = list(
 	"SWOOPIE XL" = /mob/living/simple_mob/vore/aggressive/corrupthound/swoopie,
 	"Abyss lurker" = /mob/living/simple_mob/vore/vore_hostile/abyss_lurker,
 	"Abyss leaper" = /mob/living/simple_mob/vore/vore_hostile/leaper,
-<<<<<<< HEAD
 	"Gelatinous cube" = /mob/living/simple_mob/vore/vore_hostile/gelatinous_cube)
+	"Gryphon" = /mob/living/simple_mob/vore/gryphon
 	*/
 	"Борг" = /mob/living/silicon/robot,
 	"Мозговой бурильщик" = /mob/living/simple_mob/animal/borer/non_antag,
@@ -138,7 +138,7 @@ var/global/list/vr_mob_tf_options = list(
 	"Космический призрак" = /mob/living/simple_mob/vore/alienanimals/spooky_ghost,
 	"Теппи" = /mob/living/simple_mob/vore/alienanimals/teppi,
 	"Пчела" = /mob/living/simple_mob/vore/bee,
-	//"Dragon" = /mob/living/simple_mob/vore/bigdragon/friendly, //Currently adds 12 bellies to the user when transformed into. Do not uncomment without fixing this.
+	"Дракон" = /mob/living/simple_mob/vore/bigdragon/friendly,
 	"Вендиго" = /mob/living/simple_mob/vore/demon/wendigo,
 	"Лошадь" = /mob/living/simple_mob/vore/horse/big,
 	"Метаморф" = /mob/living/simple_mob/vore/morph,
@@ -156,12 +156,8 @@ var/global/list/vr_mob_tf_options = list(
 	"Наблюдатель бездны" = /mob/living/simple_mob/vore/vore_hostile/abyss_lurker,
 	"Прыгун бездны" = /mob/living/simple_mob/vore/vore_hostile/leaper,
 	"Желеобразный куб" = /mob/living/simple_mob/vore/vore_hostile/gelatinous_cube)
+	"Грифон" = /mob/living/simple_mob/vore/gryphon
 	// End of Bastion of Endeavor Translation
-=======
-	"Gelatinous cube" = /mob/living/simple_mob/vore/vore_hostile/gelatinous_cube,
-	"Gryphon" = /mob/living/simple_mob/vore/gryphon
-	)
->>>>>>> 7454025939 (Add gryphon simplemob (#9253))
 
 var/global/list/vr_mob_spawner_options = list(
 	/* Bastion of Endeavor Translation
@@ -260,8 +256,8 @@ var/global/list/vr_mob_spawner_options = list(
 	"Sobaka" = /mob/living/carbon/human/sharkm,
 	"Farwa" = /mob/living/carbon/human/farwa,
 	"Neaera" = /mob/living/carbon/human/neaera,
-<<<<<<< HEAD
 	"Stok" = /mob/living/carbon/human/stok
+	//"Gryphon" = /mob/living/simple_mob/vore/gryphon // Disabled until tested
 	*/
 	"Попугай" = /mob/living/simple_mob/animal/passive/bird/parrot,
 	"Кролик" = /mob/living/simple_mob/vore/rabbit,
@@ -359,9 +355,6 @@ var/global/list/vr_mob_spawner_options = list(
 	"Фарва" = /mob/living/carbon/human/farwa,
 	"Неера" = /mob/living/carbon/human/neaera,
 	"Сток" = /mob/living/carbon/human/stok
-	// End of Bastion of Endeavor Translation
-=======
-	"Stok" = /mob/living/carbon/human/stok,
 	//"Gryphon" = /mob/living/simple_mob/vore/gryphon // Disabled until tested
 >>>>>>> 7454025939 (Add gryphon simplemob (#9253))
 	)
