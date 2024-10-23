@@ -356,7 +356,6 @@ var/global/list/vr_mob_spawner_options = list(
 	"Неера" = /mob/living/carbon/human/neaera,
 	"Сток" = /mob/living/carbon/human/stok
 	//"Gryphon" = /mob/living/simple_mob/vore/gryphon // Disabled until tested
->>>>>>> 7454025939 (Add gryphon simplemob (#9253))
 	)
 
 var/global/list/selectable_footstep = list(
